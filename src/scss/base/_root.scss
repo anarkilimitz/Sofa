@@ -1,0 +1,11 @@
+@use "../utils/variables" as *;
+
+:root {
+    --font-primary: #{$font-primary};
+    --brand-red: #{$brand-red};
+    --text-black: #{$text-black};
+    --text-gray: #{$text-gray};
+    --glass-bg: #{$glass-bg};
+    --glass-border: #{$glass-border};
+    --card-dark: #{$card-dark};
+}
