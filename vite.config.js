@@ -24,7 +24,6 @@ export default defineConfig({
 		rollupOptions: {
 			input: {
 				main: 'index.html',
-				case: 'case.html',
 			},
 			output: {
 				// Настройка имен файлов для порядка в dist
