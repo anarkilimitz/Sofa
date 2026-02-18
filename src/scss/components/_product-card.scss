@@ -2,6 +2,8 @@
 @use "../utils/mixins" as *;
 
 .product {
+    margin-bottom: 100px;
+    margin-left: auto;
     width: 368px;
     height: 142px;
     z-index: 2;
