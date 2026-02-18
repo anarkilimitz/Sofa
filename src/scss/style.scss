@@ -1,14 +1,24 @@
 @use "./utils/variables" as *;
 @use "./utils/mixins" as *;
 
-@use 'utils/variables';
-@use 'utils/mixins';
+// Base
 @use 'base/root';
+
+// Section
+@use 'sections/hero';
+
+// Layout
+@use 'layout/header';
+@use 'layout/footer';
+
 @use 'base/animation';
 @use 'ui/ui';
-@use 'header/header';
-@use 'pages/home';
 
+// Components
+@use "components/product-card";
+
+
+// Normalize Fonts
 @import "../assets/libs/fonts.css";
 @import "../../node_modules/modern-normalize/modern-normalize.css";
 
@@ -27,6 +37,10 @@ body {
     overflow-x: hidden;
     background-color: white;
     color: black;
+}
+
+.container {
+    padding: 5vh clamp(5vw, -188.13px + 13.41vw, 150px) 15.5vh;
 }
 
 ::selection {

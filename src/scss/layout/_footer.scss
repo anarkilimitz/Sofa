@@ -1,0 +1,52 @@
+@use "../utils/variables" as *;
+@use "../utils/mixins" as *;
+
+.footer {
+    display: block;
+    width: 260px;
+    z-index: 2;
+}
+
+.scroll-indicator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 55px;
+    cursor: default;
+
+    .scroll-text {
+        font-size: 14px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+    }
+
+    .line {
+        display: block;
+        margin: 0 10px;
+        height: 2px;
+        width: 105px;
+        background: black;
+        transition: transform 0.5s ease;
+
+    }
+
+    &:hover .line {
+        transform: scaleX(0.7);
+    }
+
+    .mouse-icon {
+        width: 20px;
+        height: 29px;
+        padding: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: 0.5s ease;
+    }
+
+    &:hover .mouse-icon {
+        background: rgba(255, 255, 255, 0.4);
+        border-radius: 999px;
+    }
+}
