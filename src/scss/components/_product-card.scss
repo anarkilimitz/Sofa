@@ -31,19 +31,22 @@
     }
 
     .product-img-box {
-        width: 101px;
-        height: 119px;
-        padding: 24px;
+        width: 130px;
+        height: 120px;
+        margin: 10px 0 10px 0;
+        padding: 20px 0 10px 10px;
         display: flex;
         align-items: center;
         justify-content: center;
-        border-right: 1px solid var(--glass-border);
-        z-index: 2;
+        border: 5px solid var(--card-dark);
+        border-radius: 20px;
+        background: rgb(255, 255, 255);
+        z-index: 3;
 
         img {
-            width: 200px;
+            width: 90px;
             height: auto;
-            z-index: 2;
+            z-index: 3;
         }
     }
 
@@ -58,7 +61,7 @@
 
         h3 {
             font-weight: 900;
-            font-size: 18px;
+            font-size: 14px;
             text-transform: uppercase;
             margin: 0;
             line-height: 1.2;
