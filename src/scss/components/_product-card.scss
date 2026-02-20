@@ -18,6 +18,12 @@
     background: rgba(233, 228, 219, 0.43);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
     cursor: pointer;
+    transition: 0.2s ease;
+
+    &:hover {
+        background: rgba(255, 255, 255, 0.43);
+    }
+
 
     &:hover {
         .product-info h3 {
