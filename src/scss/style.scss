@@ -6,9 +6,11 @@
 
 // Section
 @use 'sections/hero';
+@use 'sections/about';
 
 // Layout
 @use 'layout/header';
+@use 'layout/aboutHeader';
 @use 'layout/footer';
 
 @use 'base/animation';
