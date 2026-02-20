@@ -21,7 +21,7 @@ export default defineConfig({
 
 	build: {
 		outDir: 'dist',
-		emptyOutDir: true,
+		emptyOutDir: true, // очистка dist перед сборкой
 		rollupOptions: {
 			input: {
 				main: 'index.html',
