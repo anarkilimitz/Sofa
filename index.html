@@ -17,8 +17,8 @@
   <!-- бг - на главной ВИДЕО -->
   <main class="container hero-section">
     <video autoplay muted loop playsinline class="hero-video" poster="public/img/bg-main.png">
-      <!-- <source src="public/video/bg-main.webm" type="video/webm"> -->
-      <!-- <source src="public/video/bg-main.mp4" type="video/mp4"> -->
+      <source src="public/video/bg-main.webm" type="video/webm">
+      <source src="public/video/bg-main.mp4" type="video/mp4">
     </video>
 
     <!-- затемнение видео -->
@@ -77,7 +77,7 @@
       <div class="product-card">
         <div class="product-img-box">
           <img alt="Sofa" src="/src/assets/img/main/sofaBtnTwo.jpg">
-        </img>
+          </img>
         </div>
         <div class="product-info">
           <div>
@@ -145,10 +145,36 @@
     <!-- полоска -->
     <div class="line-header"></div>
 
-    <!-- контент -->
+    <!-- тайтл -->
     <section class="about-content">
       <h1 class="about-title">ОСОБЕННОСТИ НАШИХ ДИВАНОВ</h1>
       <p class="about-desc">Мы действительно подошли к выбору невероятно мягчяйших тканей отобранные по всему миру.</p>
+    </section>
+
+    <!-- Контент с карточками -->
+    <section class="about-features">
+      <div class="about-features__list">
+        <div class="about-card">
+          <div class="about-card__icon"></div>
+          <h3 class="about-card__title">Мягкие ткани</h3>
+          <div class="divider"></div>
+          <p class="about-card__text">Описание</p>
+        </div>
+
+        <div class="about-card">
+          <div class="about-card__icon"></div>
+          <h3 class="about-card__title">Эргономичный дизайн</h3>
+          <div class="divider"></div>
+          <p class="about-card__text">Описание</p>
+        </div>
+
+        <div class="about-card">
+          <div class="about-card__icon"></div>
+          <h3 class="about-card__title">Простота в использовании</h3>
+          <div class="divider"></div>
+          <p class="about-card__text">Описание</p>
+        </div>
+      </div>
     </section>
 
     <!-- футер -->

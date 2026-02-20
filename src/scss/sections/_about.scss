@@ -1,7 +1,6 @@
 @use "../utils/variables" as *;
 @use "../utils/mixins" as *;
 
-// бэкграунд и видео
 .about-section {
     position: relative;
     min-height: 100vh;
@@ -9,7 +8,7 @@
 
 .about-content {
     display: block;
-    margin: 14vh 0 0 0;
+    margin: 8vh 0 0 0;
     z-index: 2;
 
     .about-title {
@@ -27,5 +26,125 @@
         font-size: 16px;
         color: var(--text-gray);
         font-weight: 400;
+    }
+}
+
+// Карточки
+.about-features {
+    margin: 5vh 0 4vh 0;
+
+    &__list {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        margin: 0;
+    }
+}
+
+.about-card {
+    position: relative;
+    width: 366px;
+    height: 412px;
+    border-radius: 20px;
+    overflow: hidden;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    // это точки
+    &::after {
+        content: '';
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        background-color: var(--brand-red);
+        border-radius: 50%;
+        box-shadow: 0 0 0 8px white;
+        z-index: 1;
+        transition: transform 0.2s ease;
+    }
+
+    // первая
+    &:nth-child(1)::after {
+        top: 267px;
+        left: 98px;
+    }
+
+    // вторая
+    &:nth-child(2)::after {
+        top: 220px;
+        left: 150px;
+    }
+
+    // третья
+    &:nth-child(3)::after {
+        top: 200px;
+        left: 167px;
+    }
+
+    &:hover::after {
+        transform: scale(1.2);
+    }
+
+    // Затемнение, чтобы текст читался на любом фоне
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(80deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.2) 100%);
+        z-index: 1;
+    }
+
+    &:nth-child(1) {
+        background-image: url('/src/assets/img/about/soft.jpg');
+    }
+
+    &:nth-child(2) {
+        background-image: url('/src/assets/img/about/ergonomic.jpg');
+    }
+
+    &:nth-child(3) {
+        background-image: url('/src/assets/img/about/easy.jpg');
+    }
+
+    &__title,
+    &__text,
+    .divider,
+    &__icon {
+        position: relative;
+        z-index: 2;
+        color: var(--text-gray);
+    }
+
+    &__text {
+        color: black;
+    }
+
+    &__title {
+        font-size: 20px;
+        font-weight: 700;
+        text-transform: uppercase;
+        margin: 0 0 15px 0;
+    }
+
+    .divider {
+        width: 40px;
+        height: 2px;
+        background-color: var(--brand-red);
+        margin-bottom: 15px;
+    }
+
+    &__text {
+        font-size: 16px;
+        line-height: 1.4;
+        margin: 0;
     }
 }
