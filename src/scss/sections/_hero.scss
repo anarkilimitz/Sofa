@@ -4,13 +4,14 @@
 // бэкграунд и видео
 .hero-section {
     position: relative;
-    min-height: 100vh;
+    min-height: 103vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     box-sizing: border-box;
     overflow: hidden;
-    background-color: #000; // заглушка пока видео грузится
+    background-color: #ffffff; // заглушка пока видео грузится
+    border-radius: 0 0 40px 40px;
 }
 
 .hero-video {
@@ -25,6 +26,7 @@
     transform: translate(-50%, -50%);
     object-fit: cover;
     pointer-events: none;
+    border-radius: 0 0 40px 40px;
 }
 
 .hero-overlay {
