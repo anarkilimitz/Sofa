@@ -70,3 +70,13 @@
         font-weight: 500;
     }
 }
+
+@media (max-width: 998px) {
+    .hero-section {
+        border-radius: 0 0 40px 40px;
+    }
+
+    .hero-video {
+        border-radius: 0 0 40px 40px;
+    }
+}

@@ -148,3 +148,15 @@
         margin: 0;
     }
 }
+
+@media (max-width: 998px) {
+    // Карточки
+        .about-features {
+            margin: 5vh 0 4vh 0;
+    
+            &__list {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+}
