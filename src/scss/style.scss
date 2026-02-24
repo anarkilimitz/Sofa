@@ -7,10 +7,12 @@
 // Section
 @use 'sections/hero';
 @use 'sections/about';
+@use 'sections/materials';
 
 // Layout
 @use 'layout/header';
 @use 'layout/aboutHeader';
+@use 'layout/materialsHeader';
 @use 'layout/footer';
 
 @use 'base/animation';
@@ -18,6 +20,7 @@
 
 // Components
 @use "components/product-card";
+@use 'components/carousel';
 
 
 // Normalize Fonts

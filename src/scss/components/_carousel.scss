@@ -1,0 +1,211 @@
+@use "../utils/variables" as *;
+@use "../utils/mixins" as *;
+
+.carousel-container {
+    margin: 4vh 0 4vh 0;
+    padding: 0;
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+    border-top-left-radius: 24px;
+    border-bottom-left-radius: 24px;
+}
+
+.carousel-wrapper {
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    white-space: nowrap;
+    font-size: 0;
+    animation: scroll 60s linear infinite;
+}
+
+.carousel-item {
+    position: relative;
+    display: inline-block;
+    border-radius: 24px;
+    overflow: hidden;
+    margin: 0 8px;
+}
+
+.carousel-wrapper img {
+    display: block;
+    width: 392px;
+    height: 500px;
+    display: inline-block;
+    border-radius: 24px;
+    object-fit: cover;
+    transition: all 0.4s ease;
+    cursor: pointer;
+}
+
+.carousel-wrapper img:hover {
+    transform: scale(1.02);
+}
+
+.carousel-wrapper a {
+    display: inline-block;
+    text-decoration: none;
+    line-height: 0;
+}
+
+.carousel-item:hover img {
+    transform: scale(1.02);
+}
+
+.carousel-item::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 24px;
+    background: linear-gradient(115deg, rgba(255, 255, 255, 0.00) 52.23%, #ff000024 95%);
+    border: 0 solid transparent;
+    opacity: 0;
+    transition:
+        opacity 0.4s ease,
+        border-width 0.2s ease,
+        border-color 0.2s ease;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.carousel-item::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 24px;
+    border: 0 solid transparent;
+    mix-blend-mode: overlay;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.carousel-item:hover::after,
+.carousel-item:hover::before {
+    opacity: 1;
+    border-width: 7px;
+    border-color: $card-border;
+}
+
+.carousel-tags {
+    position: absolute;
+    width: auto;
+    bottom: 34px;
+    left: 42px;
+    right: 42px; // обязательно для цены справа!!!
+    z-index: 999;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease;
+    pointer-events: none;
+
+    .tag,
+    .price {
+        color: black;
+        font-size: 20px;
+        font-weight: 900;
+        letter-spacing: 0.4px;
+    }
+}
+
+.carousel-item:hover {
+    .carousel-tags {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.carousel-divider {
+    position: absolute;
+    left: 50%;
+    bottom: 71px;
+    transform: translateX(-50%);
+
+    width: 78%;
+    height: 1px;
+    background-color: var(--card-dark);
+
+    opacity: 0;
+    transition: all 0.8s ease;
+    pointer-events: none;
+    z-index: 998;
+}
+
+.carousel-item:hover {
+    .carousel-divider {
+        opacity: 1;
+    }
+}
+
+.carousel-item:nth-child(even) {
+
+    .carousel-tags {
+        bottom: auto; // сброс низ
+        top: 34px;
+        transform: translateY(-30px);
+    }
+
+    .carousel-divider {
+        bottom: auto; // сброс низ
+        top: 68px;
+    }
+}
+
+.carousel-item:nth-child(even):hover {
+
+    .carousel-tags {
+        transform: translateY(0);
+    }
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0%);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+@media (max-width: 768px) {
+    .carousel-wrapper img {
+        width: 457px;
+        height: 266px;
+        margin: 0 5px;
+    }
+
+    .carousel-wrapper {
+        animation-duration: 60s;
+    }
+
+    .carousel-tags {
+        top: 220px;
+    }
+}
+
+@media (max-width: 431px) {
+    .carousel-container {
+        margin: 32px 0 71px 0;
+    }
+
+    .carousel-wrapper img {
+        width: 255px;
+        height: 320px;
+        margin: 0 0px;
+    }
+
+    .carousel-wrapper {
+        animation-duration: 30s;
+    }
+
+    .carousel-tags {
+        top: 275px;
+    }
+}
