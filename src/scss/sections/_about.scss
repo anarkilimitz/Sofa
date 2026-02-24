@@ -47,6 +47,8 @@
     background-position: center;
     background-repeat: no-repeat;
 
+    cursor: default;
+
     // это точки
     &::after {
         content: '';
@@ -175,6 +177,11 @@
 
 .about-card:hover::before {
     opacity: 1;
+}
+
+.about-card::before,
+.about-card::after {
+    pointer-events: none;
 }
 
 @media (max-width: 998px) {
