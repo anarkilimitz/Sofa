@@ -9,8 +9,8 @@ export const initHeroScroll = () => {
 			scrollTrigger: {
 				trigger: '.hero-section',
 				start: 'top top',
-				end: 'bottom top',
-				scrub: true,
+				end: 'center top',
+				scrub: 1,
 			},
 		});
 	}
