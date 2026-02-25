@@ -1,3 +1,25 @@
+import '../scss/style.scss';
+import { initSmoothScroll } from "./animations/smoothScroll";
+import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
+
+// Регистрируем плагин GSAP
+gsap.registerPlugin(ScrollTrigger)
+
+initSmoothScroll()
+
+gsap.to('.hero-image', {
+  y: 200,
+  ease: 'none',
+  scrollTrigger: {
+    trigger: '.hero',
+    start: 'top top',
+    end: 'bottom top',
+    scrub: true
+  }
+})
+
+// Основные
 document.addEventListener('DOMContentLoaded', () => {
 	// Бургер
 	const menuTriggers = document.querySelectorAll('.menu-trigger');
