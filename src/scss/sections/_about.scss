@@ -43,11 +43,15 @@
     flex-direction: column;
     justify-content: flex-start;
 
+    transform-style: preserve-3d; // для гсап
+    will-change: transform; // для гсап 
+
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 
     cursor: default;
+    z-index: 1;
 
     // это точки
     &::after {
@@ -115,13 +119,17 @@
         position: relative;
         z-index: 2;
         color: var(--text-gray);
+        pointer-events: none; // для гсап
+        will-change: transform; // для гсап
     }
 
     &__text,
     .divider {
+        position: relative;
         opacity: 0;
         transform: translateY(20px);
         transition: opacity 0.4s ease, transform 0.4s ease;
+        z-index: 2;
     }
 
     &:hover {

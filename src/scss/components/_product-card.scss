@@ -18,7 +18,10 @@
     background: rgba(233, 228, 219, 0.43);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
     cursor: pointer;
-    transition: 0.2s ease;
+    transition: background 0.2s ease, box-shadow 0.2s ease;
+
+    transform-style: preserve-3d; // для гсап анимации
+    will-change: transform; // для гсап анимации
 
     &:hover {
         background: rgba(255, 255, 255, 0.43);
@@ -67,14 +70,16 @@
         border-radius: 20px;
         background: rgb(255, 255, 255);
         z-index: 3;
+        pointer-events: none; // для гсап анимации
 
         img {
+            will-change: transform; // для гсап анимации
             transform: translateX(11px) scale(1);
-            transition: transform 0.2s ease;
             padding-top: 15px; // сдвинул вниз
             width: 90px;
             height: auto;
             z-index: 3;
+            pointer-events: none; // для гсап анимации
         }
     }
 

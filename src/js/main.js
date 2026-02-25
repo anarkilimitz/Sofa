@@ -1,26 +1,87 @@
 import '../scss/style.scss';
-import { initSmoothScroll } from "./animations/smoothScroll";
-import gsap from "gsap";
-import ScrollTrigger from "gsap/ScrollTrigger";
+import { initSmoothScroll } from './animations/smoothScroll';
+import gsap from 'gsap';
+import ScrollTrigger from 'gsap/ScrollTrigger';
 
 // Регистрируем плагин GSAP
-gsap.registerPlugin(ScrollTrigger)
-
-initSmoothScroll()
-
-gsap.to('.hero-image', {
-  y: 200,
-  ease: 'none',
-  scrollTrigger: {
-    trigger: '.hero',
-    start: 'top top',
-    end: 'bottom top',
-    scrub: true
-  }
-})
+gsap.registerPlugin(ScrollTrigger);
 
 // Основные
 document.addEventListener('DOMContentLoaded', () => {
+	// Запускаем скролл
+	initSmoothScroll();
+
+	// Исправленная анимация (проверяем наличие элементов, чтобы не было ошибок)
+	const heroTitle = document.querySelector('.hero-title');
+	if (heroTitle) {
+		gsap.to(heroTitle, {
+			y: -50,
+			opacity: 0.5,
+			scrollTrigger: {
+				trigger: '.hero-section',
+				start: 'top top',
+				end: 'bottom top',
+				scrub: true,
+			},
+		});
+	}
+
+	// --- Анимация карточек (универсальная) ---
+	// Собираем все типы карточек, которые должны наклоняться
+	const allCards = document.querySelectorAll('.product-card, .about-card');
+
+	allCards.forEach((card) => {
+		// Ищем картинку или иконку внутри конкретной карточки для параллакса
+		const cardImg = card.classList.contains('about-card')
+			? card.querySelector('.about-card__title')
+			: card.querySelector('img');
+
+		card.addEventListener('mousemove', (e) => {
+			const { clientX, clientY } = e;
+			const { left, top, width, height } = card.getBoundingClientRect();
+
+			const centerX = left + width / 2;
+			const centerY = top + height / 2;
+
+			const moveX = (clientX - centerX) / (width / 2);
+			const moveY = (clientY - centerY) / (height / 2);
+
+			// Наклон самой карточки
+			gsap.to(card, {
+				rotateY: moveX * 10,
+				rotateX: -moveY * 10,
+				ease: 'power2.out',
+				duration: 0.5,
+				transformPerspective: 1000,
+			});
+
+			// Параллакс эффект для внутреннего элемента
+			if (cardImg) {
+				gsap.to(cardImg, {
+					x: moveX * 15,
+					y: moveY * 15,
+					duration: 0.5,
+				});
+			}
+		});
+
+		card.addEventListener('mouseleave', () => {
+			gsap.to(card, {
+				rotateX: 0,
+				rotateY: 0,
+				ease: 'power2.out',
+				duration: 0.7,
+			});
+			if (cardImg) {
+				gsap.to(cardImg, {
+					x: 0,
+					y: 0,
+					ease: 'power2.out',
+					duration: 0.7,
+				});
+			}
+		});
+	});
 	// Бургер
 	const menuTriggers = document.querySelectorAll('.menu-trigger');
 	const closeMenu = document.getElementById('close-menu');
