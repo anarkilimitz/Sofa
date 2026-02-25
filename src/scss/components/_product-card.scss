@@ -16,7 +16,9 @@
     border-radius: 24px;
     overflow: hidden;
     background: rgba(233, 228, 219, 0.43);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    box-shadow:
+        0 16px 32px rgba(0, 0, 0, 0.08),
+        0 6px 12px rgba(0, 0, 0, 0.04);
     cursor: pointer;
     transition: background 0.2s ease, box-shadow 0.2s ease;
 
@@ -25,8 +27,10 @@
 
     &:hover {
         background: rgba(255, 255, 255, 0.43);
+        box-shadow:
+            0 28px 56px rgba(0, 0, 0, 0.12),
+            0 12px 24px rgba(0, 0, 0, 0.06);
     }
-
 
     &:hover {
         .product-info h3 {
@@ -69,7 +73,7 @@
         border: 5px solid var(--card-dark);
         border-radius: 20px;
         background: rgb(255, 255, 255);
-        z-index: 3;
+        z-index: 0;
         pointer-events: none; // для гсап анимации
 
         img {
