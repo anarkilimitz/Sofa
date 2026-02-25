@@ -167,7 +167,7 @@
     }
 
     to {
-        transform: translateX(calc(-100% / 2));
+        transform: translateX(var(--carousel-scroll-distance, calc(-100% / 2)));
     }
 }
 
