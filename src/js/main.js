@@ -5,6 +5,7 @@ import ScrollTrigger from 'gsap/ScrollTrigger';
 import { initSmoothScroll } from './animations/smoothScroll';
 import { initHeroScroll } from './animations/heroScroll';
 import { initCardHover } from './animations/cardHover';
+import { initNavIconLabels } from './animations/iconText';
 import { initMenu } from './animations/menu';
 import { initCarousel } from './animations/carousel';
 
@@ -20,6 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	initCardHover();
 
 	// 3. Инициализация компонентов интерфейса
+	initNavIconLabels();
 	initMenu();
 	initCarousel();
 });

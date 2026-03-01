@@ -155,7 +155,7 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    transition: 0.2s;
+    transition: 0.3s;
 
     img {
         position: relative;
@@ -167,6 +167,39 @@
     &:hover {
         background: white;
     }
+
+    &:active {
+        background: red;
+    }
+}
+
+// Текст справа от иконок
+.nav-icons::after {
+    content: attr(data-active-label);
+    position: absolute;
+    left: 400px;
+    top: 40%;
+    transform: translateY(-40%);
+
+    white-space: nowrap;
+    font-size: 20px;
+    font-weight: 600;
+    color: black;
+
+    opacity: 0;
+    transition: 0.2s ease;
+    pointer-events: none;
+}
+
+/* Когда JS добавляет класс */
+.nav-icons.show-label::after {
+    opacity: 1;
+    transform: translateY(-50%);
+}
+
+.nav-icons:has(.icon-box:active)::after {
+    color: red;
+    transition: color 0s;
 }
 
 // красный фон под иконками!

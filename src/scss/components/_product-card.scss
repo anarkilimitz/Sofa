@@ -34,6 +34,7 @@
 
     &:hover {
         .product-info h3 {
+            transition: transform 0.4s ease;
             transform: translateY(-10px);
         }
     }
@@ -57,6 +58,7 @@
 
     &:hover {
         .catalog-link {
+            transition: opacity 0.4s ease;
             opacity: 1;
         }
     }
@@ -84,6 +86,7 @@
             height: auto;
             z-index: 3;
             pointer-events: none; // для гсап анимации
+            transition: transform 0.4s ease;
         }
     }
 
