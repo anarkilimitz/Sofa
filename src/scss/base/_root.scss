@@ -1,7 +1,7 @@
 @use "../utils/variables" as *;
 
 :root {
-    --font-primary: #{$font-primary};
+    --font-primary: #{$font-primary}; // основной текст
     --font-heading: #{$font-heading};
     --brand-red: #{$brand-red};
     --text-black: #{$text-black};

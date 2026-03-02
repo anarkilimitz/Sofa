@@ -29,31 +29,36 @@
     font-weight: 700;
     font-size: 20px;
     letter-spacing: 2px;
+    color: black;
+    transition: gap 0.4s ease, color 0.4s ease;
 
-    &:hover .burger-icon span:last-child {
-        width: 24px;
+    &:hover {
+        color: var(--brand-red, red);
+
+        .burger-icon {
+            gap: 3.5px;
+
+            span {
+                background: var(--brand-red, red);
+            }
+        }
+
     }
 }
 
 .burger-icon {
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: 2px;
+    transition: gap 0.4s ease-in-out;
 
     span {
         display: block;
         height: 2px;
         background: black;
-        transition: 0.3s;
         line-height: 0.5px;
-
-        &:first-child {
-            width: 37px;
-        }
-
-        &:last-child {
-            width: 37px;
-        }
+        width: 37px;
+        transition: background 0.4s ease;
     }
 }
 

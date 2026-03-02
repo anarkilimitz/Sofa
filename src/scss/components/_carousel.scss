@@ -88,7 +88,7 @@
 .carousel-tags {
     position: absolute;
     width: auto;
-    bottom: 34px;
+    bottom: 40px;
     left: 42px;
     right: 42px; // обязательно для цены справа!!!
     z-index: 999;
@@ -97,17 +97,26 @@
     justify-content: space-between;
     align-items: center;
 
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.8s ease;
+    opacity: 1;
+    transform: translateY(0px);
     pointer-events: none;
 
-    .tag,
+    .tag {
+        color: black;
+        font-size: 20px;
+        font-weight: 800;
+        letter-spacing: 0.4px;
+    }
+
     .price {
         color: black;
         font-size: 20px;
         font-weight: 800;
         letter-spacing: 0.4px;
+
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.8s ease;
     }
 }
 
@@ -135,6 +144,11 @@
 }
 
 .carousel-item:hover {
+    .price {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
     .carousel-divider {
         opacity: 1;
     }
@@ -144,20 +158,29 @@
 
     .carousel-tags {
         bottom: auto; // сброс низ
-        top: 34px;
+        top: 40px;
+    }
+
+    .price {
         transform: translateY(-30px);
+        opacity: 0;
+        transition: all 0.8s ease;
     }
 
     .carousel-divider {
         bottom: auto; // сброс низ
-        top: 68px;
+        top: 72px;
     }
-}
 
-.carousel-item:nth-child(even):hover {
+    &:hover {
+        .price {
+            transform: translateY(0);
+            opacity: 1;
+        }
 
-    .carousel-tags {
-        transform: translateY(0);
+        .carousel-divider {
+            opacity: 1;
+        }
     }
 }
 
