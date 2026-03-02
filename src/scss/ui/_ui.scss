@@ -69,9 +69,9 @@
 
 .menu-drawer {
     position: fixed;
-    top: 120px;
+    top: 50px;
     left: 60px;
-    width: 260px;
+    width: 235px;
     background: var(--glass-bg);
     backdrop-filter: blur(15px);
     border: 1px solid var(--glass-border);
@@ -252,6 +252,17 @@
     letter-spacing: 1.1px;
     cursor: default;
     z-index: 2;
+
+    a {
+        text-decoration: none;
+        color: black;
+        transition: 0.3s ease;
+
+        &:hover {
+            text-decoration: none;
+            color: var(--brand-red, red);
+        }
+    }
 
     .red-dot {
         display: block;
