@@ -151,8 +151,6 @@
 
 .icon-box {
     position: relative;
-    overflow: visible;
-    background: rgba(255, 255, 255, 0.4);
     width: 46px;
     height: 46px;
     border-radius: 8px;
@@ -160,21 +158,73 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    transition: 0.3s;
 
-    img {
-        position: relative;
-        z-index: 2;
-        width: 46px;
-        height: 46px;
+    background-color: rgba(255, 255, 255, 0.4);
+
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 46px;
+    transition: background-image 0.3s ease;
+    z-index: 3;
+
+    // Специфичные иконки
+    &[data-label="Корзина"] {
+        background-image: url("/src/assets/icons/header/basket.svg");
+
+        &:hover {
+            background-image: url("/src/assets/icons/header/basketBlack.svg");
+        }
+
+        &:active {
+            background-image: url("/src/assets/icons/header/basketRed.svg");
+            transition: 0s;
+        }
     }
 
-    &:hover {
-        background: white;
+    &[data-label="Профиль"] {
+        background-image: url("/src/assets/icons/header/profile.svg");
+
+        &:hover {
+            background-image: url("/src/assets/icons/header/profileBlack.svg");
+        }
+
+        &:active {
+            background-image: url("/src/assets/icons/header/profileRed.svg");
+            transition: 0s;
+        }
     }
 
-    &:active {
-        background: red;
+    &[data-label="Поиск"] {
+        background-image: url("/src/assets/icons/header/search.svg");
+
+        &:hover {
+            background-image: url("/src/assets/icons/header/searchBlack.svg");
+        }
+
+        &:active {
+            background-image: url("/src/assets/icons/header/searchRed.svg");
+            transition: 0s;
+        }
+    }
+
+    &::before {
+        content: '';
+        position: absolute;
+        inset: -10px;
+        background: radial-gradient(circle at center,
+                rgba(255, 0, 0, 0.4) 0%,
+                rgba(255, 0, 0, 0.1) 50%,
+                transparent 70%);
+        opacity: 0;
+        transform: scale(0.5);
+        transition: opacity 0.4s ease, transform 0.4s ease;
+        pointer-events: none;
+        z-index: -1;
+    }
+
+    &:hover::before {
+        opacity: 1;
+        transform: scale(1);
     }
 }
 
@@ -207,28 +257,28 @@
     transition: color 0s;
 }
 
-// красный фон под иконками!
+// красный фон под иконками - в виде ЭЛЛИПСА !
 .icon-box::before {
     content: '';
     position: absolute;
-    inset: 5px; // шире иконки
+    inset: -8px;
 
-    background: radial-gradient(ellipse at center,
-            rgba(255, 0, 0, 0.35) 0%,
-            rgba(255, 0, 0, 0.18) 35%,
-            rgba(255, 0, 0, 0.05) 60%,
+    background: radial-gradient(ellipse 30% 10% at center,
+            rgba(255, 0, 0, 0.4) 0%,
+            rgba(255, 0, 0, 0.1) 50%,
             transparent 75%);
 
     opacity: 0;
-    transform: scale(0.5);
+    transform: scale(0.5) rotate(126deg);
+
     transition: opacity 0.5s ease, transform 0.5s ease;
     pointer-events: none;
-    z-index: 1;
+    z-index: -1;
 }
 
 .icon-box:hover::before {
     opacity: 1;
-    transform: scale(1);
+    transform: scale(1) rotate(126deg);
 }
 
 .line-header {
