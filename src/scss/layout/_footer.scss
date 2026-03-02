@@ -35,19 +35,57 @@
     &:hover .line {
         transform: scaleX(0.7);
     }
+}
 
+// иконка МЫШЬ
+.mouse-icon {
+    position: relative;
+    width: 20px;
+    height: 29px;
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.5s ease;
+
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 20px 29px;
+    background-image: url("/src/assets/icons/header/mouse.svg");
+
+    // эллипс
+    &::before {
+        content: '';
+        position: absolute;
+        inset: -8px;
+
+        background: radial-gradient(ellipse 40% 20% at center,
+                rgba(255, 0, 0, 0.4) 0%,
+                rgba(255, 0, 0, 0.1) 50%,
+                transparent 75%);
+
+        opacity: 0;
+
+        transform: scale(0.5) rotate(126deg);
+        transition: opacity 0.5s ease, transform 0.5s ease;
+        pointer-events: none;
+        z-index: 0;
+    }
+}
+
+.scroll-indicator:hover {
     .mouse-icon {
-        width: 20px;
-        height: 29px;
-        padding: 30px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: 0.5s ease;
+        background-color: rgba(211, 211, 211, 0.4);
+        border-radius: 999px;
+        background-image: url("/src/assets/icons/header/mouseBlack.svg");
+
+        &::before {
+            opacity: 1;
+            transform: scale(1) rotate(126deg);
+        }
     }
 
-    &:hover .mouse-icon {
-        background: rgba(255, 255, 255, 0.4);
-        border-radius: 999px;
+    .line {
+        transform: scaleX(0.7);
     }
 }
