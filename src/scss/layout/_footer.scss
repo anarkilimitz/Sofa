@@ -19,6 +19,8 @@
         font-weight: 700;
         text-transform: uppercase;
         letter-spacing: 2px;
+        font-family: var(--font-heading);
+        letter-spacing: -0.02em;
     }
 
     .line {
@@ -28,7 +30,6 @@
         width: 105px;
         background: black;
         transition: transform 0.5s ease;
-
     }
 
     &:hover .line {

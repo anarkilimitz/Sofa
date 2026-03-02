@@ -24,8 +24,9 @@
 
 
 // Normalize Fonts
-@import "../assets/libs/fonts.css";
 @import "../../node_modules/modern-normalize/modern-normalize.css";
+@import "../assets/libs/fonts.css";
+
 
 // ============================================================
 * {
@@ -42,6 +43,10 @@ body {
     overflow-x: hidden;
     background-color: white;
     color: black;
+}
+
+h1 {
+    font-family: var(--font-heading);
 }
 
 .container {

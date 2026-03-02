@@ -1,4 +1,5 @@
-$font-primary: 'Cabin',
+// Шрифты
+$font-primary: 'Manrope',
     -apple-system,
     BlinkMacSystemFont,
     'Segoe UI',
@@ -11,6 +12,9 @@ $font-primary: 'Cabin',
     'Helvetica Neue',
     sans-serif;
 
+$font-heading: 'Gothic', sans-serif;
+
+// Цвета
 $brand-red: #f20d0d;
 $text-black: #000000;
 $text-gray: #4a4a4a;
