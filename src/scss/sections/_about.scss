@@ -8,7 +8,7 @@
 
 .about-content {
     display: block;
-    margin: 8vh 0 0 0;
+    margin: 22vh 0 0 0;
     z-index: 2;
 
     .about-title {
@@ -139,6 +139,10 @@
             opacity: 1;
             transform: translateY(0);
         }
+
+        .divider {
+            transform: scaleX(1); // полоска раскрывается слева направо
+        }
     }
 
     &__text {
@@ -157,6 +161,10 @@
         height: 1px;
         background-color: var(--text-gray);
         margin-bottom: 15px;
+        // появление полоски слева
+        transform: scaleX(0); // изначально скрыт
+        transform-origin: left; // точка роста слева
+        transition: transform 0.4s ease;
     }
 
     &__text {
@@ -232,7 +240,7 @@
             font-size: 20px;
             line-height: 1;
             font-weight: 400;
-            transform: translateY(-1px); // центровка
+            transform: translateY(1px); // центровка
         }
     }
 

@@ -129,11 +129,11 @@
 
 .carousel-divider {
     position: absolute;
-    left: 50%;
+    left: 11%;
     bottom: 71px;
-    transform: translateX(-50%);
+    // transform: translateX(-50%);
 
-    width: 78%;
+    width: 0;
     height: 1px;
     background-color: var(--card-dark);
 
@@ -150,6 +150,7 @@
     }
 
     .carousel-divider {
+        width: 78%;
         opacity: 1;
     }
 }
@@ -179,6 +180,7 @@
         }
 
         .carousel-divider {
+            width: 78%;
             opacity: 1;
         }
     }
