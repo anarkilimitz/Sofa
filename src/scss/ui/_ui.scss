@@ -232,8 +232,8 @@
 .nav-icons::after {
     content: attr(data-active-label);
     position: absolute;
-    left: 400px;
-    top: 40%;
+    left: 470px;
+    top: 66%;
     transform: translateY(-40%);
 
     white-space: nowrap;
@@ -280,18 +280,22 @@
     opacity: 1;
     transform: scale(1) rotate(126deg);
 }
-
+// полоска в хедере
 .line-header {
-    width: 100%;
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    top: calc(5vh + 85px);
+    width: 90%;
     height: 2px;
     background: rgba(66, 65, 60, 0.8);
-    margin-top: 20px;
-    z-index: 2;
+    z-index: 3;
 }
 
-
 .sub-link {
-    margin-top: 20px;
+    position: fixed;
+    right: 5%;
+    top: calc(5vh + 105px);
     display: flex;
     align-items: center;
     justify-content: flex-end;
@@ -301,7 +305,7 @@
     text-transform: uppercase;
     letter-spacing: 1.1px;
     cursor: default;
-    z-index: 2;
+    z-index: 3;
 
     a {
         text-decoration: none;
