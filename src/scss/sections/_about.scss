@@ -112,106 +112,60 @@
         background-image: url('/src/assets/img/about/easy.jpg');
     }
 
-    &__title,
-    &__text,
-    .divider,
-    &__icon {
-        position: relative;
-        z-index: 2;
-        color: var(--text-gray);
-        pointer-events: none; // для гсап
-        will-change: transform; // для гсап
-    }
-
-    &__text,
-    .divider {
-        position: relative;
-        opacity: 0;
-        transform: translateY(20px);
-        transition: opacity 0.4s ease, transform 0.4s ease;
-        z-index: 2;
-    }
-
-    &:hover {
-
-        .about-card__text,
-        .divider {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .divider {
-            transform: scaleX(1); // полоска раскрывается слева направо
-        }
-    }
-
-    &__text {
-        color: black;
-    }
-
+    // текст и полоска
     &__title {
+        position: relative;
+        z-index: 2;
         font-size: 20px;
         font-weight: 700;
         text-transform: uppercase;
         margin: 0 0 15px 0;
+        color: var(--text-gray);
+        pointer-events: none;
     }
 
     .divider {
+        position: relative;
+        z-index: 2;
         width: 100%;
         height: 1px;
         background-color: var(--text-gray);
         margin-bottom: 15px;
-        // появление полоски слева
-        transform: scaleX(0); // изначально скрыт
-        transform-origin: left; // точка роста слева
-        transition: transform 0.4s ease;
+        opacity: 0;
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: opacity 0.4s ease, transform 0.4s ease;
+        pointer-events: none;
     }
 
     &__text {
+        position: relative;
+        z-index: 2;
         font-size: 16px;
         line-height: 1.4;
         margin: 0;
+        color: black;
+        pointer-events: none;
+
+        .line-mask {
+            overflow: hidden;
+            display: block;
+        }
+
+        .line-child {
+            display: block;
+            will-change: transform;
+        }
     }
-}
 
-// блюр карточек
-.about-card::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-
-    background: linear-gradient(90deg,
-            rgba(0, 0, 0, 0.10) 0%,
-            rgba(0, 0, 0, 0.25) 100%);
-
-    backdrop-filter: blur(6px);
-    opacity: 0;
-
-    transition: opacity 0.4s ease;
-    z-index: 1;
-}
-
-.about-card:hover::before {
-    opacity: 1;
-}
-
-.about-card::before,
-.about-card::after {
-    pointer-events: none;
-}
-
-// квадрат с крестиком выношу полностью отдельно!
-.about-card {
-    position: relative;
-
+    // Квадрат с плюсом
     .card-plus {
-        // квадрат
         position: absolute;
         bottom: 30px;
         right: 30px;
         width: 46px;
         height: 46px;
-        background-color: rgba(0, 0, 0, 0.6); // фон
+        background-color: rgba(0, 0, 0, 0.6);
         border-radius: 12px;
         display: flex;
         align-items: center;
@@ -219,7 +173,6 @@
         z-index: 5;
         transition: opacity 0.3s ease, transform 0.3s ease;
 
-        // круг
         &::before {
             content: '';
             position: absolute;
@@ -227,24 +180,34 @@
             height: 20px;
             background-color: #fff;
             border-radius: 50%;
-            z-index: 1;
         }
 
-        // крестик
         &::after {
             content: '+';
             position: absolute;
             z-index: 2;
             color: #000;
-            font-family: Arial, sans-serif; // Чтобы плюс был ровным
+            font-family: Arial, sans-serif;
             font-size: 20px;
             line-height: 1;
-            font-weight: 400;
-            transform: translateY(1px); // центровка
+            transform: translateY(1px);
         }
     }
 
     &:hover {
+        &::before {
+            opacity: 1;
+        }
+
+        &::after {
+            opacity: 0;
+        }
+
+        .divider {
+            opacity: 1;
+            transform: scaleX(1);
+        }
+
         .card-plus {
             opacity: 0;
             transform: scale(0.3);
@@ -253,8 +216,6 @@
 }
 
 @media (max-width: 998px) {
-
-    // Карточки
     .about-features {
         margin: 5vh 0 4vh 0;
 

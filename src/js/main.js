@@ -8,6 +8,7 @@ import { initCardHover } from './animations/cardHover';
 import { initNavIconLabels } from './animations/iconText';
 import { initMenu } from './animations/menu';
 import { initCarousel } from './animations/carousel';
+import { initCardTextAnimation } from './animations/cardText';
 
 // Регистрируем плагин один раз в главной точке входа
 gsap.registerPlugin(ScrollTrigger);
@@ -24,4 +25,5 @@ document.addEventListener('DOMContentLoaded', () => {
 	initNavIconLabels();
 	initMenu();
 	initCarousel();
+	initCardTextAnimation();
 });

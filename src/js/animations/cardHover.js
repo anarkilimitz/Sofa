@@ -4,9 +4,6 @@ export const initCardHover = () => {
 	const allCards = document.querySelectorAll('.product-card, .about-card');
 
 	allCards.forEach((card) => {
-		// const cardImg = card.classList.contains('about-card')
-		// убрать скобку при расскомите - (? card.querySelector('.about-card__title')
-		// 	: card.querySelector('img');
 
 		card.addEventListener('mousemove', (e) => {
 			const { clientX, clientY } = e;
@@ -22,14 +19,6 @@ export const initCardHover = () => {
 				duration: 0.5,
 				transformPerspective: 1000,
 			});
-
-			// if (cardImg) {
-			// 	gsap.to(cardImg, {
-			// 		scale: 1.1, // можешь 1.05–1.15 подобрать
-			// 		duration: 0.5,
-			// 		ease: 'power2.out',
-			// 	});
-			// }
 		});
 
 		card.addEventListener('mouseleave', () => {
@@ -39,9 +28,6 @@ export const initCardHover = () => {
 				ease: 'power2.out',
 				duration: 0.7,
 			});
-			// if (cardImg) {
-			// 	gsap.to(cardImg, { scale: 1, duration: 0.5, ease: 'power2.out' });
-			// }
 		});
 	});
 };
