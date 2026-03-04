@@ -142,10 +142,13 @@
         color: black;
         font-size: 20px;
         font-weight: 700;
-        transition: 0.3s;
+
+        opacity: 0; // для Гсап
+        will-change: transform, opacity; // для Гсап
 
         &:hover {
-            opacity: 0.7;
+            opacity: 0.7 !important; // оставляем ховер, !important если GSAP зацепит inline opacity
+            transition: opacity 0.3s ease;
         }
     }
 }

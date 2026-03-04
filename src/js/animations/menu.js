@@ -1,3 +1,5 @@
+import { animateMenuLinks } from './menuAnimation';
+
 export const initMenu = () => {
 	const menuTriggers = document.querySelectorAll('.menu-trigger');
 	const closeMenu = document.getElementById('close-menu');
@@ -7,23 +9,40 @@ export const initMenu = () => {
 	if (!menuDrawer || !menuOverlay) return;
 
 	const toggleMenu = () => {
-		menuDrawer.classList.toggle('open');
-		menuOverlay.classList.toggle('open');
+		const isOpen = menuDrawer.classList.contains('open');
+
+		if (!isOpen) {
+			// открытие
+			menuDrawer.classList.add('open');
+			menuOverlay.classList.add('open');
+			animateMenuLinks(true);
+		} else {
+			// закрытие
+			menuDrawer.classList.remove('open');
+			menuOverlay.classList.remove('open');
+			animateMenuLinks(false);
+		}
 	};
 
+	// закрытие меню
 	const closeMenuFunc = () => {
-		menuDrawer.classList.remove('open');
-		menuOverlay.classList.remove('open');
+		if (menuDrawer.classList.contains('open')) {
+			menuDrawer.classList.remove('open');
+			menuOverlay.classList.remove('open');
+			animateMenuLinks(false);
+		}
 	};
 
+	// события
 	menuTriggers.forEach((trigger) =>
 		trigger.addEventListener('click', toggleMenu)
 	);
+
 	if (closeMenu) closeMenu.addEventListener('click', toggleMenu);
 	menuOverlay.addEventListener('click', toggleMenu);
 
 	window.addEventListener('keydown', (event) => {
-		if (event.key === 'Escape' && menuDrawer.classList.contains('open')) {
+		if (event.key === 'Escape') {
 			closeMenuFunc();
 		}
 	});
