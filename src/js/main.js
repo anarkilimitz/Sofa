@@ -9,6 +9,7 @@ import { initNavIconLabels } from './animations/iconText';
 import { initMenu } from './animations/menu';
 import { initCarousel } from './animations/carousel';
 import { initCardTextAnimation } from './animations/cardText';
+import { initHeroScale } from './animations/heroScale';
 
 // Регистрируем плагин один раз в главной точке входа
 gsap.registerPlugin(ScrollTrigger);
@@ -22,6 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	initCardHover();
 
 	// 3. Инициализация компонентов интерфейса
+	initHeroScale();
 	initNavIconLabels();
 	initMenu();
 	initCarousel();

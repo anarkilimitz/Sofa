@@ -12,6 +12,7 @@
     overflow: hidden;
     background-color: #ffffff; // заглушка пока видео грузится
     border-radius: 0 0 100px 100px;
+    z-index: 1;
 }
 
 .hero-video {
@@ -35,8 +36,6 @@
     left: 0;
     width: 100%;
     height: 100%;
-    // затемнение для читаемости текста
-    // background: rgba(0, 0, 0, 0.2);
     z-index: 1;
 }
 
