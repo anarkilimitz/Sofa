@@ -11,12 +11,17 @@
     justify-content: space-between;
     align-items: flex-start;
     padding: 5vh clamp(5vw, -188.13px + 13.41vw, 150px) 0;
-    z-index: 3;
+    z-index: 100;
 
     .nav-left {
+        position: relative;
         display: flex;
         align-items: center;
         gap: 32px;
+        width: 100%;
+        max-width: 376px;
+        flex-shrink: 0;
+        flex-grow: 0;
     }
 
     .logo-group {
