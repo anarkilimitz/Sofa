@@ -28,9 +28,21 @@
         text-align: right;
 
         .logo {
-            img {
-                width: 120px;
-                height: 66px;
+            width: 144px;
+            height: 79px;
+
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+
+            transition: background-image 0.3s ease;
+
+            &[data-logo="main"] {
+                background-image: url("/src/assets/img/main/logo.svg");
+
+                &:hover {
+                    background-image: url("/src/assets/img/main/logoRed.svg");
+                }
             }
         }
     }
