@@ -1,0 +1,23 @@
+@use "../utils/variables" as *;
+@use "../utils/mixins" as *;
+
+.catalog-section {
+    position: relative;
+    min-height: 100vh;
+    z-index: 1;
+    background-color: white;
+}
+
+.catalog-content {
+    display: block;
+    margin: 300px 0 0 40px;
+    z-index: 2;
+
+    .catalog-title {
+        @include title;
+    }
+
+    .catalog-desc {
+        @include descr;
+    }
+}

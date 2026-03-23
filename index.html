@@ -27,9 +27,9 @@
             <path d="M6 18L18 6M6 6l12 12"></path>
           </svg>
         </button>
-        <a class="menu-item" href="#"><span class="menu-dot"></span>Главная</a>
+        <a class="menu-item" href="/index.html"><span class="menu-dot"></span>Главная</a>
         <nav class="menu-nav">
-          <a class="menu-link" href="#">Каталог</a>
+          <a class="menu-link" href="/catalog.html">Каталог</a>
           <a class="menu-link" href="#">О нас</a>
           <a class="menu-link" href="#">Контакты</a>
           <a class="menu-link" href="#">Условия</a>
@@ -57,7 +57,7 @@
   <!-- полоска и ссылка -->
   <!-- <div class="line-header"></div> -->
   <div class="sub-link container">
-    <span><a href="#">что мы делаем</a></span>
+    <span><a href="#about">что мы делаем</a></span>
     <span class="red-dot"></span>
   </div>
 
@@ -78,23 +78,25 @@
 
     <!-- карточка товара -->
     <section class="product">
-      <div class="product-card">
-        <div class="product-img-box">
-          <img alt="Sofa" src="/src/assets/img/main/sofaBtnTwo.jpg">
-          </img>
-        </div>
-        <div class="product-info">
-          <div>
-            <h3>Гранит Универсал</h3>
+      <a class="product-card-link" href="/catalog.html">
+        <div class="product-card">
+          <div class="product-img-box">
+            <img alt="Sofa" src="/src/assets/img/main/sofaBtnTwo.jpg">
+            </img>
           </div>
-          <div class="catalog-link">
-            <svg fill="none" height="12" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="12">
-              <path d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-            </svg>
-            <span>перейти в каталог</span>
+          <div class="product-info">
+            <div>
+              <h3>Гранит Универсал</h3>
+            </div>
+            <div class="catalog-link">
+              <svg fill="none" height="12" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="12">
+                <path d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+              </svg>
+              <span>перейти в каталог</span>
+            </div>
           </div>
         </div>
-      </div>
+      </a>
     </section>
 
     <!-- футер -->
@@ -109,8 +111,7 @@
   </main>
 
   <!-- =======================   Секция about ========================== -->
-  <!-- шапка -->
-  <section class="about-section container">
+  <section class="about-section container" id="about">
     <!-- тайтл -->
     <div class="about-content">
       <h1 class="about-title">ОСОБЕННОСТИ НАШИХ ДИВАНОВ</h1>
