@@ -10,7 +10,7 @@
 
 .about-content {
     display: block;
-    margin: 22vh 0 0 0;
+    margin: 105px 0 0 40px;
     z-index: 2;
 
     .about-title {
@@ -24,7 +24,7 @@
 
 // Карточки
 .about-features {
-    margin: 5vh 0 7vh 0;
+    margin: 5vh 70px 7vh 45px;
 
     &__list {
         display: flex;
@@ -36,8 +36,11 @@
 
 .about-card {
     position: relative;
-    width: 366px;
-    height: 412px;
+    // width: 366px;
+    // height: 412px;
+    width: clamp(300px, 35vw, 800px);
+    aspect-ratio: 366 / 412;
+
     border-radius: 20px;
     overflow: hidden;
     padding: 40px;

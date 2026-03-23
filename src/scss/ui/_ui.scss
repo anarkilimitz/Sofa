@@ -7,7 +7,7 @@
     inset: 0;
     background: rgba(0, 0, 0, 0.05);
     backdrop-filter: blur(2px);
-    z-index: 90;
+    z-index: 999;
     opacity: 0;
     pointer-events: none;
     transition: 0.4s;
@@ -169,7 +169,7 @@
     background-position: center;
     background-size: 46px;
     transition: background-image 0.3s ease;
-    z-index: 3;
+    z-index: 1;
 
     &:active {
         background-color: rgba(233, 228, 219, 0.90);
@@ -227,7 +227,7 @@
         transform: scale(0.5);
         transition: opacity 0.4s ease, transform 0.4s ease;
         pointer-events: none;
-        z-index: -1;
+        z-index: 3;
     }
 
     &:hover::before {
@@ -281,7 +281,7 @@
 
     transition: opacity 0.5s ease, transform 0.5s ease;
     pointer-events: none;
-    z-index: -1;
+    z-index: 0;
 }
 
 .icon-box:hover::before {
@@ -290,21 +290,21 @@
 }
 
 // полоска в хедере
-.line-header {
-    position: fixed;
-    left: 50%;
-    transform: translateX(-50%);
-    top: calc(5vh + 85px);
-    width: 90%;
-    height: 2px;
-    background: rgba(66, 65, 60, 0.8);
-    z-index: 3;
-}
+// .line-header {
+//     position: fixed;
+//     left: 50%;
+//     transform: translateX(-50%);
+//     top: calc(5vh + 85px);
+//     width: 90%;
+//     height: 2px;
+//     background: rgba(66, 65, 60, 0.8);
+//     z-index: 3;
+// }
 
 .sub-link {
     position: fixed;
-    right: 5%;
-    top: calc(5vh + 105px);
+    right: 70px;
+    top: 145px;
     display: flex;
     align-items: center;
     justify-content: flex-end;
