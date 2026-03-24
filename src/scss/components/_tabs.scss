@@ -1,0 +1,46 @@
+@use "../utils/variables" as *;
+@use "../utils/mixins" as *;
+
+.tabs {
+    display: flex;
+    gap: 12px;
+    margin-top: 50px;
+    margin-left: 40px;
+}
+
+.tab {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+
+    padding: 5px 20px;
+    border-radius: 22.5px;
+
+    border: none;
+    background: transparent;
+
+    font-family: var(--font-heading);
+    font-weight: 800;
+    color: #1a1a1a;
+
+    cursor: pointer;
+    transition: all 0.4s ease;
+}
+
+/* SVG слева */
+.tab__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $color-tabs;
+}
+
+/* hover — серая рамка */
+.tab:hover {
+    background: #eeeeee;
+}
+
+/* активный таб */
+.tab.active {
+    background: #eeeeee;
+}
