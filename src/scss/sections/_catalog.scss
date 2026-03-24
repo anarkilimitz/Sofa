@@ -10,7 +10,7 @@
 
 .catalog-content {
     display: block;
-    margin: 300px 0 0 40px;
+    margin: 250px 0 0 40px;
     z-index: 2;
 
     .catalog-title {
@@ -26,35 +26,33 @@
 .catalog__wrapper {
     margin: 20px 75px 0 40px;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-        // grid-template-rows: 340px; // 🔥 фикс высоты строки
-        // grid-auto-rows: 340px; // 🔥 все строки одинаковые
+    grid-template-columns: repeat(10, 1fr);
     column-gap: 17px;
     row-gap: 20px;
-    grid-auto-flow: dense; // 🔥 ключевая строка
+    grid-auto-flow: dense; // обязательно оставить!
 
 
 
-    // @media (max-width: 1024px) {
-    //     grid-template-columns: repeat(2, 1fr);
-    // }
-
-    // @media (max-width: 600px) {
-    //     grid-template-columns: 1fr;
-    // }
+    @media (max-width: 768px) {
+        // grid-template-columns: repeat(9, 1fr);
+        column-gap: 6px;
+            row-gap: 8px;
+    }
 }
 
 .catalog__card {
     position: relative;
-    grid-column: span 1;
+    grid-column: span 3;
     background: #f4f4f4;
     border-radius: 24px;
     border: 6px solid #797979;
-    // aspect-ratio: auto;
     box-sizing: border-box;
     width: 100%;
     overflow: hidden;
-    // width: 100%;
+
+    // @media (max-width: 768px) {
+    //         grid-column: span 4;
+    //     }
 
     img {
         width: 100%;
@@ -65,22 +63,20 @@
 
     &-title {
         position: absolute;
-        bottom: 30px;
-        left: 30px;
-        font-weight: 700;
-        font-size: 20px;
+        bottom: 7%;
+        left: 7%;
+        font-weight: 900;
+        font-size: 1.2vw;
         color: #000;
         text-transform: uppercase;
     }
 
     // для длинной карточки
     &-wide {
-        grid-column: span 2;
-        // aspect-ratio: auto;
+        grid-column: span 4;
 
-        // @media (max-width: 1024px) {
-        //     grid-column: span 1;
-        //     aspect-ratio: 400 / 340;
+        // @media (max-width: 768px) {
+        //     grid-column: span 5;
         // }
     }
 }
