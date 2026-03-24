@@ -15,19 +15,20 @@ import { initHeroScale } from './animations/heroScale';
 // Регистрируем плагин один раз в главной точке входа
 gsap.registerPlugin(ScrollTrigger);
 
+let lenis;
+
 document.addEventListener('DOMContentLoaded', () => {
 	// 1. Инициализация плавного скролла (Lenis)
-	initSmoothScroll();
+	lenis = initSmoothScroll();
 
 	// 2. Инициализация анимаций
 	initHeroScroll();
 	initCardHover();
 
 	// 3. Инициализация компонентов интерфейса
+	initMenu(lenis);
 	initHeroScale();
-	// initStackingCards();
 	initNavIconLabels();
-	initMenu();
 	initCarousel();
 	initCardTextAnimation();
 });

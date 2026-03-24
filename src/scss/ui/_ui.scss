@@ -7,10 +7,11 @@
     inset: 0;
     background: rgba(0, 0, 0, 0.05);
     backdrop-filter: blur(2px);
-    z-index: 999;
+    z-index: 1000;
     opacity: 0;
     pointer-events: none;
     transition: 0.4s;
+    overflow: hidden;
 
     &.open {
         opacity: 1;
@@ -69,16 +70,16 @@
 }
 
 .menu-drawer {
-    position: absolute;
-    top: -12px;
-    left: -15px;
+    position: fixed;
+    top: 59px;
+    left: calc(5% + 30px);
     width: 235px;
     background: var(--glass-bg);
     backdrop-filter: blur(15px);
     border: 1px solid var(--glass-border);
     border-radius: 32px;
     padding: 32px;
-    z-index: 1001;
+    z-index: 1200;
     transform: translateY(-20px);
     opacity: 0;
     pointer-events: none;
@@ -314,7 +315,7 @@
     text-transform: uppercase;
     letter-spacing: 1.1px;
     cursor: default;
-    z-index: 1000;
+    z-index: 4;
 
     a {
         text-decoration: none;

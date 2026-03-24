@@ -31,8 +31,6 @@
     row-gap: 20px;
     grid-auto-flow: dense; // обязательно оставить!
 
-
-
     @media (max-width: 768px) {
         // grid-template-columns: repeat(9, 1fr);
         column-gap: 6px;

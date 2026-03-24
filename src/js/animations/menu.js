@@ -1,6 +1,6 @@
 import { animateMenuLinks } from './menuAnimation';
 
-export const initMenu = () => {
+export const initMenu = (lenis) => {
 	const menuTriggers = document.querySelectorAll('.menu-trigger');
 	const closeMenu = document.getElementById('close-menu');
 	const menuDrawer = document.getElementById('menu-drawer');
@@ -15,11 +15,13 @@ export const initMenu = () => {
 			// открытие
 			menuDrawer.classList.add('open');
 			menuOverlay.classList.add('open');
+			if (lenis) lenis.stop();
 			animateMenuLinks(true);
 		} else {
 			// закрытие
 			menuDrawer.classList.remove('open');
 			menuOverlay.classList.remove('open');
+			if (lenis) lenis.start();
 			animateMenuLinks(false);
 		}
 	};
@@ -29,6 +31,7 @@ export const initMenu = () => {
 		if (menuDrawer.classList.contains('open')) {
 			menuDrawer.classList.remove('open');
 			menuOverlay.classList.remove('open');
+			if (lenis) lenis.start();
 			animateMenuLinks(false);
 		}
 	};

@@ -51,6 +51,10 @@ h1 {
     font-family: var(--font-heading);
 }
 
+body.menu-open {
+    overflow: hidden;
+}
+
 .container {
     padding: 5vh clamp(5vw, -188.13px + 13.41vw, 150px) 15.5vh;
 }
@@ -80,7 +84,8 @@ html.lenis body {
 }
 
 .lenis.lenis-stopped {
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: scroll;
 }
 
 .lenis.lenis-scrolling iframe {
