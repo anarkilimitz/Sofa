@@ -75,12 +75,12 @@
     left: calc(5% + 30px);
     width: 235px;
     background: var(--glass-bg);
-    backdrop-filter: blur(15px);
+    backdrop-filter: blur(4px);
     border: 1px solid var(--glass-border);
     border-radius: 32px;
     padding: 32px;
     z-index: 1200;
-    transform: translateY(-20px);
+    transform: translateY(-120%);
     opacity: 0;
     pointer-events: none;
     transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
