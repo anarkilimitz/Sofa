@@ -70,22 +70,27 @@
 
         <!-- Табы -->
         <div class="tabs">
-            <button class="tab active">
+            <button class="tab active" data-category="all">
                 <img src="/src/assets/icons/catalog/angle.svg" class="tab__icon" alt="angle">
-                <span>Угловые</span>
+                <span>ВСЕ ДИВАНЫ</span>
             </button>
 
-            <button class="tab">
+            <button class="tab" data-category="corner">
+                <img src="/src/assets/icons/catalog/angle.svg" class="tab__icon" alt="angle">
+                <span>УГЛОВЫЕ</span>
+            </button>
+
+            <button class="tab" data-category="transformer">
                 <img src="/src/assets/icons/catalog/big.svg" class="tab__icon" alt="big">
                 <span>ТРАНСФОРМЕР</span>
             </button>
 
-            <button class="tab">
+            <button class="tab" data-category="book">
                 <img src="/src/assets/icons/catalog/book.svg" class="tab__icon" alt="book">
                 <span>КНИЖКА</span>
             </button>
 
-            <button class="tab">
+            <button class="tab" data-category="bed">
                 <img src="/src/assets/icons/catalog/angle.svg" class="tab__icon" alt="angle">
                 <span>КРОВАТИ</span>
             </button>
@@ -95,7 +100,7 @@
 
         <div class="catalog__wrapper">
             <!-- первый ряд -->
-            <div class="catalog__card catalog__card-wide">
+            <div class="catalog__card catalog__card-wide" data-category="transformer">
                 <!-- первая карточка -->
                 <img src="/src/assets/img/catalog/blacksofa.jpg" alt="blacksofa">
                 <!-- избранное -->
@@ -120,7 +125,7 @@
                 </div>
             </div>
             <!-- вторая карточка -->
-            <div class="catalog__card">
+            <div class="catalog__card" data-category="corner">
                 <img src="/src/assets/img/catalog/whitesofa.jpg" alt="whitesofa">
                 <!-- избранное -->
                 <div class="catalog__favorite"></div>
@@ -145,7 +150,7 @@
                 </div>
             </div>
             <!-- третья карточка -->
-            <div class="catalog__card">
+            <div class="catalog__card" data-category="corner">
                 <img src="/src/assets/img/catalog/greysofa.jpg" alt="greysofa">
                 <!-- избранное -->
                 <div class="catalog__favorite"></div>
@@ -171,43 +176,221 @@
             </div>
 
             <!-- второй ряд -->
-            <div class="catalog__card">
+            <div class="catalog__card" data-category="corner">
                 <img src="/src/assets/img/catalog/greysofa.jpg" alt="greysofa">
-                <span class="catalog__card-title">СТРОНГХОЛД</span>
+                <!-- избранное -->
+                <div class="catalog__favorite"></div>
+                
+                <!-- цвета -->
+                <div class="catalog__colors">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                
+                <!-- разделитель -->
+                <div class="catalog__divider"></div>
+                <!-- низ карточки -->
+                <div class="catalog__info">
+                    <div class="catalog__text">
+                        <span class="catalog__card-title">МАЙЛО</span>
+                        <span class="catalog__desc">Угловой диван</span>
+                    </div>
+                    <span class="catalog__price">₽125.900</span>
+                </div>
             </div>
-            <div class="catalog__card catalog__card-wide">
+
+            <div class="catalog__card catalog__card-wide" data-category="transformer">
                 <img src="/src/assets/img/catalog/gingersofa.jpg" alt="gingersofa">
-                <span class="catalog__card-title">МАЙЛО</span>
+                <!-- избранное -->
+                <div class="catalog__favorite"></div>
+                
+                <!-- цвета -->
+                <div class="catalog__colors">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                
+                <!-- разделитель -->
+                <div class="catalog__divider"></div>
+                <!-- низ карточки -->
+                <div class="catalog__info">
+                    <div class="catalog__text">
+                        <span class="catalog__card-title">МАЙЛО</span>
+                        <span class="catalog__desc">Диван-трансформер</span>
+                    </div>
+                    <span class="catalog__price">₽249.900</span>
+                </div>
             </div>
-            <div class="catalog__card">
+
+            <div class="catalog__card" data-category="corner">
                 <img src="/src/assets/img/catalog/whitesofa.jpg" alt="whitesofa">
-                <span class="catalog__card-title">СТРОНГХОЛД</span>
+                <!-- избранное -->
+                <div class="catalog__favorite"></div>
+                
+                <!-- цвета -->
+                <div class="catalog__colors">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                
+                <!-- разделитель -->
+                <div class="catalog__divider"></div>
+                <!-- низ карточки -->
+                <div class="catalog__info">
+                    <div class="catalog__text">
+                        <span class="catalog__card-title">МАЙЛО</span>
+                        <span class="catalog__desc">Угловой диван</span>
+                    </div>
+                    <span class="catalog__price">₽125.900</span>
+                </div>
             </div>
             <!-- третий ряд -->
-            <div class="catalog__card catalog__card-wide">
+            <div class="catalog__card catalog__card-wide" data-category="transformer">
                 <img src="/src/assets/img/catalog/blacksofa.jpg" alt="blacksofa">
-                <span class="catalog__card-title">МАЙЛО</span>
+                <!-- избранное -->
+                <div class="catalog__favorite"></div>
+                
+                <!-- цвета -->
+                <div class="catalog__colors">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                
+                <!-- разделитель -->
+                <div class="catalog__divider"></div>
+                <!-- низ карточки -->
+                <div class="catalog__info">
+                    <div class="catalog__text">
+                        <span class="catalog__card-title">МАЙЛО</span>
+                        <span class="catalog__desc">Диван-трансформер</span>
+                    </div>
+                    <span class="catalog__price">₽249.900</span>
+                </div>
             </div>
-            <div class="catalog__card">
+
+            <div class="catalog__card" data-category="corner">
                 <img src="/src/assets/img/catalog/whitesofa.jpg" alt="whitesofa">
-                <span class="catalog__card-title">СТРОНГХОЛД</span>
+                <!-- избранное -->
+                <div class="catalog__favorite"></div>
+                
+                <!-- цвета -->
+                <div class="catalog__colors">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                
+                <!-- разделитель -->
+                <div class="catalog__divider"></div>
+                <!-- низ карточки -->
+                <div class="catalog__info">
+                    <div class="catalog__text">
+                        <span class="catalog__card-title">МАЙЛО</span>
+                        <span class="catalog__desc">Угловой диван</span>
+                    </div>
+                    <span class="catalog__price">₽125.900</span>
+                </div>
             </div>
-            <div class="catalog__card">
+
+            <div class="catalog__card" data-category="corner">
                 <img src="/src/assets/img/catalog/greysofa.jpg" alt="greysofa">
-                <span class="catalog__card-title">СТРОНГХОЛД</span>
+                <!-- избранное -->
+                <div class="catalog__favorite"></div>
+                
+                <!-- цвета -->
+                <div class="catalog__colors">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                
+                <!-- разделитель -->
+                <div class="catalog__divider"></div>
+                <!-- низ карточки -->
+                <div class="catalog__info">
+                    <div class="catalog__text">
+                        <span class="catalog__card-title">МАЙЛО</span>
+                        <span class="catalog__desc">Угловой диван</span>
+                    </div>
+                    <span class="catalog__price">₽125.900</span>
+                </div>
             </div>
+
             <!-- четвертый ряд -->
-            <div class="catalog__card">
+            <div class="catalog__card" data-category="corner">
                 <img src="/src/assets/img/catalog/greysofa.jpg" alt="greysofa">
-                <span class="catalog__card-title">СТРОНГХОЛД</span>
+                <!-- избранное -->
+                <div class="catalog__favorite"></div>
+                
+                <!-- цвета -->
+                <div class="catalog__colors">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                
+                <!-- разделитель -->
+                <div class="catalog__divider"></div>
+                <!-- низ карточки -->
+                <div class="catalog__info">
+                    <div class="catalog__text">
+                        <span class="catalog__card-title">МАЙЛО</span>
+                        <span class="catalog__desc">Угловой диван</span>
+                    </div>
+                    <span class="catalog__price">₽125.900</span>
+                </div>
             </div>
-            <div class="catalog__card catalog__card-wide">
+
+            <div class="catalog__card catalog__card-wide" data-category="transformer">
                 <img src="/src/assets/img/catalog/gingersofa.jpg" alt="gingersofa">
-                <span class="catalog__card-title">МАЙЛО</span>
+                <!-- избранное -->
+                <div class="catalog__favorite"></div>
+                
+                <!-- цвета -->
+                <div class="catalog__colors">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                
+                <!-- разделитель -->
+                <div class="catalog__divider"></div>
+                <!-- низ карточки -->
+                <div class="catalog__info">
+                    <div class="catalog__text">
+                        <span class="catalog__card-title">МАЙЛО</span>
+                        <span class="catalog__desc">Диван-трансформер</span>
+                    </div>
+                    <span class="catalog__price">₽249.900</span>
+                </div>
             </div>
-            <div class="catalog__card">
+
+            <div class="catalog__card" data-category="corner">
                 <img src="/src/assets/img/catalog/whitesofa.jpg" alt="whitesofa">
-                <span class="catalog__card-title">СТРОНГХОЛД</span>
+                <!-- избранное -->
+                <div class="catalog__favorite"></div>
+                
+                <!-- цвета -->
+                <div class="catalog__colors">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                
+                <!-- разделитель -->
+                <div class="catalog__divider"></div>
+                <!-- низ карточки -->
+                <div class="catalog__info">
+                    <div class="catalog__text">
+                        <span class="catalog__card-title">МАЙЛО</span>
+                        <span class="catalog__desc">Угловой диван</span>
+                    </div>
+                    <span class="catalog__price">₽125.900</span>
+                </div>
             </div>
         </div>
 

@@ -11,6 +11,7 @@ import { initCarousel } from './animations/carousel';
 import { initCardTextAnimation } from './animations/cardText';
 import { initHeroScale } from './animations/heroScale';
 // import { initStackingCards } from './animations/stackingCards';
+import { initTabs } from './animations/tabs';
 
 // Регистрируем плагин один раз в главной точке входа
 gsap.registerPlugin(ScrollTrigger);
@@ -31,4 +32,6 @@ document.addEventListener('DOMContentLoaded', () => {
 	initNavIconLabels();
 	initCarousel();
 	initCardTextAnimation();
+	// 4. Табы
+	initTabs();
 });
