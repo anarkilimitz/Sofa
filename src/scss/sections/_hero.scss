@@ -44,15 +44,15 @@
     margin-left: 45px;
     margin-top: 245px;
     margin-bottom: auto;
-    max-width: 580px;
+    max-width: 1057px;
     z-index: 2;
 
     .hero-title {
         font-size: 40px;
-        font-weight: 800;
+        font-weight: 400;
         text-transform: uppercase;
         line-height: 1;
-        letter-spacing: -2px;
+        letter-spacing: 0.02em;
         margin: 0;
 
         span {
@@ -62,7 +62,7 @@
 
     .hero-desc {
         display: flex;
-        max-width: 419px;
+        max-width: 675px;
         margin-top: 60px;
         margin-bottom: 0;
         font-size: 16px;

@@ -75,3 +75,12 @@
 	src: url('../fonts/manrope/manrope-v20-cyrillic_latin-800.woff2')
 		format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
+
+/* climate-crisis-regular - cyrillic_latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Climate Crisis';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/climate/climate-crisis-v15-cyrillic_latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}

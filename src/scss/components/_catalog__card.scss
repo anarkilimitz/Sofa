@@ -29,10 +29,12 @@
         position: absolute;
         bottom: 7%;
         left: 7%;
-        font-weight: 900;
+        font-weight: 800;
         font-size: 1.2vw;
         color: #000;
         text-transform: uppercase;
+        
+        transition: transform 0.4s ease, font-size 0.4s ease;
     }
 
     // для длинной карточки
@@ -55,6 +57,11 @@
     &:hover {
         border-color: #424242;
     }
+}
+
+.catalog-title {
+    @include title;
+    font-size: 14px;
 }
 
 .catalog__card:hover .catalog__colors {
@@ -126,13 +133,6 @@
 .catalog__text {
     position: relative;
     padding-top: 10px; // = высота заголовка
-}
-
-/* название */
-.catalog__card-title {
-    font-weight: 900;
-    font-size: 18px;
-    transition: transform 0.4s ease, font-size 0.4s ease;
 }
 
 .catalog__desc {
