@@ -1,0 +1,52 @@
+[
+  {
+    "id": 1,
+    "slug": "maylo-transformer",
+    "title": "МАЙЛО",
+    "description": "Диван-трансформер",
+    "category": "transformer",
+    "price": 249900,
+    "isWide": true,
+    "image": "/src/assets/img/catalog/blacksofa.jpg"
+  },
+  {
+    "id": 2,
+    "slug": "stronghold-corner",
+    "title": "СТРОНГХОЛД",
+    "description": "Угловой диван",
+    "category": "corner",
+    "price": 125900,
+    "isWide": false,
+    "image": "/src/assets/img/catalog/whitesofa.jpg"
+  },
+  {
+    "id": 3,
+    "slug": "grey-sofa",
+    "title": "GREY SOFA",
+    "description": "Угловой диван",
+    "category": "corner",
+    "price": 139900,
+    "isWide": false,
+    "image": "/src/assets/img/catalog/greysofa.jpg"
+  },
+  {
+    "id": 4,
+    "slug": "maylo-transformer",
+    "title": "МАЙЛО",
+    "description": "Диван-трансформер",
+    "category": "transformer",
+    "price": 249900,
+    "isWide": true,
+    "image": "/src/assets/img/catalog/blacksofa.jpg"
+  },
+  {
+    "id": 5,
+    "slug": "grey-sofagg",
+    "title": "GREY SOFA",
+    "description": "Угловой диван",
+    "category": "corner",
+    "price": 139900,
+    "isWide": false,
+    "image": "/src/assets/img/catalog/greysofa.jpg"
+  }
+]

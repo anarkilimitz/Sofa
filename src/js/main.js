@@ -13,6 +13,10 @@ import { initHeroScale } from './animations/heroScale';
 // import { initStackingCards } from './animations/stackingCards';
 import { initTabs } from './animations/tabs';
 
+// Каталог диванов
+import { render } from './catalog.js';
+import products from '../data/products.json';
+
 // Регистрируем плагин один раз в главной точке входа
 gsap.registerPlugin(ScrollTrigger);
 
@@ -32,6 +36,8 @@ document.addEventListener('DOMContentLoaded', () => {
 	initNavIconLabels();
 	initCarousel();
 	initCardTextAnimation();
-	// 4. Табы
-	initTabs();
+	
+	// 4. Табы и каталог
+	render(products);
+	initTabs(render, products);
 });
