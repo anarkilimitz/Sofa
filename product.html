@@ -57,14 +57,17 @@
 
     <!-- =======================   Секция Product ========================== -->
 
-    <main class="product-page container">
-        <section class="product-info">
-            <div class="product-title">
-                <a href="/catalog.html" class="product__title-back">← TACKANA</a>
-            </div>
-
+    <main class="product__page container">
+        <section class="product__info">
+            <h1 class="product__title">
+                <a href="/catalog.html" class="product__title-back">
+                    <img src="/src/assets/icons/products/linkBack.svg" alt="Назад" class="product__title-icon">
+                    таскана
+                </a>
+            </h1>
+            <!-- Аккордеон -->
             <div class="accordion">
-                <div class="accordion__item accordion__item--active">
+                <div class="accordion__item accordion__item-active">
                     <button class="accordion__header">Описание</button>
                     <div class="accordion__content">
                         <p>Интересное решение диван-трансформер для маленьких пространств, способный уместить на себе до
@@ -73,14 +76,14 @@
                     </div>
                 </div>
 
-                <div class="accordion__item">
+                <div class="accordion__item accordion__item-active">
                     <button class="accordion__header">Материалы</button>
                     <div class="accordion__content">
                         <p>Высококачественный пенополиуретан, усиленный алюминиевый каркас.</p>
                     </div>
                 </div>
 
-                <div class="accordion__item accordion__item--active">
+                <div class="accordion__item accordion__item-active">
                     <button class="accordion__header">Цвета</button>
                     <div class="accordion__content">
                         <div class="color-select" id="colorPicker">
@@ -107,7 +110,7 @@
                     </div>
                 </div>
 
-                <div class="accordion__item accordion__item--active">
+                <div class="accordion__item accordion__item-active">
                     <button class="accordion__header">Параметры</button>
                     <div class="accordion__content">
                         <ul class="params-list">
@@ -126,17 +129,33 @@
 
         <section class="product-gallery">
             <div class="gallery-grid">
-                <div class="gallery-grid__item gallery-grid__item--main">
-                    <img src="path-to-main-image.jpg" alt="Диван основной вид">
+                <div class="gallery-grid__item gallery-grid__item-main">
+                    <img src="/img/product/productMain.jpg" alt="Диван основной вид">
                     <div class="gallery-grid__price-tag">КУПИТЬ 249.000</div>
                 </div>
-                <div class="gallery-grid__item"><img src="thumb1.jpg" alt="вид 1"></div>
-                <div class="gallery-grid__item"><img src="thumb2.jpg" alt="вид 2"></div>
-                <div class="gallery-grid__item gallery-grid__item--wide">
-                    <img src="drawing.jpg" alt="Чертеж">
+                <div class="gallery-grid__item">
+                    <img src="/img/product/productView1.jpg" alt="Вид 1">
                 </div>
-                <div class="gallery-grid__item gallery-grid__item--wide">
-                    <img src="/public/img/product/360view.jpg" alt="Обзор 360">
+                <div class="gallery-grid__item">
+                    <img src="/img/product/productView2.jpg" alt="Вид 2">
+                </div>
+                <div class="gallery-grid__item gallery-grid__item-main">
+                    <img src="/public/img/product/mechanism.jpg" alt="Механизм">
+                </div>
+                <div class="gallery-grid__item gallery-grid__item-wide">
+                    <img src="/public/img/product/productDrawing.jpg" alt="Чертеж">
+                </div>
+                <div class="gallery-grid__item gallery-grid__item-wide">
+                    <img src="/img/product/360view.jpg" alt="Обзор 360">
+                </div>
+                <div class="gallery-grid__item">
+                    <img src="/img/product/productFront.jpg" alt="Вид спереди">
+                </div>
+                <div class="gallery-grid__item">
+                    <img src="/img/product/productBack.jpg" alt="Вид сзади">
+                </div>
+                <div class="gallery-grid__item gallery-grid__item-wide">
+                    <img src="/img/product/productAngle.jpg" alt="Вид под углом">
                 </div>
             </div>
         </section>

@@ -5,7 +5,7 @@ export const initProduct = () => {
 	accordionHeaders.forEach((header) => {
 		header.addEventListener('click', () => {
 			const item = header.parentElement;
-			item.classList.toggle('accordion__item--active');
+			item.classList.toggle('accordion__item-active');
 		});
 	});
 
@@ -17,7 +17,8 @@ export const initProduct = () => {
 
 	// Открытие/закрытие
 	selectedArea.addEventListener('click', () => {
-		dropdown.classList.toggle('color-select__dropdown--open');
+		dropdown.classList.toggle('color-select__dropdown-open');
+		selectedArea.classList.toggle('color-select__selected-open');
 	});
 
 	// Выбор опции
@@ -32,7 +33,8 @@ export const initProduct = () => {
 			).style.backgroundColor = newColor;
 			selectedArea.querySelector('.color-select__name').textContent = newName;
 
-			dropdown.classList.remove('color-select__dropdown--open');
+			dropdown.classList.remove('color-select__dropdown-open');
+			selectedArea.classList.remove('color-select__selected-open');
 
 			console.log(`Selected color: ${newName} (${newColor})`);
 		});
@@ -41,7 +43,8 @@ export const initProduct = () => {
 	// Закрытие при клике вне селекта
 	window.addEventListener('click', (e) => {
 		if (!colorPicker.contains(e.target)) {
-			dropdown.classList.remove('color-select__dropdown--open');
+			dropdown.classList.remove('color-select__dropdown-open');
+			selectedArea.classList.remove('color-select__selected-open');
 		}
 	});
 };
