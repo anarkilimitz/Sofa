@@ -7,7 +7,7 @@
     "category": "transformer",
     "price": 249900,
     "isWide": true,
-    "image": "/src/assets/img/catalog/blacksofa.jpg"
+    "image": "/img/catalog/blacksofa.jpg"
   },
   {
     "id": 2,
@@ -17,7 +17,7 @@
     "category": "corner",
     "price": 125900,
     "isWide": false,
-    "image": "/src/assets/img/catalog/whitesofa.jpg"
+    "image": "/img/catalog/whitesofa.jpg"
   },
   {
     "id": 3,
@@ -27,26 +27,46 @@
     "category": "corner",
     "price": 139900,
     "isWide": false,
-    "image": "/src/assets/img/catalog/greysofa.jpg"
+    "image": "/img/catalog/greysofa.jpg"
   },
   {
     "id": 4,
-    "slug": "maylo-transformer",
-    "title": "МАЙЛО",
-    "description": "Диван-трансформер",
-    "category": "transformer",
-    "price": 249900,
-    "isWide": true,
-    "image": "/src/assets/img/catalog/blacksofa.jpg"
-  },
-  {
-    "id": 5,
-    "slug": "grey-sofagg",
+    "slug": "grey-sofa-ii",
     "title": "GREY SOFA",
     "description": "Угловой диван",
     "category": "corner",
     "price": 139900,
     "isWide": false,
-    "image": "/src/assets/img/catalog/greysofa.jpg"
+    "image": "/img/catalog/greysofa.jpg"
+  },
+  {
+    "id": 5,
+    "slug": "ginger-sofa",
+    "title": "GINGER SOFA",
+    "description": "Диван-трансформер",
+    "category": "transformer",
+    "price": 139900,
+    "isWide": true,
+    "image": "/img/catalog/gingersofa.jpg"
+  },
+    {
+    "id": 6,
+    "slug": "stronghold-corner-ii",
+    "title": "СТРОНГХОЛД-II",
+    "description": "Угловой диван",
+    "category": "corner",
+    "price": 125900,
+    "isWide": false,
+    "image": "/img/catalog/whitesofa.jpg"
+  },
+    {
+    "id": 7,
+    "slug": "maylo-transformer-ii",
+    "title": "МАЙЛО-II",
+    "description": "Диван-трансформер",
+    "category": "transformer",
+    "price": 249900,
+    "isWide": true,
+    "image": "/img/catalog/blacksofa.jpg"
   }
 ]
