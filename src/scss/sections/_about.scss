@@ -73,20 +73,20 @@
 
     // первая
     &:nth-child(1)::after {
-        top: 267px;
-        left: 98px;
+        top: 63%;
+        left: 28%;
     }
 
     // вторая
     &:nth-child(2)::after {
-        top: 220px;
-        left: 150px;
+        top: 52%;
+        left: 41%;
     }
 
     // третья
     &:nth-child(3)::after {
-        top: 200px;
-        left: 167px;
+        top: 51%;
+        left: 43%;
     }
 
     &:hover::after {

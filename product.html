@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Evgeniy" />
+    <meta name="description" content="Мастерская «Первый Мягкий»: изготавливаем дизайнерские диваны из премиальных тканей. Гарантия комфорта, индивидуальные
+  размеры и современный стиль. Узнайте больше!" />
+    <title>Карточка товара</title>
+    <link rel="stylesheet" href="./src/assets/libs/fonts.css" />
+    <link rel="stylesheet" href="./src/scss/style.scss" />
+
+    <script type="module" src="/src/js/main.js"></script>
+</head>
+
+<body>
+
+    <!-- оверлэй -->
+    <div class="menu-overlay" id="menu-overlay"></div>
+    <!-- меню бургера -->
+    <div class="menu-drawer" id="menu-drawer">
+        <button class="close-btn" id="close-menu">
+            <svg fill="none" height="20" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="20">
+                <path d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+        </button>
+        <a class="menu-item" href="/index.html"><span class="menu-dot"></span>Главная</a>
+        <nav class="menu-nav">
+            <a class="menu-link" href="/catalog.html">Каталог</a>
+            <a class="menu-link" href="/product.html">О нас</a>
+            <a class="menu-link" href="#">Контакты</a>
+            <a class="menu-link" href="#">Условия</a>
+        </nav>
+    </div>
+    <!-- шапка -->
+    <header class="header">
+        <div class="nav-left">
+            <!-- Главная с полосками -->
+            <div class="menu-trigger">
+                <div class="burger-icon">
+                    <span></span>
+                    <span></span>
+                </div>
+                <span>Главная</span>
+            </div>
+            <div class="nav-icons">
+                <div class="icon-box" data-label="Корзина"> </div>
+                <div class="icon-box" data-label="Профиль"> </div>
+                <div class="icon-box" data-label="Поиск"> </div>
+            </div>
+        </div>
+        <div class="logo-group">
+            <div class="logo" data-logo="main"></div>
+        </div>
+    </header>
+
+    <!-- =======================   Секция Product ========================== -->
+
+    <main class="product-page container">
+        <section class="product-info">
+            <div class="product-title">
+                <a href="/catalog.html" class="product__title-back">← TACKANA</a>
+            </div>
+
+            <div class="accordion">
+                <div class="accordion__item accordion__item--active">
+                    <button class="accordion__header">Описание</button>
+                    <div class="accordion__content">
+                        <p>Интересное решение диван-трансформер для маленьких пространств, способный уместить на себе до
+                            6
+                            человек днем и до 4 ночью, в качестве спального места.</p>
+                    </div>
+                </div>
+
+                <div class="accordion__item">
+                    <button class="accordion__header">Материалы</button>
+                    <div class="accordion__content">
+                        <p>Высококачественный пенополиуретан, усиленный алюминиевый каркас.</p>
+                    </div>
+                </div>
+
+                <div class="accordion__item accordion__item--active">
+                    <button class="accordion__header">Цвета</button>
+                    <div class="accordion__content">
+                        <div class="color-select" id="colorPicker">
+                            <div class="color-select__selected">
+                                <div class="color-select__swatch" style="background-color: #D2B48C;"></div>
+                                <span class="color-select__name">Мятное спокойствие</span>
+                                <span class="color-select__arrow"></span>
+                            </div>
+                            <div class="color-select__dropdown">
+                                <div class="color-select__option" data-color="#7fb3d5" data-name="Первый мягкий">
+                                    <div class="color-select__swatch" style="background-color: #7fb3d5;"></div>
+                                    <span>Первый мягкий</span>
+                                </div>
+                                <div class="color-select__option" data-color="#95a5a6" data-name="Гранитный камень">
+                                    <div class="color-select__swatch" style="background-color: #95a5a6;"></div>
+                                    <span>Гранитный камень</span>
+                                </div>
+                                <div class="color-select__option" data-color="#cdb599" data-name="Буря в пустыне">
+                                    <div class="color-select__swatch" style="background-color: #cdb599;"></div>
+                                    <span>Буря в пустыне</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion__item accordion__item--active">
+                    <button class="accordion__header">Параметры</button>
+                    <div class="accordion__content">
+                        <ul class="params-list">
+                            <li class="params-list__item"><span>Высота</span> <span>1.20 м</span></li>
+                            <li class="params-list__item"><span>Длина</span> <span>2.14 м</span></li>
+                            <li class="params-list__item"><span>Ширина</span> <span>0.84 м</span></li>
+                            <li class="params-list__item"><span>Вместимость</span> <span>6 человек</span></li>
+                            <li class="params-list__item"><span>Спальных мест</span> <span>2 места</span></li>
+                            <li class="params-list__item"><span>Материал</span> <span>пенополиуретан</span></li>
+                            <li class="params-list__item"><span>Конструкция</span> <span>алюминиевый</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="product-gallery">
+            <div class="gallery-grid">
+                <div class="gallery-grid__item gallery-grid__item--main">
+                    <img src="path-to-main-image.jpg" alt="Диван основной вид">
+                    <div class="gallery-grid__price-tag">КУПИТЬ 249.000</div>
+                </div>
+                <div class="gallery-grid__item"><img src="thumb1.jpg" alt="вид 1"></div>
+                <div class="gallery-grid__item"><img src="thumb2.jpg" alt="вид 2"></div>
+                <div class="gallery-grid__item gallery-grid__item--wide">
+                    <img src="drawing.jpg" alt="Чертеж">
+                </div>
+                <div class="gallery-grid__item gallery-grid__item--wide">
+                    <img src="/public/img/product/360view.jpg" alt="Обзор 360">
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+</body>
