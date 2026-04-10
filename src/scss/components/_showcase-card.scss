@@ -1,21 +1,21 @@
 @use "../utils/variables" as *;
 @use "../utils/mixins" as *;
 
-.product {
+.showcase {
     margin: 0 72px 100px auto;
     width: 368px;
     height: 142px;
     z-index: 2;
 }
 
-.product-card-link {
+.showcase-card-link {
     display: block;
     text-decoration: none;
     color: inherit;
     cursor: pointer;
 }
 
-.product-card {
+.showcase-card {
     display: flex;
     justify-content: flex-end;
     height: 142px;
@@ -41,7 +41,7 @@
     }
 
     &:hover {
-        .product-info h3 {
+        .showcase-info h3 {
             transition: transform 0.4s ease;
             transform: translateY(-10px);
         }
@@ -71,7 +71,7 @@
         }
     }
 
-    .product-img-box {
+    .showcase-img-box {
         width: 130px;
         height: 120px;
         margin: 10px 0 10px 0;
@@ -99,14 +99,14 @@
     }
 
     &:hover {
-        .product-img-box {
+        .showcase-img-box {
             img {
                 transform: translateX(6px) scale(1.1);
             }
         }
     }
 
-    .product-info {
+    .showcase-info {
         background: var(--card-dark);
         color: white;
         width: 180px;

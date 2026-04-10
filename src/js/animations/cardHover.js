@@ -1,7 +1,7 @@
 import gsap from 'gsap';
 
 export const initCardHover = () => {
-	const allCards = document.querySelectorAll('.product-card, .about-card');
+	const allCards = document.querySelectorAll('.showcase-card, .about-card');
 
 	allCards.forEach((card) => {
 
