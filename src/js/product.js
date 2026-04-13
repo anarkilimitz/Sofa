@@ -27,16 +27,14 @@ export const initProduct = () => {
 			const newColor = option.dataset.color;
 			const newName = option.dataset.name;
 
-			// Обновляем выбранное значение
-			selectedArea.querySelector(
-				'.color-select__swatch'
-			).style.backgroundColor = newColor;
-			selectedArea.querySelector('.color-select__name').textContent = newName;
+			// фон всей плашки
+			selectedArea.style.setProperty('--selected-color', newColor);
 
+			// текст
+			selectedArea.querySelector('.color-select__name').textContent = newName;
+			
 			dropdown.classList.remove('color-select__dropdown-open');
 			selectedArea.classList.remove('color-select__selected-open');
-
-			console.log(`Selected color: ${newName} (${newColor})`);
 		});
 	});
 
