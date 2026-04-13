@@ -24,15 +24,24 @@ export const initProduct = () => {
 	// Выбор опции
 	options.forEach((option) => {
 		option.addEventListener('click', () => {
+			const nameEl = selectedArea.querySelector('.color-select__name');
 			const newColor = option.dataset.color;
 			const newName = option.dataset.name;
+
+			// анимация текста
+			nameEl.style.opacity = '0';
+			nameEl.style.transform = 'translateX(15px)';
+
+			setTimeout(() => {
+				nameEl.textContent = newName;
+
+				nameEl.style.opacity = '1';
+				nameEl.style.transform = 'translateX(0)';
+			}, 150);
 
 			// фон всей плашки
 			selectedArea.style.setProperty('--selected-color', newColor);
 
-			// текст
-			selectedArea.querySelector('.color-select__name').textContent = newName;
-			
 			dropdown.classList.remove('color-select__dropdown-open');
 			selectedArea.classList.remove('color-select__selected-open');
 		});
