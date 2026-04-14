@@ -25,8 +25,8 @@ export const initProduct = () => {
 	options.forEach((option) => {
 		option.addEventListener('click', () => {
 			const nameEl = selectedArea.querySelector('.color-select__name');
-			const newColor = option.dataset.color;
 			const newName = option.dataset.name;
+			const newIcon = option.dataset.icon;
 
 			// анимация текста
 			nameEl.style.opacity = '0';
@@ -34,16 +34,18 @@ export const initProduct = () => {
 
 			setTimeout(() => {
 				nameEl.textContent = newName;
-
 				nameEl.style.opacity = '1';
 				nameEl.style.transform = 'translateX(0)';
 			}, 150);
 
-			// фон всей плашки
-			selectedArea.style.setProperty('--selected-color', newColor);
+			// Меняем только фон (текстуру)
+			selectedArea.style.setProperty('--selected-texture', `url(${newIcon})`);
 
-			dropdown.classList.remove('color-select__dropdown-open');
-			selectedArea.classList.remove('color-select__selected-open');
+			// Небольшая задержка перед закрытием, чтобы анимация высоты началась после смены фона
+			setTimeout(() => {
+				dropdown.classList.remove('color-select__dropdown-open');
+				selectedArea.classList.remove('color-select__selected-open');
+			}, 50);
 		});
 	});
 

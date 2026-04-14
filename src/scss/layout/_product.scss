@@ -97,19 +97,24 @@
 .color-select {
     position: relative;
     user-select: none;
-
+    will-change: height;
 
     &__selected {
         display: flex;
         height: 120px;
         align-items: center;
         padding: 15px;
-        background: var(--selected-color, #D2B48C);
+        gap: 12px;
+
+        background: var(--selected-texture, url('/icons/product/textile/textile-brown.svg'));
+        background-size: cover;
+        background-position: center;
+
         border-radius: 16px;
         cursor: pointer;
-        gap: 12px;
         position: relative;
-        transition: height 0.3s ease-in-out;
+        overflow: hidden;
+        transition: height 0.35s ease-in-out;
 
         // квадратик
         &::after {
@@ -122,6 +127,7 @@
             transition:
                 height 0.3s ease-in-out,
                 background-color 0.3s ease-in-out;
+            will-change: height, background-color;
         }
 
         // стрелка
@@ -146,6 +152,7 @@
                 color 0.3s ease-in-out,
                 transform 0.3s ease-in-out;
             z-index: 1;
+            will-change: transform, color;
         }
 
         // вращение стрелки
@@ -162,13 +169,6 @@
                 color: #ffffff;
             }
         }
-    }
-
-    &__swatch {
-        width: 200px;
-        height: 60px;
-        border-radius: 16px;
-        flex-shrink: 0;
     }
 
     &__dropdown {
