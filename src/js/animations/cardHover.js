@@ -4,7 +4,6 @@ export const initCardHover = () => {
 	const allCards = document.querySelectorAll('.showcase-card, .about-card');
 
 	allCards.forEach((card) => {
-
 		card.addEventListener('mousemove', (e) => {
 			const { clientX, clientY } = e;
 			const { left, top, width, height } = card.getBoundingClientRect();
