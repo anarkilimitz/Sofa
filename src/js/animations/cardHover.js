@@ -1,7 +1,9 @@
 import gsap from 'gsap';
 
 export const initCardHover = () => {
-	const allCards = document.querySelectorAll('.showcase-card, .about-card');
+	const allCards = document.querySelectorAll(
+		'.showcase-card, .about-card, .link-catalog, .order-badge'
+	);
 
 	allCards.forEach((card) => {
 		card.addEventListener('mousemove', (e) => {

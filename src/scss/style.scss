@@ -17,8 +17,10 @@
 @use 'layout/product';
 @use 'layout/footer';
 
+// UI
 @use 'base/animation';
 @use 'ui/ui';
+@use 'ui/linkCatalog';
 
 // Components
 @use "components/showcase-card";

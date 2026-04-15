@@ -26,6 +26,7 @@
 }
 
 .materials-carousel {
+    position: relative;
     margin-left: 45px;
     margin-right: calc(-1 * clamp(5vw, -188.13px + 13.41vw, 150px)); // отменяю правый отступ в соответствии с формулой общего контейнера!!!
 }

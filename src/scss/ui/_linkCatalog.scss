@@ -1,0 +1,67 @@
+@use "../utils/variables" as *;
+@use "../utils/mixins" as *;
+
+.link-catalog {
+    position: absolute;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 486px;
+    height: 91px;
+    right: 180px;
+    bottom: 138px;
+    border-radius: 32px;
+    cursor: pointer;
+    z-index: 2;
+
+    background-color: rgba(250, 250, 250, 0.2);
+    box-shadow:
+        0 16px 32px rgba(0, 0, 0, 0.08),
+        0 6px 12px rgba(0, 0, 0, 0.04);
+
+    transition: background 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    transform-style: preserve-3d; // для гсап анимации
+    will-change: transform; // для гсап анимации
+
+    &:hover {
+        background: rgba(255, 255, 255, 0.43);
+        box-shadow:
+            0 28px 56px rgba(0, 0, 0, 0.12),
+            0 12px 24px rgba(0, 0, 0, 0.06);
+    }
+}
+
+.link-catalog__link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+}
+
+.link-catalog__bg {
+    margin-left: 8px;
+    padding-left: 38px;
+    width: 342px;
+    height: 75px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    overflow: hidden;
+    z-index: 3;
+
+    border-radius: 32px;
+    background: rgba(13, 13, 13, 0.7);
+}
+
+.link-catalog__info h3 {
+    letter-spacing: 0.02em;
+    line-height: 1;
+    font-weight: 400;
+    font-size: 22px;
+    color: #fff;
+    transition: transform 0.4s ease-in-out; // ✅ всегда здесь
+}
+
+.link-catalog__bg:hover .link-catalog__info h3 {
+    transform: translateX(-10px);
+}
