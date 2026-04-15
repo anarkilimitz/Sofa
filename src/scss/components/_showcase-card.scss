@@ -6,6 +6,16 @@
     width: 368px;
     height: 142px;
     z-index: 2;
+
+    // подложка
+    &__substrate {
+        position: absolute;
+        left: 120px;
+        width: 110px;
+        height: 120px;
+        background-color: var(--card-dark);
+        z-index: 1;
+    }
 }
 
 .showcase-card-link {
@@ -79,11 +89,12 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        transform: translateX(12px);
+        transform: translateX(-9px);
         border: 5px solid var(--card-dark);
         border-radius: 20px;
         background: rgb(255, 255, 255);
-        z-index: 0;
+        overflow: hidden;
+        z-index: 1;
         pointer-events: none; // для гсап анимации
 
         img {
@@ -116,6 +127,7 @@
         justify-content: space-between;
         transform: translateX(-10px);
         border-radius: 0 20px 20px 0;
+        z-index: 2;
 
         h3 {
             display: block;
