@@ -7,7 +7,27 @@
     "category": "transformer",
     "price": 249900,
     "isWide": true,
-    "image": "/img/catalog/blacksofa.jpg"
+    "image": "/img/catalog/blacksofa.jpg",
+    "fullDescription": "Интересное решение диван-трансформер для маленьких пространств, способный уместить на себе до 6 человек днем и до 4 ночью.",
+    "materials": "Высококачественный пенополиуретан, усиленный алюминиевый каркас.",
+    "params": [
+      {"name": "Высота", "value": "1.20 м"},
+      {"name": "Длина", "value": "2.14 м"},
+      {"name": "Ширина", "value": "0.84 м"},
+      {"name": "Вместимость", "value": "6 человек"},
+      {"name": "Спальных мест", "value": "2 места"}
+    ],
+    "gallery": [
+      {"src": "/img/product/productMain.jpg", "isWide": true},
+      {"src": "/img/product/productView1.jpg", "isWide": false},
+      {"src": "/img/product/productView2.jpg", "isWide": false},
+      {"src": "/public/img/product/mechanism.jpg", "isWide": true},
+      {"src": "/public/img/product/productDrawing.jpg", "isWide": true},
+      {"src": "/img/product/360view.jpg", "isWide": true},
+      {"src": "/img/product/productFront.jpg", "isWide": false},
+      {"src": "/img/product/productBack.jpg", "isWide": false},
+      {"src": "/img/product/productAngle.jpg", "isWide": true}
+    ]
   },
   {
     "id": 2,
@@ -17,7 +37,21 @@
     "category": "corner",
     "price": 125900,
     "isWide": false,
-    "image": "/img/catalog/whitesofa.jpg"
+    "image": "/img/catalog/whitesofa.jpg",
+    "fullDescription": "Классический угловой диван повышенной комфортности для уютной гостиной.",
+    "materials": "Массив сосны, износостойкая рогожка.",
+    "params": [
+      {"name": "Высота", "value": "0.95 м"},
+      {"name": "Длина", "value": "2.80 м"},
+      {"name": "Ширина", "value": "1.60 м"},
+      {"name": "Вместимость", "value": "4 человек"},
+      {"name": "Спальных мест", "value": "2 места"}
+    ],
+    "gallery": [
+      {"src": "/img/example/sofa1.jpg", "isWide": true},
+      {"src": "/img/example/sofa2.jpg", "isWide": false},
+      {"src": "/img/example/sofa3.jpg", "isWide": false}
+    ]
   },
   {
     "id": 3,
@@ -27,7 +61,18 @@
     "category": "corner",
     "price": 139900,
     "isWide": false,
-    "image": "/img/catalog/greysofa.jpg"
+    "image": "/img/catalog/greysofa.jpg",
+    "fullDescription": "Лаконичный дизайн, который впишется в любой современный интерьер.",
+    "materials": "Велюр премиум класса, березовая фанера.",
+    "params": [
+      {"name": "Высота", "value": "0.90 м"},
+      {"name": "Длина", "value": "2.50 м"},
+      {"name": "Ширина", "value": "1.50 м"}
+    ],
+    "gallery": [
+      {"src": "/img/product/productMain.jpg", "isWide": true},
+      {"src": "/img/product/productView1.jpg", "isWide": false}
+    ]
   },
   {
     "id": 4,
@@ -37,7 +82,18 @@
     "category": "corner",
     "price": 139900,
     "isWide": false,
-    "image": "/img/catalog/greysofa.jpg"
+    "image": "/img/catalog/greysofa.jpg",
+    "fullDescription": "Обновленная версия популярной модели с улучшенным наполнителем.",
+    "materials": "Велюр, независимый пружинный блок.",
+    "params": [
+      {"name": "Высота", "value": "0.90 м"},
+      {"name": "Длина", "value": "2.50 м"},
+      {"name": "Ширина", "value": "1.50 м"}
+    ],
+    "gallery": [
+      {"src": "/img/product/productMain.jpg", "isWide": true},
+      {"src": "/img/product/productView1.jpg", "isWide": false}
+    ]
   },
   {
     "id": 5,
@@ -47,9 +103,21 @@
     "category": "transformer",
     "price": 139900,
     "isWide": true,
-    "image": "/img/catalog/gingersofa.jpg"
+    "image": "/img/catalog/gingersofa.jpg",
+    "fullDescription": "Яркий акцент в интерьере и максимальное удобство при трансформации.",
+    "materials": "Ткань букле, металлическое основание.",
+    "params": [
+      {"name": "Высота", "value": "0.85 м"},
+      {"name": "Длина", "value": "2.20 м"},
+      {"name": "Ширина", "value": "1.00 м"}
+    ],
+    "gallery": [
+      {"src": "/img/product/productMain.jpg", "isWide": true},
+      {"src": "/img/product/productView1.jpg", "isWide": false},
+      {"src": "/img/product/productView2.jpg", "isWide": false}
+    ]
   },
-    {
+  {
     "id": 6,
     "slug": "stronghold-corner-ii",
     "title": "СТРОНГХОЛД-II",
@@ -57,9 +125,20 @@
     "category": "corner",
     "price": 125900,
     "isWide": false,
-    "image": "/img/catalog/whitesofa.jpg"
+    "image": "/img/catalog/whitesofa.jpg",
+    "fullDescription": "Улучшенная эргономика для тех, кто ценит комфорт превыше всего.",
+    "materials": "Эко-кожа, усиленный каркас.",
+    "params": [
+      {"name": "Высота", "value": "0.95 м"},
+      {"name": "Длина", "value": "2.85 м"},
+      {"name": "Ширина", "value": "1.60 м"}
+    ],
+    "gallery": [
+      {"src": "/img/product/productMain.jpg", "isWide": true},
+      {"src": "/img/product/productView1.jpg", "isWide": false}
+    ]
   },
-    {
+  {
     "id": 7,
     "slug": "maylo-transformer-ii",
     "title": "МАЙЛО-II",
@@ -67,6 +146,18 @@
     "category": "transformer",
     "price": 249900,
     "isWide": true,
-    "image": "/img/catalog/blacksofa.jpg"
+    "image": "/img/catalog/blacksofa.jpg",
+    "fullDescription": "Премиальная версия классической модели с эксклюзивной обивкой.",
+    "materials": "Бархат, алюминиевый каркас.",
+    "params": [
+      {"name": "Высота", "value": "1.20 м"},
+      {"name": "Длина", "value": "2.14 м"},
+      {"name": "Ширина", "value": "0.84 м"}
+    ],
+    "gallery": [
+      {"src": "/img/product/productMain.jpg", "isWide": true},
+      {"src": "/img/product/productView1.jpg", "isWide": false},
+      {"src": "/img/product/productView2.jpg", "isWide": false}
+    ]
   }
 ]
