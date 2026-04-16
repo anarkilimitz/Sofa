@@ -10,7 +10,6 @@ import { initMenu } from './animations/menu';
 import { initCarousel } from './animations/carousel';
 import { initCardTextAnimation } from './animations/cardText';
 import { initHeroScale } from './animations/heroScale';
-// import { initStackingCards } from './animations/stackingCards';
 import { initTabs } from './animations/tabs';
 
 // Каталог диванов
