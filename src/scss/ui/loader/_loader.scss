@@ -1,0 +1,25 @@
+/* HTML: <div class="loader"></div> */
+.loader-wrapper {
+    display: grid;
+    grid-column: span 3;
+    justify-content: flex-start;
+    align-items: flex-start;
+    height: 50vh;
+}
+
+.loader {
+    width: fit-content;
+    font-size: 25px;
+    font-family: system-ui, sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #0000;
+    -webkit-text-stroke: 1px #000;
+    --g: conic-gradient(#000 0 0) no-repeat text;
+    background: var(--g) 0, var(--g) 100%, var(--g) 0 0, var(--g) 0 100%;
+    animation: l5 2s linear infinite;
+}
+
+.loader:before {
+    content: "Загружаем каталог...";
+}

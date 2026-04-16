@@ -1,10 +1,28 @@
-export function render(productsList) {
+import { showLoader } from './ui/loader.js';
+
+export async function render(productsList, { withLoader = false } = {}) {
 	const container = document.querySelector('#catalog');
 	const template = document.querySelector('#card-template');
 
-	console.log(productsList);
-
 	if (!container || !template) return;
+
+	// loader только при первом запуске
+	if (withLoader) {
+		showLoader(container);
+
+		const minDelay = new Promise((r) => setTimeout(r, 700));
+
+		const imagesPromises = productsList.map((product) => {
+			return new Promise((resolve) => {
+				const img = new Image();
+				img.src = product.image;
+				img.onload = resolve;
+				img.onerror = resolve;
+			});
+		});
+
+		await Promise.all([Promise.all(imagesPromises), minDelay]);
+	}
 
 	container.innerHTML = '';
 

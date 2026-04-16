@@ -24,7 +24,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 let lenis;
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
 	// 1. Инициализация плавного скролла (Lenis)
 	lenis = initSmoothScroll();
 
@@ -39,8 +39,10 @@ document.addEventListener('DOMContentLoaded', () => {
 	initCarousel();
 	initCardTextAnimation();
 
-	// 4. Табы и каталог
-	render(products);
+	// 4. Табы и каталог c loader - контроль первого рендера
+	let isFirstRender = true;
+	await render(products, { withLoader: true });
+	isFirstRender = false;
 	initTabs(render, products);
 
 	// Карточка товаров

@@ -18,7 +18,8 @@
 @use 'layout/footer';
 
 // UI
-@use 'base/animation';
+@use 'ui/loader/animated';
+@use 'ui/loader/loader';
 @use 'ui/ui';
 @use 'ui/linkCatalog';
 
