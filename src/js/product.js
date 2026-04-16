@@ -1,59 +1,111 @@
-export const initProduct = () => {
-	// 1. Логика Аккордеона
-	const accordionHeaders = document.querySelectorAll('.accordion__header');
+import products from '../data/products.json';
 
+export const initProduct = () => {
+	const galleryContainer = document.getElementById('prod-gallery');
+
+	// Если мы на странице товара — грузим данные
+	if (galleryContainer) {
+		const urlParams = new URLSearchParams(window.location.search);
+		const productSlug = urlParams.get('slug');
+
+		if (productSlug) {
+			const product = products.find((p) => p.slug === productSlug);
+			if (product) {
+				renderProductData(product);
+			}
+		}
+	}
+
+	// --- ИНТЕРАКТИВ ---
+
+	// 1. Аккордеон
+	const accordionHeaders = document.querySelectorAll('.accordion__header');
 	accordionHeaders.forEach((header) => {
-		header.addEventListener('click', () => {
-			const item = header.parentElement;
-			item.classList.toggle('accordion__item-active');
-		});
+		header.onclick = () => {
+			// Используем упрощенный клик
+			header.parentElement.classList.toggle('accordion__item-active');
+		};
 	});
 
 	// 2. Логика выбора цвета
 	const colorPicker = document.getElementById('colorPicker');
-	const selectedArea = colorPicker.querySelector('.color-select__selected');
-	const dropdown = colorPicker.querySelector('.color-select__dropdown');
-	const options = colorPicker.querySelectorAll('.color-select__option');
+	if (colorPicker) {
+		const selectedArea = colorPicker.querySelector('.color-select__selected');
+		const dropdown = colorPicker.querySelector('.color-select__dropdown');
+		const options = colorPicker.querySelectorAll('.color-select__option');
 
-	// Открытие/закрытие
-	selectedArea.addEventListener('click', () => {
-		dropdown.classList.toggle('color-select__dropdown-open');
-		selectedArea.classList.toggle('color-select__selected-open');
-	});
+		selectedArea.addEventListener('click', (e) => {
+			e.stopPropagation();
+			dropdown.classList.toggle('color-select__dropdown-open');
+			selectedArea.classList.toggle('color-select__selected-open');
+		});
 
-	// Выбор опции
-	options.forEach((option) => {
-		option.addEventListener('click', () => {
-			const nameEl = selectedArea.querySelector('.color-select__name');
-			const newName = option.dataset.name;
-			const newIcon = option.dataset.icon;
+		options.forEach((option) => {
+			option.addEventListener('click', () => {
+				const nameEl = selectedArea.querySelector('.color-select__name');
+				const newName = option.dataset.name;
+				const newIcon = option.dataset.icon;
 
-			// анимация текста
-			nameEl.style.opacity = '0';
-			nameEl.style.transform = 'translateX(15px)';
+				nameEl.style.opacity = '0';
+				setTimeout(() => {
+					nameEl.textContent = newName;
+					nameEl.style.opacity = '1';
+				}, 150);
 
-			setTimeout(() => {
-				nameEl.textContent = newName;
-				nameEl.style.opacity = '1';
-				nameEl.style.transform = 'translateX(0)';
-			}, 150);
-
-			// Меняем только фон (текстуру)
-			selectedArea.style.setProperty('--selected-texture', `url(${newIcon})`);
-
-			// Небольшая задержка перед закрытием, чтобы анимация высоты началась после смены фона
-			setTimeout(() => {
+				selectedArea.style.setProperty('--selected-texture', `url(${newIcon})`);
 				dropdown.classList.remove('color-select__dropdown-open');
 				selectedArea.classList.remove('color-select__selected-open');
-			}, 50);
+			});
 		});
-	});
-
-	// Закрытие при клике вне селекта
-	window.addEventListener('click', (e) => {
-		if (!colorPicker.contains(e.target)) {
-			dropdown.classList.remove('color-select__dropdown-open');
-			selectedArea.classList.remove('color-select__selected-open');
-		}
-	});
+	}
 };
+
+function renderProductData(product) {
+	// Название (Безопасная вставка)
+	const titleLink = document.getElementById('prod-title');
+	if (titleLink) {
+		// Очищаем всё, кроме иконки, и добавляем имя
+		const icon = titleLink.querySelector('img');
+		titleLink.innerHTML = '';
+		titleLink.appendChild(icon);
+		titleLink.append(` ${product.title}`);
+	}
+
+	// Описание, материалы, цена
+	const setContent = (id, content) => {
+		const el = document.getElementById(id);
+		if (el) el.textContent = content;
+	};
+
+	setContent('prod-description', product.fullDescription);
+	setContent('prod-materials', product.materials);
+	setContent('prod-price', `${product.price.toLocaleString()}`);
+
+	const badgeImg = document.getElementById('prod-badge-img');
+	if (badgeImg) badgeImg.src = product.image;
+
+	// Параметры
+	const paramsList = document.getElementById('prod-params');
+	if (paramsList && product.params) {
+		paramsList.innerHTML = product.params
+			.map(
+				(p) => `
+            <li class="params-list__item"><span>${p.name}</span> <span>${p.value}</span></li>
+        `
+			)
+			.join('');
+	}
+
+	// Галерея
+	const gallery = document.getElementById('prod-gallery');
+	if (gallery && product.gallery) {
+		gallery.innerHTML = product.gallery
+			.map((img, index) => {
+				let className = 'gallery-grid__item';
+				if (img.isWide) className += ' gallery-grid__item-wide';
+				if (index === 0) className += ' gallery-grid__item-main';
+				return `<div class="${className}"><img src="${img.src}" alt="${product.title}"></div>`;
+			})
+			.join('');
+	}
+}
