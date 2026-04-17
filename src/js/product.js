@@ -1,5 +1,4 @@
 import products from '../data/products.json';
-import { initNotFoundPage } from './pages/notFound.js';
 
 export const initProduct = () => {
 	const galleryContainer = document.getElementById('prod-gallery');
