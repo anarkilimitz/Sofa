@@ -61,17 +61,16 @@ export const initProduct = () => {
 };
 
 function renderProductData(product) {
-	// Название (Безопасная вставка)
+	// Название
 	const titleLink = document.getElementById('prod-title');
 	if (titleLink) {
-		// Очищаем всё, кроме иконки, и добавляем имя
 		const icon = titleLink.querySelector('img');
 		titleLink.innerHTML = '';
 		titleLink.appendChild(icon);
 		titleLink.append(` ${product.title}`);
 	}
 
-	// Описание, материалы, цена
+	// Описание и материалы
 	const setContent = (id, content) => {
 		const el = document.getElementById(id);
 		if (el) el.textContent = content;
@@ -79,10 +78,6 @@ function renderProductData(product) {
 
 	setContent('prod-description', product.fullDescription);
 	setContent('prod-materials', product.materials);
-	setContent('prod-price', `${product.price.toLocaleString()}`);
-
-	const badgeImg = document.getElementById('prod-badge-img');
-	if (badgeImg) badgeImg.src = product.image;
 
 	// Параметры
 	const paramsList = document.getElementById('prod-params');
@@ -90,13 +85,16 @@ function renderProductData(product) {
 		paramsList.innerHTML = product.params
 			.map(
 				(p) => `
-            <li class="params-list__item"><span>${p.name}</span> <span>${p.value}</span></li>
-        `
+                <li class="params-list__item">
+                    <span>${p.name}</span> 
+                    <span>${p.value}</span>
+                </li>
+            `
 			)
 			.join('');
 	}
 
-	// Галерея
+	// ====================== ГАЛЕРЕЯ ======================
 	const gallery = document.getElementById('prod-gallery');
 	if (gallery && product.gallery) {
 		gallery.innerHTML = product.gallery
@@ -104,8 +102,48 @@ function renderProductData(product) {
 				let className = 'gallery-grid__item';
 				if (img.isWide) className += ' gallery-grid__item-wide';
 				if (index === 0) className += ' gallery-grid__item-main';
-				return `<div class="${className}"><img src="${img.src}" alt="${product.title}"></div>`;
+
+				const isFirst = index === 0;
+
+				return `
+                    <div class="${className}">
+                        <img src="${img.src}" alt="${product.title}">
+                        ${
+													isFirst
+														? `
+                        <section class="order-badge">
+                            <a class="order-badge__link" href="#">
+                                <div class="order-badge__card">
+                                    <div class="order-badge__substrate"></div>
+                                    <div class="order-badge__img-box">
+                                        <img id="prod-badge-img" alt="${product.title}" src="${product.image}">
+                                    </div>
+                                    <div class="order-badge__info">
+                                        <div>
+                                            <h3>Купить</h3>
+                                        </div>
+                                        <div class="order-badge__label" id="prod-price"></div>
+                                    </div>
+                                </div>
+                            </a>
+                        </section>`
+														: ''
+												}
+                    </div>
+                `;
 			})
 			.join('');
+	}
+
+	// Устанавливаем цену и картинку бейджа ТОЛЬКО ПОСЛЕ создания галереи!
+
+	const priceEl = document.getElementById('prod-price');
+	if (priceEl) {
+		priceEl.textContent = `${product.price.toLocaleString()}`;
+	}
+
+	const badgeImg = document.getElementById('prod-badge-img');
+	if (badgeImg) {
+		badgeImg.src = product.image;
 	}
 }

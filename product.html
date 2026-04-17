@@ -12,8 +12,6 @@
     <link rel="stylesheet" href="./src/scss/style.scss" />
     <!-- Основной -->
     <script type="module" src="/src/js/main.js"></script>
-    <!-- Подгрузка описания товара -->
-    <!-- <script type="module" src="/src/js/product.js"></script> -->
 </head>
 
 <body>
@@ -65,8 +63,7 @@
         <section class="product__info">
             <h1 class="product__title">
                 <a href="/catalog.html" class="product__title-back" id="prod-title">
-                    <img src="/src/assets/icons/products/linkBack.svg" alt="Назад" class="product__title-icon"
-                        >
+                    <img src="/src/assets/icons/products/linkBack.svg" alt="Назад" class="product__title-icon">
                     тоскана
                 </a>
             </h1>
@@ -76,9 +73,6 @@
                     <button class="accordion__header">Описание</button>
                     <div class="accordion__content">
                         <p id="prod-description"></p>
-                        <!-- <p>Интересное решение диван-трансформер для маленьких пространств, способный уместить на себе до
-                            6
-                            человек днем и до 4 ночью, в качестве спального места.</p> -->
                     </div>
                 </div>
 
@@ -86,7 +80,6 @@
                     <button class="accordion__header">Материалы</button>
                     <div class="accordion__content">
                         <p id="prod-materials"></p>
-                        <!-- <p>Высококачественный пенополиуретан, усиленный алюминиевый каркас.</p> -->
                     </div>
                 </div>
 
@@ -130,112 +123,34 @@
                 <div class="accordion__item accordion__item-active">
                     <button class="accordion__header">Параметры</button>
                     <div class="accordion__content">
-                        <ul class="params-list" id="prod-params">
-                        </ul>
-                        <!-- <ul class="params-list">
-                            <li class="params-list__item"><span>Высота</span> <span>1.20 м</span></li>
-                            <li class="params-list__item"><span>Длина</span> <span>2.14 м</span></li>
-                            <li class="params-list__item"><span>Ширина</span> <span>0.84 м</span></li>
-                            <li class="params-list__item"><span>Вместимость</span> <span>6 человек</span></li>
-                            <li class="params-list__item"><span>Спальных мест</span> <span>2 места</span></li>
-                            <li class="params-list__item"><span>Материал</span> <span>пенополиуретан</span></li>
-                            <li class="params-list__item"><span>Конструкция</span> <span>алюминиевый</span></li>
-                        </ul> -->
+                        <ul class="params-list" id="prod-params"> </ul>
                     </div>
                 </div>
             </div>
         </section>
+        <!-- Галерея -->
+        <section class="product-gallery">
+            <div class="gallery-grid" id="prod-gallery"></div>
 
-
-<section class="product-gallery">
-    <div class="gallery-grid" id="prod-gallery"></div>
-
-    <section class="order-badge">
-        <a class="order-badge__link" href="#">
-            <div class="order-badge__card">
-                <div class="order-badge__substrate"></div>
-                <div class="order-badge__img-box">
-                    <img id="prod-badge-img" alt="Sofa" src="">
-                </div>
-                <div class="order-badge__info">
-                    <div>
-                        <h3>Купить</h3>
+            <!-- <section class="order-badge">
+                <a class="order-badge__link" href="#">
+                    <div class="order-badge__card">
+                        <div class="order-badge__substrate"></div>
+                        <div class="order-badge__img-box">
+                            <img id="prod-badge-img" alt="Sofa" src="">
+                        </div>
+                        <div class="order-badge__info">
+                            <div>
+                                <h3>Купить</h3>
+                            </div>
+                            <div class="order-badge__label" id="prod-price"></div>
+                        </div>
                     </div>
-                    <div class="order-badge__label" id="prod-price"></div>
-                </div>
-            </div>
-        </a>
-    </section>
-</section>
-        <!-- <section class="product-gallery">
-            <div class="gallery-grid" id="prod-gallery">
-                <div class="gallery-grid__item gallery-grid__item-main">
-                    <img src="/img/product/productMain.jpg" alt="Диван основной вид"> -->
-                    <!-- КУПИТЬ -->
-                    <!-- <section class="order-badge">
-                        <a class="order-badge__link" href="#">
-                            <div class="order-badge__card">
-                                <div class="order-badge__substrate"></div>
-                                <div class="order-badge__img-box">
-                                    <img id="prod-badge-img" alt="Sofa" src="/img/product/order-badge.jpg">
-                                </div>
-                                <div class="order-badge__info">
-                                    <div>
-                                        <h3>Купить</h3>
-                                    </div>
-                                    <div class="order-badge__label" id="prod-price">249.000</div>
-                                </div>
-                            </div>
-                        </a>
-                    </section> -->
-                    <!-- <section class="order-badge">
-                        <a class="order-badge__link" href="#">
-                            <div class="order-badge__card">
-                                <div class="order-badge__substrate"></div>
-                                <div class="order-badge__img-box">
-                                    <img alt="Sofa" src="/img/product/order-badge.jpg">
-                                </div>
-                                <div class="order-badge__info">
-                                    <div>
-                                        <h3>Купить</h3>
-                                    </div>
-                                    <div class="order-badge__label">
-                                        249.000
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </section> -->
-                <!-- </div> -->
+                </a>
+            </section> -->
+        </section>
 
-                <!-- <div class="gallery-grid__item">
-                    <img src="/img/product/productView1.jpg" alt="Вид 1">
-                </div>
-                <div class="gallery-grid__item">
-                    <img src="/img/product/productView2.jpg" alt="Вид 2">
-                </div>
-                <div class="gallery-grid__item gallery-grid__item-main">
-                    <img src="/public/img/product/mechanism.jpg" alt="Механизм">
-                </div>
-                <div class="gallery-grid__item gallery-grid__item-wide">
-                    <img src="/public/img/product/productDrawing.jpg" alt="Чертеж">
-                </div>
-                <div class="gallery-grid__item gallery-grid__item-wide">
-                    <img src="/img/product/360view.jpg" alt="Обзор 360">
-                </div>
-                <div class="gallery-grid__item">
-                    <img src="/img/product/productFront.jpg" alt="Вид спереди">
-                </div>
-                <div class="gallery-grid__item">
-                    <img src="/img/product/productBack.jpg" alt="Вид сзади">
-                </div>
-                <div class="gallery-grid__item gallery-grid__item-wide">
-                    <img src="/img/product/productAngle.jpg" alt="Вид под углом">
-                </div> -->
-            <!-- </div>
-        </section> -->
 
     </main>
-
 
 </body>

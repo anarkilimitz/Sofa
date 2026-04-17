@@ -302,7 +302,7 @@
 .product-gallery {
     flex: 1;
     position: relative;
-    
+
 }
 
 .gallery-grid {
@@ -324,6 +324,7 @@
             position: relative;
             border-radius: 32px;
             grid-column: span 2;
+            overflow: hidden;
         }
 
         &-wide {
@@ -337,12 +338,22 @@
     position: absolute;
     width: 467px;
     height: 135px;
-    top: 410px;
-    left: 15px;
-    // left: 2%;
-    // bottom: 3%;
+    left: 2%;
+    bottom: 3%;
     z-index: 10;
     pointer-events: all; // Чтобы клики проходили
+
+    @media (max-width: 1400px) {
+        width: 420px;
+        transform: scale(0.6);
+        transform-origin: left bottom;
+    }
+
+    @media (max-width: 991px) {
+        margin-top: 30px;
+        width: 100%;
+        max-width: 467px;
+    }
 }
 
 .order-badge__link {
