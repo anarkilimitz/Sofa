@@ -30,7 +30,9 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 	// 2. Инициализация анимаций
 	initHeroScroll();
-	initCardHover();
+	setTimeout(() => {
+		initCardHover();
+	}, 100);
 
 	// 3. Инициализация компонентов интерфейса
 	initMenu(lenis);
