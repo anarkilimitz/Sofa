@@ -29,6 +29,9 @@
 @use 'components/tabs';
 @use 'components/catalog__card';
 
+// 404
+@use 'layout/page404';
+
 
 // Normalize Fonts
 @import "../../node_modules/modern-normalize/modern-normalize.css";

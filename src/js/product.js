@@ -1,20 +1,29 @@
 import products from '../data/products.json';
+import { initNotFoundPage } from './pages/notFound.js';
 
 export const initProduct = () => {
 	const galleryContainer = document.getElementById('prod-gallery');
+	if (!galleryContainer) return; // Мы не на странице товара
 
-	// Если мы на странице товара — грузим данные
-	if (galleryContainer) {
-		const urlParams = new URLSearchParams(window.location.search);
-		const productSlug = urlParams.get('slug');
+	const urlParams = new URLSearchParams(window.location.search);
+	const productSlug = urlParams.get('slug');
 
-		if (productSlug) {
-			const product = products.find((p) => p.slug === productSlug);
-			if (product) {
-				renderProductData(product);
-			}
-		}
+	// Если slug отсутствует или пустой
+	if (!productSlug) {
+		redirectTo404();
+		return;
 	}
+
+	const product = products.find((p) => p.slug === productSlug);
+
+	// Если товар не найден — редирект на настоящую страницу 404
+	if (!product) {
+		redirectTo404();
+		return;
+	}
+
+	// Товар найден — рендерим нормально
+	renderProductData(product);
 
 	// --- ИНТЕРАКТИВ ---
 
@@ -146,4 +155,9 @@ function renderProductData(product) {
 	if (badgeImg) {
 		badgeImg.src = product.image;
 	}
+}
+
+// страница 404
+function redirectTo404() {
+	window.location.replace('/404.html');
 }

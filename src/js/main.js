@@ -19,6 +19,9 @@ import products from '../data/products.json';
 // Карточка товаров
 import { initProduct } from './product';
 
+// 404
+import { initNotFoundPage } from './pages/notFound.js';
+
 // Регистрируем плагин один раз в главной точке входа
 gsap.registerPlugin(ScrollTrigger);
 
@@ -49,4 +52,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 	// Карточка товаров
 	initProduct();
+
+	// 404
+	initNotFoundPage();
 });
