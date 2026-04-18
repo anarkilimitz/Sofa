@@ -2,6 +2,7 @@ import '../scss/style.scss';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 
+import { initHeroVideo } from './animations/heroVideo';
 import { initSmoothScroll } from './animations/smoothScroll';
 import { initHeroScroll } from './animations/heroScroll';
 import { initCardHover } from './animations/cardHover';
@@ -31,14 +32,14 @@ document.addEventListener('DOMContentLoaded', async () => {
 	// 1. Инициализация плавного скролла (Lenis)
 	lenis = initSmoothScroll();
 
-	// 2. Инициализация анимаций
+	// 2 Видео на главном
+	initHeroVideo();
+
+	// 2.1 Инициализация анимаций
 	initHeroScroll();
 	setTimeout(() => {
 		initCardHover();
 	}, 100);
-
-	// 2.1 Видео на главном
-	initHeroVideo();
 
 	// 3. Инициализация компонентов интерфейса
 	initMenu(lenis);
