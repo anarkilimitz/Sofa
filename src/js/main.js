@@ -37,6 +37,9 @@ document.addEventListener('DOMContentLoaded', async () => {
 		initCardHover();
 	}, 100);
 
+	// 2.1 Видео на главном
+	initHeroVideo();
+
 	// 3. Инициализация компонентов интерфейса
 	initMenu(lenis);
 	initHeroScale();
