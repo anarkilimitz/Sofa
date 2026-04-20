@@ -29,6 +29,7 @@ export default defineConfig({
 				product: 'product.html',
 				about: 'about.html',
 				contacts: 'contacts.html',
+				conditions: 'conditions.html',
 				page404: 'page404.html',
 			},
 			output: {

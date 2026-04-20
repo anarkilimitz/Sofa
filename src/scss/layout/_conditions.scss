@@ -9,7 +9,6 @@
     &__title {
         @include title;
         font-size: 48px;
-        text-transform: uppercase;
         margin-bottom: 20px;
 
         &-text {
