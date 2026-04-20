@@ -84,6 +84,7 @@
     &__title {
         @include title;
         font-size: 48px;
+        
 
         span {
             color: #00A18F;
@@ -92,6 +93,7 @@
         &-text {
             font-size: 20px;
             font-weight: 400;
+            color: #777;
         }
     }
 
@@ -201,6 +203,7 @@
         .contacts__text {
             @include descr;
             line-height: 32px;
+            color: #777;
         }
     }
 }
