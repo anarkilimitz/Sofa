@@ -2,7 +2,7 @@
 // import gsap from 'gsap';
 
 // export function initStackingCards() {
-// 	const sections = document.querySelectorAll('.about-section');
+// 	const sections = document.querySelectorAll('.specifics-section');
 
 // 	sections.forEach((section) => {
 // 		const tl = gsap.timeline({

@@ -6,14 +6,15 @@
 
 // Section
 @use 'sections/hero';
-@use 'sections/about';
+@use 'sections/specifics';
 @use 'sections/materials';
 @use 'sections/catalog.scss';
 
 // Layout
 @use 'layout/header';
-@use 'layout/aboutHeader';
+@use 'layout/specificsHeader';
 @use 'layout/materialsHeader';
+@use 'layout/about';
 @use 'layout/product';
 @use 'layout/footer';
 
@@ -27,7 +28,7 @@
 @use "components/showcase-card";
 @use 'components/carousel';
 @use 'components/tabs';
-@use 'components/catalog__card';
+@use 'components/catalog-card';
 
 // 404
 @use 'layout/page404';

@@ -4,7 +4,7 @@ export const initCardHover = () => {
 	// Сначала удаляем все старые обработчики, чтобы не было дублей и утечек
 	document
 		.querySelectorAll(
-			'.showcase-card, .about-card, .link-catalog, .order-badge'
+			'.showcase-card, .specifics-card, .link-catalog, .order-badge'
 		)
 		.forEach((card) => {
 			card.removeEventListener('mousemove', card._hoverHandler || (() => {}));
@@ -12,7 +12,7 @@ export const initCardHover = () => {
 		});
 
 	const allCards = document.querySelectorAll(
-		'.showcase-card, .about-card, .link-catalog, .order-badge'
+		'.showcase-card, .specifics-card, .link-catalog, .order-badge'
 	);
 
 	allCards.forEach((card) => {

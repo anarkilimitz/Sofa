@@ -1,29 +1,29 @@
 @use "../utils/variables" as *;
 @use "../utils/mixins" as *;
 
-.about-section {
+.specifics-section {
     position: relative;
     min-height: 100vh;
     z-index: 2;
     background-color: white;
 }
 
-.about-content {
+.specifics-content {
     display: block;
     margin: 105px 0 0 40px;
     z-index: 2;
 
-    .about-title {
+    .specifics-title {
         @include title;
     }
 
-    .about-desc {
+    .specifics-desc {
         @include descr;
     }
 }
 
 // Карточки
-.about-features {
+.specifics-features {
     margin: 5vh 70px 7vh 45px;
 
     &__list {
@@ -34,10 +34,8 @@
     }
 }
 
-.about-card {
+.specifics-card {
     position: relative;
-    // width: 366px;
-    // height: 412px;
     width: clamp(300px, 35vw, 800px);
     aspect-ratio: 366 / 412;
 
@@ -106,15 +104,15 @@
     }
 
     &:nth-child(1) {
-        background-image: url('/src/assets/img/about/soft.jpg');
+        background-image: url('/src/assets/img/specifics/soft.jpg');
     }
 
     &:nth-child(2) {
-        background-image: url('/src/assets/img/about/ergonomic.jpg');
+        background-image: url('/src/assets/img/specifics/ergonomic.jpg');
     }
 
     &:nth-child(3) {
-        background-image: url('/src/assets/img/about/easy.jpg');
+        background-image: url('/src/assets/img/specifics/easy.jpg');
     }
 
     // текст и полоска
@@ -221,7 +219,7 @@
 }
 
 // блюр карточек
-.about-card::before {
+.specifics-card::before {
     content: '';
     position: absolute;
     inset: 0;
@@ -237,17 +235,17 @@
     z-index: 1;
 }
 
-.about-card:hover::before {
+.specifics-card:hover::before {
     opacity: 1;
 }
 
-.about-card::before,
-.about-card::after {
+.specifics-card::before,
+.specifics-card::after {
     pointer-events: none;
 }
 
 @media (max-width: 998px) {
-    .about-features {
+    .specifics-features {
         margin: 5vh 0 4vh 0;
 
         &__list {

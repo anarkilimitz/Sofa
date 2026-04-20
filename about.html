@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Evgeniy" />
+    <meta name="description" content="Мастерская «Первый Мягкий»: изготавливаем дизайнерские диваны из премиальных тканей. Гарантия комфорта, индивидуальные
+  размеры и современный стиль. Узнайте больше!" />
+    <title>О нас</title>
+    <link rel="stylesheet" href="./src/assets/libs/fonts.css" />
+    <link rel="stylesheet" href="./src/scss/style.scss" />
+
+    <script type="module" src="/src/js/main.js"></script>
+</head>
+
+<body>
+
+    <!-- оверлэй -->
+    <div class="menu-overlay" id="menu-overlay"></div>
+    <!-- меню бургера -->
+    <div class="menu-drawer" id="menu-drawer">
+        <button class="close-btn" id="close-menu">
+            <svg fill="none" height="20" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="20">
+                <path d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+        </button>
+        <a class="menu-item" href="/index.html"><span class="menu-dot"></span>Главная</a>
+        <nav class="menu-nav">
+            <a class="menu-link" href="/catalog.html">Каталог</a>
+            <a class="menu-link" href="/about.html">О нас</a>
+            <a class="menu-link" href="#">Контакты</a>
+            <a class="menu-link" href="#">Условия</a>
+        </nav>
+    </div>
+    <!-- шапка -->
+    <header class="header">
+        <div class="nav-left">
+            <!-- Главная с полосками -->
+            <div class="menu-trigger">
+                <div class="burger-icon">
+                    <span></span>
+                    <span></span>
+                </div>
+                <span>Главная</span>
+            </div>
+            <div class="nav-icons">
+                <div class="icon-box" data-label="Корзина"> </div>
+                <div class="icon-box" data-label="Профиль"> </div>
+                <div class="icon-box" data-label="Поиск"> </div>
+            </div>
+        </div>
+        <div class="logo-group">
+            <a href="/index.html">
+                <div class="logo" data-logo="main"></div>
+            </a>
+        </div>
+    </header>
+
+    <!-- =======================   Секция about ========================== -->
+    <section class="about__section container">
+        <div class="about__content">
+            <h1 class="about__title">КАК МЫ ДЕЛАЕМ НАШИ <br>
+                <span>ДИВАНЫ</span>
+            </h1>
+
+            <div class="about__wrapper">
+                <!-- Описание -->
+                <div class="about__wrapper-left">
+                    <p class="about__text">Мы тщательно подбираем материалы для наших диванов и стараемся использовать
+                        наиболее
+                        мягкие ткани для максимального
+                        комфорта наших клиентов. Мы тщательно подбираем материалы для наших диванов и тщательно.
+                    </p>
+                    <p class="about__text">Мы тщательно подбираем материалы для наших диванов и стараемся использовать
+                        наиболее мягкие ткани
+                        для
+                        максимального
+                        комфорта наших клиентов.
+                    </p>
+
+                    <!-- футер -->
+                    <footer class="footer">
+                        <div class="scroll-indicator">
+                            <span class="scroll-text">РАССКАЗЫВАЕМ ОБ ЭТОМ
+                                В НАШИХ СОЦ.СЕТЯХ</span>
+                            <div class="line"></div>
+                            <div class="mouse-icon"></div>
+                        </div>
+                    </footer>
+                </div>
+
+                <!-- Картинки или видео -->
+                <div class="about__wrapper-right">
+                    <div class="about__video-card"></div>
+                    <div class="about__video-card"></div>
+                    <div class="about__video-card"></div>
+                </div>
+            </div>
+    </section>
+
+
+</body>
+
+</html>

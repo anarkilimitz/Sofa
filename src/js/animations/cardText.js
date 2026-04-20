@@ -2,10 +2,10 @@ import gsap from 'gsap';
 import SplitType from 'split-type';
 
 export const initCardTextAnimation = () => {
-	const cards = document.querySelectorAll('.about-card');
+	const cards = document.querySelectorAll('.specifics-card');
 
 	cards.forEach((card) => {
-		const textElement = card.querySelector('.about-card__text');
+		const textElement = card.querySelector('.specifics-card__text');
 		if (!textElement) return;
 
 		// 1. Разбиваем текст на строки
