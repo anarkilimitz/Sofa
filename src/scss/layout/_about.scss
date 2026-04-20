@@ -26,14 +26,13 @@
     }
 
     &__wrapper-right {
-        display: flex;
-        justify-content: space-between;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
         gap: 20px;
+        width: 100%;
     }
 
     &__video-card {
-        flex: 1 1 0;
-        min-width: 258px;
         aspect-ratio: 258 / 460;
 
         border-radius: 24px;
