@@ -75,7 +75,8 @@
             width: 100%;
 
             .scroll-indicator {
-                justify-content: flex-start
+                justify-content: flex-start;
+                gap: 15px;
             }
         }
     }
