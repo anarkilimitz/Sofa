@@ -158,5 +158,5 @@ function renderProductData(product) {
 
 // страница 404
 function redirectTo404() {
-	window.location.replace('/404.html');
+	window.location.replace('/page404.html');
 }

@@ -19,7 +19,7 @@ import products from '../data/products.json';
 // Карточка товаров
 import { initProduct } from './product';
 
-// 404
+// page404
 import { initNotFoundPage } from './pages/notFound.js';
 
 // Регистрируем плагин один раз в главной точке входа

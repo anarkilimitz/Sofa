@@ -29,6 +29,7 @@ export default defineConfig({
 				product: 'product.html',
 				about: 'about.html',
 				contacts: 'contacts.html',
+				page404: 'page404.html',
 			},
 			output: {
 				// Настройка имен файлов для порядка в dist
