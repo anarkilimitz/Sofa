@@ -14,7 +14,8 @@
         display: flex;
         align-items: flex-start;
         flex-direction: column;
-        width: 417px;
+        width: 100%;
+        min-width: 465px;
 
         &> :nth-child(2) {
             margin-top: 40px;
@@ -72,6 +73,10 @@
         footer {
             margin-left: 0;
             width: 100%;
+
+            .scroll-indicator {
+                justify-content: flex-start
+            }
         }
     }
 
