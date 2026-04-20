@@ -27,6 +27,8 @@ export default defineConfig({
 				main: 'index.html',
 				catalog: 'catalog.html',
 				product: 'product.html',
+				about: 'about.html',
+				contacts: 'contacts.html',
 			},
 			output: {
 				// Настройка имен файлов для порядка в dist
