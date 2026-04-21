@@ -49,4 +49,23 @@ export const initMenu = (lenis) => {
 			closeMenuFunc();
 		}
 	});
+	// Добавление активного класса для точки в меню!
+	const setActiveMenuItem = () => {
+		const currentPath = window.location.pathname.replace(/\/index\.html$/, '/');
+
+		const links = document.querySelectorAll('.menu-item, .menu-link');
+
+		links.forEach((link) => {
+			const href = link.getAttribute('href');
+			if (!href) return;
+
+			const normalizedHref = href.replace(/\/index\.html$/, '/');
+
+			if (normalizedHref === currentPath) {
+				link.classList.add('active');
+			}
+		});
+	};
+
+	setActiveMenuItem();
 };

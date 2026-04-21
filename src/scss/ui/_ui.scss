@@ -109,6 +109,7 @@
 }
 
 .menu-item {
+    padding-left: 20px;
     display: flex;
     align-items: center;
     gap: 12px;
@@ -126,14 +127,26 @@
         background-color: black;
         color: rgb(255, 255, 255);
     }
+}
 
-    .menu-dot {
-        width: 10px;
-        height: 10px;
-        background: var(--brand-red);
-        border-radius: 50%;
-        transform: translateX(-20px); // сдвинул точку влево!
-    }
+// Активный класс для точки
+.menu-item,
+.menu-link {
+    position: relative;
+}
+
+.menu-item.active::before,
+.menu-link.active::before {
+    content: '';
+    position: absolute;
+    left: -20px;
+    top: 50%;
+    transform: translateY(-50%);
+
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--brand-red);
 }
 
 .menu-nav {
@@ -300,18 +313,6 @@
     opacity: 1;
     transform: scale(1) rotate(126deg);
 }
-
-// полоска в хедере
-// .line-header {
-//     position: fixed;
-//     left: 50%;
-//     transform: translateX(-50%);
-//     top: calc(5vh + 85px);
-//     width: 90%;
-//     height: 2px;
-//     background: rgba(66, 65, 60, 0.8);
-//     z-index: 3;
-// }
 
 .sub-link {
     position: fixed;
