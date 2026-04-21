@@ -19,6 +19,9 @@ import products from '../data/products.json';
 // Карточка товаров
 import { initProduct } from './product';
 
+// Копирование
+import { initCopyEmail } from './copyEmail.js';
+
 // page404
 import { initNotFoundPage } from './pages/notFound.js';
 
@@ -52,6 +55,9 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 	// Карточка товаров
 	initProduct();
+
+	// Копирование
+	initCopyEmail();
 
 	// 404
 	initNotFoundPage();

@@ -1,6 +1,8 @@
 import products from '../data/products.json';
 
 export const initProduct = () => {
+
+	initAllAccordions();
 	const galleryContainer = document.getElementById('prod-gallery');
 	if (!galleryContainer) return; // Мы не на странице товара
 
@@ -25,15 +27,6 @@ export const initProduct = () => {
 	renderProductData(product);
 
 	// --- ИНТЕРАКТИВ ---
-
-	// 1. Аккордеон
-	const accordionHeaders = document.querySelectorAll('.accordion__header');
-	accordionHeaders.forEach((header) => {
-		header.onclick = () => {
-			// Используем упрощенный клик
-			header.parentElement.classList.toggle('accordion__item-active');
-		};
-	});
 
 	// 2. Логика выбора цвета
 	const colorPicker = document.getElementById('colorPicker');
@@ -67,6 +60,22 @@ export const initProduct = () => {
 		});
 	}
 };
+
+// ====================== Аккордеон ======================
+function initAllAccordions() {
+	const accordionHeaders = document.querySelectorAll('.accordion__header');
+
+	accordionHeaders.forEach((header) => {
+		// Убираем старые обработчики, чтобы не дублировались при повторных вызовах
+		header.removeEventListener('click', toggleAccordionItem);
+		header.addEventListener('click', toggleAccordionItem);
+	});
+}
+
+function toggleAccordionItem() {
+	const accordionItem = this.parentElement;
+	accordionItem.classList.toggle('accordion__item-active');
+}
 
 function renderProductData(product) {
 	// Название
