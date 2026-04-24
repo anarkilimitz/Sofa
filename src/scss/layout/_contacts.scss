@@ -6,23 +6,20 @@
         margin-top: 85px;
         display: flex;
         justify-content: space-between;
-        align-items: start;
-        gap: 60px;
+        align-items: stretch;
     }
 
     &__wrapper-left {
-        display: flex;
-        align-items: flex-start;
-        flex-direction: column;
-        max-width: 465px;
-        min-width: 465px;
+        flex: 0 0 465px;
     }
 
     &__wrapper-right {
+        margin-left: auto;
+        padding-left: 139px;
+
         display: grid;
-        grid-template-columns: 1fr 2fr;
+        grid-template-columns: 258px 1fr;
         gap: 20px;
-        width: 100%;
     }
 
     &__video-card {
