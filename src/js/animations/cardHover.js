@@ -25,10 +25,10 @@ export const initCardHover = () => {
 			const moveY = (clientY - (top + height / 2)) / (height / 2);
 
 			gsap.to(card, {
-				rotateY: moveX * 10,
-				rotateX: -moveY * 10,
+				rotateY: moveX * 5,
+				rotateX: -moveY * 5,
 				ease: 'power2.out',
-				duration: 0.5,
+				duration: 0.2,
 				transformPerspective: 1000,
 			});
 		};
@@ -38,7 +38,7 @@ export const initCardHover = () => {
 				rotateX: 0,
 				rotateY: 0,
 				ease: 'power2.out',
-				duration: 0.7,
+				duration: 0.3,
 			});
 		};
 

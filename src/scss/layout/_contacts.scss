@@ -3,7 +3,7 @@
 
 .contacts {
     &__wrapper {
-        margin-top: 85px;
+        margin-top: 75px;
         display: flex;
         justify-content: space-between;
         align-items: stretch;
@@ -11,6 +11,8 @@
 
     &__wrapper-left {
         flex: 0 0 465px;
+
+        address {}
     }
 
     &__wrapper-right {
@@ -18,11 +20,12 @@
         padding-left: 139px;
 
         display: grid;
-        grid-template-columns: 258px 1fr;
+        grid-template-columns: 290px 640px;
         gap: 20px;
     }
 
     &__video-card {
+        width: 290px;
         aspect-ratio: 258 / 460;
 
         border-radius: 24px;
@@ -42,7 +45,7 @@
     }
 
     &__map-container {
-        flex: 2;
+        // flex: 2;
         height: 100%;
         border-radius: 24px;
         overflow: hidden;
@@ -128,6 +131,7 @@
         margin: 0;
         line-height: 32px;
         font-size: 14px;
+        font-weight: 400;
     }
 
     &__phone {
@@ -135,6 +139,7 @@
         margin: 0;
         text-decoration: none;
         font-size: 14px;
+        font-weight: 400;
         transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
 
         &:hover {
@@ -149,6 +154,7 @@
         text-decoration: none;
         color: #00A18F;
         font-size: 14px;
+        font-weight: 400;
         transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
 
         &:hover {
@@ -166,6 +172,7 @@
         align-items: center;
         gap: 8px;
         font-size: 14px;
+        font-weight: 600;
         background: none;
         border: none;
         cursor: pointer;
@@ -191,13 +198,16 @@
 // Аккордион
 .contacts__wrapper-left {
     .accordion {
-        max-width: 465px;
+        max-width: 397px;
 
     }
 
     .accordion__header {
-        margin-bottom: 60px;
+        // margin-bottom: 60px;
         border-bottom: 1px solid #e0e0e0;
+        color: rgba(0, 0, 0, 1);
+        font-weight: 600;
+        font-size: 20px;
     }
 
     .accordion__item {
@@ -205,10 +215,14 @@
     }
 
     .accordion__content {
+        color: rgba(98, 94, 94, 1);
+
         .contacts__text {
             @include descr;
-            line-height: 32px;
-            color: #777;
+            font-weight: 400;
+            line-height: 140%;
+            color: rgba(98, 94, 94, 1);
+            letter-spacing: 0%;
         }
     }
 }
