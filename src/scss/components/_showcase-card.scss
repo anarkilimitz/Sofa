@@ -2,17 +2,16 @@
 @use "../utils/mixins" as *;
 
 .showcase {
-    margin: 0 72px 100px auto;
-    width: 368px;
-    height: 142px;
+    margin: 0 72px 70px auto;
+    width: 542px;
     z-index: 2;
 
     // подложка
     &__substrate {
         position: absolute;
-        left: 120px;
-        width: 110px;
-        height: 120px;
+        left: 165px;
+        width: 165px;
+        height: 183px;
         background-color: var(--card-dark);
         z-index: 1;
     }
@@ -26,17 +25,21 @@
 }
 
 .showcase-card {
+    padding-left: 125px;
     display: flex;
-    justify-content: flex-end;
-    height: 142px;
+    justify-content: flex-start;
+    height: 199px;
     align-items: stretch;
     align-items: center;
-    border-radius: 24px;
+    border-radius: 32px;
     overflow: hidden;
     background: rgba(233, 228, 219, 0.43);
-    box-shadow:
-        0 16px 32px rgba(0, 0, 0, 0.08),
-        0 6px 12px rgba(0, 0, 0, 0.04);
+        box-shadow: 0 4px 39px 0 rgba(0, 0, 0, 0.10);
+        backdrop-filter: blur(3.3px);
+    // background: rgba(233, 228, 219, 0.43);
+    // box-shadow:
+    //     0 16px 32px rgba(0, 0, 0, 0.08),
+    //     0 6px 12px rgba(0, 0, 0, 0.04);
     cursor: pointer;
     transition: background 0.2s ease, box-shadow 0.2s ease;
 
@@ -82,16 +85,16 @@
     }
 
     .showcase-img-box {
-        width: 130px;
-        height: 120px;
-        margin: 10px 0 10px 0;
+        width: 142px;
+        height: 183px;
+        margin: 10px 0 10px 0px;
         padding: 20px 0 10px 10px;
         display: flex;
         align-items: center;
         justify-content: center;
-        transform: translateX(-9px);
-        border: 5px solid var(--card-dark);
-        border-radius: 20px;
+        transform: translateX(0px);
+        border: 8px solid var(--card-dark);
+        border-radius: 32px;
         background: rgb(255, 255, 255);
         overflow: hidden;
         z-index: 1;
@@ -99,9 +102,9 @@
 
         img {
             will-change: transform; // для гсап анимации
-            transform: translateX(11px) scale(1);
+            transform: translateX(3px) scale(1);
             padding-top: 15px; // сдвинул вниз
-            width: 90px;
+            width: 120px;
             height: auto;
             z-index: 3;
             pointer-events: none; // для гсап анимации
@@ -120,22 +123,26 @@
     .showcase-info {
         background: var(--card-dark);
         color: white;
-        width: 180px;
-        padding: 34px 24px 24px 34px;
+        width: 257px;
+        height: 183px;
+        padding: 71px 24px 54px 24px;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        transform: translateX(-10px);
-        border-radius: 0 20px 20px 0;
+        transform: translateX(10px);
+        border-radius: 0 32px 32px 0;
         z-index: 2;
 
         h3 {
             display: block;
             margin: 0;
-            font-weight: 800;
-            font-size: 14px;
+            font-weight: 400;
+            font-style: normal;
+            font-size: 22px;
+            letter-spacing: -0.44px;
+            font-family: $font-heading;
             text-transform: uppercase;
-            line-height: 1.2;
+            line-height: 100%;
             transition: transform 0.2s ease;
         }
     }

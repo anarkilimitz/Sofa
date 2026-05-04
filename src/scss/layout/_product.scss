@@ -64,7 +64,6 @@
     max-width: 400px;
 
     &__item {
-        border-top: 1px solid #e0e0e0;
 
         &-active {
             .accordion__content {
@@ -85,6 +84,7 @@
         align-items: center;
         background: none;
         border: none;
+        border-bottom: 1px solid #e0e0e0;
         font-size: 1.2rem;
         font-weight: 600;
         cursor: pointer;
