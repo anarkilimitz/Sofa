@@ -117,23 +117,26 @@
 
     // текст и полоска
     &__title {
+        margin: 0 0 35px 0;
         position: relative;
         z-index: 2;
-        font-size: 20px;
-        font-weight: 700;
+        font-size: 24px;
+        font-weight: 600;
+        font-style: normal;
+        line-height: 28px;
         text-transform: uppercase;
-        margin: 0 0 15px 0;
-        color: var(--text-gray);
+        color: #000;
+        font-family: var(--font-primary);
         pointer-events: none;
     }
 
     .divider {
+        margin-bottom: 35px;
         position: relative;
         z-index: 2;
         width: 100%;
         height: 1px;
         background-color: var(--text-gray);
-        margin-bottom: 15px;
         opacity: 0;
         transform: scaleX(0);
         transform-origin: left;
@@ -142,12 +145,15 @@
     }
 
     &__text {
+        margin: 0;
         position: relative;
         z-index: 2;
         font-size: 16px;
-        line-height: 1.4;
-        margin: 0;
-        color: black;
+        line-height: normal;
+        font-weight: 400;
+        line-height: 175%;
+        color: #0F0F10;
+        font-family: var(--font-primary);
         pointer-events: none;
 
         .line-mask {
@@ -190,7 +196,7 @@
             position: absolute;
             z-index: 2;
             color: #000;
-            font-family: Arial, sans-serif;
+            font-family: Manrope;
             font-size: 20px;
             line-height: 1;
             transform: translateY(1px);
