@@ -53,15 +53,45 @@
     background: rgba(13, 13, 13, 0.7);
 }
 
+.link-catalog__info {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.link-catalog__arrow img {
+    display: block;
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out;
+}
+
+.link-catalog__link {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    color: inherit;
+}
+
 .link-catalog__info h3 {
+    margin: 0;
     letter-spacing: 0.02em;
     line-height: 1;
     font-weight: 400;
     font-size: 22px;
     color: #fff;
-    transition: transform 0.4s ease-in-out; // ✅ всегда здесь
+    transition: transform 0.4s ease-in-out;
 }
 
-.link-catalog__bg:hover .link-catalog__info h3 {
-    transform: translateX(-10px);
+.link-catalog__bg:hover {
+    .link-catalog__info h3 {
+        transform: translateX(-10px);
+    }
+
+    .link-catalog__arrow img {
+        opacity: 1;
+        transform: translateX(5px);
+    }
 }
