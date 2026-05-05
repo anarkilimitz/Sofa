@@ -80,6 +80,12 @@
         }
     }
 
+    &__item:nth-child(3) {
+        .accordion__header {
+            border-bottom: none;
+        }
+    }
+
     &__header {
         width: 100%;
         padding: 20px 0;
@@ -139,7 +145,7 @@
         padding: 15px;
         gap: 12px;
 
-        background: var(--selected-texture, url('/icons/product/textile/textile-brown.svg'));
+        background: var(--selected-texture, url('/icons/product/textile/textile-brown.jpg'));
         background-size: cover;
         background-position: center;
 
@@ -240,6 +246,7 @@
             z-index: -1;
             border-radius: 20px;
             opacity: 0;
+            pointer-events: none;
             transition: opacity 0.3s ease-in-out;
         }
 
