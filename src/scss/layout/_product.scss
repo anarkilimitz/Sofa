@@ -63,6 +63,10 @@
     width: 100%;
     max-width: 400px;
 
+    &__content {
+        position: relative;
+    }
+
     &__item {
 
         &-active {
@@ -143,6 +147,7 @@
         cursor: pointer;
         position: relative;
         overflow: hidden;
+        z-index: 100;
         transition: height 0.35s ease-in-out;
 
         // квадратик
@@ -166,27 +171,6 @@
 
         // стрелка
         &::before {
-            // content: '▼';
-            // font-size: 10px;
-            // color: #000000;
-
-            // position: absolute;
-            // right: 14px;
-            // top: 50%;
-            // transform: translateY(-50%);
-
-            // // Чтобы стрелка была по центру 
-            // display: flex;
-            // align-items: center;
-            // justify-content: center;
-            // width: 32px;
-            // height: 32px;
-
-            // transition:
-            //     color 0.3s ease-in-out,
-            //     transform 0.3s ease-in-out;
-            // z-index: 1;
-            // will-change: transform, color;
             content: "";
             position: absolute;
             right: 25.5px;
@@ -232,7 +216,7 @@
 
         background: #fff;
         border-radius: 16px;
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        // box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
         z-index: 10;
         padding: 10px;
 
@@ -243,9 +227,30 @@
             opacity 0.2s ease-in-out,
             visibility 0.2s ease-in-out;
 
+        // ПОдложка под выбором цвета
+        &::before {
+            content: '';
+            position: absolute;
+            display: block;
+            top: -85px;
+            left: -10px;
+            background-color: rgba(241, 241, 241, 1);
+            width: calc(100% + 20px);
+            height: calc(100% + 95px);
+            z-index: -1;
+            border-radius: 20px;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+
         &-open {
             opacity: 1;
             visibility: visible;
+
+            // появляется ПОДЛОЖКА
+            &::before {
+                opacity: 1;
+            }
         }
     }
 
