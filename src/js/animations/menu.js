@@ -55,16 +55,30 @@ export const initMenu = (lenis) => {
 
 		const links = document.querySelectorAll('.menu-item, .menu-link');
 
+		// элемент с текстом в бургере
+		// .menu-trigger > span (тот, который после .burger-icon)
+		const triggerTextNode = document.querySelector('.menu-trigger > span');
+
+		let currentPageName = 'Главная';
+
 		links.forEach((link) => {
 			const href = link.getAttribute('href');
 			if (!href) return;
-
+			// Нормализуем ссылку (убираем index.html для сравнения)
 			const normalizedHref = href.replace(/\/index\.html$/, '/');
 
 			if (normalizedHref === currentPath) {
 				link.classList.add('active');
+
+				// Запоминаем текст найденной активной ссылки
+				currentPageName = link.textContent.trim();
 			}
 		});
+
+		// Если элемент для текста найден, обновляем его содержимое
+		if (triggerTextNode) {
+			triggerTextNode.textContent = currentPageName;
+		}
 	};
 
 	setActiveMenuItem();
