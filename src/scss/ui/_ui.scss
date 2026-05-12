@@ -30,7 +30,7 @@
     font-weight: 600;
     font-size: 20px;
     letter-spacing: 1px;
-    color: black;
+    color: #0F0F10;
     transition: gap 0.4s ease, color 0.4s ease;
 
     &:hover {
@@ -102,7 +102,7 @@
         transition: 0.3s;
 
         &:hover {
-            color: black;
+            color: #0F0F10;
         }
     }
 }
@@ -116,7 +116,7 @@
     width: 80%;
     height: 40px;
     text-decoration: none;
-    color: black;
+    color: #0F0F10;
     font-size: 20px;
     font-weight: 700;
     border-radius: 14px;
@@ -161,7 +161,7 @@
         height: 40px;
         padding-left: 22px;
         text-decoration: none;
-        color: black;
+        color: #0F0F10;
         font-size: 20px;
         font-weight: 700;
         border-radius: 14px;
@@ -272,7 +272,7 @@
     white-space: nowrap;
     font-size: 20px;
     font-weight: 600;
-    color: black;
+    color: #0F0F10;
 
     opacity: 0;
     transition: 0.2s ease;
@@ -331,7 +331,7 @@
 
     a {
         text-decoration: none;
-        color: black;
+        color: #0F0F10;
         transition: 0.3s ease;
 
         &:hover {

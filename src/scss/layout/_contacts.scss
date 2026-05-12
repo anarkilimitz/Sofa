@@ -91,7 +91,7 @@
         &-text {
             font-size: 20px;
             font-weight: 400;
-            color: #777;
+            color: #0F0F10;
         }
     }
 
@@ -208,13 +208,12 @@
 .contacts__wrapper-left {
     .accordion {
         max-width: 397px;
-
     }
 
     .accordion__header {
         // margin-bottom: 60px;
         border-bottom: 1px solid #e0e0e0;
-        color: rgba(0, 0, 0, 1);
+        color: #0F0F10;
         font-weight: 600;
         font-size: 20px;
     }
@@ -224,13 +223,13 @@
     }
 
     .accordion__content {
-        color: rgba(98, 94, 94, 1);
+        color: #0F0F10;
 
         .contacts__text {
             @include descr;
             font-weight: 400;
             line-height: 140%;
-            color: rgba(98, 94, 94, 1);
+            color: #0F0F10;
             letter-spacing: 0%;
         }
     }

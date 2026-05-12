@@ -110,8 +110,8 @@
             width: 8px;
             height: 8px;
 
-            border-top: 2px solid #000000;
-            border-right: 2px solid #000000;
+            border-top: 2px solid #0F0F10;
+            border-right: 2px solid #0F0F10;
 
             transform: translateY(-50%) rotate(135deg);
 
@@ -126,7 +126,7 @@
     &__content {
         display: none;
         padding-bottom: 20px;
-        color: #000000;
+        color: #0F0F10;
         line-height: 1.6;
     }
 }
@@ -186,8 +186,8 @@
             width: 8px;
             height: 8px;
 
-            border-top: 2px solid #000000;
-            border-right: 2px solid #000000;
+            border-top: 2px solid #0F0F10;
+            border-right: 2px solid #0F0F10;
 
             transform: translateY(-50%) rotate(135deg);
 
@@ -269,7 +269,7 @@
         gap: 12px;
         padding: 10px;
 
-        color: #000000;
+        color: #0F0F10;
         font-weight: 500;
         word-break: break-word;
         overflow-wrap: break-word;
@@ -313,7 +313,7 @@
     align-items: flex-end;
     flex: 1;
 
-    color: #000000;
+    color: #0F0F10;
     font-weight: 500;
     word-break: break-word;
     overflow-wrap: break-word;
@@ -340,7 +340,7 @@
 
         span:last-child {
             font-weight: 500;
-            color: #333;
+            color: #0F0F10;
         }
     }
 }

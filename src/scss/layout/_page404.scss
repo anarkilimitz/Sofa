@@ -24,7 +24,7 @@
         font-size: 140px;
         line-height: 1;
         margin-bottom: 10px;
-        text-shadow: 6px 6px 0 #000;
+        text-shadow: 6px 6px 0 #0F0F10;
         transition: transform 0.3s;
     }
 
@@ -56,13 +56,13 @@
         color: #0078D7;
         font-weight: bold;
         text-decoration: none;
-        border: 4px solid #000;
+        border: 4px solid #0F0F10;
         font-size: 16px;
         transition: all 0.25s;
     }
 
     .return-btn:hover {
-        background: #000;
+        background: #0F0F10;
         color: #fff;
         transform: translateY(-3px);
     }
