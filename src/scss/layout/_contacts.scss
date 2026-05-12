@@ -105,6 +105,7 @@
         padding: 0;
         list-style: none;
         font-style: normal;
+        text-transform: uppercase;
     }
 
     &__item {
@@ -229,7 +230,7 @@
             @include descr;
             font-weight: 400;
             line-height: 140%;
-            color: #0F0F10;
+            color: #625E5E;
             letter-spacing: 0%;
         }
     }
