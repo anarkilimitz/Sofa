@@ -9,29 +9,29 @@ export function initCopyEmail() {
 	copyBtn.addEventListener('click', async () => {
 		try {
 			await navigator.clipboard.writeText(email);
+			
+			let copiedText = copyBtn.querySelector('.copy-success');
 
-			// надпись Скопировано
-			const copiedText = document.createElement('span');
-			copiedText.className = 'copy-success';
-			copiedText.textContent = 'Скопировано!';
-
-			// Убираем предыдущую надпись, если есть
-			const existing = copyBtn.querySelector('.copy-success');
-			if (existing) existing.remove();
-
-			// Добавляем новую
-			copyBtn.appendChild(copiedText);
-
-			// Плавное появление
+			if (!copiedText) {
+				copiedText = document.createElement('span');
+				copiedText.className = 'copy-success';
+				copiedText.textContent = 'Скопировано!';
+				copyBtn.appendChild(copiedText);
+			}
+			
+			// микро-таймаут для срабатывания транзишена
 			setTimeout(() => {
-				copiedText.style.opacity = '1';
+				copiedText.classList.add('is-visible');
 			}, 10);
 			
 			setTimeout(() => {
-				copiedText.style.opacity = '0';
-				
+				copiedText.classList.remove('is-visible');
+
+				// Удаляем из DOM только после завершения анимации скрытия
 				setTimeout(() => {
-					copiedText.remove();
+					if (!copiedText.classList.contains('is-visible')) {
+						copiedText.remove();
+					}
 				}, 300);
 			}, 2000);
 		} catch (err) {
