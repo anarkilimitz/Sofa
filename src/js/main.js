@@ -11,6 +11,7 @@ import { initCarousel } from './animations/carousel';
 import { initCardTextAnimation } from './animations/cardText';
 import { initHeroScale } from './animations/heroScale';
 import { initTabs } from './animations/tabs';
+import { initFooterNavigation } from './animations/footerNavigation.js';
 
 // Каталог диванов
 import { render } from './catalog.js';
@@ -52,6 +53,9 @@ document.addEventListener('DOMContentLoaded', async () => {
 	await render(products, { withLoader: true });
 	isFirstRender = false;
 	initTabs(render, products);
+
+	// 5. Плавный скролл для футеров и в ссылке hero
+	initFooterNavigation(lenis);
 
 	// Карточка товаров
 	initProduct();

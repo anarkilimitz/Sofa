@@ -4,37 +4,44 @@
 .footer {
     display: block;
     margin-left: 45px;
-    width: 290px;
+    width: 340px;
     z-index: 2;
 }
 
 .scroll-indicator {
+
     display: flex;
     align-items: center;
     justify-content: center;
     height: 55px;
-    cursor: default;
+    cursor: pointer;
 
     .scroll-text {
+        width: 260px;
         font-size: 14px;
         font-weight: 400;
         text-transform: uppercase;
         font-family: var(--font-heading);
         letter-spacing: -0.02em;
         line-height: 1;
+        transition: line-height 0.3s ease;
     }
 
     .line {
         display: block;
         margin: 0 10px;
         height: 2px;
-        width: 105px;
+        width: 85px;
         background: black;
-        transition: transform 0.5s ease;
+        transition: transform 0.3s ease;
     }
 
     &:hover .line {
         transform: scaleX(0.7);
+    }
+
+    &:hover .scroll-text {
+        line-height: 0.8;
     }
 }
 
@@ -53,6 +60,8 @@
     background-position: center;
     background-size: 20px 29px;
     background-image: url("/src/assets/icons/header/mouse.svg");
+    
+    z-index: 1;
 
     // эллипс
     &::before {
@@ -61,8 +70,8 @@
         inset: -8px;
 
         background: radial-gradient(ellipse 40% 20% at center,
-                rgba(255, 0, 0, 0.4) 0%,
-                rgba(255, 0, 0, 0.1) 50%,
+                rgba(0, 161, 143, 0.4) 0%,
+                rgba(0, 161, 143, 0.1) 50%,
                 transparent 75%);
 
         opacity: 0;
@@ -70,7 +79,7 @@
         transform: scale(0.5) rotate(126deg);
         transition: opacity 0.5s ease, transform 0.5s ease;
         pointer-events: none;
-        z-index: 0;
+        z-index: -1;
     }
 }
 

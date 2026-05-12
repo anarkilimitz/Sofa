@@ -245,8 +245,8 @@
         position: absolute;
         inset: -10px;
         background: radial-gradient(circle at center,
-                rgba(255, 0, 0, 0.4) 0%,
-                rgba(255, 0, 0, 0.1) 50%,
+                rgba(0, 161, 143, 0.4) 0%,
+                    rgba(0, 161, 143, 0.1) 50%,
                 transparent 70%);
         opacity: 0;
         transform: scale(0.5);
@@ -286,7 +286,7 @@
 }
 
 .nav-icons:has(.icon-box:active)::after {
-    color: var(--brand-red, rgba(0, 161, 143, 1));
+    color:  rgba(0, 161, 143, 1);
     transition: color 0s;
 }
 
@@ -297,8 +297,8 @@
     inset: -8px;
 
     background: radial-gradient(ellipse 30% 10% at center,
-            rgba(255, 0, 0, 0.4) 0%,
-            rgba(255, 0, 0, 0.1) 50%,
+            rgba(0, 161, 143, 0.4) 0%,
+            rgba(0, 161, 143, 0.1) 50%,
             transparent 75%);
 
     opacity: 0;

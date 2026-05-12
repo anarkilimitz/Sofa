@@ -84,6 +84,11 @@
                 font-family: var(--font-heading);
                 letter-spacing: -0.02em;
                 line-height: 1;
+                transition: line-height 0.3s ease;
+            }
+
+            &:hover .scroll-text-footer {
+                line-height: 0.8;
             }
         }
     }
