@@ -1,0 +1,58 @@
+@use "../utils/variables" as *;
+@use "../utils/mixins" as *;
+
+.privacy {
+    padding: 80px 7px;
+
+    .title {
+        font-size: 36px;
+        font-weight: 500;
+    }
+}
+
+.privacy__back {
+    @include title;
+    display: block;
+    margin: 0 0 80px 0;
+    color: black;
+    font-weight: 700;
+    align-items: center;
+    color: var(--text-black);
+    font-weight: 500;
+    font-size: 20px;
+    text-decoration: none;
+    text-transform: lowercase;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+        color: var(--brand-red, rgba(0, 161, 143, 1));
+    }
+}
+
+.privacy__content {
+    margin-top: 40px;
+    line-height: 1.6;
+    color: #000000;
+
+    h3 {
+        margin: 30px 0 15px 0;
+        font-size: 20px;
+        font-weight: 700;
+    }
+
+    p {
+        margin-bottom: 15px;
+        font-size: 16px;
+        font-weight: 400;
+    }
+
+    ul {
+        margin-bottom: 20px;
+        padding-left: 20px;
+
+        li {
+            list-style-type: disc;
+            margin-bottom: 5px;
+        }
+    }
+}
