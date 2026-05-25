@@ -153,4 +153,66 @@
 
     </main>
 
+        <!-- Форма обратной связи -->
+        
+        <div class="container-form">
+            <div class="card-form">
+                <h2 class="text-form">Оставить
+                    <br>
+                заявку
+                </h2>
+                <button type="button" class="close-form btn-close"></button>
+                <form id="contactForm">
+                    <div class="field">
+                        <input type="text" name="firstName" placeholder=" " required>
+                        <!-- <img src="icons/form/user.svg" alt="Имя" class="icon-form icon-default">
+                        <img src="icons/form/user-check.svg" alt="Имя" class="icon-form icon-valid"> -->
+                        <label>Ваше имя</label>
+                        <span class="error"></span>
+                    </div>
+        
+                    <div class="field">
+                        <input type="tel" name="phone" placeholder=" " inputmode="tel" required>
+                        <!-- <img src="icons/form/phone.svg" alt="Телефон" class="icon-form icon-default">
+                        <img src="icons/form/phone-check.svg" alt="Телефон" class="icon-form icon-valid"> -->
+                        <label>Номер телефона</label>
+                        <span class="error"></span>
+                    </div>
+
+                    <div class="field">
+                        <input type="email" name="email" placeholder=" " required>
+                        <!-- <img src="assets/icons/mail.svg" class="icon icon-default">
+                        <img src="assets/icons/mail-check.svg" class="icon icon-valid"> -->
+                        <label>Email</label>
+                        <span class="error"></span>
+                    </div>
+        
+                    <div class="field">
+                        <textarea name="message" placeholder=" " required></textarea>
+                        <!-- <img src="icons/form/message.svg" alt="Сообщение" class="icon-form icon-default">
+                        <img src="icons/form/message-check.svg" alt="Сообщение" class="icon-form icon-valid"> -->
+                        <label>Сообщение</label>
+                        <span class="error"></span>
+                    </div>
+        
+                    <div class="checkbox-field">
+                        <label class="checkbox">
+                            <input type="checkbox" name="agree">
+                            <span class="policy-text">
+                                Согласен с
+                                <a href="/privacy.html" target="_blank" class="policy-link">
+                                    политикой конфиденциальности
+                                </a>
+                            </span>
+                        </label>
+                        <span class="error"></span>
+                    </div>
+        
+                    <button class="btn-form" type="submit">
+                        <span class="btn-text">Отправить</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+
 </body>

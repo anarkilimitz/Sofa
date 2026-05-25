@@ -26,6 +26,10 @@ import { initCopyEmail } from './copyEmail.js';
 // page404
 import { initNotFoundPage } from './pages/notFound.js';
 
+// Форма
+import { initForm } from './pages/form.js';
+import { initPhoneMask } from './utils/mask.js';
+
 // Регистрируем плагин один раз в главной точке входа
 gsap.registerPlugin(ScrollTrigger);
 
@@ -65,4 +69,8 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 	// 404
 	initNotFoundPage();
+
+	// Форма
+	initForm();
+	initPhoneMask();
 });

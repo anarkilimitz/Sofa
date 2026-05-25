@@ -1,0 +1,5 @@
+# запрет доступа к файлу конфига напрямую
+<Files "config.php">
+    Order Allow,Deny
+    Deny from all
+</Files>

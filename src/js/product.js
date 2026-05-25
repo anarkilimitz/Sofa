@@ -1,7 +1,6 @@
 import products from '../data/products.json';
 
 export const initProduct = () => {
-
 	initAllAccordions();
 	const galleryContainer = document.getElementById('prod-gallery');
 	if (!galleryContainer) return; // Мы не на странице товара
@@ -129,7 +128,7 @@ function renderProductData(product) {
 													isFirst
 														? `
                         <section class="order-badge">
-                            <a class="order-badge__link" href="#">
+                            <a class="order-badge__link" data-action="open-form" tabindex="0" role="button">
                                 <div class="order-badge__card">
                                     <div class="order-badge__substrate"></div>
                                     <div class="order-badge__img-box">
