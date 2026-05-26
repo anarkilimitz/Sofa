@@ -14,6 +14,8 @@ node_modules
 dist
 dist-ssr
 *.local
+backend/
+mailer/
 
 # Editor directories and files
 .vscode/*
@@ -26,3 +28,6 @@ dist-ssr
 *.sln
 *.sw?
 .env
+config.php
+.htaccess
+mail.php
