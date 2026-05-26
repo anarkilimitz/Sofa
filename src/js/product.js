@@ -82,14 +82,14 @@ function renderProductData(product) {
 	if (titleLink) {
 		const icon = titleLink.querySelector('img');
 		titleLink.innerHTML = '';
-		titleLink.appendChild(icon);
+		if (icon) titleLink.appendChild(icon);
 		titleLink.append(` ${product.title}`);
 	}
 
 	// Описание и материалы
 	const setContent = (id, content) => {
 		const el = document.getElementById(id);
-		if (el) el.textContent = content;
+		if (el) el.textContent = content || '';
 	};
 
 	setContent('prod-description', product.fullDescription);
@@ -121,30 +121,32 @@ function renderProductData(product) {
 
 				const isFirst = index === 0;
 
-				return `
-                    <div class="${className}">
-                        <img src="${img.src}" alt="${product.title}">
-                        ${
-													isFirst
-														? `
+				const badgeHtml = isFirst
+					? `
                         <section class="order-badge">
                             <a class="order-badge__link" data-action="open-form" tabindex="0" role="button">
                                 <div class="order-badge__card">
                                     <div class="order-badge__substrate"></div>
                                     <div class="order-badge__img-box">
-                                        <img id="prod-badge-img" alt="${product.title}" src="${product.image}">
+                                        <img alt="${product.title}" src="${
+							product.image
+					  }">
                                     </div>
                                     <div class="order-badge__info">
                                         <div>
                                             <h3>Купить</h3>
                                         </div>
-                                        <div class="order-badge__label" id="prod-price"></div>
+                                        <div class="order-badge__label">${product.price}</div>
                                     </div>
                                 </div>
                             </a>
                         </section>`
-														: ''
-												}
+					: '';
+
+				return `
+                    <div class="${className}">
+                        <img src="${img.src}" alt="${product.title}">
+                        ${badgeHtml}
                     </div>
                 `;
 			})

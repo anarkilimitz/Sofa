@@ -7,18 +7,8 @@ form {
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    // gap: 23px;
     align-items: center;
 }
-
-// .icon-form {
-//     position: absolute;
-//     left: 10px;
-//     top: 14px;
-//     width: 23px;
-//     opacity: 0.8;
-//     transition: 3s;
-// }
 
 /* скрываем success по умолчанию */
 .field .icon-valid {
@@ -244,6 +234,7 @@ form {
     letter-spacing: 0.02em;
 }
 
+// -----------------------------------------КОНТЕЙнер---------------------------------------------
 .container-form {
     padding: 5px;
     position: fixed;
@@ -252,6 +243,8 @@ form {
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
+    height: 100%;
 
     opacity: 0;
     visibility: hidden;
@@ -262,26 +255,36 @@ form {
     background: rgba(179, 179, 179, 0.32);
     backdrop-filter: blur(6px);
     z-index: 1000;
+
+    &.active {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: all;
+    }
 }
 
-.container-form.active {
-    opacity: 1;
-    visibility: visible;
-    pointer-events: all;
-}
-
+// карточка формы
 .card-form {
-    position: relative;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+
     width: 826px;
     height: 863px;
+
     background-color: rgba(242, 239, 233, 0.8);
     border: 1px solid rgba(0, 0, 0, 0.08);
     border-radius: 40px;
     padding: 32px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08), 0 2px 6px rgba(0, 0, 0, 0.04);
-    transform: scale(0.8);
+
     opacity: 0;
-    transition: 0.3s ease-in-out;
+    visibility: hidden;
+
+    pointer-events: none;
+
+    transition: opacity 0.4s ease-in-out, visibility 0.4s ease-in-out, transform 0.4s ease-in-out;
     z-index: 10;
 
     &::before {
@@ -295,9 +298,66 @@ form {
         border-radius: 30px;
         z-index: -1;
     }
+
+    &.active {
+        opacity: 1;
+        visibility: visible;
+        transform: translate(-50%, -50%) scale(1);
+    }
 }
 
-.container-form.active .card-form {
-    transform: scale(1);
-    opacity: 1;
+.container-form.active .card-form.active {
+    pointer-events: all;
+}
+
+// другие карточки
+.card-substrate {
+    position: absolute;
+    width: calc(100% - 60px);
+    height: calc(100% - 60px);
+    background: #ffffff;
+    top: 15px;
+    left: 15px;
+    border-radius: 30px;
+    z-index: -1;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.01);
+}
+
+.success-content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between; // Текст слева, картинка справа
+    align-items: center;
+    padding: 40px 60px;
+    box-sizing: border-box;
+    z-index: 1;
+}
+
+.success-text {
+    max-width: 45%;
+
+    h2 {
+        font-size: 32px;
+        font-weight: 700;
+        margin-bottom: 20px;
+        color: var(--text-black);
+        text-transform: uppercase;
+    }
+
+    p {
+        font-size: 16px;
+        color: #666;
+    }
+}
+
+.success-image {
+    max-width: 50%;
+
+    img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+    }
 }

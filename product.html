@@ -153,66 +153,96 @@
 
     </main>
 
-        <!-- Форма обратной связи -->
-        
-        <div class="container-form">
-            <div class="card-form">
-                <h2 class="text-form">Оставить
-                    <br>
-                заявку
-                </h2>
-                <button type="button" class="close-form btn-close"></button>
-                <form id="contactForm">
-                    <div class="field">
-                        <input type="text" name="firstName" placeholder=" " required>
-                        <!-- <img src="icons/form/user.svg" alt="Имя" class="icon-form icon-default">
-                        <img src="icons/form/user-check.svg" alt="Имя" class="icon-form icon-valid"> -->
-                        <label>Ваше имя</label>
-                        <span class="error"></span>
-                    </div>
-        
-                    <div class="field">
-                        <input type="tel" name="phone" placeholder=" " inputmode="tel" required>
-                        <!-- <img src="icons/form/phone.svg" alt="Телефон" class="icon-form icon-default">
-                        <img src="icons/form/phone-check.svg" alt="Телефон" class="icon-form icon-valid"> -->
-                        <label>Номер телефона</label>
-                        <span class="error"></span>
-                    </div>
+    <!-- Форма обратной связи -->
 
-                    <div class="field">
-                        <input type="email" name="email" placeholder=" " required>
-                        <!-- <img src="assets/icons/mail.svg" class="icon icon-default">
-                        <img src="assets/icons/mail-check.svg" class="icon icon-valid"> -->
-                        <label>Email</label>
-                        <span class="error"></span>
-                    </div>
-        
-                    <div class="field">
-                        <textarea name="message" placeholder=" " required></textarea>
-                        <!-- <img src="icons/form/message.svg" alt="Сообщение" class="icon-form icon-default">
+    <div class="container-form">
+
+        <!-- первое состояние - основная -->
+        <div class="card-form state-1">
+            <h2 class="text-form">Оставить
+                <br>
+                заявку
+            </h2>
+            <button type="button" class="close-form btn-close"></button>
+            <form id="contactForm">
+                <div class="field">
+                    <input type="text" name="firstName" placeholder=" " required>
+                    <label>Ваше имя</label>
+                    <span class="error"></span>
+                </div>
+
+                <div class="field">
+                    <input type="tel" name="phone" placeholder=" " inputmode="tel" required>
+                    <label>Номер телефона</label>
+                    <span class="error"></span>
+                </div>
+
+                <div class="field">
+                    <input type="email" name="email" placeholder=" " required>
+                    <label>Email</label>
+                    <span class="error"></span>
+                </div>
+
+                <div class="field">
+                    <textarea name="message" placeholder=" " required></textarea>
+                    <!-- <img src="icons/form/message.svg" alt="Сообщение" class="icon-form icon-default">
                         <img src="icons/form/message-check.svg" alt="Сообщение" class="icon-form icon-valid"> -->
-                        <label>Комментарий</label>
-                        <span class="error"></span>
-                    </div>
-        
-                    <div class="checkbox-field">
-                        <label class="checkbox">
-                            <input type="checkbox" name="agree">
-                            <span class="policy-text">
-                                Согласен с
-                                <a href="/privacy.html" target="_blank" class="policy-link">
-                                    политикой конфиденциальности
-                                </a>
-                            </span>
-                        </label>
-                        <span class="error"></span>
-                    </div>
-        
-                    <button class="btn-form" type="submit">
-                        <span class="btn-text">Отправить</span>
-                    </button>
-                </form>
+                    <label>Комментарий</label>
+                    <span class="error"></span>
+                </div>
+
+                <div class="checkbox-field">
+                    <label class="checkbox">
+                        <input type="checkbox" name="agree">
+                        <span class="policy-text">
+                            Согласен с
+                            <a href="/privacy.html" target="_blank" class="policy-link">
+                                политикой конфиденциальности
+                            </a>
+                        </span>
+                    </label>
+                    <span class="error"></span>
+                </div>
+
+                <button class="btn-form" type="submit">
+                    <span class="btn-text">Отправить</span>
+                </button>
+            </form>
+        </div>
+
+        <!-- состояние 2 - менеджер свяжется -->
+        <div class="card-form state-2">
+            <!-- подложка белая прозрачная -->
+            <div class="card-substrate"></div>
+
+            <div class="success-content">
+                <div class="success-text">
+                    <h2>Наш менеджер связывается с вами в ближайшее 10 минут</h2>
+                    <p>Мы отправим вам дополнительную информацию, когда будет назначен звонок, и вы сможете посмотреть какие вы в очереди на
+                    звонок. Если вам необходимо позвонить в определенное время, выберите его в нашем календаре.</p>
+                </div>
+                <div class="success-image">
+                    <img src="/src/assets/img/form/thanks-sofa.jpg" alt="Спасибо за заявку">
+                </div>
             </div>
         </div>
+
+        <!-- состояние 3 - спасибо -->
+        <div class="card-form state-3">
+            <!-- подложка белая прозрачная-->
+            <div class="card-substrate"></div>
+
+            <div class="success-content">
+                <div class="success-text">
+                    <h2>Спасибо за заявку!</h2>
+                    <p>Мы уже обрабатываем вашу заявку</p>
+                </div>
+                <div class="success-image">
+                    <img src="/src/assets/img/form/thanks-sofa.jpg" alt="Спасибо за заявку">
+                </div>
+            </div>
+        </div>
+
+    </div>
 
 </body>

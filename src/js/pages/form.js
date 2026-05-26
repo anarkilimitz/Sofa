@@ -4,6 +4,18 @@ export function initForm() {
 	const formModal = document.querySelector('.container-form');
 	const closeBtn = document.querySelector('.close-form');
 
+	const state1 = document.querySelector('.state-1');
+	const state2 = document.querySelector('.state-2');
+	const state3 = document.querySelector('.state-3');
+	
+	if (!formModal || !state1 || !state2 || !state3) return;
+
+	// переключения состояний
+	function switchState(showState) {
+		[state1, state2, state3].forEach((s) => s.classList.remove('active'));
+		showState.classList.add('active');
+	}
+
 	// --- scroll lock ---
 	function lockScroll() {
 		document.body.style.overflow = 'hidden';
@@ -18,8 +30,9 @@ export function initForm() {
 		const openBtn = e.target.closest('[data-action="open-form"]');
 
 		if (openBtn) {
-			e.preventDefault(); // ОТМЕНА ПЕРЕХОДА ПО ССЫЛКЕ (чтобы не прыгало вверх)
+			e.preventDefault();
 			formModal.classList.add('active');
+			switchState(state1); // Всегда открываем первую форму
 			lockScroll();
 		}
 	});
@@ -28,6 +41,11 @@ export function initForm() {
 	function closeModal() {
 		formModal.classList.remove('active');
 		unlockScroll();
+		if (form) form.reset();
+		// При закрытии возвращаем кнопку в исходное состояние (на всякий случай)
+		btn.classList.remove('loading');
+		btn.disabled = false;
+		btnTextEl.textContent = defaultBtnText;
 	}
 
 	// кнопка закрытия
@@ -61,12 +79,8 @@ export function initForm() {
 				validator: (v) => /^[a-zA-Zа-яА-ЯёЁ-]+$/.test(v),
 				message: 'Только буквы без пробелов',
 			},
-			{
-				validator: (v) => v.length >= 2,
-				message: 'Минимум 2 символа',
-			},
+			{ validator: (v) => v.length >= 2, message: 'Минимум 2 символа' },
 		],
-
 		phone: [
 			{
 				validator: (v) => {
@@ -76,27 +90,16 @@ export function initForm() {
 				message: 'Введите корректный номер',
 			},
 		],
-
 		email: [
 			{
 				validator: (v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v),
 				message: 'Неверный email',
 			},
 		],
-
 		message: [
-			{
-				validator: (v) => v.length >= 10,
-				message: 'Минимум 10 символов',
-			},
+			{ validator: (v) => v.length >= 10, message: 'Минимум 10 символов' },
 		],
-
-		agree: [
-			{
-				validator: (v) => v === true,
-				message: 'Необходимо согласие',
-			},
-		],
+		agree: [{ validator: (v) => v === true, message: 'Необходимо согласие' }],
 	});
 
 	// отправка формы
@@ -108,14 +111,11 @@ export function initForm() {
 		// Визуальное состояние загрузки
 		btn.classList.add('loading');
 		btn.disabled = true;
-		const oldText = btnTextEl.textContent;
 		btnTextEl.textContent = 'Отправка...';
 
-		// Сбор данных формы
 		const formData = new FormData(form);
 
 		try {
-			// Отправка на сервер (файл mail.php)
 			const response = await fetch('mail.php', {
 				method: 'POST',
 				body: formData,
@@ -124,19 +124,30 @@ export function initForm() {
 			const result = await response.json();
 
 			if (response.ok && result.status === 'success') {
-				btnTextEl.textContent = 'Отправлено!';
-				// Можно добавить класс success для визуализации
+				// === НАЧАЛО ЛОГИКИ УСПЕХА ===
+				
+				switchState(state2);
+
+				// Сбрасываем форму, пока пользователь смотрит на 2-й экран
 				form.reset();
 				validator.reset();
 
-				// Вернуть кнопку в исходное состояние через 3 сек
+				// 3-е состояние ("Спасибо")
 				setTimeout(() => {
+					switchState(state3);
+				}, 3000);
+
+				// 3. Через еще 3 секунды (итого 6) закрываем модалку
+				setTimeout(() => {
+					closeModal();
+
+					// Возвращаем кнопку в исходное состояние (уже после закрытия)
 					btn.classList.remove('loading');
 					btn.disabled = false;
 					btnTextEl.textContent = defaultBtnText;
-				}, 3000);
+				}, 6000);
+				
 			} else {
-				// ОШИБКА СЕРВЕРА
 				throw new Error(result.message || 'Ошибка сервера');
 			}
 		} catch (error) {
@@ -147,7 +158,7 @@ export function initForm() {
 			setTimeout(() => {
 				btn.classList.remove('loading');
 				btn.disabled = false;
-				btn.style.backgroundColor = ''; // Вернуть цвет
+				btn.style.backgroundColor = '';
 				btnTextEl.textContent = defaultBtnText;
 			}, 2000);
 		}
