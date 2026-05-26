@@ -31,6 +31,7 @@ export default defineConfig({
 				contacts: 'contacts.html',
 				conditions: 'conditions.html',
 				page404: 'page404.html',
+				privacy: 'privacy.html',
 			},
 			output: {
 				// Настройка имен файлов для порядка в dist
