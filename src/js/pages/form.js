@@ -135,11 +135,6 @@ export function initForm(lenis) {
 				form.reset();
 				validator.reset();
 
-				// 3-е состояние ("Спасибо")
-				setTimeout(() => {
-					switchState(state3);
-				}, 3000);
-
 				// 3. Через еще 3 секунды (итого 6) закрываем модалку
 				state3Timer = setTimeout(() => {
 					switchState(state3);

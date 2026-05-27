@@ -9,6 +9,180 @@ form {
     flex-direction: column;
     align-items: center;
 }
+// раскомментировать чтобы формы отправки править 2-ю и третью !!!!!!!!!!!!!!!!!!!!!!
+
+// .container-form {
+//     opacity: 1 !important;
+//     visibility: visible !important;
+//     pointer-events: all !important;
+// }
+
+// .state-3 {
+//     opacity: 1 !important;
+//     visibility: visible !important;
+//     pointer-events: all !important;
+//     transform: translate(-50%, -50%) scale(1) !important;
+// }
+
+// ------------------------------КОНТЕЙнер------------------------------------
+.container-form {
+    padding: 5px;
+    position: fixed;
+    inset: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+
+    background: rgba(179, 179, 179, 0.32);
+    backdrop-filter: blur(6px);
+    z-index: 1000;
+
+    &.active {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: all;
+    }
+}
+
+// карточка формы
+.card-form {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+
+    width: min(826px, calc(100vw - 30px));
+    height: min(863px, calc(100vh - 30px));
+    overflow-y: auto;
+
+    background-color: rgba(242, 239, 233, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 40px;
+    padding: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08), 0 2px 6px rgba(0, 0, 0, 0.04);
+
+    opacity: 0;
+    visibility: hidden;
+
+    pointer-events: none;
+
+    transition: opacity 0.4s ease-in-out, visibility 0.4s ease-in-out, transform 0.4s ease-in-out;
+    z-index: 10;
+
+    &.active {
+        opacity: 1;
+        visibility: visible;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+.container-form.active .card-form.active {
+    pointer-events: all;
+}
+
+// другие карточки
+.card-substrate {
+    position: absolute;
+    width: calc(100% - 30px);
+    height: calc(100% - 30px);
+    background: #ffffff;
+    top: 15px;
+    left: 15px;
+    border-radius: 30px;
+    z-index: -1;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.01);
+}
+
+// Главный
+.text-form {
+    margin:
+        clamp(24px, 5vh, 70px) 0 clamp(40px, 10vh, 112px) clamp(20px, 5vh, 60px);
+    text-align: start;
+    color: var(--text-black);
+    font-size: 48px;
+    text-transform: uppercase;
+    line-height: 1;
+    letter-spacing: 0.02em;
+}
+
+// Успех
+.success-content {
+    position: relative;
+    padding: 265px 55px;
+    width: 100%;
+    height: 100%;
+    display: block;
+    align-items: center;
+    z-index: 1;
+}
+
+.success-text {
+    max-width: 100%;
+
+    h2 {
+        margin-bottom: 115px;
+        font-size: 48px;
+        text-transform: uppercase;
+        line-height: 1;
+        letter-spacing: -0.02em;
+        font-weight: normal;
+        color: var(--text-black);
+        text-transform: uppercase;
+
+        span {
+            color: var(--brand-red);
+        }
+    }
+
+    p {
+        font-size: 20px;
+        color: #666;
+    }
+}
+
+.success-content_thank {
+    display: block;
+    height: 100%;
+}
+
+// Блок с диваном
+.success-image {
+    width: 100%;
+    background:
+        url('/src/assets/img/form/thanks-sofa.jpg') center center / cover no-repeat;
+    min-height: 576px;
+    border-radius: 30px;
+    overflow: hidden;
+}
+
+.success-label {
+    padding-top: 35px;
+    padding-left: 70px;
+    font-size: 20px;
+    color: var(--text-gray);
+}
+
+.success-text_thank {
+    padding-top: 35px;
+    padding-left: 70px;
+
+    h2 {
+        font-size: 48px;
+        line-height: 1;
+        letter-spacing: 0.02em;
+        text-transform: uppercase;
+        color: var(--text-black);
+    }
+}
 
 /* скрываем success по умолчанию */
 .field .icon-valid {
@@ -128,8 +302,8 @@ form {
 /* кнопка */
 .btn-form {
     position: relative;
-    margin-right: 65px;
-    padding-right: 56px;
+    margin-right: clamp(16px, 5vh, 65px);
+    padding-right: clamp(20px, 5vh, 56px);
     align-self: flex-end;
     max-width: 365px;
     width: 100%;
@@ -221,143 +395,4 @@ form {
 .btn-close:hover::before,
 .btn-close:hover::after {
     background-color: #666;
-}
-
-// Заголовой
-.text-form {
-    margin: 70px 0 112px 60px;
-    text-align: start;
-    color: var(--text-black);
-    font-size: 48px;
-    text-transform: uppercase;
-    line-height: 1;
-    letter-spacing: 0.02em;
-}
-
-// -----------------------------------------КОНТЕЙнер---------------------------------------------
-.container-form {
-    padding: 5px;
-    position: fixed;
-    inset: 0;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-
-    transition: opacity 0.4s ease, visibility 0.4s ease;
-
-    background: rgba(179, 179, 179, 0.32);
-    backdrop-filter: blur(6px);
-    z-index: 1000;
-
-    &.active {
-        opacity: 1;
-        visibility: visible;
-        pointer-events: all;
-    }
-}
-
-// карточка формы
-.card-form {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(0.8);
-
-    width: 826px;
-    height: 863px;
-
-    background-color: rgba(242, 239, 233, 0.8);
-    border: 1px solid rgba(0, 0, 0, 0.08);
-    border-radius: 40px;
-    padding: 32px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08), 0 2px 6px rgba(0, 0, 0, 0.04);
-
-    opacity: 0;
-    visibility: hidden;
-
-    pointer-events: none;
-
-    transition: opacity 0.4s ease-in-out, visibility 0.4s ease-in-out, transform 0.4s ease-in-out;
-    z-index: 10;
-
-    // &::before {
-    //     content: '';
-    //     position: absolute;
-    //     width: 796px;
-    //     height: 831px;
-    //     background: #ffffff;
-    //     top: 15px;
-    //     left: 15px;
-    //     border-radius: 30px;
-    //     z-index: -1;
-    // }
-
-    &.active {
-        opacity: 1;
-        visibility: visible;
-        transform: translate(-50%, -50%) scale(1);
-    }
-}
-
-.container-form.active .card-form.active {
-    pointer-events: all;
-}
-
-// другие карточки
-.card-substrate {
-    position: absolute;
-    width: calc(100% - 30px);
-    height: calc(100% - 30px);
-    background: #ffffff;
-    top: 15px;
-    left: 15px;
-    border-radius: 30px;
-    z-index: -1;
-    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.01);
-}
-
-.success-content {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: space-between; // Текст слева, картинка справа
-    align-items: center;
-    padding: 40px 60px;
-    box-sizing: border-box;
-    z-index: 1;
-}
-
-.success-text {
-    max-width: 45%;
-
-    h2 {
-        font-size: 32px;
-        font-weight: 700;
-        margin-bottom: 20px;
-        color: var(--text-black);
-        text-transform: uppercase;
-    }
-
-    p {
-        font-size: 16px;
-        color: #666;
-    }
-}
-
-.success-image {
-    max-width: 50%;
-
-    img {
-        max-width: 100%;
-        height: auto;
-        display: block;
-    }
 }

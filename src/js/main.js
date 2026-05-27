@@ -71,6 +71,6 @@ document.addEventListener('DOMContentLoaded', async () => {
 	initNotFoundPage();
 
 	// Форма
-	initForm(lenis);
+	initForm(lenis); // Ленис тут для блока скролла!
 	initPhoneMask();
 });
