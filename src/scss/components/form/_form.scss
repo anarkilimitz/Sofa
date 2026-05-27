@@ -287,17 +287,17 @@ form {
     transition: opacity 0.4s ease-in-out, visibility 0.4s ease-in-out, transform 0.4s ease-in-out;
     z-index: 10;
 
-    &::before {
-        content: '';
-        position: absolute;
-        width: 796px;
-        height: 831px;
-        background: #ffffff;
-        top: 15px;
-        left: 15px;
-        border-radius: 30px;
-        z-index: -1;
-    }
+    // &::before {
+    //     content: '';
+    //     position: absolute;
+    //     width: 796px;
+    //     height: 831px;
+    //     background: #ffffff;
+    //     top: 15px;
+    //     left: 15px;
+    //     border-radius: 30px;
+    //     z-index: -1;
+    // }
 
     &.active {
         opacity: 1;
@@ -313,8 +313,8 @@ form {
 // другие карточки
 .card-substrate {
     position: absolute;
-    width: calc(100% - 60px);
-    height: calc(100% - 60px);
+    width: calc(100% - 30px);
+    height: calc(100% - 30px);
     background: #ffffff;
     top: 15px;
     left: 15px;

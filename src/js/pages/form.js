@@ -1,28 +1,22 @@
 import { FormValidator } from '../utils/validator';
 
-export function initForm() {
+export function initForm(lenis) {
 	const formModal = document.querySelector('.container-form');
 	const closeBtn = document.querySelector('.close-form');
 
 	const state1 = document.querySelector('.state-1');
 	const state2 = document.querySelector('.state-2');
 	const state3 = document.querySelector('.state-3');
-	
+
+	let state3Timer = null;
+	let closeTimer = null;
+
 	if (!formModal || !state1 || !state2 || !state3) return;
 
 	// переключения состояний
 	function switchState(showState) {
 		[state1, state2, state3].forEach((s) => s.classList.remove('active'));
 		showState.classList.add('active');
-	}
-
-	// --- scroll lock ---
-	function lockScroll() {
-		document.body.style.overflow = 'hidden';
-	}
-
-	function unlockScroll() {
-		document.body.style.overflow = '';
 	}
 
 	// --- открытие ---
@@ -33,15 +27,23 @@ export function initForm() {
 			e.preventDefault();
 			formModal.classList.add('active');
 			switchState(state1); // Всегда открываем первую форму
-			lockScroll();
+			if (lenis) lenis.stop();
 		}
 	});
 
 	// --- закрытие (ЕДИНАЯ функция) ---
 	function closeModal() {
 		formModal.classList.remove('active');
-		unlockScroll();
+
+		clearTimeout(state3Timer);
+		clearTimeout(closeTimer);
+
+		switchState(state1);
+
+		if (lenis) lenis.start();
+
 		if (form) form.reset();
+
 		// При закрытии возвращаем кнопку в исходное состояние (на всякий случай)
 		btn.classList.remove('loading');
 		btn.disabled = false;
@@ -104,6 +106,7 @@ export function initForm() {
 
 	// отправка формы
 	form.addEventListener('submit', async (e) => {
+
 		e.preventDefault();
 
 		if (!validator.validateForm()) return;
@@ -125,7 +128,7 @@ export function initForm() {
 
 			if (response.ok && result.status === 'success') {
 				// === НАЧАЛО ЛОГИКИ УСПЕХА ===
-				
+
 				switchState(state2);
 
 				// Сбрасываем форму, пока пользователь смотрит на 2-й экран
@@ -138,15 +141,17 @@ export function initForm() {
 				}, 3000);
 
 				// 3. Через еще 3 секунды (итого 6) закрываем модалку
-				setTimeout(() => {
+				state3Timer = setTimeout(() => {
+					switchState(state3);
+				}, 3000);
+
+				closeTimer = setTimeout(() => {
 					closeModal();
 
-					// Возвращаем кнопку в исходное состояние (уже после закрытия)
 					btn.classList.remove('loading');
 					btn.disabled = false;
 					btnTextEl.textContent = defaultBtnText;
 				}, 6000);
-				
 			} else {
 				throw new Error(result.message || 'Ошибка сервера');
 			}

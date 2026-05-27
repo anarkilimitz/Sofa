@@ -71,6 +71,6 @@ document.addEventListener('DOMContentLoaded', async () => {
 	initNotFoundPage();
 
 	// Форма
-	initForm();
+	initForm(lenis);
 	initPhoneMask();
 });
