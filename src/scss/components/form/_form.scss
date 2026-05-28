@@ -12,18 +12,18 @@ form {
 
 // раскомментировать чтобы формы отправки править 2-ю и третью !!!!!!!!!!!!!!!!!!!!!!
 
-.container-form {
-    opacity: 1 !important;
-    visibility: visible !important;
-    pointer-events: all !important;
-}
+// .container-form {
+//     opacity: 1 !important;
+//     visibility: visible !important;
+//     pointer-events: all !important;
+// }
 
-.state-2 {
-    opacity: 1 !important;
-    visibility: visible !important;
-    pointer-events: all !important;
-    transform: translate(-50%, -50%) scale(1) !important;
-}
+// .state-2 {
+//     opacity: 1 !important;
+//     visibility: visible !important;
+//     pointer-events: all !important;
+//     transform: translate(-50%, -50%) scale(1) !important;
+// }
 
 // ------------------------------КОНТЕЙнер------------------------------------
 .container-form {
@@ -62,7 +62,8 @@ form {
     transform: translate(-50%, -50%) scale(0.8);
 
     width: min(826px, calc(100vw - 30px));
-    height: min(863px, calc(100vh - 30px));
+    max-height: calc(100vh - 30px);
+    height: fit-content;
     overflow-y: auto;
 
     background-color: rgba(242, 239, 233, 0.8);
@@ -83,6 +84,11 @@ form {
         opacity: 1;
         visibility: visible;
         transform: translate(-50%, -50%) scale(1);
+    }
+
+    @media screen and (max-width: 600px) {
+        width: min(400px, calc(100vw - 30px));
+        height: min(670px, calc(100vh - 30px));
     }
 }
 
@@ -113,6 +119,12 @@ form {
     text-transform: uppercase;
     line-height: 1;
     letter-spacing: 0.02em;
+
+    @media screen and (max-width: 600px) {
+        margin: 42px 0 80px 32px;
+        font-size: 24px;
+        font-weight: 400;
+    }
 }
 
 // Успех
@@ -216,7 +228,7 @@ form {
     position: relative;
     width: 100%;
     max-width: 643px;
-    width: calc(100% - clamp(110px, 10vw, 100px));
+    width: calc(100% - clamp(70px, 10vw, 100px));
     margin-left: auto;
     margin-right: auto;
 }
@@ -249,6 +261,10 @@ form {
         border-bottom-color: rgba(98, 94, 94, 0.1);
         transition: background-color 5000s ease-in-out 0s;
     }
+
+    @media screen and (max-width: 600px) {
+        height: 42px;
+    }
 }
 
 .field textarea {
@@ -265,6 +281,11 @@ form {
     pointer-events: none;
     transition: 0.2s;
     font-weight: 600;
+
+    @media screen and (max-width: 600px) {
+        font-size: 16px;
+        font-weight: 400;
+    }
 }
 
 .field input:focus~label,
@@ -282,6 +303,7 @@ form {
 }
 
 .error {
+    min-height: 10px;
     font-size: 12px;
     color: #ff6b6b;
     margin-top: 6px;
@@ -291,11 +313,16 @@ form {
 .checkbox-field {
     display: flex;
     flex-direction: column;
-    margin: clamp(5px, 10vh, 110px) 85px 15px 0;
+    margin: clamp(5px, 1vh, 90px) 85px 15px 0;
     align-self: flex-end;
 
     @media (max-height: 901px) {
         margin: clamp(5px, 1vh, 110px) 85px 15px 0;
+    }
+
+    @media screen and (max-width: 600px) {
+        margin: 30px auto 15px;
+        align-self: center;
     }
 }
 
@@ -303,6 +330,7 @@ form {
     display: flex;
     gap: 10px;
     align-items: flex-start;
+    margin-left: 32px;
 }
 
 .checkbox input {
@@ -311,13 +339,19 @@ form {
     margin-top: -2px;
     cursor: pointer;
     accent-color: var(--brand-teal);
+
+    @media screen and (max-width: 600px) {
+        width: 16px;
+        height: 16px;
+        margin-top: 0px;
+    }
 }
 
 /* кнопка */
 .btn-form {
     position: relative;
-    margin-right: 65px;
-    padding-right: 56px;
+    margin: 0 65px 40px 0;
+    padding: 0 65px 0 0;
     align-self: flex-end;
     max-width: 365px;
     width: 100%;
@@ -333,6 +367,19 @@ form {
     font-weight: 600;
     cursor: pointer;
     font-size: 20px;
+
+    @media screen and (max-width: 600px) {
+        width: calc(100% - 65px);
+        margin: auto 0;
+        padding: 0;
+        align-self: center;
+        text-align: center;
+        max-width: 330px;
+        height: 60px;
+        border-radius: 12px;
+        font-size: 14px;
+        font-weight: 400;
+    }
 }
 
 .btn-form:focus {
@@ -385,6 +432,20 @@ form {
     font-size: 30px;
     cursor: pointer;
     color: #000;
+
+    @media screen and (max-width: 600px) {
+        top: 60px;
+        right: 36px;
+        width: 24px;
+        height: 24px;
+        font-size: 24px;
+        font-weight: 400;
+    }
+
+    @media screen and (max-width: 350px) {
+        top: 30px;
+        right: 30px;
+    }
 }
 
 .btn-close::before,
@@ -396,6 +457,11 @@ form {
     width: 4vh;
     height: 2px;
     background-color: #000;
+
+    @media screen and (max-width: 600px) {
+        width: 3.2vh;
+        height: 2px;
+    }
 }
 
 .btn-close::before {
