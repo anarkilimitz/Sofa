@@ -42,16 +42,16 @@
             height: 65px;
 
             background-repeat: no-repeat;
+            background-size: cover;
             background-position: center;
-            background-size: contain;
 
             transition: background-image 0.3s ease;
 
             &[data-logo="main"] {
-                background-image: url("/src/assets/img/main/logo.svg");
+                background-image: url("/src/assets/icons/header/logo.svg");
 
                 &:hover {
-                    background-image: url("/src/assets/img/main/logoRed.svg");
+                    background-image: url("/src/assets/icons/header/logo-teal.svg");
                 }
             }
         }

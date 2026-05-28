@@ -1,0 +1,27 @@
+<svg width="63" height="63" viewBox="0 0 63 63" fill="none" xmlns="http://www.w3.org/2000/svg">
+<!-- Фон (такой же, как у черной иконки) -->
+<rect width="62.2222" height="62.2222" rx="17.7778" fill="#E9E4DB" fill-opacity="0.4"/>
+
+<!-- Иконка с тенью -->
+<g filter="url(#filter0_d_search)">
+    <!-- Круг лупы (ЗАКРАШЕННЫЙ). Я убрал внутренний контур, который делал дырку. -->
+    <path d="M30 18.0556C24.0169 18.0556 19.1667 22.9058 19.1667 28.8889C19.1667 34.872 24.0169 39.7222 30 39.7222C35.9831 39.7222 40.8333 34.872 40.8333 28.8889C40.8333 22.9058 35.9831 18.0556 30 18.0556Z" fill="#00A18F"/>
+    
+    <!-- Ручка лупы -->
+    <path d="M39.4782 37.1886C39.1528 36.8632 38.6251 36.8632 38.2997 37.1886C37.9743 37.5141 37.9743 38.0417 38.2997 38.3671L42.744 42.8115C43.0695 43.137 43.5971 43.137 43.9225 42.8115C44.248 42.4861 44.248 41.9585 43.9225 41.633L39.4782 37.1886Z" fill="#00A18F"/>
+</g>
+
+<defs>
+    <!-- Настройки тени -->
+    <filter id="filter0_d_search" x="8" y="8" width="50" height="50" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+        <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+        <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+        <feOffset dx="1" dy="2"/>
+        <feGaussianBlur stdDeviation="2"/>
+        <feComposite in2="hardAlpha" operator="out"/>
+        <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0.631373 0 0 0 0 0.560784 0 0 0 0.25 0"/>
+        <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
+        <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
+    </filter>
+</defs>
+</svg>

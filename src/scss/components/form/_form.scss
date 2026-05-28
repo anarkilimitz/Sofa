@@ -139,7 +139,7 @@ form {
         text-transform: uppercase;
 
         span {
-            color: var(--brand-red);
+            color: var(--brand-teal);
         }
     }
 
@@ -296,7 +296,7 @@ form {
     height: 20px;
     margin-top: -2px;
     cursor: pointer;
-    accent-color: var(--brand-red);
+    accent-color: var(--brand-teal);
 }
 
 /* кнопка */
@@ -324,7 +324,7 @@ form {
 .btn-form:focus {
     outline: none;
     outline-offset: 2px;
-    box-shadow: 0 0 0 3px rgba(0, 255, 51, 0.4);
+    box-shadow: 0 0 0 3px var(--brand-teal);
 }
 
 .btn-form.loading {
@@ -345,7 +345,7 @@ form {
 }
 
 .policy-link {
-    color: #ff6629;
+    color: var(--brand-teal);
     font-size: 14px;
     text-decoration: none;
     border-bottom: 1px solid transparent;
@@ -353,7 +353,7 @@ form {
 }
 
 .policy-link:hover {
-    border-bottom: 1px solid #ff6629;
+    border-bottom: 1px solid var(--brand-teal);
 }
 
 // Крестик
