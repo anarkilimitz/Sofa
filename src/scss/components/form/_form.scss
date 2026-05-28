@@ -9,6 +9,7 @@ form {
     flex-direction: column;
     align-items: center;
 }
+
 // раскомментировать чтобы формы отправки править 2-ю и третью !!!!!!!!!!!!!!!!!!!!!!
 
 // .container-form {
@@ -105,10 +106,10 @@ form {
 // Главный
 .text-form {
     margin:
-        clamp(24px, 5vh, 70px) 0 clamp(40px, 10vh, 112px) clamp(20px, 5vh, 60px);
+        clamp(20px, 7vh, 70px) 0 clamp(20px, 7vh, 112px) clamp(10px, 7vh, 90px);
     text-align: start;
     color: var(--text-black);
-    font-size: 48px;
+    font-size: clamp(30px, 4.44vh, 48px);
     text-transform: uppercase;
     line-height: 1;
     letter-spacing: 0.02em;
@@ -210,6 +211,9 @@ form {
     position: relative;
     width: 100%;
     max-width: 643px;
+    width: calc(100% - clamp(110px, 10vw, 100px));
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .field input,
@@ -244,6 +248,7 @@ form {
 
 .field textarea {
     min-height: 60px;
+    margin-top: 30px;
 }
 
 .field label {
@@ -281,8 +286,12 @@ form {
 .checkbox-field {
     display: flex;
     flex-direction: column;
-    margin: 80px 85px 15px 0;
+    margin: clamp(5px, 10vh, 110px) 85px 15px 0;
     align-self: flex-end;
+
+    @media (max-height: 901px) {
+        margin: clamp(5px, 1vh, 110px) 85px 15px 0;
+    }
 }
 
 .checkbox {
@@ -302,8 +311,8 @@ form {
 /* кнопка */
 .btn-form {
     position: relative;
-    margin-right: clamp(16px, 5vh, 65px);
-    padding-right: clamp(20px, 5vh, 56px);
+    margin-right: 65px;
+    padding-right: 56px;
     align-self: flex-end;
     max-width: 365px;
     width: 100%;
@@ -359,7 +368,7 @@ form {
 // Крестик
 .btn-close {
     position: absolute;
-    top: 135px;
+    top: 13vh;
     right: 95px;
     display: flex;
     justify-content: center;
@@ -379,7 +388,7 @@ form {
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 40px;
+    width: 4vh;
     height: 2px;
     background-color: #000;
 }
