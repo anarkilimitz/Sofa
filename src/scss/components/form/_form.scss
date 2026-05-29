@@ -12,18 +12,18 @@ form {
 
 // раскомментировать чтобы формы отправки править 2-ю и третью !!!!!!!!!!!!!!!!!!!!!!
 
-// .container-form {
-//     opacity: 1 !important;
-//     visibility: visible !important;
-//     pointer-events: all !important;
-// }
+.container-form {
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: all !important;
+}
 
-// .state-2 {
-//     opacity: 1 !important;
-//     visibility: visible !important;
-//     pointer-events: all !important;
-//     transform: translate(-50%, -50%) scale(1) !important;
-// }
+.state-3 {
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: all !important;
+    transform: translate(-50%, -50%) scale(1) !important;
+}
 
 // ------------------------------КОНТЕЙнер------------------------------------
 .container-form {
@@ -136,6 +136,14 @@ form {
     display: block;
     align-items: center;
     z-index: 1;
+
+    @media screen and (max-width: 600px) {
+        padding: 217px 0 48px 35px;
+    }
+
+    @media screen and (max-width: 345px) {
+        padding: 217px 0 35px 15px;
+    }
 }
 
 .success-text {
@@ -154,11 +162,31 @@ form {
         span {
             color: var(--brand-teal);
         }
+
+        @media screen and (max-width: 600px) {
+            margin: 0;
+            font-size: 24px;
+            font-weight: 400;
+        }
+
+        @media screen and (max-width: 345px) {
+            font-size: 20px;
+        }
     }
 
     p {
         font-size: 20px;
         color: #666;
+
+        @media screen and (max-width: 600px) {
+            font-size: 14px;
+            padding-top: 48px;
+            padding-right: 42px;
+        }
+
+        @media screen and (max-width: 345px) {
+            padding-top: 35px;
+        }
     }
 }
 
@@ -180,18 +208,39 @@ form {
         height: 50%;
         min-height: 469px;
     }
+
+    @media screen and (max-width: 600px) {
+        background:
+                url('/src/assets/img/form/thanks-sofa.jpg') left center / cover no-repeat;
+    }
 }
 
 .success-label {
     padding-top: 35px;
     padding-left: 70px;
     font-size: 20px;
+    font-weight: 400;
     color: var(--text-gray);
+
+    @media screen and (max-width: 600px) {
+        font-size: 10px;
+        padding-left: 0;
+        padding-right: 35px;
+        text-align: right;
+    }
 }
 
 .success-text_thank {
     padding-top: 35px;
     padding-left: 70px;
+
+    @media screen and (max-width: 600px) {
+        padding-left: 42px;
+    }
+
+    @media screen and (max-width: 350px) {
+        padding-left: 15px;
+    }
 
     h2 {
         font-size: 4.44vh;
@@ -199,6 +248,10 @@ form {
         letter-spacing: 0.02em;
         text-transform: uppercase;
         color: var(--text-black);
+
+        @media screen and (max-width: 600px) {
+            font-size: 24px;
+        }
     }
 }
 
@@ -306,6 +359,7 @@ form {
     min-height: 10px;
     font-size: 12px;
     color: #ff6b6b;
+    margin-left: 32px;
     margin-top: 6px;
     display: block;
 }
