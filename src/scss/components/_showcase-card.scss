@@ -15,6 +15,10 @@
         background-color: var(--card-dark);
         z-index: 1;
     }
+
+    @media (max-width: 480px) {
+        display: none;
+    }
 }
 
 .showcase-card-link {
@@ -34,9 +38,9 @@
     border-radius: 32px;
     overflow: hidden;
     background: rgba(233, 228, 219, 0.43);
-        box-shadow: 0 4px 39px 0 rgba(0, 0, 0, 0.10);
-        backdrop-filter: blur(3.3px);
-    
+    box-shadow: 0 4px 39px 0 rgba(0, 0, 0, 0.10);
+    backdrop-filter: blur(3.3px);
+
     cursor: pointer;
     transition: background 0.2s ease, box-shadow 0.2s ease;
 

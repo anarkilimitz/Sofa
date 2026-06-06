@@ -48,15 +48,31 @@
     z-index: 2;
 
     .hero-title {
-        font-size: 40px;
+        font-size: 48px;
         font-weight: 400;
+        font-style: Regular;
         text-transform: uppercase;
-        line-height: 1;
-        letter-spacing: 0.02em;
+        line-height: 64px;
+        letter-spacing: 2%;
         margin: 0;
 
         span {
             color: var(--brand-teal);
+        }
+
+
+    }
+
+    @media (max-width: 480px) {
+        margin-left: 22px;
+        margin-top: 115px;
+        margin-bottom: 0;
+        max-width: 350px;
+
+        .hero-title {
+            font-size: 24px;
+            line-height: 28px;
+            letter-spacing: -2%;
         }
     }
 
@@ -69,11 +85,20 @@
         color: #0F0F10;
         line-height: 35.56px;
         font-weight: 400;
+
+        @media (max-width: 480px) {
+            margin-top: 24px;
+            margin-bottom: 100px;
+            font-size: 16px;
+            line-height: 25px;
+            letter-spacing: 0%;
+        }
     }
 }
 
 @media (max-width: 998px) {
     .hero-section {
+        min-height: 104vh;
         border-radius: 0 0 40px 40px;
     }
 

@@ -11,7 +11,7 @@
     transform: translateX(-50%);
 
     width: 90%;
-    
+
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -52,6 +52,24 @@
 
                 &:hover {
                     background-image: url("/src/assets/icons/header/logo-teal.svg");
+                }
+            }
+        }
+    }
+
+    @media (max-width: 480px) {
+        padding: 0 100px 0 40px;
+        height: 72px;
+        border-radius: 20px;
+
+        .logo-group {
+
+            .logo {
+                width: 80px;
+                height: 44px;
+
+                &[data-logo="main"] {
+                    background-image: url("/src/assets/icons/header/logo-mobile.svg");
                 }
             }
         }

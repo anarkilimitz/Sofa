@@ -41,8 +41,16 @@
 
             span {
                 background: var(--brand-teal, rgba(0, 161, 143, 1));
+
             }
         }
+    }
+
+    @media (max-width: 480px) {
+        span {
+            display: none;
+        }
+        width: auto;
     }
 }
 
@@ -259,6 +267,10 @@
         opacity: 1;
         transform: scale(1);
     }
+
+    @media (max-width: 480px) {
+        display: none;
+    }
 }
 
 // Текст справа от иконок
@@ -286,7 +298,7 @@
 }
 
 .nav-icons:has(.icon-box:active)::after {
-    color:  rgba(0, 161, 143, 1);
+    color: rgba(0, 161, 143, 1);
     transition: color 0s;
 }
 
@@ -347,5 +359,9 @@
         background: var(--brand-teal);
         border-radius: 50%;
         z-index: 2;
+    }
+
+    @media (max-width: 480px) {
+        display: none;
     }
 }
