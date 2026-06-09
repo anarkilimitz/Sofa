@@ -98,11 +98,30 @@
 
 @media (max-width: 998px) {
     .hero-section {
-        min-height: 104vh;
+        min-height: 105vh;
         border-radius: 0 0 40px 40px;
     }
 
     .hero-video {
         border-radius: 0 0 40px 40px;
     }
+}
+
+@media (max-width: 480px) {
+    .hero-section {
+        justify-content: flex-start;
+    }
+        .hero-content {
+            margin-top: 115px;
+        }
+    
+        .promo {
+            margin-top: 40px;
+        }
+    
+        .hero-section .footer {
+            margin-top: auto;
+            margin-left: 5px;
+            padding-bottom: 20px;
+        }
 }
