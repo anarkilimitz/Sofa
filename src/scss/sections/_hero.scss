@@ -111,17 +111,14 @@
     .hero-section {
         justify-content: flex-start;
     }
-        .hero-content {
-            margin-top: 115px;
-        }
-    
-        .promo {
-            margin-top: 40px;
-        }
-    
-        .hero-section .footer {
-            margin-top: auto;
-            margin-left: 5px;
-            padding-bottom: 20px;
-        }
+
+    .hero-content {
+        margin-top: 115px;
+    }
+
+    .hero-section .footer {
+        margin-top: 40px;
+        margin-left: 5px;
+        padding-bottom: 20px;
+    }
 }
