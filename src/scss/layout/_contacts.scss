@@ -37,7 +37,7 @@
 
         &:nth-child(1) {
 
-            background-image: url('/public/video/about/example-about.png');
+            background-image: url('/src/assets/img/contacts/sofa-mini.jpg');
         }
 
     }
@@ -245,6 +245,83 @@
             line-height: 140%;
             color: #625E5E;
             letter-spacing: 0%;
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .contacts {
+        &__wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            gap: 60px;
+            margin-top: 40px;
+        }
+
+        // Аккордеон + Контакты
+        &__wrapper-left {
+            order: 2;
+            width: 100%;
+            flex: none;
+
+            .accordion {
+                max-width: 100%;
+            }
+        }
+
+        // Правой колонке (Картинка + Карта) задаем порядок 1 (они будут сразу после заголовка)
+        &__wrapper-right {
+            order: 1;
+            width: 100%;
+            margin-left: 0;
+            padding-left: 0;
+            
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        &__video-card {
+            width: 100%; // Картинка на всю ширину
+            height: 250px; // Фиксируем высоту, чтобы не было слишком вытянутым
+            aspect-ratio: auto; // Сбрасываем жесткое соотношение сторон, если нужно
+
+
+            &:nth-child(1) {
+
+                background-image: url('/src/assets/img/contacts/sofa-longMini.jpg');
+            }
+
+
+        }
+
+        &__map-container {
+            width: 100%;
+            height: 300px; // Оптимальная высота карты для мобильных
+        }
+
+        &__content {
+            margin: 136px 20px 0 20px; // Корректируем отступы для мобильных
+        }
+
+        &__title {
+            font-size: 24px;
+        }
+
+        &__title-text {
+            font-size: 16px; // Немного уменьшим текст под заголовком
+        }
+
+        // Дополнительные правки для контактов внутри списка
+        &__item {
+            flex-wrap: wrap; // Разрешаем перенос, если текст длинный
+        }
+
+        &__copy {
+            opacity: 1; // На мобильных часто лучше сразу показывать кнопку копирования
+            visibility: visible;
+            margin-left: auto; // Или margin-top, если в столбик
         }
     }
 }

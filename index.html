@@ -144,7 +144,8 @@
       <div class="specifics-features__list">
         <div class="specifics-card">
           <div class="specifics-card__icon"></div>
-          <h3 class="specifics-card__title">Мягкие ткани</h3>
+          <h3 class="specifics-card__title">Комфорт <br>
+            каждый день</h3>
           <div class="divider"></div>
           <p class="specifics-card__text">Мы действительно подошли к выбору невероятно мягчяйших тканей отобранные по
             всему миру. подошли к выбору невероятно
@@ -157,8 +158,8 @@
         <div class="specifics-card">
           <div class="specifics-card__icon"></div>
           <h3 class="specifics-card__title">
-            Эргономичный<br>
-            дизайн</h3>
+            Честное<br>
+            качество</h3>
           <div class="divider"></div>
           <p class="specifics-card__text">Мы действительно подошли к выбору невероятно мягчяйших тканей отобранные по
             всему миру. подошли к выбору невероятно
@@ -171,8 +172,8 @@
         <div class="specifics-card">
           <div class="specifics-card__icon"></div>
           <h3 class="specifics-card__title">
-            Простота в <br>
-            использовании</h3>
+            Помогаем с<br>
+            выбором</h3>
           <div class="divider"></div>
           <p class="specifics-card__text">Мы действительно подошли к выбору невероятно мягчяйших тканей отобранные по
             всему миру. подошли к выбору невероятно
@@ -299,6 +300,80 @@
       </div>
     </footer>
   </section>
+
+  <!-- ПОП-АП С 3-МЯ СЛАЙДАМИ (для мобильной версии СЕКЦИЯ Specifics) -->
+  <!-- собственный отдельный оверлэй!!!! -->
+  <div class="specifics-modal-overlay" id="specifics-modal-overlay"></div>
+  <div class="specifics-modal" id="specifics-modal">
+
+    <!-- закрыть -->
+    <button class="specifics-modal__close" aria-label="Закрыть"> </button>
+
+    <!-- Контейнер -->
+    <div class="specifics-modal__slider">
+
+      <!-- Слайд 1 -->
+      <div class="specifics-modal__slide active" data-index="0">
+
+        <img class="specifics-modal__image" src="" alt="Деталь">
+
+        <div class="specifics-modal__content">
+
+          <div class="specifics-modal__wrapper">
+            <div class="specifics-modal__plus"></div>
+            <h3 class="specifics-modal__title">Комфорт <br> каждый день</h3>
+          </div>
+
+          <p class="specifics-modal__text">Эргономичная посадка и мягкие материалы, созданные для отдыха после работы,
+            выходных и семейных вечеров. <br>
+            Эргономичная посадка и мягкие материалы, созданные для отдыха после работы, выходных и семейных вечеров.
+          </p>
+        </div>
+      </div>
+
+      <!-- Слайд 2 -->
+      <div class="specifics-modal__slide" data-index="1">
+
+        <img class="specifics-modal__image" src="" alt="Деталь">
+
+        <div class="specifics-modal__content">
+
+          <div class="specifics-modal__wrapper">
+            <div class="specifics-modal__plus"></div>
+            <h3 class="specifics-modal__title">Честное <br> качество</h3>
+          </div>
+
+          <p class="specifics-modal__text">Надёжные конструкции, практичные ткани и материалы, которые остаются
+            комфортными в ежедневном использовании.</p>
+        </div>
+      </div>
+
+      <!-- Слайд 3 -->
+      <div class="specifics-modal__slide" data-index="2">
+
+        <img class="specifics-modal__image" src="" alt="Деталь">
+
+        <div class="specifics-modal__content">
+
+          <div class="specifics-modal__wrapper">
+            <div class="specifics-modal__plus"></div>
+            <h3 class="specifics-modal__title">Помогаем с <br> выбором</h3>
+          </div>
+
+          <p class="specifics-modal__text">Подскажем, какой диван подойдёт именно вашему пространству, образу жизни и
+            привычкам.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- точки-->
+    <div class="specifics-modal__dots">
+      <span class="dot active" data-index="0"></span>
+      <span class="dot" data-index="1"></span>
+      <span class="dot" data-index="2"></span>
+    </div>
+  </div>
 
 </body>
 

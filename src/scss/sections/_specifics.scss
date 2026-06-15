@@ -124,7 +124,7 @@
         font-weight: 600;
         font-style: normal;
         line-height: 28px;
-        text-transform: uppercase;
+        // text-transform: uppercase;
         color: #0F0F10;
         font-family: var(--font-primary);
         pointer-events: none;
@@ -259,4 +259,342 @@
             align-items: center;
         }
     }
+}
+
+@media (max-width: 480px) {
+    .specifics-content {
+        margin: 136px 20px 0 20px;
+
+        .specifics-title {
+            font-size: 24px;
+        }
+
+        .specifics-desc {
+            font-size: 16px;
+        }
+    }
+}
+
+// КОРРЕКЦИЯ КАРТОЧЕК ДЛЯ МОБИЛЬНОГО
+@media (max-width: 998px) {
+    .specifics-features {
+        margin: 5vh 20px 4vh 20px;
+
+        &__list {
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+    }
+
+    .specifics-card {
+        width: 100%;
+        aspect-ratio: 3 / 4;
+        padding: 30px;
+
+        .divider,
+        &__text {
+            display: none;
+        }
+
+        &__title {
+            color: #0F0F10;
+            font-size: 20px;
+            margin-bottom: 0;
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .specifics-content {
+        margin: 136px 20px 0 20px;
+
+        .specifics-title {
+            font-size: 24px;
+        }
+
+        .specifics-desc {
+            font-size: 16px;
+        }
+    }
+
+    .specifics-features {
+        margin-bottom: 60px;
+
+        &__list {
+            gap: 8px;
+        }
+    }
+
+    .specifics-card {
+        position: relative;
+        display: block;
+        width: 90vw;
+        height: auto;
+        aspect-ratio: 376 / 138;
+        padding: 15px;
+
+        // это точки      
+        // первая
+        &:nth-child(1)::after {
+            top: 63%;
+            left: 38%;
+        }
+
+        // вторая
+        &:nth-child(2)::after {
+            top: 48%;
+            left: 35%;
+        }
+
+        // третья
+        &:nth-child(3)::after {
+            top: 51%;
+            left: 60%;
+        }
+
+        &:nth-child(1) {
+            background-image: url('/src/assets/img/specifics/specifics-sofa.jpg');
+        }
+
+        &:nth-child(2) {
+            background-image: url('/src/assets/img/specifics/specifics-ergonomic.jpg');
+        }
+
+        &:nth-child(3) {
+            background-image: url('/src/assets/img/specifics/specifics-ease.jpg');
+        }
+
+        &__title {
+            font-size: 16px;
+            line-height: 18px;
+        }
+
+        // Квадрат с плюсом
+        .card-plus {
+            bottom: 17px;
+            right: 17px;
+            width: 40px;
+            height: 40px;
+
+            &::before {
+                width: 17px;
+                height: 17px;
+            }
+
+            &::after {
+                font-size: 14px;
+                transform: translateY(0px);
+            }
+        }
+    }
+}
+
+// МОБИЛЬНЫЙ ПОП-АП (MODAL)
+.specifics-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 90vw;
+    max-width: 394px;
+    min-height: 466px;
+    height: auto;
+    max-height: 100vh;
+
+    border-radius: 30px;
+    background-image: none !important;
+    transform: translate(-50%, -50%);
+
+    border-radius: 30px;
+    background-color: #E5E5E5; // Фон по умолчанию
+    background-size: cover;
+    background-position: center;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    z-index: 9999;
+
+    // Скрыт по умолчанию
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease,
+        visibility 0.3s ease;
+
+    &__image {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 376 / 137;
+        object-fit: cover;
+        border-radius: 20px;
+        margin: 10px auto 10px;
+        display: block;
+    }
+
+    &.is-active {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    // Кнопка закрытия
+    &__close {
+        position: absolute;
+        top: -44px;
+        right: 50%;
+        transform: translateX(50%);
+        width: 44px;
+        height: 44px;
+        background: transparent;
+        z-index: 10;
+
+        border: none;
+
+        // крестик
+        &::before,
+        &::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 24px;
+            height: 1.5px;
+            background-color: #000;
+            transform-origin: center;
+        }
+
+        &::before {
+            transform: translate(-50%, -50%) rotate(45deg);
+        }
+
+        &::after {
+            transform: translate(-50%, -50%) rotate(-45deg);
+        }
+
+    }
+
+    // Слайдер
+    &__slider {
+        position: relative;
+        z-index: 2;
+        width: 100%;
+        padding: 0 9px;
+    }
+
+    // Слайд
+    &__slide {
+        display: none;
+        opacity: 0;
+        transition: opacity 0.3s;
+
+        &.active {
+            display: block;
+            opacity: 1;
+        }
+    }
+
+    &__wrapper {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 26px;
+    }
+
+    &__content {
+        margin-left: 30px;
+        max-width: 100%;
+        color: $text-gray;
+    }
+
+    &__title {
+        font-size: 16px;
+        font-weight: 600;
+        font-family: var(--font-primary);
+    }
+
+    &__plus {
+        width: 40px;
+        height: 40px;
+        background-color: rgba(0, 0, 0, 0.6);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 5;
+        transition: opacity 0.3s ease, transform 0.3s ease;
+
+        &::before {
+            content: '';
+            position: absolute;
+            width: 17px;
+            height: 17px;
+            background-color: #fff;
+            border-radius: 50%;
+        }
+
+        &::after {
+            content: '+';
+            position: absolute;
+            z-index: 2;
+            color: #0F0F10;
+            font-family: Manrope;
+            font-size: 14px;
+            line-height: 1;
+            transform: translateY(0px);
+        }
+
+    }
+
+    &__text {
+        margin-top: 5px;
+        font-size: 16px;
+        line-height: 1.6;
+        font-family: var(--font-primary);
+    }
+
+    // Точки навигации
+    &__dots {
+        position: absolute;
+        bottom: 40px;
+        left: 0;
+        width: 100%;
+        z-index: 5;
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: $text-black;
+            cursor: pointer;
+            transition: background 0.3s;
+
+            &.active {
+                background: $brand-teal;
+            }
+        }
+    }
+}
+
+// Оверлей
+.specifics-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.05);
+    backdrop-filter: blur(2px);
+    z-index: 9998;
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.4s;
+
+    &.is-active {
+        opacity: 1;
+        pointer-events: auto;
+    }
+}
+
+.no-scroll {
+    overflow: hidden;
+    height: 100vh;
 }

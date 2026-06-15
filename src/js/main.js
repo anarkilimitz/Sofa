@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 	initHeroScale();
 	initNavIconLabels();
 	initCarousel();
-	initCardTextAnimation();
+	initCardTextAnimation(lenis);
 
 	// 4. Табы и каталог c loader - контроль первого рендера
 	let isFirstRender = true;

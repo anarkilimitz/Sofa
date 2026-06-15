@@ -59,8 +59,8 @@
     background-repeat: no-repeat;
     background-position: center;
     background-size: 20px 29px;
-    background-image: url("/src/assets/icons/header/mouse.svg");
-    
+    background-image: url("/src/assets/icons/header/chevron-circle-down.svg");
+
     z-index: 1;
 
     // эллипс
@@ -87,7 +87,7 @@
     .mouse-icon {
         background-color: rgba(233, 228, 219, 0.40);
         border-radius: 999px;
-        background-image: url("/src/assets/icons/header/mouseBlack.svg");
+        // background-image: url("/src/assets/icons/header/mouseBlack.svg");
 
         &::before {
             opacity: 1;
@@ -97,5 +97,21 @@
 
     .line {
         transform: scaleX(0.7);
+    }
+}
+
+@media (max-width: 480px) {
+    .footer {
+        margin: 0 auto;
+    }
+    .scroll-indicator {
+
+        .scroll-text {
+            width: 190px;
+        }
+
+        .line {
+            width: 42px;  
+        }
     }
 }
