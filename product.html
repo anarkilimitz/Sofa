@@ -98,21 +98,21 @@
                                     data-icon="/icons/product/textile/textile-blue.jpg">
                                     <span>Первый мягкий</span>
                                     <div class="color-select__swatch">
-                                        <img src="/icons/product/textile/textile-blue.jpg" loading="lazy" />
+                                        <img src="/icons/product/textile/textile-blue.jpg" />
                                     </div>
                                 </div>
                                 <div class="color-select__option" data-name="Гранитный камень"
                                     data-icon="/icons/product/textile/textile-grey.jpg">
                                     <span>Гранитный камень</span>
                                     <div class="color-select__swatch">
-                                        <img src="/icons/product/textile/textile-grey.jpg" loading="lazy" />
+                                        <img src="/icons/product/textile/textile-grey.jpg" />
                                     </div>
                                 </div>
                                 <div class="color-select__option" data-name="Буря в пустыне"
                                     data-icon="/icons/product/textile/textile-softgrey.jpg">
                                     <span>Буря в пустыне</span>
                                     <div class="color-select__swatch">
-                                        <img src="/icons/product/textile/textile-softgrey.jpg" loading="lazy" />
+                                        <img src="/icons/product/textile/textile-softgrey.jpg" />
                                     </div>
                                 </div>
                             </div>
@@ -129,9 +129,27 @@
             </div>
         </section>
         <!-- Галерея -->
+        
         <section class="product-gallery">
             <div class="gallery-grid" id="prod-gallery"></div>
-
+<template id="order-badge-template">
+    <section class="order-badge">
+        <a class="order-badge__link" data-action="open-form" tabindex="0" role="button">
+            <div class="order-badge__card">
+                <div class="order-badge__substrate"></div>
+                <div class="order-badge__img-box">
+                    <img class="badge-img" src="" alt="">
+                </div>
+                <div class="order-badge__info">
+                    <div>
+                        <h3>Купить</h3>
+                    </div>
+                    <div class="order-badge__label"></div>
+                </div>
+            </div>
+        </a>
+    </section>
+</template>
             <!-- <section class="order-badge">
                 <a class="order-badge__link" href="#">
                     <div class="order-badge__card">

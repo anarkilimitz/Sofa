@@ -2,7 +2,7 @@
 @use "../utils/mixins" as *;
 
 .product {
-    
+
     &__page {
         margin: 252px 70px 0 43px;
         display: flex;
@@ -20,15 +20,14 @@
         }
 
         @media screen and (max-width: 600px) {
+            margin: 166px 0 0 0;
 
-            // 1. Превращаем аккордеон в Grid-контейнер
             .accordion {
                 display: grid;
-                grid-template-columns: 1fr 1fr; // Две колонки одинаковой ширины
-                gap: 8px; // Отступ между элементами
+                grid-template-columns: 1fr 1fr;
+                gap: 8px;
             }
 
-            // 2. Все блоки аккордеона (Описание, Материалы и т.д.) растягиваем на всю ширину
             .accordion__item {
                 grid-column: 1 / -1; // Занимает от первой до последней колонки
             }
@@ -36,8 +35,6 @@
             // 3. Картинки галереи
             .gallery-grid__item {
 
-                // По умолчанию в Grid они сами встанут в колонки (одна слева, одна справа)
-                // Стили для самих картинок
                 img {
                     width: 100%;
                     height: auto;
@@ -52,17 +49,18 @@
                 grid-column: 1 / -1; // На всю ширину
             }
 
-            // Если нужно, чтобы и остальные картинки (начиная с 4-й) тоже были в сетке по 2, 
-            // то ничего дописывать не нужно — Grid сделает это сам.
+
         }
     }
 
     &__title {
         margin: 0;
         padding-bottom: 250px;
-@media screen and (max-width: 600px) {
-    padding-bottom: 50px;
-}
+
+        @media screen and (max-width: 600px) {
+            padding-bottom: 50px;
+        }
+
         &-back {
             @include title;
             margin: 0;
@@ -567,6 +565,19 @@
             line-height: 1.2;
 
             transition: transform 0.2s ease;
+        }
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .product {
+        &__title {
+            &-back {
+                font-size: 24px;
+            }
+            &-icon{
+                display: none;
+            }
         }
     }
 }

@@ -44,3 +44,9 @@
 .tab.active {
     background: #eeeeee;
 }
+
+@media (max-width: 1200px) {
+    .tabs {
+        display: none;
+    }
+}

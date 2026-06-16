@@ -13,9 +13,6 @@
     cursor: pointer;
 
     transition: border 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
-    // @media (max-width: 768px) {
-    //         grid-column: span 4;
-    //     }
 
     img {
         width: 100%;
@@ -41,10 +38,6 @@
     // для длинной карточки
     &-wide {
         grid-column: span 4;
-
-        // @media (max-width: 768px) {
-        //     grid-column: span 5;
-        // }
     }
 
     img {
@@ -202,5 +195,12 @@
     .catalog__divider {
         width: 86%;
         opacity: 1;
+    }
+}
+
+@media (max-width: 1366px) {
+    .catalog__card {
+        position: relative;
+        grid-column: span 4;
     }
 }

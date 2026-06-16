@@ -31,9 +31,29 @@
     row-gap: 20px;
     grid-auto-flow: dense; // обязательно оставить!
 
-    @media (max-width: 768px) {
-        // grid-template-columns: repeat(9, 1fr);
-        column-gap: 6px;
-            row-gap: 8px;
+}
+
+@media (max-width: 1366px) {
+    .catalog__wrapper {
+        grid-template-columns: repeat(7, 1fr);
+    }
+}
+
+@media (max-width: 992px) {
+    .catalog-content {
+        margin: 136px 0 0 15px;
+
+        .catalog-title {
+            font-size: 24px;
+        }
+
+        .catalog-desc {
+            font-size: 16px;
+        }
+    }
+
+    .catalog__wrapper {
+        margin: 24px auto 0;
+        grid-template-columns: repeat(1, 1fr);
     }
 }

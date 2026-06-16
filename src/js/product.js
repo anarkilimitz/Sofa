@@ -1,6 +1,8 @@
 import products from '../data/products.json';
+import { handleMobileLayout } from './mobileLayout';
 
 export const initProduct = () => {
+	console.log('initProduct запущен');
 	initAllAccordions();
 	const galleryContainer = document.getElementById('prod-gallery');
 	if (!galleryContainer) return; // Мы не на странице товара
@@ -77,7 +79,8 @@ function toggleAccordionItem() {
 }
 
 function renderProductData(product) {
-	// Название
+	console.log('Рендерим товар:', product.title);
+	// 1. Название
 	const titleLink = document.getElementById('prod-title');
 	if (titleLink) {
 		const icon = titleLink.querySelector('img');
@@ -86,83 +89,72 @@ function renderProductData(product) {
 		titleLink.append(` ${product.title}`);
 	}
 
-	// Описание и материалы
+	// 2. Описание и материалы
 	const setContent = (id, content) => {
 		const el = document.getElementById(id);
 		if (el) el.textContent = content || '';
 	};
-
 	setContent('prod-description', product.fullDescription);
 	setContent('prod-materials', product.materials);
 
-	// Параметры
+	// 3. Параметры
 	const paramsList = document.getElementById('prod-params');
 	if (paramsList && product.params) {
 		paramsList.innerHTML = product.params
 			.map(
-				(p) => `
-                <li class="params-list__item">
-                    <span>${p.name}</span> 
-                    <span>${p.value}</span>
-                </li>
-            `
+				(p) =>
+					`<li class="params-list__item"><span>${p.name}</span> <span>${p.value}</span></li>`
 			)
 			.join('');
 	}
 
-	// ====================== ГАЛЕРЕЯ ======================
+	// 4. Галерея и Бейдж
 	const gallery = document.getElementById('prod-gallery');
 	if (gallery && product.gallery) {
-		gallery.innerHTML = product.gallery
-			.map((img, index) => {
-				let className = 'gallery-grid__item';
-				if (img.isWide) className += ' gallery-grid__item-wide';
-				if (index === 0) className += ' gallery-grid__item-main';
+		gallery.innerHTML = ''; // Очищаем контейнер
 
-				const isFirst = index === 0;
+		product.gallery.forEach((imgData, index) => {
+			const item = document.createElement('div');
+			let className = 'gallery-grid__item';
+			if (imgData.isWide) className += ' gallery-grid__item-wide';
+			if (index === 0) className += ' gallery-grid__item-main';
+			item.className = className;
 
-				const badgeHtml = isFirst
-					? `
-                        <section class="order-badge">
-                            <a class="order-badge__link" data-action="open-form" tabindex="0" role="button">
-                                <div class="order-badge__card">
-                                    <div class="order-badge__substrate"></div>
-                                    <div class="order-badge__img-box">
-                                        <img alt="${product.title}" src="${
-							product.image
-					  }">
-                                    </div>
-                                    <div class="order-badge__info">
-                                        <div>
-                                            <h3>Купить</h3>
-                                        </div>
-                                        <div class="order-badge__label">${product.price}</div>
-                                    </div>
-                                </div>
-                            </a>
-                        </section>`
-					: '';
+			const img = document.createElement('img');
+			img.src = imgData.src;
+			img.alt = product.title;
+			item.appendChild(img);
 
-				return `
-                    <div class="${className}">
-                        <img src="${img.src}" alt="${product.title}">
-                        ${badgeHtml}
-                    </div>
-                `;
-			})
-			.join('');
+			// Если это первая картинка — добавляем бейдж из шаблона
+			if (index === 0) {
+				const template = document.getElementById('order-badge-template');
+				console.log('Шаблон найден:', template);
+				// ВАЖНО: проверяем, найден ли шаблон
+				if (template) {
+					const badge = template.content.cloneNode(true);
+
+					const badgeImg = badge.querySelector('.badge-img');
+					if (badgeImg) {
+						badgeImg.src = product.image;
+						badgeImg.alt = product.title;
+					}
+
+					const badgeLabel = badge.querySelector('.order-badge__label');
+					if (badgeLabel) {
+						badgeLabel.textContent = product.price.toLocaleString();
+					}
+
+					item.appendChild(badge);
+				} else {
+					console.error('Шаблон order-badge-template не найден в DOM!');
+				}
+			}
+
+			gallery.appendChild(item);
+		});
 	}
-
-	// Устанавливаем цену и картинку бейджа ТОЛЬКО ПОСЛЕ создания галереи!
-
-	const priceEl = document.getElementById('prod-price');
-	if (priceEl) {
-		priceEl.textContent = `${product.price.toLocaleString()}`;
-	}
-
-	const badgeImg = document.getElementById('prod-badge-img');
-	if (badgeImg) {
-		badgeImg.src = product.image;
+	if (typeof handleMobileLayout === 'function') {
+		handleMobileLayout();
 	}
 }
 
