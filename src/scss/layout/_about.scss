@@ -17,6 +17,7 @@
         }
 
         &> :nth-child(3) {
+
             margin-top: 80px;
         }
     }
@@ -32,14 +33,11 @@
     &__video-card {
         aspect-ratio: 258 / 460;
         width: 258px;
-
         border-radius: 24px;
         overflow: hidden;
-
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
-
         z-index: 3;
 
         &:nth-child(1) {
@@ -68,13 +66,11 @@
         z-index: 2;
 
         footer {
-            
             margin-left: 0;
 
             .scroll-indicator {
                 width: 435px;
                 justify-content: flex-start;
-
             }
 
             .scroll-text-footer {
@@ -108,7 +104,101 @@
         margin: 0;
         font-weight: 400;
         line-height: 32px;
-        color: #625E5E;
+        color: $text-gray;
         letter-spacing: 0%;
+    }
+}
+
+@media (max-width: 1500px) {
+    .about {
+        &__wrapper-right {
+            padding-left: 30px;
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .about {
+        &__wrapper {
+            display: contents;
+        }
+
+        &__wrapper-left {
+            display: contents;
+        }
+
+        &__wrapper-right {
+            order: 3;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            margin: 0;
+            padding: 0;
+            padding-top: 40px;
+            order: 2;
+        }
+
+        &__content {
+            display: flex;
+            flex-direction: column;
+            margin: 136px 0px 0 0;
+
+            footer {
+                order: 4;
+                margin-top: 40px;
+                grid-column: 1;
+
+                .scroll-indicator {
+                    width: 100%;
+                    max-width: 315px;
+                    justify-content: flex-start;
+                    text-align: left;
+                }
+
+                .scroll-text-footer {
+                    justify-content: flex-start;
+                }
+            }
+        }
+
+        &__video-card {
+            order: 2;
+            aspect-ratio: auto;
+            width: 100%;
+            max-width: 376px;
+            height: 120px;
+            border-radius: 20px;
+
+            &:nth-child(1) {
+                background-image: url('/public/video/about/example-one.jpg');
+            }
+
+            &:nth-child(2) {
+                background-image: url('/public/video/about/example-two.jpg');
+            }
+
+            &:nth-child(3) {
+                background-image: url('/public/video/about/example-three.jpg');
+            }
+        }
+
+        &__title {
+            order: 1;
+            margin-left: 15px;
+            font-size: 24px;
+        }
+
+        &__text {
+            order: 2;
+            margin-top: 24px;
+            margin-left: 15px;
+            line-height: 22px;
+            letter-spacing: 0;
+
+            &:last-of-type {
+                display: none;
+            }
+        }
     }
 }
