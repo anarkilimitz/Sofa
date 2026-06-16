@@ -400,6 +400,7 @@
     min-height: 466px;
     height: auto;
     max-height: 100vh;
+    padding-bottom: 60px;
 
     border-radius: 30px;
     background-image: none !important;
@@ -545,10 +546,14 @@
     }
 
     &__text {
+        display: block;
         margin-top: 5px;
         font-size: 16px;
         line-height: 1.6;
         font-family: var(--font-primary);
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        white-space: normal;
     }
 
     // Точки навигации
