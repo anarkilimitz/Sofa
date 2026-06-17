@@ -261,7 +261,7 @@
 
         // Аккордеон + Контакты
         &__wrapper-left {
-            order: 2;
+            order: 1;
             width: 100%;
             flex: none;
 
@@ -270,26 +270,25 @@
             }
         }
 
-        // Правой колонке (Картинка + Карта) задаем порядок 1 (они будут сразу после заголовка)
+        // Карта и Картинка
         &__wrapper-right {
-            order: 1;
+            order: 2;
             width: 100%;
             margin-left: 0;
             padding-left: 0;
-            
+
             display: flex;
             flex-direction: column;
             gap: 16px;
         }
 
         &__video-card {
-            width: 100%; // Картинка на всю ширину
-            height: 250px; // Фиксируем высоту, чтобы не было слишком вытянутым
-            aspect-ratio: auto; // Сбрасываем жесткое соотношение сторон, если нужно
+            width: 100%;
+            height: 186px;
+            aspect-ratio: auto;
 
 
             &:nth-child(1) {
-
                 background-image: url('/src/assets/img/contacts/sofa-longMini.jpg');
             }
 
@@ -298,11 +297,11 @@
 
         &__map-container {
             width: 100%;
-            height: 300px; // Оптимальная высота карты для мобильных
+            height: 310px;
         }
 
         &__content {
-            margin: 136px 20px 0 20px; // Корректируем отступы для мобильных
+            margin: 136px 15px 0 15px;
         }
 
         &__title {
@@ -310,18 +309,42 @@
         }
 
         &__title-text {
-            font-size: 16px; // Немного уменьшим текст под заголовком
+            font-size: 16px;
         }
 
-        // Дополнительные правки для контактов внутри списка
+
         &__item {
-            flex-wrap: wrap; // Разрешаем перенос, если текст длинный
+            flex-wrap: wrap;
         }
 
         &__copy {
-            opacity: 1; // На мобильных часто лучше сразу показывать кнопку копирования
+            opacity: 1;
             visibility: visible;
-            margin-left: auto; // Или margin-top, если в столбик
+            margin-left: auto;
+        }
+
+        &__content .btn-request {
+            width: 100%;
+            height: 56px;
+            margin-top: 16px;
+            padding-left: 32px;
+            background: #0F0F10;
+            color: #FFFFFF;
+            font-size: 16px;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            border-radius: 12px;
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            cursor: pointer;
+            transition: all 0.2s ease;
+
+            &:active {
+                transform: scale(0.97);
+                background: #1f1f1f;
+            }
         }
     }
 }
