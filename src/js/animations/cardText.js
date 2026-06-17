@@ -16,9 +16,9 @@ export const initCardTextAnimation = (lenis) => {
 		const slides = modal.querySelectorAll('.specifics-modal__slide');
 		const dots = modal.querySelectorAll('.dot');
 		const paths = [
-			'/public/img/specifics/specifics-sofa.jpg',
-			'/public/img/specifics/specifics-ergonomic.jpg',
-			'/public/img/specifics/specifics-ease.jpg',
+			'/img/specifics/specifics-sofa.jpg',
+			'/img/specifics/specifics-ergonomic.jpg',
+			'/img/specifics/specifics-ease.jpg',
 		];
 
 		// Функция переключения слайда
