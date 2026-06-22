@@ -204,3 +204,42 @@
         grid-column: span 4;
     }
 }
+
+@media (max-width: 480px) {
+    
+    .catalog__card {
+        border-color: #424242;
+        box-shadow: rgba(0, 0, 0, 0.08) 0px 16px 32px, rgba(0, 0, 0, 0.04) 0px 6px 12px;
+
+        img {
+            transform: scale(1.03);
+        }
+        
+        .catalog__colors {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .catalog__card-title {
+            opacity: 1;
+            font-size: 14px;
+            transform: translate(-7px, -10px);
+        }
+
+        .catalog__desc {
+            opacity: 1;
+            transform: translateY(7px);
+        }
+
+        .catalog__price {
+            opacity: 1;
+            font-size: 14px;
+            transform: translateY(0);
+        }
+
+        .catalog__divider {
+            width: 86%;
+            opacity: 1;
+        }
+    }
+}
