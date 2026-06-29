@@ -5,8 +5,8 @@
 .menu-overlay {
     position: fixed;
     inset: 0;
-    background: rgba(0, 0, 0, 0.05);
-    backdrop-filter: blur(2px);
+    background: $overlay-main;
+    backdrop-filter: blur(6px);
     z-index: 1000;
     opacity: 0;
     pointer-events: none;

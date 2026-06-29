@@ -43,7 +43,7 @@ form {
 
     transition: opacity 0.4s ease, visibility 0.4s ease;
 
-    background: rgba(179, 179, 179, 0.32);
+    background: $overlay-main;
     backdrop-filter: blur(6px);
     z-index: 1000;
 
@@ -282,16 +282,17 @@ form {
     width: 100%;
     max-width: 643px;
     width: calc(100% - clamp(70px, 10vw, 100px));
-    margin-left: auto;
-    margin-right: auto;
+margin: 0 auto 0;
 }
 
 .field input,
 .field textarea {
+    position: relative;
+    z-index: 2;
     resize: none;
     height: 60px;
     width: 100%;
-    padding: 25px 14px 10px 38px;
+    padding: 18px 0 8px;
     font-size: 16px;
     font-weight: 600;
     outline: none;
@@ -317,6 +318,7 @@ form {
 
     @media screen and (max-width: 600px) {
         height: 42px;
+        padding: 12px 0 6px;
     }
 }
 
@@ -325,19 +327,44 @@ form {
     margin-top: 30px;
 }
 
-.field label {
-    position: absolute;
-    left: 0px;
-    top: 14px;
+// Постоянный заголовок над полем
+.field__label {
+    display: block;
     font-size: 20px;
-    opacity: 0.7;
-    pointer-events: none;
-    transition: 0.2s;
-    font-weight: 600;
+    font-weight: 500;
+    color: var(--text-black);
+    margin-bottom: 5px; // Отступ до линии инпута
+    opacity: 0.8;
 
     @media screen and (max-width: 600px) {
-        font-size: 16px;
-        font-weight: 400;
+        font-size: 12px;
+        margin-bottom: 6px;
+    }
+}
+
+.field label {
+    position: absolute;
+    left: 0;
+    top: 38px;
+    height: 60px;
+
+    display: flex;
+    align-items: center;
+
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--text-black);
+    opacity: 0.4;
+
+    pointer-events: none;
+    transition: opacity .25s;
+
+    z-index: 3;
+
+    @media (max-width: 600px) {
+        top: 24px;
+        height: 42px;
+        font-size: 14px;
     }
 }
 
@@ -345,10 +372,7 @@ form {
 .field input:not(:placeholder-shown)~label,
 .field textarea:focus~label,
 .field textarea:not(:placeholder-shown)~label {
-    top: 6px;
-    font-size: 14px;
-    font-weight: 500;
-    color: var(--text-black);
+    opacity: 0;
 }
 
 .invalid {

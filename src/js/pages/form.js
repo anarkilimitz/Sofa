@@ -100,6 +100,7 @@ export function initForm(lenis) {
 		],
 		message: [
 			{ validator: (v) => v.length >= 10, message: 'Минимум 10 символов' },
+			{ validator: (v) => v.length <= 60, message: 'Максимум 60 символов' },
 		],
 		agree: [{ validator: (v) => v === true, message: 'Необходимо согласие' }],
 	});

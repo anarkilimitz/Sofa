@@ -586,8 +586,8 @@
 .specifics-modal-overlay {
     position: fixed;
     inset: 0;
-    background: rgba(0, 0, 0, 0.05);
-    backdrop-filter: blur(8px);
+    background: $overlay-main;
+    backdrop-filter: blur(6px);
     z-index: 9998;
     opacity: 0;
     pointer-events: none;

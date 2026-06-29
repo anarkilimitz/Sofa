@@ -41,15 +41,15 @@
     }
 
     &:hover .scroll-text {
-        line-height: 0.8;
+        line-height: 0.9;
     }
 }
 
 // иконка МЫШЬ
 .mouse-icon {
     position: relative;
-    width: 20px;
-    height: 29px;
+    width: 27px;
+    height: 27px;
     padding: 30px;
     display: flex;
     align-items: center;
@@ -58,29 +58,33 @@
 
     background-repeat: no-repeat;
     background-position: center;
-    background-size: 20px 29px;
+    background-size: 27px 27px;
     background-image: url("/src/assets/icons/header/chevron-circle-down.svg");
 
     z-index: 1;
 
     // эллипс
-    &::before {
-        content: '';
-        position: absolute;
-        inset: -8px;
+    // &::before {
+    //     content: '';
+    //     position: absolute;
+    //     inset: -8px;
 
-        background: radial-gradient(ellipse 40% 20% at center,
-                rgba(0, 161, 143, 0.4) 0%,
-                rgba(0, 161, 143, 0.1) 50%,
-                transparent 75%);
+    //     background: radial-gradient(ellipse 40% 20% at center,
+    //             rgba(0, 161, 143, 0.4) 0%,
+    //             rgba(0, 161, 143, 0.1) 50%,
+    //             transparent 75%);
 
-        opacity: 0;
+    //     opacity: 0;
 
-        transform: scale(0.5) rotate(126deg);
-        transition: opacity 0.5s ease, transform 0.5s ease;
-        pointer-events: none;
-        z-index: -1;
-    }
+    //     transform: scale(0.5) rotate(126deg);
+    //     transition: opacity 0.5s ease, transform 0.5s ease;
+    //     pointer-events: none;
+    //     z-index: -1;
+    // }
+}
+
+#to-top .mouse-icon {
+    background-image: url("/src/assets/icons/header/chevron-circle-up.svg");
 }
 
 .scroll-indicator:hover {
@@ -104,6 +108,7 @@
     .footer {
         margin: 0 auto;
     }
+
     .scroll-indicator {
 
         .scroll-text {
@@ -111,7 +116,13 @@
         }
 
         .line {
-            width: 42px;  
+            width: 42px;
         }
+    }
+
+    .mouse-icon {
+        width: 24px;
+        height: 24px;
+        background-size: 24px 24px;
     }
 }

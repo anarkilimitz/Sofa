@@ -197,25 +197,29 @@
             <button type="button" class="close-form btn-close"></button>
             <form id="contactForm">
                 <div class="field">
+                    <span class="field__label">Ваше имя</span>
                     <input type="text" name="firstName" placeholder=" " required>
                     <label>Ваше имя</label>
                     <span class="error"></span>
                 </div>
 
                 <div class="field">
+                    <span class="field__label">Номер телефона</span>
                     <input type="tel" name="phone" placeholder=" " inputmode="tel" required>
-                    <label>Номер телефона</label>
+                    <label>+7 (XXX) XXX-XX-XX</label>
                     <span class="error"></span>
                 </div>
 
                 <div class="field">
+                    <span class="field__label">Ваша почта</span>
                     <input type="email" name="email" placeholder=" " required>
                     <label>Email</label>
                     <span class="error"></span>
                 </div>
 
                 <div class="field">
-                    <textarea name="message" placeholder=" " required></textarea>
+                    <span class="field__label">Комментарий</span>
+                    <textarea name="message" maxlength="60" placeholder=" " required></textarea>
                     <label>Комментарий</label>
                     <span class="error"></span>
                 </div>

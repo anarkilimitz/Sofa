@@ -75,6 +75,10 @@
     color: inherit;
 }
 
+.mobile-break {
+    display: none;
+}
+
 .link-catalog__info h3 {
     margin: 0;
     letter-spacing: 0.02em;
@@ -120,7 +124,7 @@
         transition: background 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
         transform-style: preserve-3d; // для гсап анимации
         will-change: transform; // для гсап анимации
-        
+
     }
 
     .link-catalog__link {
@@ -151,6 +155,10 @@
         align-items: center;
     }
 
+    .mobile-break {
+        display: block;
+    }
+
     .link-catalog__arrow img {
         display: block;
         opacity: 0;
@@ -169,6 +177,7 @@
 
     .link-catalog__info h3 {
         margin: 0;
+        font-family: var(--font-heading);
         letter-spacing: 0.02em;
         line-height: 1;
         font-weight: 400;

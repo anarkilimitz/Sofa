@@ -15,14 +15,28 @@ export const initCardTextAnimation = (lenis) => {
 		const closeBtn = modal.querySelector('.specifics-modal__close');
 		const slides = modal.querySelectorAll('.specifics-modal__slide');
 		const dots = modal.querySelectorAll('.dot');
+		const slider = modal.querySelector('.specifics-modal__slider'); // Контейнер для свайпов
 		const paths = [
 			'/img/specifics/specifics-sofa.jpg',
 			'/img/specifics/specifics-ergonomic.jpg',
 			'/img/specifics/specifics-ease.jpg',
 		];
 
+		// --- ДОБАВЛЕННЫЕ ПЕРЕМЕННЫЕ ДЛЯ СВАЙПА ---
+		let currentIndex = 0;
+		let startX = 0;
+		let startY = 0;
+		let isDragging = false;
+		const SWIPE_THRESHOLD = 50; // Минимальное расстояние в пикселях для срабатывания свайпа
+
 		// Функция переключения слайда
 		const goToSlide = (index) => {
+			// Зацикливание слайдов
+			if (index < 0) index = slides.length - 1;
+			if (index >= slides.length) index = 0;
+
+			currentIndex = index; // Обязательно обновляем текущий индекс
+
 			slides.forEach((s) => s.classList.remove('active'));
 			dots.forEach((d) => d.classList.remove('active'));
 
@@ -68,6 +82,42 @@ export const initCardTextAnimation = (lenis) => {
 			});
 		});
 
+		// --- ЛОГИКА СВАЙПА ---
+		slider.addEventListener(
+			'touchstart',
+			(e) => {
+				startX = e.touches[0].clientX;
+				startY = e.touches[0].clientY;
+				isDragging = true;
+			},
+			{ passive: true }
+		);
+
+		slider.addEventListener(
+			'touchend',
+			(e) => {
+				if (!isDragging) return;
+				isDragging = false;
+
+				const endX = e.changedTouches[0].clientX;
+				const endY = e.changedTouches[0].clientY;
+
+				const diffX = startX - endX;
+				const diffY = startY - endY;
+
+				if (Math.abs(diffX) > Math.abs(diffY)) {
+					if (Math.abs(diffX) > SWIPE_THRESHOLD) {
+						if (diffX > 0) {
+							goToSlide(currentIndex + 1);
+						} else {
+							goToSlide(currentIndex - 1);
+						}
+					}
+				}
+			},
+			{ passive: true }
+		);
+
 		// Закрытие
 		if (closeBtn) closeBtn.addEventListener('click', closeModal);
 
@@ -81,7 +131,7 @@ export const initCardTextAnimation = (lenis) => {
 			}
 		});
 	} else {
-		// === ЛОГИКА ДЕСКТОПА (GSAP) ===
+		// ЛОГИКА ДЕСКТОПА (GSAP)
 		cards.forEach((card) => {
 			const textElement = card.querySelector('.specifics-card__text');
 			if (!textElement) return;
