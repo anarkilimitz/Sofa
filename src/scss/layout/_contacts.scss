@@ -112,7 +112,7 @@
         display: flex;
         align-items: center;
         gap: 24px;
-        font-family: var(--font-heading);
+        font-family: var(--font-primary);
     }
 
     &__icon {
@@ -131,7 +131,7 @@
         margin: 0;
         line-height: 32px;
         font-size: 14px;
-        font-weight: 400;
+        font-weight: 700;
         letter-spacing: -0.02em;
     }
 
@@ -140,7 +140,7 @@
         margin: 0;
         text-decoration: none;
         font-size: 14px;
-        font-weight: 400;
+        font-weight: 700;
         letter-spacing: -0.02em;
         transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
 
@@ -156,7 +156,7 @@
         text-decoration: none;
         color: #00A18F;
         font-size: 14px;
-        font-weight: 400;
+        font-weight: 700;
         letter-spacing: -0.02em;
         transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
 
@@ -245,6 +245,12 @@
             line-height: 140%;
             color: #625E5E;
             letter-spacing: 0%;
+
+            &-list {
+                text-transform: uppercase;
+                // list-style: none;
+                font-weight: 700;
+            }
         }
     }
 }
