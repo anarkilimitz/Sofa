@@ -121,7 +121,7 @@ form {
     letter-spacing: 0.02em;
 
     @media screen and (max-width: 600px) {
-        margin: 42px 0 80px 32px;
+        margin: 42px 0 40px 32px;
         font-size: 24px;
         font-weight: 400;
     }
@@ -211,7 +211,7 @@ form {
 
     @media screen and (max-width: 600px) {
         background:
-                url('/src/assets/img/form/thanks-sofa.jpg') left center / cover no-repeat;
+            url('/src/assets/img/form/thanks-sofa.jpg') left center / cover no-repeat;
     }
 }
 
@@ -282,7 +282,7 @@ form {
     width: 100%;
     max-width: 643px;
     width: calc(100% - clamp(70px, 10vw, 100px));
-margin: 0 auto 0;
+    margin: 0 auto 0;
 }
 
 .field input,
@@ -292,7 +292,7 @@ margin: 0 auto 0;
     resize: none;
     height: 60px;
     width: 100%;
-    padding: 18px 0 8px;
+    padding: 0;
     font-size: 16px;
     font-weight: 600;
     outline: none;
@@ -318,13 +318,12 @@ margin: 0 auto 0;
 
     @media screen and (max-width: 600px) {
         height: 42px;
-        padding: 12px 0 6px;
     }
 }
 
 .field textarea {
     min-height: 60px;
-    margin-top: 30px;
+    margin-top: 20px;
 }
 
 // Постоянный заголовок над полем
@@ -345,7 +344,7 @@ margin: 0 auto 0;
 .field label {
     position: absolute;
     left: 0;
-    top: 38px;
+    top: 28px;
     height: 60px;
 
     display: flex;
@@ -383,7 +382,7 @@ margin: 0 auto 0;
     min-height: 10px;
     font-size: 12px;
     color: #ff6b6b;
-    margin-left: 32px;
+    margin-left: 0;
     margin-top: 6px;
     display: block;
 }
@@ -399,7 +398,7 @@ margin: 0 auto 0;
     }
 
     @media screen and (max-width: 600px) {
-        margin: 30px auto 15px;
+        margin: 10px auto 15px;
         align-self: center;
     }
 }
