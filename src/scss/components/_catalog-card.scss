@@ -206,15 +206,16 @@
 }
 
 @media (max-width: 480px) {
-    
+
     .catalog__card {
+        height: 257px;
         border-color: #424242;
         box-shadow: rgba(0, 0, 0, 0.08) 0px 16px 32px, rgba(0, 0, 0, 0.04) 0px 6px 12px;
 
         img {
-            transform: scale(1.03);
+            transform: scale(1);
         }
-        
+
         .catalog__colors {
             opacity: 1;
             transform: translateY(0);
