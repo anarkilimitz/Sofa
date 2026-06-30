@@ -33,13 +33,14 @@
     display: flex;
     justify-content: flex-start;
     height: 199px;
-    align-items: stretch;
+    // align-items: stretch;
     align-items: center;
     border-radius: 32px;
     overflow: hidden;
     background: rgba(233, 228, 219, 0.43);
     box-shadow: 0 4px 39px 0 rgba(0, 0, 0, 0.10);
     backdrop-filter: blur(3.3px);
+    -webkit-backdrop-filter: blur(3.3px);
 
     cursor: pointer;
     transition: background 0.2s ease, box-shadow 0.2s ease;

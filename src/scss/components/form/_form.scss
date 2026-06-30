@@ -45,6 +45,7 @@ form {
 
     background: $overlay-main;
     backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
     z-index: 1000;
 
     &.active {
