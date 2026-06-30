@@ -81,6 +81,90 @@
             </div>
         </div>
 
+        <!-- Мобильный триггер фильтра -->
+        <div class="mobile-filter" id="mobile-filter">
+            <div class="mobile-filter__trigger" id="filter-trigger">
+                <svg class="mobile-filter__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="4" y1="6" x2="20" y2="6" />
+                    <line x1="7" y1="12" x2="17" y2="12" />
+                    <line x1="10" y1="18" x2="14" y2="18" />
+                </svg>
+                <span class="mobile-filter__label">Фильтр</span>
+            </div>
+        </div>
+        
+        <!-- Поп-ап фильтров -->
+        <div class="filter-overlay" id="filter-overlay"></div>
+        <div class="filter-popup" id="filter-popup">
+            <div class="filter-popup__header">
+                <span class="filter-popup__title">ФИЛЬТРЫ</span>
+                <button class="filter-popup__close" id="filter-close">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="18" y1="6" x2="6" y2="18" />
+                        <line x1="6" y1="6" x2="18" y2="18" />
+                    </svg>
+                </button>
+            </div>
+            <div class="filter-popup__list" id="filter-list">
+                <div class="filter-popup__item" data-category="all">
+                    <span class="filter-popup__name">ВСЕ ДИВАНЫ</span>
+                    <div class="filter-popup__check">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <circle cx="12" cy="12" r="12" fill="currentColor" />
+                            <polyline points="7 12.5 10.5 16 17 9" stroke="white" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" fill="none" />
+                        </svg>
+                    </div>
+                </div>
+                <div class="filter-popup__item" data-category="corner">
+                    <span class="filter-popup__name">УГЛОВЫЕ</span>
+                    <div class="filter-popup__check">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <circle cx="12" cy="12" r="12" fill="currentColor" />
+                            <polyline points="7 12.5 10.5 16 17 9" stroke="white" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" fill="none" />
+                        </svg>
+                    </div>
+                </div>
+                <div class="filter-popup__item" data-category="transformer">
+                    <span class="filter-popup__name">ТРАНСФОРМЕР</span>
+                    <div class="filter-popup__check">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <circle cx="12" cy="12" r="12" fill="currentColor" />
+                            <polyline points="7 12.5 10.5 16 17 9" stroke="white" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" fill="none" />
+                        </svg>
+                    </div>
+                </div>
+                <div class="filter-popup__item" data-category="book">
+                    <span class="filter-popup__name">КНИЖКА</span>
+                    <div class="filter-popup__check">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <circle cx="12" cy="12" r="12" fill="currentColor" />
+                            <polyline points="7 12.5 10.5 16 17 9" stroke="white" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" fill="none" />
+                        </svg>
+                    </div>
+                </div>
+                <div class="filter-popup__item" data-category="bed">
+                    <span class="filter-popup__name">КРОВАТИ</span>
+                    <div class="filter-popup__check">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <circle cx="12" cy="12" r="12" fill="currentColor" />
+                            <polyline points="7 12.5 10.5 16 17 9" stroke="white" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" fill="none" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            <div class="filter-popup__footer">
+                <button class="filter-popup__btn filter-popup__btn--apply" id="filter-apply">ПРИМЕНИТЬ</button>
+                <button class="filter-popup__btn filter-popup__btn--reset" id="filter-reset">СБРОСИТЬ ВСЕ</button>
+            </div>
+        </div>
+
         <!-- Табы -->
         <div class="tabs">
             <button class="tab active" data-category="all">
