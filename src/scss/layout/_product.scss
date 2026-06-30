@@ -575,9 +575,19 @@
             &-back {
                 font-size: 24px;
             }
-            &-icon{
+
+            &-icon {
                 display: none;
             }
+        }
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .color-select {
+        &__dropdown {
+            max-width: 400px;
+            width: 100%;
         }
     }
 }
