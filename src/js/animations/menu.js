@@ -59,7 +59,7 @@ export const initMenu = (lenis) => {
 		// .menu-trigger > span (тот, который после .burger-icon)
 		const triggerTextNode = document.querySelector('.menu-trigger > span');
 
-		let currentPageName = 'Главная';
+		let currentPageName = null;
 
 		links.forEach((link) => {
 			const href = link.getAttribute('href');
@@ -74,6 +74,17 @@ export const initMenu = (lenis) => {
 				currentPageName = link.textContent.trim();
 			}
 		});
+
+		// ЛОГИКА ДЛЯ СТРАНИЦЫ ТОВАРА
+		if (!currentPageName && triggerTextNode) {
+			// проверка, есть ли у body специальный атрибут
+			const bodyPageName = document.body.getAttribute('data-page-name');
+			if (bodyPageName) {
+				currentPageName = bodyPageName;
+			} else {
+				currentPageName = 'Карточка';
+			}
+		}
 
 		// Если элемент для текста найден, обновляем его содержимое
 		if (triggerTextNode) {
