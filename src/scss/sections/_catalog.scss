@@ -41,7 +41,7 @@
 
 @media (max-width: 992px) {
     .catalog-content {
-        margin: 136px 0 0 15px;
+        margin: 136px 15px 0 15px;
 
         .catalog-title {
             font-size: 24px;
@@ -114,10 +114,11 @@
     }
 
     &__title {
-        font-size: 16px;
+        font-size: 18px;
         font-weight: 600;
         letter-spacing: 0.08em;
         color: #1a1a1a;
+        font-family: $font-heading;
     }
 
     &__close {
@@ -162,10 +163,12 @@
     }
 
     &__name {
-        font-size: 15px;
+        font-size: 16px;
         font-weight: 400;
-        color: #1a1a1a;
+        color: $text-black;
         letter-spacing: 0.02em;
+        font-family: $font-primary;
+        text-transform: none;
     }
 
     &__check {
@@ -184,14 +187,15 @@
 .filter-popup__footer {
     display: flex;
     gap: 12px;
+    flex-direction: column;
     padding: 16px 20px 24px;
 }
 
 .filter-popup__btn {
     flex: 1;
     padding: 16px;
-    border: none;
-    border-radius: 14px;
+    border: 1px solid black;
+    border-radius: 12px;
     font-size: 13px;
     font-weight: 600;
     letter-spacing: 0.08em;
@@ -207,11 +211,17 @@
 .filter-popup__btn--apply {
     background-color: #1a1a1a;
     color: #fff;
+    letter-spacing: 0.2em;
+    font-family: $font-heading;
+    text-transform: uppercase;
 }
 
 .filter-popup__btn--reset {
     background-color: #f0f0f0;
-    color: #666;
+    color: #000000;
+    letter-spacing: 0em;
+    font-family: $font-heading;
+    text-transform: uppercase;
 }
 
 // на десктопе скрыто

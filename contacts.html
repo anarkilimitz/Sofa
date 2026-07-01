@@ -76,8 +76,9 @@
             <div class="contacts__wrapper">
                 <!-- Левая колонка -->
                 <div class="contacts__wrapper-left">
-                    <!-- Аккордеон -->
                     <div class="accordion">
+
+                        <!-- Часы работы -->
                         <div class="accordion__item accordion__item-active">
                             <button class="accordion__header">Часы работы</button>
                             <div class="accordion__content">
@@ -91,45 +92,57 @@
                                 </ul>
                             </div>
                         </div>
+
+                        <!-- Адрес -->
+                        <div class="accordion__item accordion__item-active">
+                            <button class="accordion__header">Адрес</button>
+                            <div class="accordion__content">
+                                <div class="contacts__item">
+                                    <span class="contacts__icon">
+                                        <img src="/src/assets/icons/contacts/map-marker.svg" />
+                                    </span>
+                                    <span class="contacts__address-text">
+                                        Екатеринбург, ТЦ «Гулливер»
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Телефон -->
+                        <div class="accordion__item accordion__item-active">
+                            <button class="accordion__header accordion__header-tel">Телефон</button>
+                            <div class="accordion__content">
+                                <div class="contacts__item">
+                                    <span class="contacts__icon">
+                                        <img src="/src/assets/icons/contacts/phone.svg" />
+                                    </span>
+                                    <a class="contacts__phone" href="tel:+79226043043">
+                                        +7-922-604-30-43
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Email -->
+                        <div class="accordion__item accordion__item-active">
+                            <button class="accordion__header">Email</button>
+                            <div class="accordion__content">
+                                <div class="contacts__item">
+                                    <span class="contacts__icon">
+                                        <img src="/src/assets/icons/contacts/comments.svg" />
+                                    </span>
+                                    <a class="contacts__email" id="email-to-copy" href="mailto:связь@первыймягкий.рф">
+                                        связь@первыймягкий.рф
+                                    </a>
+                                    <button class="contacts__copy" type="button">
+                                        <img src="/src/assets/icons/contacts/copy.svg" />
+                                        <span>Копировать</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
-
-                    <!-- футер -->
-                    <address class="contacts">
-                        <ul class="contacts__list">
-
-                            <li class="contacts__item">
-                                <span class="contacts__icon">
-                                    <img src="/src/assets/icons/contacts/map-marker.svg" />
-                                </span>
-                                <span class="contacts__address-text">
-                                    Екатеринбург, ТЦ «Гулливер»
-                                </span>
-                            </li>
-
-                            <li class="contacts__item">
-                                <span class="contacts__icon">
-                                    <img src="/src/assets/icons/contacts/phone.svg" />
-                                </span>
-                                <a class="contacts__phone" href="tel:+79226043043">
-                                    +7-922-604-30-43
-                                </a>
-                            </li>
-
-                            <li class="contacts__item">
-                                <span class="contacts__icon">
-                                    <img src="/src/assets/icons/contacts/comments.svg" />
-                                </span>
-                                <a class="contacts__email" id="email-to-copy" href="mailto:связь@первыймягкий.рф">
-                                    связь@первыймягкий.рф
-                                </a>
-                                <button class="contacts__copy" type="button">
-                                    <img src="/src/assets/icons/contacts/copy.svg" />
-                                    <span>Копировать</span>
-                                </button>
-                            </li>
-
-                        </ul>
-                    </address>
                 </div>
 
                 <!-- КАрта и видео -->
@@ -145,7 +158,7 @@
                 </div>
             </div>
 
-            <button class="btn-form btn-request" data-action="open-form">
+            <button class="btn-contacts-form btn-request" data-action="open-form">
                 оставить <br> заявку
             </button>
         </div>

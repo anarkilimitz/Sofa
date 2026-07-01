@@ -2,60 +2,6 @@
 @use "../utils/mixins" as *;
 
 .contacts {
-    &__wrapper {
-        margin-top: 75px;
-        display: flex;
-        justify-content: space-between;
-        align-items: stretch;
-    }
-
-    &__wrapper-left {
-        flex: 0 0 465px;
-    }
-
-    &__wrapper-right {
-        margin-left: auto;
-        padding-left: 139px;
-
-        display: grid;
-        grid-template-columns: 290px 640px;
-        gap: 20px;
-    }
-
-    &__video-card {
-        width: 290px;
-        aspect-ratio: 258 / 460;
-
-        border-radius: 24px;
-        overflow: hidden;
-
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-
-        z-index: 3;
-
-        &:nth-child(1) {
-
-            background-image: url('/src/assets/img/contacts/sofa-mini.jpg');
-        }
-
-    }
-
-    &__map-container {
-        // flex: 2;
-        height: 100%;
-        border-radius: 24px;
-        overflow: hidden;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-
-        iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-    }
-
     &__section {
         position: relative;
         min-height: 100vh;
@@ -67,22 +13,11 @@
         display: block;
         margin: 220px 70px 0 40px;
         z-index: 2;
-
-        footer {
-            margin-left: 0;
-            width: 100%;
-
-            .scroll-indicator {
-                justify-content: flex-start;
-                gap: 15px;
-            }
-        }
     }
 
     &__title {
         @include title;
         font-size: 48px;
-
 
         span {
             color: #00A18F;
@@ -95,24 +30,67 @@
         }
     }
 
-    // Контакты 
-
-    &__list {
+    // Обертки
+    &__wrapper {
+        margin-top: 75px;
         display: flex;
-        flex-direction: column;
-        gap: 28px;
-        margin: 40px 0 0;
-        padding: 0;
-        list-style: none;
-        font-style: normal;
-        text-transform: uppercase;
+        justify-content: space-between;
+        align-items: stretch;
+
+        &-left {
+            flex: 0 0 465px;
+
+            .accordion {
+                max-width: 397px;
+
+                &__header {
+                    border-bottom: 1px solid #e0e0e0;
+                    color: #0F0F10;
+                    font-weight: 600;
+                    font-size: 20px;
+                    padding: 10px 0;
+                    width: 100%;
+                    text-align: left;
+                    background: none;
+                    border-top: none;
+                    cursor: pointer;
+
+                }
+
+                &__header-tel {
+                    border-bottom: 1px solid #e0e0e0;
+                }
+
+                &__content {
+                    color: #0F0F10;
+                    padding-bottom: 10px;
+                }
+            }
+        }
+
+        &-right {
+            margin-left: auto;
+            padding-left: 139px;
+            display: grid;
+            grid-template-columns: 290px 640px;
+            gap: 20px;
+        }
     }
 
+    // Элементы внутри аккордеона
     &__item {
+        padding: 15px 0;
         display: flex;
         align-items: center;
         gap: 24px;
         font-family: var(--font-primary);
+        position: relative;
+        text-transform: uppercase;
+
+        &:hover .contacts__copy {
+            opacity: 1;
+            visibility: visible;
+        }
     }
 
     &__icon {
@@ -126,51 +104,34 @@
         }
     }
 
-    &__address-text {
-        @include descr;
-        margin: 0;
-        line-height: 32px;
-        font-size: 14px;
-        font-weight: 700;
-        letter-spacing: -0.02em;
-    }
-
-    &__phone {
-        @include descr;
-        margin: 0;
-        text-decoration: none;
-        font-size: 14px;
-        font-weight: 700;
-        letter-spacing: -0.02em;
-        transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
-
-        &:hover {
-            opacity: 0.7;
-            transform: translateX(3px);
-        }
-    }
-
+    &__address-text,
+    &__phone,
     &__email {
         @include descr;
         margin: 0;
-        text-decoration: none;
-        color: #00A18F;
         font-size: 14px;
         font-weight: 700;
         letter-spacing: -0.02em;
+        text-decoration: none;
+    }
+
+    &__email {
+        color: #00A18F;
         transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
 
         &:hover {
             opacity: 0.7;
             transform: translateX(3px);
         }
+    }
+
+    &__phone {
+        color: #0F0F10;
     }
 
     &__copy {
         @include descr;
-        position: relative;
         margin: 0;
-        padding: 0;
         display: inline-flex;
         align-items: center;
         gap: 8px;
@@ -180,7 +141,6 @@
         background: none;
         border: none;
         cursor: pointer;
-
         opacity: 0;
         visibility: hidden;
         transition: opacity 0.2s ease-in-out;
@@ -190,115 +150,134 @@
             height: 20px;
         }
 
-        span {
-            font-family: var(--font-primary);
-        }
-
         &:hover {
             opacity: 0.7;
         }
     }
-}
 
-// это для всплывающей - СКОПИРОВАНО и для самой надписи КОПИРОВАТЬ
-.contacts__copy {
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.2s ease-in-out;
-}
+    // Специфичный текст аккордеона
+    &__text {
+        @include descr;
+        font-weight: 400;
+        line-height: 140%;
+        color: #625E5E;
+        margin-bottom: 10px;
 
-.contacts__item {
-    &:has(.is-visible) .contacts__copy {
-        opacity: 1;
-        visibility: visible;
-    }
-}
-
-.contacts__item:hover .contacts__copy {
-    opacity: 1;
-    visibility: visible;
-}
-
-// Аккордеон
-.contacts__wrapper-left {
-    .accordion {
-        max-width: 397px;
+        &-list {
+            text-transform: uppercase;
+            font-weight: 700;
+            padding: 0;
+            list-style: none;
+        }
     }
 
-    .accordion__header {
-        border-bottom: 1px solid #e0e0e0;
-        color: #0F0F10;
-        font-weight: 600;
-        font-size: 20px;
+    // Карта и Видео
+    &__video-card {
+        width: 290px;
+        aspect-ratio: 258 / 460;
+        border-radius: 24px;
+        overflow: hidden;
+        background-size: cover;
+        background-position: center;
+        background-image: url('/src/assets/img/contacts/sofa-mini.jpg');
     }
 
-    .accordion__item {
-        border-top: none;
-    }
+    &__map-container {
+        height: 100%;
+        border-radius: 24px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
 
-    .accordion__content {
-        color: #0F0F10;
-
-        .contacts__text {
-            @include descr;
-            font-weight: 400;
-            line-height: 140%;
-            color: #625E5E;
-            letter-spacing: 0%;
-
-            &-list {
-                text-transform: uppercase;
-                // list-style: none;
-                font-weight: 700;
-            }
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
         }
     }
 }
 
+/* кнопка */
+.btn-contacts-form {
+    position: relative;
+    margin: 45px 0 0 0;
+    padding: 0 0 0 32px;
+    align-self: center;
+    width: 100%;
+    max-width: 397px;
+    height: 80px;
+    border: none;
+    border-radius: 24px;
+    background-color: var(--text-black);
+    text-align: left;
+    font-family: var(--font-heading);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 20px;
+
+    @media screen and (max-width: 600px) {
+        width: 100%;
+        margin: 16px 0 0 0;
+        padding: 0 0 0 32px;
+        align-self: center;
+        text-align: flex-start;
+        height: 60px;
+        border-radius: 12px;
+        font-size: 14px;
+        font-weight: 400;
+    }
+}
+
+.btn-contacts-form:focus {
+    outline: none;
+    outline-offset: 2px;
+    box-shadow: 0 0 0 3px var(--brand-teal);
+}
+
+.btn-contacts-form.loading {
+    display: block;
+}
+
+.btn-contacts-form.loading .btn-text {
+    opacity: 0.6;
+}
+
+.btn-contacts-form.loading .btn-text {
+    opacity: 0.6;
+}
+
+// Адаптив
 @media (max-width: 480px) {
     .contacts {
+
         &__wrapper {
-            display: flex;
             flex-direction: column;
-            align-items: stretch;
             gap: 60px;
             margin-top: 40px;
-        }
 
-        // Аккордеон + Контакты
-        &__wrapper-left {
-            order: 1;
-            width: 100%;
-            flex: none;
-
-            .accordion {
-                max-width: 100%;
+            &-left {
+                order: 1;
+                width: 100%;
             }
-        }
 
-        // Карта и Картинка
-        &__wrapper-right {
-            order: 2;
-            width: 100%;
-            margin-left: 0;
-            padding-left: 0;
-
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
+            &-right {
+                order: 2;
+                width: 100%;
+                margin-left: 0;
+                padding-left: 0;
+                display: flex;
+                flex-direction: column;
+                gap: 16px;
+            }
         }
 
         &__video-card {
             width: 100%;
             height: 186px;
             aspect-ratio: auto;
-
-
-            &:nth-child(1) {
-                background-image: url('/src/assets/img/contacts/sofa-longMini.jpg');
-            }
-
-
+            background-image: url('/src/assets/img/contacts/sofa-longMini.jpg');
         }
 
         &__map-container {
@@ -307,20 +286,11 @@
         }
 
         &__content {
-            margin: 136px 15px 0 15px;
+            margin: 136px 0px 0 0px;
         }
 
         &__title {
             font-size: 24px;
-        }
-
-        &__title-text {
-            font-size: 16px;
-        }
-
-
-        &__item {
-            flex-wrap: wrap;
         }
 
         &__copy {
@@ -329,28 +299,9 @@
             margin-left: auto;
         }
 
-        &__content .btn-request {
-            width: 100%;
-            height: 56px;
-            margin-top: 16px;
-            padding-left: 32px;
-            background: #0F0F10;
-            color: #FFFFFF;
-            font-size: 16px;
-            font-weight: 600;
-            letter-spacing: -0.02em;
-            border-radius: 12px;
-            border: none;
-            display: flex;
-            align-items: center;
-            justify-content: flex-start;
-            cursor: pointer;
-            transition: all 0.2s ease;
-
-            &:active {
-                transform: scale(0.97);
-                background: #1f1f1f;
-            }
+        &__icon {
+            width: 18px;
+            height: 18px;
         }
     }
 }
