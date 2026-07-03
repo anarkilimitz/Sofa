@@ -165,6 +165,109 @@
 
     </section>
 
+    <!-- Форма обратной связи -->
+    
+    <div class="container-form">
+        <!-- первое состояние - основная -->
+        <div class="card-form state-1">
+            <!-- подложка белая прозрачная-->
+            <div class="card-substrate"></div>
+    
+            <h2 class="text-form">Оставить
+                <br>
+                заявку
+            </h2>
+            <button type="button" class="close-form btn-close"></button>
+            <form id="contactForm">
+                <div class="field">
+                    <span class="field__label">Ваше имя</span>
+                    <input type="text" name="firstName" placeholder=" " required>
+                    <label>Ваше имя</label>
+                    <span class="error"></span>
+                </div>
+    
+                <div class="field">
+                    <span class="field__label">Номер телефона</span>
+                    <input type="tel" name="phone" placeholder=" " inputmode="tel" required>
+                    <label>+7 (XXX) XXX-XX-XX</label>
+                    <span class="error"></span>
+                </div>
+    
+                <div class="field">
+                    <span class="field__label">Ваша почта</span>
+                    <input type="email" name="email" placeholder=" " required>
+                    <label>Email</label>
+                    <span class="error"></span>
+                </div>
+    
+                <div class="field">
+                    <span class="field__label">Комментарий</span>
+                    <textarea name="message" maxlength="60" placeholder=" " required></textarea>
+                    <label>Комментарий</label>
+                    <span class="error"></span>
+                </div>
+    
+                <div class="checkbox-field">
+                    <label class="checkbox">
+                        <input type="checkbox" name="agree">
+                        <span class="policy-text">
+                            Согласен с
+                            <a href="/privacy.html" target="_blank" class="policy-link">
+                                политикой конфиденциальности
+                            </a>
+                        </span>
+                    </label>
+                    <span class="error"></span>
+                </div>
+    
+                <button class="btn-form" type="submit">
+                    <span class="btn-text">Отправить</span>
+                </button>
+            </form>
+        </div>
+    
+        <!-- состояние 2 - менеджер свяжется -->
+        <div class="card-form state-2">
+            <!-- подложка белая прозрачная -->
+            <div class="card-substrate"></div>
+    
+            <div class="success-content">
+                <div class="success-text">
+                    <h2>Наш менеджер <br> свяжется с <br> вами в <br> ближайшее
+                        <span>
+                            <br>
+                            10 минут
+                        </span>
+                    </h2>
+                    <p>Мы отправим вам дополнительную информацию когда будет назначен звонок, и вы сможете посмотреть
+                        какие вы в очереди на
+                        звонок. Если вам необходимо набрать в определенное время, выбирите его в нашем календаре.</p>
+                </div>
+            </div>
+        </div>
+    
+        <!-- состояние 3 - спасибо -->
+        <div class="card-form state-3">
+            <!-- подложка белая прозрачная -->
+            <div class="card-substrate"></div>
+    
+            <div class="success-content_thank">
+                <div class="success-image">
+                    <p class="success-label">
+                        Мягкость стиля рожденная на Урале
+                    </p>
+                </div>
+                <div class="success-text_thank">
+                    <h2>СПАСИБО ЗА
+                        <br>
+                        ВИЗИТ
+                    </h2>
+                </div>
+            </div>
+        </div>
+    
+    </div>
+
 </body>
 
 </html>
