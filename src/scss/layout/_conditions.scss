@@ -69,3 +69,11 @@
         }
     }
 }
+
+@media (max-width: 1200px) {
+    .conditions {
+        &__wrapper {
+            flex-direction: column;
+        }
+    }
+}

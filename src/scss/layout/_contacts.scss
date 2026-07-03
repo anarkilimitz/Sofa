@@ -257,6 +257,39 @@
 }
 
 // Адаптив
+
+@media (max-width: 1700px) {
+    .contacts {
+        &__wrapper {
+            &-right {
+                grid-template-columns: 290px 500px;
+            }
+        }
+    }
+}
+
+@media (max-width: 1560px) {
+    .contacts {
+        &__wrapper {
+            &-right {
+                grid-template-columns: 290px 360px;
+            }
+        }
+    }
+}
+
+@media (max-width: 1400px) {
+    .contacts {
+        &__wrapper {
+            &-right {
+                margin-left: 0;
+                padding-left: 0;
+                grid-template-columns: 290px 290px;
+            }
+        }
+    }
+}
+
 // на десктопе адрес/телефон/email всегда открыты, на мобиле свернуты!!!
 @media (min-width: 481px) {
     .accordion--contacts {
