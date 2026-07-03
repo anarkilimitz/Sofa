@@ -249,10 +249,18 @@
     opacity: 0.6;
 }
 
+// для аккордеона с контактами вынес отдельно сюда - нижний БОРДЕР!
+.accordion--contacts {
+    .accordion__item .accordion__header.accordion__header-tel {
+        border-bottom: 1px solid #e0e0e0;
+    }
+}
+
 // Адаптив
 // на десктопе адрес/телефон/email всегда открыты, на мобиле свернуты!!!
 @media (min-width: 481px) {
     .accordion--contacts {
+
         .accordion__item--desktop-open {
             .accordion__content {
                 display: block;
