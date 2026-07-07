@@ -121,3 +121,26 @@
         padding-bottom: 20px;
     }
 }
+
+@media (max-width: 320px) {
+    .hero-content {
+        margin-top: 90px;
+        margin-right: 22px;
+
+        .hero-title {
+            font-size: 18px;
+            line-height: 22px;
+        }
+
+        .hero-desc {
+            margin-top: 16px;
+            margin-bottom: 126px;
+            font-size: 12px;
+            line-height: 18px;
+        }
+    }
+
+    .hero-section .footer {
+        margin: 25px 22px;
+    }
+}
