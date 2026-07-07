@@ -73,6 +73,11 @@
                 display: flex;
                 justify-content: flex-end;
                 align-items: center;
+
+                img {
+                    width: 17px;
+                    height: 17px;
+                }
             }
 
             // 3. Нижняя белая часть
@@ -88,8 +93,7 @@
                 align-items: center;
                 justify-content: space-between;
                 gap: 15px;
-                background-color: none;
-
+                background-color: transparent;
             }
 
             &__text {
@@ -120,6 +124,59 @@
                 img {
                     width: 100%;
                     height: auto;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 320px) {
+    .promo {
+        margin-top: -100px;
+        height: 108px;
+
+        .promo-card {
+            height: 100px;
+            border-radius: 12px;
+
+            // 2. Верхняя темная часть
+            &__header {
+                height: 60px;
+                border-radius: 12px;
+                padding: 14px 24px;
+            }
+
+            &__title {
+                font-size: 12px;
+                line-height: 13.25px;
+            }
+
+            &__link {
+                img {
+                    width: 12px;
+                    height: 12px;
+                }
+            }
+
+            // 3. Нижняя белая часть
+            &__body {
+                height: auto;
+                flex: 1;
+                min-height: 0;
+                padding: 12px 24px;
+                border-radius: 16px;
+                gap: 5px;
+            }
+
+            &__text {
+                font-size: 10px;
+                line-height: 11.34px;
+            }
+
+            &__icon {
+                img {
+                    width: 13px;
+                    height: 13px;
                 }
             }
         }
