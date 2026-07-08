@@ -1,6 +1,7 @@
 @use "../utils/variables" as *;
 @use "../utils/mixins" as *;
 
+// ==================== СЕКЦИЯ SPECIFICS ====================
 .specifics-section {
     position: relative;
     min-height: 100vh;
@@ -69,19 +70,16 @@
         transition: 0.3s ease;
     }
 
-    // первая
     &:nth-child(1)::after {
         top: 63%;
         left: 28%;
     }
 
-    // вторая
     &:nth-child(2)::after {
         top: 52%;
         left: 41%;
     }
 
-    // третья
     &:nth-child(3)::after {
         top: 51%;
         left: 43%;
@@ -91,7 +89,7 @@
         opacity: 0;
     }
 
-    // Затемнение, чтобы текст читался на любом фоне
+    // Затемнение
     &::before {
         content: '';
         position: absolute;
@@ -115,7 +113,6 @@
         background-image: url('/src/assets/img/specifics/easy.jpg');
     }
 
-    // текст и полоска
     &__title {
         margin: 0 0 35px 0;
         position: relative;
@@ -124,7 +121,6 @@
         font-weight: 600;
         font-style: normal;
         line-height: 28px;
-        // text-transform: uppercase;
         color: #0F0F10;
         font-family: var(--font-primary);
         pointer-events: none;
@@ -224,22 +220,13 @@
     }
 }
 
-// блюр карточек
+// блюр карточек (переопределение before)
 .specifics-card::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-
-    background: linear-gradient(90deg,
-            rgba(109, 109, 109, 0.1) 0%,
-            rgba(109, 109, 109, 0.25) 100%);
-
+    background: linear-gradient(90deg, rgba(109, 109, 109, 0.1) 0%, rgba(109, 109, 109, 0.25) 100%);
     backdrop-filter: blur(13px);
     -webkit-backdrop-filter: blur(13px);
     opacity: 0;
-
     transition: opacity 0.4s ease;
-    z-index: 1;
 }
 
 .specifics-card:hover::before {
@@ -251,32 +238,8 @@
     pointer-events: none;
 }
 
-@media (max-width: 998px) {
-    .specifics-features {
-        margin: 5vh 0 4vh 0;
 
-        &__list {
-            flex-direction: column;
-            align-items: center;
-        }
-    }
-}
-
-@media (max-width: 480px) {
-    .specifics-content {
-        margin: 136px 20px 0 20px;
-
-        .specifics-title {
-            font-size: 24px;
-        }
-
-        .specifics-desc {
-            font-size: 16px;
-        }
-    }
-}
-
-// КОРРЕКЦИЯ КАРТОЧЕК ДЛЯ МОБИЛЬНОГО
+// ==================== ПЛАНШЕТЫ ====================
 @media (max-width: 998px) {
     .specifics-features {
         margin: 5vh 20px 4vh 20px;
@@ -306,49 +269,53 @@
     }
 }
 
+
+// ==================== МОБИЛКИ (480 -> 320) ====================
 @media (max-width: 480px) {
     .specifics-content {
-        margin: 136px 20px 0 20px;
+        margin-top: clamp(100px, 28vw, 136px);
+        margin-left: clamp(24px, calc(20px + (480px - 100vw) * 0.0875), 20px);
+        margin-right: clamp(24px, calc(20px + (480px - 100vw) * 0.0875), 20px);
+        margin-bottom: 0;
 
         .specifics-title {
-            font-size: 24px;
+            font-size: clamp(18px, 5vw, 24px);
         }
 
         .specifics-desc {
-            font-size: 16px;
+            font-size: clamp(14px, 4.2vw, 16px);
         }
     }
 
     .specifics-features {
-        margin-bottom: 60px;
+        margin-bottom: clamp(40px, 12.5vw, 60px);
 
         &__list {
-            gap: 8px;
+            gap: clamp(6px, 2vw, 8px);
         }
     }
 
     .specifics-card {
         position: relative;
         display: block;
-        width: 90vw;
-        height: auto;
-        aspect-ratio: 376 / 138;
-        padding: 15px;
+
+        width: clamp(256px, calc(256px + (100vw - 320px) * 1.1), 432px);
+        height: clamp(72px, calc(72px + (100vw - 320px) * 0.4125), 138px);
+
+        aspect-ratio: unset;
+        padding: clamp(10px, 3.5vw, 15px);
 
         // это точки      
-        // первая
         &:nth-child(1)::after {
             top: 63%;
             left: 38%;
         }
 
-        // вторая
         &:nth-child(2)::after {
             top: 48%;
             left: 35%;
         }
 
-        // третья
         &:nth-child(3)::after {
             top: 51%;
             left: 60%;
@@ -367,31 +334,31 @@
         }
 
         &__title {
-            font-size: 16px;
-            line-height: 18px;
+            font-size: clamp(12px, 4vw, 16px);
+            line-height: clamp(14px, 4.5vw, 18px);
         }
 
         // Квадрат с плюсом
         .card-plus {
-            bottom: 17px;
-            right: 17px;
-            width: 40px;
-            height: 40px;
+            bottom: clamp(10px, 4.5vw, 17px);
+            right: clamp(10px, 4.5vw, 17px);
+            width: clamp(30px, 10vw, 40px);
+            height: clamp(30px, 10vw, 40px);
 
             &::before {
-                width: 17px;
-                height: 17px;
+                width: clamp(13px, 4.5vw, 17px);
+                height: clamp(13px, 4.5vw, 17px);
             }
 
             &::after {
-                font-size: 14px;
+                font-size: clamp(10px, 4vw, 14px);
                 transform: translateY(0px);
             }
         }
     }
 }
 
-// МОБИЛЬНЫЙ ПОП-АП (MODAL)
+// ==================== МОБИЛЬНЫЙ ПОП-АП (MODAL) ====================
 .specifics-modal {
     position: fixed;
     top: 50%;
@@ -404,24 +371,24 @@
     padding-bottom: 60px;
 
     border-radius: 30px;
-    background-image: none !important;
-    transform: translate(-50%, -50%);
-
-    border-radius: 30px;
-    background-color: #E5E5E5; // Фон по умолчанию
+    background-color: #E5E5E5;
     background-size: cover;
     background-position: center;
+    transform: translate(-50%, -50%);
 
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     z-index: 9999;
 
-    // Скрыт по умолчанию
     opacity: 0;
     visibility: hidden;
-    transition: opacity 0.3s ease,
-        visibility 0.3s ease;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+
+    &.is-active {
+        opacity: 1;
+        visibility: visible;
+    }
 
     &__image {
         width: 100%;
@@ -433,12 +400,6 @@
         display: block;
     }
 
-    &.is-active {
-        opacity: 1;
-        visibility: visible;
-    }
-
-    // Кнопка закрытия
     &__close {
         position: absolute;
         top: -44px;
@@ -448,10 +409,8 @@
         height: 44px;
         background: transparent;
         z-index: 10;
-
         border: none;
 
-        // крестик
         &::before,
         &::after {
             content: '';
@@ -471,10 +430,8 @@
         &::after {
             transform: translate(-50%, -50%) rotate(-45deg);
         }
-
     }
 
-    // Слайдер
     &__slider {
         position: relative;
         z-index: 2;
@@ -482,7 +439,6 @@
         padding: 0 9px;
     }
 
-    // Слайд
     &__slide {
         display: none;
         opacity: 0;
@@ -514,6 +470,7 @@
     }
 
     &__plus {
+        position: relative;
         width: 40px;
         height: 40px;
         background-color: rgba(0, 0, 0, 0.6);
@@ -522,7 +479,6 @@
         align-items: center;
         justify-content: center;
         z-index: 5;
-        transition: opacity 0.3s ease, transform 0.3s ease;
 
         &::before {
             content: '';
@@ -543,7 +499,6 @@
             line-height: 1;
             transform: translateY(0px);
         }
-
     }
 
     &__text {
@@ -557,7 +512,6 @@
         white-space: normal;
     }
 
-    // Точки навигации
     &__dots {
         position: absolute;
         bottom: 40px;
