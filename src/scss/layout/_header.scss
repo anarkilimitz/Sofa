@@ -58,15 +58,30 @@
     }
 
     @media (max-width: 480px) {
-        padding: 0 100px 0 40px;
-        height: 72px;
-        border-radius: 20px;
+        // Плавные отступы: справа много места под бургер, слева минимум
+        padding: 0 clamp(60px, 25vw, 100px) 0 clamp(20px, 8vw, 40px);
+
+        // Плавная высота
+        height: clamp(65px, 15vw, 72px);
+
+        // Плавный скругление
+        border-radius: clamp(16px, 5vw, 20px);
+
+        // Плавный отступ сверху
+        top: clamp(16px, 5vw, 32px);
+
+        .nav-left {
+            gap: clamp(16px, 6vw, 32px);
+            max-width: 100%;
+        }
 
         .logo-group {
 
             .logo {
-                width: 80px;
-                height: 44px;
+                // Плавная ширина логотипа
+                width: clamp(60px, 16.6vw, 80px);
+                // Плавная высота логотипа
+                height: clamp(33px, 9.1vw, 44px);
 
                 &[data-logo="main"] {
                     background-image: url("/src/assets/icons/header/logo-mobile.svg");
