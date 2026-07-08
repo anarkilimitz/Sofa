@@ -8,7 +8,7 @@
 @media (max-width: 480px) {
     .promo {
         display: block;
-        margin-top: clamp(-100px, calc(100vw - 420px), -40px);
+        margin: clamp(-100px, calc(100vw - 420px), -40px) auto 0 auto;
         padding: 8px;
         width: 100%;
         max-width: clamp(288px, calc(100% - 16px), 386px);
