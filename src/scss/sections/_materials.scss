@@ -28,25 +28,25 @@
 .materials-carousel {
     position: relative;
     margin-left: 45px;
-    margin-right: calc(-1 * clamp(5vw, -188.13px + 13.41vw, 150px)); // отменяю правый отступ в соответствии с формулой общего контейнера!!!
+    margin-right: calc(-1 * clamp(5vw, -188.13px + 13.41vw, 150px));
 }
 
 @media (max-width: 480px) {
     .materials-content {
-        margin: 136px 20px 0 20px;
+        margin: clamp(80px, 24vw, 115px) clamp(16px, 5vw, 20px) 0 clamp(16px, 5vw, 20px);
 
         .materials-title {
-            font-size: 24px;
+            font-size: clamp(18px, 5vw, 24px);
         }
 
         .materials-desc {
-            font-size: 16px;
+            font-size: clamp(14px, 4.2vw, 16px);
         }
     }
 
     .materials-carousel {
         position: relative;
         margin-left: 0;
-        margin-right: calc(-1 * clamp(5vw, -188.13px + 13.41vw, 150px)); // отменяю правый отступ в соответствии с формулой общего контейнера!!!
+        margin-right: calc(-1 * clamp(5vw, -188.13px + 13.41vw, 150px));
     }
 }

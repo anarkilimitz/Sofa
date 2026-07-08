@@ -15,19 +15,15 @@
     z-index: 2;
 
     background-color: rgba(250, 250, 250, 0.2);
-    box-shadow:
-        0 16px 32px rgba(0, 0, 0, 0.08),
-        0 6px 12px rgba(0, 0, 0, 0.04);
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.08), 0 6px 12px rgba(0, 0, 0, 0.04);
 
     transition: background 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-    transform-style: preserve-3d; // для гсап анимации
-    will-change: transform; // для гсап анимации
+    transform-style: preserve-3d;
+    will-change: transform;
 
     &:hover {
         background: rgba(255, 255, 255, 0.43);
-        box-shadow:
-            0 28px 56px rgba(0, 0, 0, 0.12),
-            0 12px 24px rgba(0, 0, 0, 0.06);
+        box-shadow: 0 28px 56px rgba(0, 0, 0, 0.12), 0 12px 24px rgba(0, 0, 0, 0.06);
     }
 }
 
@@ -45,10 +41,8 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
-
     overflow: hidden;
     z-index: 3;
-
     border-radius: 32px;
     background: rgba(13, 13, 13, 0.7);
 }
@@ -106,25 +100,24 @@
         display: flex;
         justify-content: flex-start;
         align-items: center;
-        width: 344px;
-        height: 88px;
+        
+        width: clamp(252px, calc(252px + (100vw - 320px) * 0.575), 344px);
+        height: clamp(74px, calc(74px + (100vw - 320px) * 0.0875), 88px);
+
         right: 50%;
         transform: translateX(50%);
+        
+        bottom: clamp(80px, calc(80px + 0.275 * (100vw - 320px)), 124px);
 
-        bottom: 124px;
-        border-radius: 22px;
+        border-radius: clamp(18px, 5.6vw, 22px);
         cursor: pointer;
         z-index: 2;
 
         background-color: rgba(250, 250, 250, 0.2);
-        box-shadow:
-            0 16px 32px rgba(0, 0, 0, 0.08),
-            0 6px 12px rgba(0, 0, 0, 0.04);
-
+        box-shadow: 0 16px 32px rgba(0, 0, 0, 0.08), 0 6px 12px rgba(0, 0, 0, 0.04);
         transition: background 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-        transform-style: preserve-3d; // для гсап анимации
-        will-change: transform; // для гсап анимации
-
+        transform-style: preserve-3d;
+        will-change: transform;
     }
 
     .link-catalog__link {
@@ -134,24 +127,24 @@
     }
 
     .link-catalog__bg {
-        margin-left: 8px;
-        padding-left: 38px;
-        width: 328px;
-        height: 72px;
+        margin-left: clamp(4px, 1.25vw, 8px);
+        padding-left: clamp(24px, 7.5vw, 38px);
+        
+        width: clamp(236px, calc(236px + (100vw - 320px) * 0.575), 328px);
+        height: clamp(58px, calc(58px + (100vw - 320px) * 0.0875), 72px);
+
         display: flex;
         justify-content: flex-start;
         align-items: center;
-
         overflow: hidden;
         z-index: 3;
-
-        border-radius: 16px;
+        border-radius: clamp(12px, 4vw, 16px);
         background: rgba(13, 13, 13, 0.8);
     }
 
     .link-catalog__info {
         display: flex;
-        gap: 20px;
+        gap: clamp(12px, 3.75vw, 20px);
         align-items: center;
     }
 
@@ -181,7 +174,7 @@
         letter-spacing: 0.02em;
         line-height: 1;
         font-weight: 400;
-        font-size: 22px;
+        font-size: clamp(16px, 5.5vw, 22px);
         color: #fff;
         transition: transform 0.4s ease-in-out;
     }
