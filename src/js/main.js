@@ -23,6 +23,9 @@ import { initProduct } from './product';
 // Копирование
 import { initCopyEmail } from './copyEmail.js';
 
+// Поиск
+import { initSearch } from './ui/search';
+
 // page404
 import { initNotFoundPage } from './pages/notFound.js';
 
@@ -49,6 +52,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 	// 3. Инициализация компонентов интерфейса
 	initMenu(lenis);
+	initSearch(lenis);
 	initHeroScale();
 	initNavIconLabels();
 	initCarousel();

@@ -584,11 +584,29 @@
     }
 }
 
-@media screen and (max-width: 480px) {
-    .color-select {
-        &__dropdown {
-            max-width: 400px;
-            width: 100%;
-        }
-    }
-}
+// Это .product-gallery не срабатывает !!! Надо разобраться почему!!!!
+// @media screen and (max-width: 480px) {
+//     .product {
+//         &__page {
+//             overflow: visible;
+//         }
+
+//         &__info {
+//             padding: 0 4vw;
+//         }
+//     }
+
+//     .product-gallery {
+//         width: calc(100% + 8vw);
+//         transform: translateX(-4vw);
+//         flex-shrink: 0;
+//         align-self: stretch;
+//     }
+
+//     .color-select {
+//         &__dropdown {
+//             max-width: 400px;
+//             width: 100%;
+//         }
+//     }
+// }

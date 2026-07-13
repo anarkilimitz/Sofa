@@ -45,6 +45,31 @@
       <a class="menu-link" href="/conditions.html">Условия</a>
     </nav>
   </div>
+  <!-- Меню поиска -->
+  <div class="search-drawer" id="search-drawer">
+    <div class="search-drawer__header">
+      <input type="text" id="search-input" class="search-drawer__input" placeholder="Поиск по каталогу..."
+        autocomplete="off">
+      <button class="search-drawer__close" id="close-search" aria-label="Закрыть поиск">
+        <svg fill="none" height="20" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="20">
+          <path d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+    </div>
+    <div class="search-drawer__results" id="search-results">
+      <!-- Шаблон карточки товара (не отображается на странице) -->
+      <template id="search-result-template">
+        <a href="#" class="search-result-item">
+          <img src="" alt="" class="search-result-item__img">
+          <div class="search-result-item__info">
+            <span class="search-result-item__title"></span>
+            <span class="search-result-item__desc"></span>
+          </div>
+          <span class="search-result-item__price"></span>
+        </a>
+      </template>
+    </div>
+  </div>
   <!-- шапка -->
   <header class="header">
     <div class="nav-left">

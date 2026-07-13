@@ -42,7 +42,15 @@ export const initMenu = (lenis) => {
 	);
 
 	if (closeMenu) closeMenu.addEventListener('click', toggleMenu);
-	menuOverlay.addEventListener('click', toggleMenu);
+
+	// Защита от конфликта с поиском
+	menuOverlay.addEventListener('click', (e) => {
+		const searchDrawer = document.getElementById('search-drawer');
+		// Если открыт поиск — просто выходим, не трогаем бургер
+		if (searchDrawer && searchDrawer.classList.contains('open')) return;
+
+		toggleMenu();
+	});
 
 	window.addEventListener('keydown', (event) => {
 		if (event.key === 'Escape') {
