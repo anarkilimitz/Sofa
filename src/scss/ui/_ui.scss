@@ -51,6 +51,7 @@
         span {
             display: none;
         }
+
         width: auto;
     }
 }
@@ -270,8 +271,12 @@
         transform: scale(1);
     }
 
+    // ЭТО ОТКЛЮЧЕНИЕ ИКОНОК - ПОИСК и ТД
     @media (max-width: 480px) {
-        display: none;
+        // display: none;
+        width: 30px;
+        height: 30px;
+        background-size: 30px;
     }
 }
 
