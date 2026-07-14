@@ -19,7 +19,7 @@
     ],
     "gallery": [
       {"src": "/img/product/productMain.jpg", "isWide": true},
-      {"src": "/img/product/productView1.jpg", "isWide": false},
+      {"src": "/img/product/roductView1.jpg", "isWide": false},
       {"src": "/img/product/productView2.jpg", "isWide": false},
       {"src": "/img/product/mechanism.jpg", "isWide": true},
       {"src": "/img/product/productDrawing.jpg", "isWide": true},
@@ -50,7 +50,7 @@
     "gallery": [
       {"src": "/img/example/sofa1.jpg", "isWide": true},
       {"src": "/img/example/sofa2.jpg", "isWide": false},
-      {"src": "/img/example/sofa3.jpg", "isWide": false}
+      {"src": "/img/example/ofa3.jpg", "isWide": false}
     ]
   },
   {

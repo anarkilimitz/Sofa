@@ -121,6 +121,33 @@ function renderProductData(product) {
 			item.className = className;
 
 			const img = document.createElement('img');
+
+			img.onload = () => {};
+
+			// если картинка ОТСУТСТВУЕТ (ошибка 404)
+			img.onerror = () => {
+				// Прячем стандартную иконку "битой картинки"
+				img.style.display = 'none';
+
+				// Включаем скелетон
+				item.classList.add('is-loading');
+
+				const skeletonEl = document.createElement('div');
+				skeletonEl.className = 'skeleton';
+				skeletonEl.innerHTML = `
+                    <div class="skeleton__header">
+                        <div class="skeleton__circle"></div>
+                        <div class="skeleton__mini"></div>
+                    </div>
+                    <div class="skeleton__block"></div>
+                    <div class="skeleton__block"></div>
+                    <div class="skeleton__block"></div>
+                `;
+
+				// Вставляем скелетон в карточку
+				item.appendChild(skeletonEl);
+			};
+
 			img.src = imgData.src;
 			img.alt = product.title;
 			item.appendChild(img);
@@ -128,8 +155,6 @@ function renderProductData(product) {
 			// Если это первая картинка — добавляем бейдж из шаблона
 			if (index === 0) {
 				const template = document.getElementById('order-badge-template');
-				console.log('Шаблон найден:', template);
-				// ВАЖНО: проверяем, найден ли шаблон
 				if (template) {
 					const badge = template.content.cloneNode(true);
 
@@ -145,8 +170,6 @@ function renderProductData(product) {
 					}
 
 					item.appendChild(badge);
-				} else {
-					console.error('Шаблон order-badge-template не найден в DOM!');
 				}
 			}
 
