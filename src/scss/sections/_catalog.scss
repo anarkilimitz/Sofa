@@ -89,7 +89,7 @@
     left: 0;
     right: 0;
     background-color: #fff;
-    border-radius: 20px 20px 0 0;
+    border-radius: 32px 32px 0 0;
     z-index: 1001;
     visibility: hidden;
     pointer-events: none;
@@ -110,11 +110,14 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: 20px 20px 0;
+        padding:
+            clamp(32px, 26.7vw - 53.3px, 64px) 
+            clamp(16px, 34.2vw - 93.3px, 57px) 
+            clamp(20px, 55.8vw - 186.7px, 135px);
     }
 
     &__title {
-        font-size: 18px;
+        font-size: 24px;
         font-weight: 600;
         letter-spacing: 0.08em;
         color: #1a1a1a;
@@ -141,14 +144,18 @@
     }
 
     &__list {
-        padding: 16px 20px;
+
+        padding:
+            0 
+            clamp(16px, 34.2vw - 93.3px, 57px) 
+            clamp(12px, 30vw - 90px, 56px);
     }
 
     &__item {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: 16px 0;
+        padding: clamp(12px, 0.6vw + 10.1px, 16px) 0;
         border-bottom: 1px solid #f0f0f0;
         cursor: pointer;
         transition: opacity 0.2s ease;
@@ -162,8 +169,21 @@
         }
     }
 
+    &__left {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+    }
+
+    &__icon {
+        width: 34px;
+        height: 34px;
+        color: #1a1a1a;
+        flex-shrink: 0;
+    }
+
     &__name {
-        font-size: 16px;
+        font-size: clamp(14px, 1.67vw + 8.67px, 16px);
         font-weight: 400;
         color: $text-black;
         letter-spacing: 0.02em;
@@ -172,23 +192,42 @@
     }
 
     &__check {
-        display: none;
+        display: flex;
         align-items: center;
         justify-content: center;
-        color: #1a1a1a;
+
+        circle {
+            fill: none;
+            stroke: #1a1a1a;
+            stroke-width: 2;
+        }
+
+        polyline {
+            display: none;
+        }
     }
 }
 
 // выделенный пункт — галочка видна
 .filter-popup__item.selected .filter-popup__check {
-    display: flex;
+    circle {
+        fill: #1a1a1a;
+        stroke: none;
+    }
+
+    polyline {
+        display: block;
+    }
 }
 
 .filter-popup__footer {
     display: flex;
     gap: 12px;
     flex-direction: column;
-    padding: 16px 20px 24px;
+    padding: 
+    0 
+    clamp(16px, 34.2vw - 93.3px, 57px)
+    clamp(32px, 20vw - 32px, 56px);
 }
 
 .filter-popup__btn {
@@ -196,7 +235,7 @@
     padding: 16px;
     border: 1px solid black;
     border-radius: 12px;
-    font-size: 13px;
+    font-size: clamp(12px, 1.67vw + 6.67px, 14px);
     font-weight: 600;
     letter-spacing: 0.08em;
     cursor: pointer;
