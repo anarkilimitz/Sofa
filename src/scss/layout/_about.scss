@@ -108,6 +108,10 @@
         letter-spacing: 0%;
     }
 }
+// ИКОНКА СОЦСЕТЕЙ В ФУТЕРЕ
+#about-footer-icon {
+    background-image: url("/src/assets/icons/footer/footer-socials.svg");
+}
 
 @media (max-width: 1500px) {
     .about {

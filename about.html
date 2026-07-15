@@ -116,11 +116,15 @@
                     </p>
 
                     <!-- футер -->
-                    <footer class="footer">
+                    <footer class="footer" data-action="open-form">
                         <div class="scroll-indicator">
-                            <span class="scroll-text-footer">О ДИВАНАХ И НЕ ТОЛЬКО, НА НАШИХ АККАУНТАХ</span>
+                            <span class="scroll-text-footer">
+                                О ДИВАНАХ <br>
+                                И НЕ ТОЛЬКО, НА НАШИХ<br>
+                                АККАУНТАХ
+                            </span>
                             <div class="line"></div>
-                            <div class="mouse-icon"></div>
+                            <div class="mouse-icon" id="about-footer-icon"></div>
                         </div>
                     </footer>
                 </div>
@@ -134,6 +138,105 @@
             </div>
         </div>
     </section>
+
+    <!-- Форма обратной связи -->
+
+    <div class="container-form">
+        <!-- первое состояние - основная -->
+        <div class="card-form state-1">
+            <!-- подложка белая прозрачная-->
+            <div class="card-substrate"></div>
+
+            <h2 class="text-form">Наши
+                <br>
+                <span class="teal-text">аккаунты</span>
+            </h2>
+            <button type="button" class="close-form btn-close"></button>
+            <form id="contactForm">
+                <div class="field">
+                    <input type="text" name="firstName" placeholder=" " required>
+                    <label>Теле-Граф</label>
+                    <span class="error"></span>
+                </div>
+
+                <div class="field">
+                    <input type="tel" name="phone" placeholder=" " inputmode="tel" required>
+                    <label>Теле-ГОСТ</label>
+                    <span class="error"></span>
+                </div>
+
+                <div class="field">
+                    <input type="email" name="email" placeholder=" " required>
+                    <label>Теле-Мост</label>
+                    <span class="error"></span>
+                </div>
+
+                <div class="field">
+                    <textarea name="message" maxlength="251" placeholder=" " required></textarea>
+                    <label>Теле-Пост</label>
+                    <span class="error"></span>
+                </div>
+
+                <div class="checkbox-field">
+                    <label class="checkbox">
+                        <input type="checkbox" name="agree">
+                        <span class="policy-text">
+                            Согласен с
+                            <a href="/privacy.html" target="_blank" class="policy-link">
+                                политикой конфиденциальности
+                            </a>
+                        </span>
+                    </label>
+                    <span class="error"></span>
+                </div>
+
+                <button class="btn-form close-form" type="button">
+                    <span class="btn-text">Закрыть крестиком вверху</span>
+                </button>
+            </form>
+        </div>
+
+        <!-- состояние 2 - менеджер свяжется -->
+        <div class="card-form state-2">
+            <!-- подложка белая прозрачная -->
+            <div class="card-substrate"></div>
+            <img src="/src/assets/icons/form/Timer-form.svg" class="timer-form" alt="timer">
+            <div class="success-content">
+                <div class="success-text">
+                    <h2>Наш менеджер <br> свяжется с <br> вами в <br> ближайшее
+                        <span class="teal-text">
+                            <br>
+                            10 минут
+                        </span>
+                    </h2>
+                    <p>Мы отправим вам дополнительную информацию когда будет назначен звонок, и вы сможете посмотреть
+                        какие вы в очереди на
+                        звонок. Если вам необходимо набрать в определенное время, выбирите его в нашем календаре.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- состояние 3 - спасибо -->
+        <div class="card-form state-3">
+            <!-- подложка белая прозрачная -->
+            <div class="card-substrate"></div>
+
+            <div class="success-content_thank">
+                <div class="success-image">
+                    <img src="/src/assets/icons/form/Timer-form.svg" class="timer-form" alt="timer">
+                </div>
+                <div class="success-text_thank">
+                    <h2>
+                        <span class="teal-text">СПАСИБО,</span>
+                        ЗА
+                        <br>
+                        ВИЗИТ
+                    </h2>
+                </div>
+            </div>
+        </div>
+
+    </div>
 
 
 </body>
