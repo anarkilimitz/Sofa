@@ -585,6 +585,20 @@ form {
     background-color: #666;
 }
 
+// для счетчика символов
+.char-counter {
+    font-size: 12px;
+    color: var(--brand-teal, rgb(0, 161, 143));
+    text-align: left;
+    margin-top: 4px;
+    transition: color 0.2s;
+
+    &.limit-reached {
+        color: #ff6b6b;
+        font-weight: 600;
+    }
+}
+
 @media screen and (max-width:600px) {
 
     .field input,

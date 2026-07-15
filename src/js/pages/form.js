@@ -68,6 +68,31 @@ export function initForm(lenis) {
 	const form = document.querySelector('#contactForm');
 	if (!form) return;
 
+	// счетчик символов для валидации
+	const messageField = form.querySelector('textarea[name="message"]');
+	if (messageField) {
+		// элемент счетчика
+		const counter = document.createElement('div');
+		counter.className = 'char-counter';
+		counter.textContent = null;
+
+		// Вставляем счетчик после текстового поля (перед span.error)
+		messageField.parentNode.insertBefore(counter, messageField.nextSibling);
+
+		// Обновляем счетчик при вводе
+		messageField.addEventListener('input', () => {
+			const len = messageField.value.length;
+			counter.textContent = `${len} / 250`;
+
+			// Добавляем класс, если достигли или превысили 60
+			if (len >= 251) {
+				counter.classList.add('limit-reached');
+			} else {
+				counter.classList.remove('limit-reached');
+			}
+		});
+	}
+
 	const btn = form.querySelector('button[type="submit"]');
 	if (!btn) return;
 
@@ -100,14 +125,13 @@ export function initForm(lenis) {
 		],
 		message: [
 			{ validator: (v) => v.length >= 10, message: 'Минимум 10 символов' },
-			{ validator: (v) => v.length <= 60, message: 'Максимум 60 символов' },
+			{ validator: (v) => v.length < 251, message: 'Максимум 250 символов' },
 		],
 		agree: [{ validator: (v) => v === true, message: 'Необходимо согласие' }],
 	});
 
 	// отправка формы
 	form.addEventListener('submit', async (e) => {
-
 		e.preventDefault();
 
 		if (!validator.validateForm()) return;
