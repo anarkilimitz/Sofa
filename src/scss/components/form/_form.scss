@@ -1,15 +1,6 @@
 @use "../../utils/variables" as *;
 @use "../../utils/mixins" as *;
 
-form {
-    width: 100%;
-    max-width: 100%;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
 // раскомментировать чтобы формы отправки править 2-ю и третью !!!!!!!!!!!!!!!!!!!!!!
 
 // .container-form {
@@ -26,70 +17,71 @@ form {
 // }
 
 // ------------------------------КОНТЕЙнер------------------------------------
+form {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .container-form {
     padding: 5px;
     position: fixed;
     inset: 0;
-
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
     height: 100%;
-
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
-
-    transition: opacity 0.4s ease, visibility 0.4s ease;
-
-    background: $overlay-main;
-    backdrop-filter: blur(6px);
+    transition: opacity .4s ease, visibility .4s ease;
+    background: #b3b3b352;
     -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
     z-index: 1000;
-
-    &.active {
-        opacity: 1;
-        visibility: visible;
-        pointer-events: all;
-    }
 }
 
-// карточка формы
+.container-form.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: all;
+}
+
 .card-form {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%) scale(0.8);
-
-    width: min(826px, calc(100vw - 30px));
-    max-height: calc(100vh - 30px);
+    transform: translate(-50%, -50%) scale(.8);
+    width: min(826px, 100vw - 30px);
+    max-height: calc(90vh - 30px);
     height: fit-content;
     overflow-y: auto;
-
-    background-color: rgba(242, 239, 233, 0.8);
-    border: 1px solid rgba(0, 0, 0, 0.08);
+    background-color: #f2efe9cc;
+    border: 1px solid rgba(0, 0, 0, .08);
     border-radius: 40px;
     padding: 15px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08), 0 2px 6px rgba(0, 0, 0, 0.04);
-
+    box-shadow: 0 10px 25px #00000014, 0 2px 6px #0000000a;
     opacity: 0;
     visibility: hidden;
-
     pointer-events: none;
-
-    transition: opacity 0.4s ease-in-out, visibility 0.4s ease-in-out, transform 0.4s ease-in-out;
+    transition: opacity .4s ease-in-out, visibility .4s ease-in-out, transform .4s ease-in-out;
     z-index: 10;
+}
 
-    &.active {
-        opacity: 1;
-        visibility: visible;
-        transform: translate(-50%, -50%) scale(1);
-    }
+.card-form.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, -50%) scale(1);
+}
 
-    @media screen and (max-width: 600px) {
-        width: min(400px, calc(100vw - 30px));
-        height: min(670px, calc(100vh - 30px));
+@media screen and (max-width:600px) {
+    .card-form {
+        width: min(400px, 100vw - 30px);
+        height: min(670px, 100vh - 30px);
     }
 }
 
@@ -97,38 +89,43 @@ form {
     pointer-events: all;
 }
 
-// другие карточки
 .card-substrate {
     position: absolute;
     width: calc(100% - 30px);
     height: calc(100% - 30px);
-    background: #ffffff;
+    background: #fff;
     top: 15px;
     left: 15px;
     border-radius: 30px;
     z-index: -1;
-    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.01);
+    box-shadow: 0 0 0 1px #00000003;
 }
 
-// Главный
 .text-form {
-    margin:
-        clamp(20px, 7vh, 70px) 0 clamp(20px, 7vh, 112px) clamp(10px, 7vh, 90px);
+    margin: clamp(20px, 7vh, 70px) 0 clamp(20px, 7vh, 112px) clamp(10px, 7vh, 90px);
     text-align: start;
     color: var(--text-black);
     font-size: clamp(30px, 4.44vh, 48px);
     text-transform: uppercase;
     line-height: 1;
-    letter-spacing: 0.02em;
+    letter-spacing: .02em;
+}
 
-    @media screen and (max-width: 600px) {
-        margin: 42px 0 40px 32px;
+@media screen and (max-width:600px) {
+    .text-form {
+        margin: 42px 0 80px 32px;
         font-size: 24px;
         font-weight: 400;
     }
 }
 
-// Успех
+@media screen and (max-width:376px) {
+    .text-form {
+        margin: 32px 0 20px 32px;
+        font-size: 20px;
+    }
+}
+
 .success-content {
     position: relative;
     padding: 24.5vh 55px;
@@ -137,57 +134,63 @@ form {
     display: block;
     align-items: center;
     z-index: 1;
+}
 
-    @media screen and (max-width: 600px) {
+@media screen and (max-width:600px) {
+    .success-content {
         padding: 217px 0 48px 35px;
     }
-
-    @media screen and (max-width: 345px) {
-        padding: 217px 0 35px 15px;
+}
+@media screen and (max-width:376px) {
+    .success-content {
+        padding: 120px 0 35px 15px;
     }
 }
 
 .success-text {
     max-width: 100%;
+}
 
-    h2 {
-        margin-bottom: 115px;
-        font-size: 4.44vh;
-        text-transform: uppercase;
-        line-height: 1;
-        letter-spacing: -0.02em;
-        font-weight: normal;
-        color: var(--text-black);
-        text-transform: uppercase;
+.success-text h2 {
+    margin-bottom: 115px;
+    font-size: 4.44vh;
+    line-height: 1;
+    letter-spacing: -.02em;
+    font-weight: 400;
+    color: var(--text-black);
+    text-transform: uppercase;
+}
 
-        span {
-            color: var(--brand-teal);
-        }
-
-        @media screen and (max-width: 600px) {
-            margin: 0;
-            font-size: 24px;
-            font-weight: 400;
-        }
-
-        @media screen and (max-width: 345px) {
-            font-size: 20px;
-        }
+@media screen and (max-width:600px) {
+    .success-text h2 {
+        margin: 0;
+        font-size: 24px;
+        font-weight: 400;
     }
+}
 
-    p {
+@media screen and (max-width:345px) {
+    .success-text h2 {
         font-size: 20px;
-        color: #666;
+    }
+}
 
-        @media screen and (max-width: 600px) {
-            font-size: 14px;
-            padding-top: 48px;
-            padding-right: 42px;
-        }
+.success-text p {
+    font-size: 20px;
+    color: #666;
+}
 
-        @media screen and (max-width: 345px) {
-            padding-top: 35px;
-        }
+@media screen and (max-width:600px) {
+    .success-text p {
+        font-size: 14px;
+        padding-top: 48px;
+        padding-right: 42px;
+    }
+}
+
+@media screen and (max-width:345px) {
+    .success-text p {
+        padding-top: 35px;
     }
 }
 
@@ -196,23 +199,33 @@ form {
     height: 100%;
 }
 
-// Блок с диваном
 .success-image {
     width: 100%;
-    background:
-        url('/src/assets/img/form/thanks-sofa.jpg') center center / cover no-repeat;
+    background: url('/src/assets/img/form/thanks-sofa.jpg') center center/cover no-repeat;
     min-height: 576px;
     border-radius: 30px;
     overflow: hidden;
+}
 
-    @media (max-height: 901px) {
+.timer-form {
+    position: absolute;
+    margin: 5.6% 0 0 6.8%;
+    display: block;
+    width: 57px;
+    height: 57px;
+}
+
+@media(max-height:901px) {
+    .success-image {
         height: 50%;
         min-height: 469px;
     }
+}
 
-    @media screen and (max-width: 600px) {
-        background:
-            url('/src/assets/img/form/thanks-sofa.jpg') left center / cover no-repeat;
+@media screen and (max-width:600px) {
+    .success-image {
+        background: url('/src/assets/img/form/thanks-sofa.jpg') left center/cover no-repeat;
+        min-height: 50vh;
     }
 }
 
@@ -222,8 +235,10 @@ form {
     font-size: 20px;
     font-weight: 400;
     color: var(--text-gray);
+}
 
-    @media screen and (max-width: 600px) {
+@media screen and (max-width:600px) {
+    .success-label {
         font-size: 10px;
         padding-left: 0;
         padding-right: 35px;
@@ -234,34 +249,42 @@ form {
 .success-text_thank {
     padding-top: 35px;
     padding-left: 70px;
+}
 
-    @media screen and (max-width: 600px) {
+.teal-text {
+    color: var(--brand-teal, rgb(0, 161, 143));
+}
+
+@media screen and (max-width:600px) {
+    .success-text_thank {
         padding-left: 42px;
-    }
-
-    @media screen and (max-width: 350px) {
-        padding-left: 15px;
-    }
-
-    h2 {
-        font-size: 4.44vh;
-        line-height: 1;
-        letter-spacing: 0.02em;
-        text-transform: uppercase;
-        color: var(--text-black);
-
-        @media screen and (max-width: 600px) {
-            font-size: 24px;
-        }
     }
 }
 
-/* скрываем success по умолчанию */
+@media screen and (max-width:350px) {
+    .success-text_thank {
+        padding-left: 15px;
+    }
+}
+
+.success-text_thank h2 {
+    font-size: 4.44vh;
+    line-height: 1;
+    letter-spacing: .02em;
+    text-transform: uppercase;
+    color: var(--text-black);
+}
+
+@media screen and (max-width:600px) {
+    .success-text_thank h2 {
+        font-size: 24px;
+    }
+}
+
 .field .icon-valid {
     display: none;
 }
 
-/* если поле валидно */
 .field input.valid~.icon-valid,
 .field textarea.valid~.icon-valid {
     display: block;
@@ -272,7 +295,6 @@ form {
     display: none;
 }
 
-/* если ошибка */
 .field input.invalid,
 .field textarea.invalid {
     border-color: #ff6b6b;
@@ -283,88 +305,81 @@ form {
     width: 100%;
     max-width: 643px;
     width: calc(100% - clamp(70px, 10vw, 100px));
-    margin: 0 auto 0;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .field input,
 .field textarea {
-    position: relative;
-    z-index: 2;
     resize: none;
     height: 60px;
     width: 100%;
-    padding: 0;
+    padding: 25px 14px 10px 0;
     font-size: 16px;
     font-weight: 600;
     outline: none;
     border-top: none;
     border-left: none;
     border-right: none;
-    border-bottom: 1px solid rgba(98, 94, 94, 0.1);
-    background: rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(98, 94, 94, .1);
+    background: #ffffff0d;
     color: var(--text-black);
+}
 
-    // тень которая перекрывает цвет браузера при заполнении формы
-    &:-webkit-autofill,
-    &:-webkit-autofill:hover,
-    &:-webkit-autofill:focus,
-    &:-webkit-autofill:active {
-        -webkit-box-shadow: 0 0 0 1000px #FFFFFF inset !important;
-        -webkit-text-fill-color: var(--text-black) !important;
+.field input:-webkit-autofill,
+.field input:-webkit-autofill:hover,
+.field input:-webkit-autofill:focus,
+.field input:-webkit-autofill:active,
+.field textarea:-webkit-autofill,
+.field textarea:-webkit-autofill:hover,
+.field textarea:-webkit-autofill:focus,
+.field textarea:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 1000px #FFFFFF inset !important;
+    -webkit-text-fill-color: var(--text-black) !important;
+    border-bottom-color: #625e5e1a;
+    transition: background-color 5000s ease-in-out 0s;
+}
 
-        // чтобы цвет нижней границы не слетал
-        border-bottom-color: rgba(98, 94, 94, 0.1);
-        transition: background-color 5000s ease-in-out 0s;
-    }
+@media screen and (max-width:600px) {
 
-    @media screen and (max-width: 600px) {
+    .field input,
+    .field textarea {
         height: 42px;
     }
 }
 
 .field textarea {
     min-height: 60px;
-    margin-top: 20px;
-}
-
-// Постоянный заголовок над полем
-.field__label {
-    display: block;
-    font-size: 20px;
-    font-weight: 500;
-    color: var(--text-black);
-    margin-bottom: 5px; // Отступ до линии инпута
-    opacity: 0.8;
-
-    @media screen and (max-width: 600px) {
-        font-size: 12px;
-        margin-bottom: 6px;
-    }
+    margin-top: 32px;
+    padding: 10px;
 }
 
 .field label {
     position: absolute;
     left: 0;
-    top: 28px;
-    height: 60px;
-
-    display: flex;
-    align-items: center;
-
-    font-size: 16px;
-    font-weight: 400;
-    color: var(--text-black);
-    opacity: 0.4;
-
+    top: 14px;
+    font-size: 20px;
+    opacity: .7;
     pointer-events: none;
-    transition: opacity .25s;
+    transition: .2s;
+    font-weight: 600;
+}
 
-    z-index: 3;
+// высота для инпута КОММЕНТАРИИ
+.field textarea[name="message"] {
+    height: 42px;
+    min-height: 42px;
+}
 
-    @media (max-width: 600px) {
-        top: 24px;
-        height: 42px;
-        font-size: 14px;
+@media screen and (max-width:600px) {
+    .field label {
+        font-size: 16px;
+        font-weight: 400;
+    }
+
+    .field textarea[name="message"] {
+        height: 35px;
+        min-height: 35px;
     }
 }
 
@@ -372,7 +387,10 @@ form {
 .field input:not(:placeholder-shown)~label,
 .field textarea:focus~label,
 .field textarea:not(:placeholder-shown)~label {
-    opacity: 0;
+    top: 2px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-black);
 }
 
 .invalid {
@@ -380,7 +398,6 @@ form {
 }
 
 .error {
-
     min-height: 10px;
     font-size: 12px;
     color: #ff6b6b;
@@ -394,14 +411,22 @@ form {
     flex-direction: column;
     margin: clamp(5px, 1vh, 90px) 85px 15px 0;
     align-self: flex-end;
+}
 
-    @media (max-height: 901px) {
+@media(max-height:901px) {
+    .checkbox-field {
         margin: clamp(5px, 1vh, 110px) 85px 15px 0;
     }
+}
 
-    @media screen and (max-width: 600px) {
-        margin: 10px 70px 15px;
+@media screen and (max-width:600px) {
+    .checkbox-field {
+        margin: 30px auto 15px;
         align-self: center;
+    }
+
+    .checkbox-field .error {
+        margin-left: 36px;
     }
 }
 
@@ -409,7 +434,7 @@ form {
     display: flex;
     gap: 10px;
     align-items: flex-start;
-    // margin-left: 32px;
+    margin-left: 0;
 }
 
 .checkbox input {
@@ -418,15 +443,21 @@ form {
     margin-top: -2px;
     cursor: pointer;
     accent-color: var(--brand-teal);
+}
 
-    @media screen and (max-width: 600px) {
+@media screen and (max-width:600px) {
+    .checkbox {
+        margin-right: 35px;
+        margin-left: 35px;
+    }
+
+    .checkbox input {
         width: 16px;
         height: 16px;
-        margin-top: 0px;
+        margin-top: 0;
     }
 }
 
-/* кнопка */
 .btn-form {
     position: relative;
     margin: 0 65px 40px 0;
@@ -440,14 +471,16 @@ form {
     background-color: var(--text-black);
     text-align: right;
     font-family: var(--font-heading);
-    letter-spacing: 0.06em;
+    letter-spacing: .06em;
     text-transform: uppercase;
     color: #fff;
     font-weight: 600;
     cursor: pointer;
     font-size: 20px;
+}
 
-    @media screen and (max-width: 600px) {
+@media screen and (max-width:600px) {
+    .btn-form {
         width: calc(100% - 65px);
         margin: auto 0;
         padding: 0;
@@ -472,14 +505,9 @@ form {
 }
 
 .btn-form.loading .btn-text {
-    opacity: 0.6;
+    opacity: .6;
 }
 
-.btn-form.loading .btn-text {
-    opacity: 0.6;
-}
-
-/* ссылка на конфиденциальность */
 .policy-text {
     font-size: 14px;
 }
@@ -489,14 +517,13 @@ form {
     font-size: 14px;
     text-decoration: none;
     border-bottom: 1px solid transparent;
-    transition: 0.2s;
+    transition: .2s;
 }
 
 .policy-link:hover {
     border-bottom: 1px solid var(--brand-teal);
 }
 
-// Крестик
 .btn-close {
     position: absolute;
     top: 13vh;
@@ -511,8 +538,10 @@ form {
     font-size: 30px;
     cursor: pointer;
     color: #000;
+}
 
-    @media screen and (max-width: 600px) {
+@media screen and (max-width:600px) {
+    .btn-close {
         top: 60px;
         right: 36px;
         width: 24px;
@@ -520,38 +549,44 @@ form {
         font-size: 24px;
         font-weight: 400;
     }
+}
 
-    @media screen and (max-width: 350px) {
+@media screen and (max-width:350px) {
+    .btn-close {
         top: 30px;
         right: 30px;
     }
 }
 
-.btn-close::before,
-.btn-close::after {
-    content: '';
+.btn-close:before,
+.btn-close:after {
+    content: "";
     position: absolute;
     top: 50%;
     left: 50%;
     width: 4vh;
     height: 2px;
     background-color: #000;
+}
 
-    @media screen and (max-width: 600px) {
+@media screen and (max-width:600px) {
+
+    .btn-close:before,
+    .btn-close:after {
         width: 3.2vh;
         height: 2px;
     }
 }
 
-.btn-close::before {
+.btn-close:before {
     transform: translate(-50%, -50%) rotate(45deg);
 }
 
-.btn-close::after {
+.btn-close:after {
     transform: translate(-50%, -50%) rotate(-45deg);
 }
 
-.btn-close:hover::before,
-.btn-close:hover::after {
+.btn-close:hover:before,
+.btn-close:hover:after {
     background-color: #666;
 }
