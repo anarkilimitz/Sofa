@@ -403,8 +403,10 @@ form {
 .checkbox-field {
     display: flex;
     flex-direction: column;
-    margin: clamp(5px, 1vh, 90px) 85px 15px 0;
-    align-self: flex-end;
+    margin: 
+    // calc(100% - clamp(70px, 10vw, 100px));
+    clamp(5px, 1vh, 90px) 85px 15px 0;
+    align-self: flex-start;
 }
 
 @media(max-height:901px) {

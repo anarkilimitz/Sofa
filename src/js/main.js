@@ -11,6 +11,7 @@ import { initCarousel } from './animations/carousel';
 import { initCardTextAnimation } from './animations/cardText';
 import { initHeroScale } from './animations/heroScale';
 import { initTabs } from './animations/tabs';
+import { initConditionsSlider } from './animations/conditionsSlider.js';
 import { initFooterNavigation } from './animations/footerNavigation.js';
 
 // Каталог диванов
@@ -58,11 +59,12 @@ document.addEventListener('DOMContentLoaded', async () => {
 	initCarousel();
 	initCardTextAnimation(lenis);
 
-	// 4. Табы и каталог c loader - контроль первого рендера
+	// 4. Табы, слайдер и каталог c loader - контроль первого рендера
 	let isFirstRender = true;
 	await render(products, { withLoader: true });
 	isFirstRender = false;
 	initTabs(render, products);
+	initConditionsSlider();
 
 	// 5. Плавный скролл для футеров и в ссылке hero
 	initFooterNavigation(lenis);

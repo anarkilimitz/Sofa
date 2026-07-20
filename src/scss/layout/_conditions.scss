@@ -1,6 +1,10 @@
 @use "../utils/variables" as *;
 @use "../utils/mixins" as *;
 
+.container-conditions {
+    padding: 5vh clamp(5vw, -188.13px + 13.41vw, 150px) 15.5vh;
+}
+
 .conditions {
     &__content {
         margin: 220px 70px 0 40px;
@@ -14,16 +18,32 @@
         &-text {
             font-size: 18px;
             font-weight: 400;
-            color: #0F0F10;
+            color: $text-black;
             margin-bottom: 60px;
         }
     }
 
+    /* ====== Слайдер ====== */
+    &__slider {
+        position: relative;
+    }
+
     &__wrapper {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 40px;
+        overflow: hidden;
+    }
+
+    &__track {
+        display: flex;
+        gap: 20px;
         align-items: stretch;
+        will-change: transform;
+        cursor: grab;
+
+        &.dragging {
+            cursor: grabbing;
+            user-select: none;
+            -webkit-user-select: none;
+        }
     }
 
     &__column {
@@ -31,18 +51,17 @@
         flex-direction: column;
 
         &-title {
-            font-size: 22px;
+            font-size: 20px;
             font-weight: 600;
-            margin-bottom: 30px;
+            margin-bottom: 42px;
             position: relative;
 
-            // Линия
             &::after {
                 content: '';
                 display: block;
                 width: 100%;
                 height: 1px;
-                background: #eee;
+                background: $line-conditions;
                 margin-top: 15px;
             }
         }
@@ -50,15 +69,17 @@
 
     &__text {
         font-size: 18px;
+        font-weight: 400;
         line-height: 1.5;
-        color: #0F0F10;
+        color: $text-black;
         margin-bottom: 20px;
     }
 
     &__img {
-        margin-top: 85px;
+        margin-top: 45px;
         width: 100%;
-        height: 100%;
+        flex: 1;
+        min-height: 200px;
         overflow: hidden;
         border-radius: 24px;
 
@@ -68,8 +89,49 @@
             object-fit: cover;
         }
     }
+
+    /* ====== Стрелки ====== */
+    &__arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        border: none;
+        background: $brand-teal;
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #0F0F10;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        z-index: 10;
+        box-shadow: 0 2px 16px rgba(0, 0, 0, 0.08);
+
+        &--prev {
+            left: 12px;
+        }
+
+        &--next {
+            right: 12px;
+        }
+
+        &.disabled {
+            opacity: 0 !important;
+            pointer-events: none;
+        }
+    }
+
+    &__slider:hover &__arrow:not(.disabled) {
+        opacity: 1;
+    }
 }
 
+/*  обычная колонка  */
 @media (max-width: 1200px) {
     .conditions {
         &__content {
@@ -84,13 +146,33 @@
             }
         }
 
+        &__slider {
+            position: static;
+        }
+
         &__wrapper {
-            grid-template-columns: 1fr;
+            overflow: visible;
+        }
+
+        &__track {
+            flex-direction: column;
             gap: 60px;
+            cursor: default;
+            will-change: auto;
+        }
+
+        &__column {
+            width: 100% !important;
+            min-width: 100% !important;
+        }
+
+        &__arrow {
+            display: none;
         }
 
         &__img {
             margin-top: 40px;
+            flex: none;
             height: auto;
             aspect-ratio: 10 / 3;
         }
