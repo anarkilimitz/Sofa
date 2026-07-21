@@ -12,18 +12,25 @@ export function initConditionsSlider() {
 
 	if (!slides.length) return;
 
-	const GAP = 20;
-	const VISIBLE = 3.7;
+	// Динамический GAP под разные экраны
+	function getGap() {
+		return window.innerWidth > 1000 ? 20 : 10;
+	}
+
+	function getVisibleCount() {
+		return window.innerWidth > 1000 ? 3.7 : 1.3;
+	}
+
+	let GAP = getGap();
+	let VISIBLE = getVisibleCount();
 
 	let containerW, slideW, maxOffset, currentPos;
 	let isDragging = false;
 	let startX, startPos;
 
-	function isDesktop() {
-		return window.innerWidth > 1200;
-	}
-
 	function calc() {
+		GAP = getGap();
+		VISIBLE = getVisibleCount();
 		containerW = wrapper.offsetWidth;
 		slideW = (containerW - GAP * (VISIBLE - 1)) / VISIBLE;
 		maxOffset = slides.length * slideW + (slides.length - 1) * GAP - containerW;
@@ -63,11 +70,76 @@ export function initConditionsSlider() {
 		}
 	}
 
-	/* --- Стрелки --- */
-	if (prevBtn)
-		prevBtn.addEventListener('click', () => moveTo(currentPos + slideW + GAP));
-	if (nextBtn)
-		nextBtn.addEventListener('click', () => moveTo(currentPos - slideW - GAP));
+	// СКЕЛЕТОН
+	function initSkeletons() {
+		slides.forEach((slide) => {
+			const imgWrap = slide.querySelector('.conditions__img');
+			if (!imgWrap) return;
+
+			const img = imgWrap.querySelector('img');
+			if (!img) return;
+
+			const showSkeleton = () => {
+				img.style.display = 'none';
+				imgWrap.classList.add('is-loading');
+
+				if (imgWrap.querySelector('.skeleton')) return;
+
+				const skeletonEl = document.createElement('div');
+				skeletonEl.className = 'skeleton';
+				skeletonEl.innerHTML = `
+                    <div class="skeleton__header">
+                        <div class="skeleton__circle"></div>
+                        <div class="skeleton__mini">Временно битая ссылка</div>
+                    </div>
+                    <div class="skeleton__block">ТУТ БУДЕТ КРАСИВЫЙ СКЕЛЕТОН</div>
+                    <div class="skeleton__block"></div>
+                    <div class="skeleton__block"></div>
+                `;
+				imgWrap.appendChild(skeletonEl);
+			};
+
+			if (img.complete) {
+				if (img.naturalWidth === 0 || img.naturalHeight === 0) {
+					showSkeleton();
+				}
+			} else {
+				img.onerror = showSkeleton;
+			}
+		});
+	}
+
+	/* --- Стрелки (циклический скролл) --- */
+	function getStep() {
+		return slideW + GAP;
+	}
+
+	function snapToNearest(pos) {
+		const step = getStep();
+		return Math.round(pos / step) * step;
+	}
+
+	if (prevBtn) {
+		prevBtn.addEventListener('click', () => {
+			const step = getStep();
+			let newPos = currentPos + step;
+			// if (newPos > 0) {
+			// 	newPos = -maxOffset;
+			// }
+			moveTo(newPos);
+		});
+	}
+
+	if (nextBtn) {
+		nextBtn.addEventListener('click', () => {
+			const step = getStep();
+			let newPos = currentPos - step;
+			// if (Math.abs(newPos) > maxOffset + 2) {
+			// 	newPos = 0;
+			// }
+			moveTo(newPos);
+		});
+	}
 
 	/* --- Drag (мышь + тач) --- */
 	function getX(e) {
@@ -75,7 +147,6 @@ export function initConditionsSlider() {
 	}
 
 	function onDown(e) {
-		if (!isDesktop()) return;
 		isDragging = true;
 		startX = getX(e);
 		startPos = currentPos;
@@ -95,9 +166,7 @@ export function initConditionsSlider() {
 		isDragging = false;
 		track.classList.remove('dragging');
 
-		// Snap к ближайшему слайду
-		const step = slideW + GAP;
-		const nearest = Math.round(currentPos / step) * step;
+		const nearest = snapToNearest(currentPos);
 		moveTo(nearest);
 	}
 
@@ -114,7 +183,6 @@ export function initConditionsSlider() {
 	window.addEventListener('resize', () => {
 		clearTimeout(resizeTimer);
 		resizeTimer = setTimeout(() => {
-			if (!isDesktop()) return;
 			calc();
 			applySizes();
 			moveTo(currentPos, false);
@@ -122,11 +190,10 @@ export function initConditionsSlider() {
 	});
 
 	/* --- Инициализация --- */
-	if (isDesktop()) {
-		calc();
-		applySizes();
-		currentPos = 0;
-		gsap.set(track, { x: 0 });
-		updateArrows();
-	}
+	calc();
+	applySizes();
+	currentPos = 0;
+	gsap.set(track, { x: 0 });
+	updateArrows();
+	initSkeletons();
 }

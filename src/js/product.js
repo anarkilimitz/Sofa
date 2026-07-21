@@ -137,9 +137,9 @@ function renderProductData(product) {
 				skeletonEl.innerHTML = `
                     <div class="skeleton__header">
                         <div class="skeleton__circle"></div>
-                        <div class="skeleton__mini"></div>
+                        <div class="skeleton__mini">Временно битая ссылка</div>
                     </div>
-                    <div class="skeleton__block"></div>
+                    <div class="skeleton__block">ТУТ БУДЕТ КРАСИВЫЙ СКЕЛЕТОН</div>
                     <div class="skeleton__block"></div>
                     <div class="skeleton__block"></div>
                 `;
