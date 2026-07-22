@@ -97,9 +97,10 @@
     <section class="conditions container-conditions">
         <div class="conditions__content">
             <h1 class="conditions__title">Условия</h1>
-            <h4 class="conditions__title-text">Мы действительно подошли к выбору невероятно мягчайших тканей, отобранных по
+            <h4 class="conditions__title-text">Мы действительно подошли к выбору невероятно мягчайших тканей, отобранных
+                по
                 всему миру.</h4>
-    
+
             <div class="conditions__slider">
                 <div class="conditions__wrapper">
                     <div class="conditions__track">
@@ -169,7 +170,7 @@
                         </div>
                     </div>
                 </div>
-    
+
                 <button class="conditions__arrow conditions__arrow--prev" aria-label="Назад">
                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
                         <path d="M12 4L6 10L12 16" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -185,6 +186,21 @@
             </div>
         </div>
     </section>
+
+    <!-- Попап conditions -->
+    <div class="conditions-popup__overlay" id="conditionsPopupOverlay"></div>
+    <div class="conditions-popup" id="conditionsPopup">
+        <button class="conditions-popup__close" id="conditionsPopupClose" aria-label="Закрыть"></button>
+        <div class="conditions-popup__inner">
+            <div class="conditions-popup__image-wrap">
+                <img class="conditions-popup__image" id="conditionsPopupImg" src="" alt="">
+            </div>
+            <div class="conditions-popup__content">
+                <h3 class="conditions-popup__title" id="conditionsPopupTitle"></h3>
+                <p class="conditions-popup__text" id="conditionsPopupText"></p>
+            </div>
+        </div>
+    </div>
 
 </body>
 
