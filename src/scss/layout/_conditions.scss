@@ -94,10 +94,10 @@
         }
 
         &.is-loading {
-            background: #f0f0f0; // ← фон под скелетон
+            background: #f0f0f0;
 
             img {
-                display: none; // ← скрываем битую картинку
+                display: none;
             }
         }
     }
@@ -143,7 +143,6 @@
     }
 }
 
-// ==========================================
 // СКЕЛЕТОН (ГЕОМЕТРИЯ + ПУЛЬСАЦИЯ)
 .skeleton {
     position: absolute;
@@ -217,7 +216,7 @@
         }
 
         &__title {
-            margin-left: 22px;
+            margin-left: 20px;
             font-size: 24px;
         }
 
@@ -226,26 +225,36 @@
         }
 
         &__title-text {
-            margin-left: 22px;
+            margin-left: 20px;
             margin-bottom: 26px;
             font-size: 20px;
         }
 
         &__title,
         &__title-text {
-            margin-right: 22px;
+            margin-right: 20px;
         }
 
         &__slider {
             position: relative;
-            overflow: visible;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        &__wrapper {
+            width: 100%;
+            overflow: hidden;
+            padding: 0; // Чистая область без padding (отступы задаются JS-ом в треке)
+            touch-action: pan-y;
         }
 
         &__track {
             display: flex;
             flex-direction: row;
-            gap: 10px; // Синхронизировано с getGap() в JS
+            gap: 10px;
             cursor: grab;
+            touch-action: pan-y;
+            box-sizing: border-box;
 
             &.dragging {
                 cursor: grabbing;
@@ -254,15 +263,13 @@
         }
 
         &__column {
-            width: auto;
-            min-width: auto;
+            box-sizing: border-box;
         }
 
         &__column-title {
             margin-bottom: 16px;
         }
 
-        // Делаем стрелки видимыми на мобилках без :hover
         &__arrow {
             opacity: 1;
             width: 40px;

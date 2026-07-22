@@ -12,37 +12,67 @@ export function initConditionsSlider() {
 
 	if (!slides.length) return;
 
-	// Динамический GAP под разные экраны
 	function getGap() {
 		return window.innerWidth > 1000 ? 20 : 10;
 	}
 
 	function getVisibleCount() {
-		return window.innerWidth > 1000 ? 3.7 : 1.3;
+		return window.innerWidth > 1000 ? 3.7 : 1.25;
+	}
+
+	function getSidePadding() {
+		if (window.innerWidth > 1000) {
+			return { left: 0, right: 120 }; // 120px справа на десктопе
+		} else {
+			return { left: 0, right: 20 }; // на мобиле
+		}
 	}
 
 	let GAP = getGap();
 	let VISIBLE = getVisibleCount();
+	let PADDING = getSidePadding();
 
-	let containerW, slideW, maxOffset, currentPos;
+	let containerW,
+		slideW,
+		maxOffset,
+		currentPos = 0;
 	let isDragging = false;
-	let startX, startPos;
+	let isScrollingY = false;
+	let startX = 0;
+	let startY = 0;
+	let startPos = 0;
 
 	function calc() {
 		GAP = getGap();
 		VISIBLE = getVisibleCount();
-		containerW = wrapper.offsetWidth;
-		slideW = (containerW - GAP * (VISIBLE - 1)) / VISIBLE;
-		maxOffset = slides.length * slideW + (slides.length - 1) * GAP - containerW;
-		if (maxOffset < 0) maxOffset = 0;
+
+		const PADDING = getSidePadding();
+
+		containerW = wrapper.clientWidth;
+
+		const availableW = containerW - PADDING.left;
+		slideW = (availableW - GAP * (VISIBLE - 1)) / VISIBLE;
+
+		const totalTrackWidth =
+			slides.length * slideW +
+			(slides.length - 1) * GAP +
+			PADDING.left +
+			PADDING.right;
+
+		maxOffset = Math.max(0, totalTrackWidth - containerW);
 	}
 
 	function applySizes() {
+		const PADDING = getSidePadding();
+
 		slides.forEach((s) => {
-			s.style.width = slideW + 'px';
-			s.style.minWidth = slideW + 'px';
+			s.style.width = `${slideW}px`;
+			s.style.minWidth = `${slideW}px`;
 			s.style.flexShrink = '0';
 		});
+
+		track.style.paddingLeft = `${PADDING.left}px`;
+		track.style.paddingRight = `${PADDING.right}px`;
 	}
 
 	function moveTo(pos, animate = true) {
@@ -50,7 +80,7 @@ export function initConditionsSlider() {
 		currentPos = pos;
 
 		if (animate) {
-			gsap.to(track, { x: pos, duration: 0.6, ease: 'power2.out' });
+			gsap.to(track, { x: pos, duration: 0.5, ease: 'power2.out' });
 		} else {
 			gsap.set(track, { x: pos });
 		}
@@ -99,66 +129,57 @@ export function initConditionsSlider() {
 				imgWrap.appendChild(skeletonEl);
 			};
 
+			// Вешаем onerror сразу
+			img.addEventListener('error', showSkeleton);
+
 			if (img.complete) {
 				if (img.naturalWidth === 0 || img.naturalHeight === 0) {
 					showSkeleton();
 				}
-			} else {
-				img.onerror = showSkeleton;
 			}
 		});
 	}
 
-	/* --- Стрелки (циклический скролл) --- */
-	function getStep() {
-		return slideW + GAP;
-	}
-
-	function snapToNearest(pos) {
-		const step = getStep();
-		return Math.round(pos / step) * step;
-	}
-
-	if (prevBtn) {
-		prevBtn.addEventListener('click', () => {
-			const step = getStep();
-			let newPos = currentPos + step;
-			// if (newPos > 0) {
-			// 	newPos = -maxOffset;
-			// }
-			moveTo(newPos);
-		});
-	}
-
-	if (nextBtn) {
-		nextBtn.addEventListener('click', () => {
-			const step = getStep();
-			let newPos = currentPos - step;
-			// if (Math.abs(newPos) > maxOffset + 2) {
-			// 	newPos = 0;
-			// }
-			moveTo(newPos);
-		});
-	}
-
-	/* --- Drag (мышь + тач) --- */
-	function getX(e) {
-		return e.type.includes('touch') ? e.touches[0].clientX : e.clientX;
+	// ТАЧ И МЫШЬ
+	function getCoords(e) {
+		const touch = e.touches ? e.touches[0] : e;
+		return { x: touch.clientX, y: touch.clientY };
 	}
 
 	function onDown(e) {
 		isDragging = true;
-		startX = getX(e);
+		isScrollingY = false;
+		const coords = getCoords(e);
+		startX = coords.x;
+		startY = coords.y;
 		startPos = currentPos;
+
 		gsap.killTweensOf(track);
 		track.classList.add('dragging');
 	}
 
 	function onMove(e) {
 		if (!isDragging) return;
-		e.preventDefault();
-		const diff = getX(e) - startX;
-		moveTo(startPos + diff, false);
+
+		const coords = getCoords(e);
+		const diffX = coords.x - startX;
+		const diffY = coords.y - startY;
+
+		if (
+			!isScrollingY &&
+			Math.abs(diffY) > Math.abs(diffX) &&
+			Math.abs(diffY) > 5
+		) {
+			isScrollingY = true;
+			isDragging = false;
+			track.classList.remove('dragging');
+			return;
+		}
+
+		if (isScrollingY) return;
+
+		if (e.cancelable) e.preventDefault();
+		moveTo(startPos + diffX, false);
 	}
 
 	function onUp() {
@@ -166,30 +187,51 @@ export function initConditionsSlider() {
 		isDragging = false;
 		track.classList.remove('dragging');
 
-		const nearest = snapToNearest(currentPos);
+		const step = slideW + GAP;
+		const nearest = Math.round(currentPos / step) * step;
 		moveTo(nearest);
 	}
 
+	/* Слушатели */
 	track.addEventListener('mousedown', onDown);
 	track.addEventListener('touchstart', onDown, { passive: true });
+
 	window.addEventListener('mousemove', onMove);
 	window.addEventListener('touchmove', onMove, { passive: false });
+
 	window.addEventListener('mouseup', onUp);
 	window.addEventListener('touchend', onUp);
+
+	// Фикс подвисаний драга
+	window.addEventListener('touchcancel', onUp);
+	document.addEventListener('mouseleave', onUp);
+
 	track.addEventListener('dragstart', (e) => e.preventDefault());
 
-	/* --- Resize --- */
+	/* Стрелки */
+	if (prevBtn) {
+		prevBtn.addEventListener('click', () =>
+			moveTo(currentPos + (slideW + GAP))
+		);
+	}
+	if (nextBtn) {
+		nextBtn.addEventListener('click', () =>
+			moveTo(currentPos - (slideW + GAP))
+		);
+	}
+
+	/* Resize с безопасной перепривязкой позиции */
 	let resizeTimer;
 	window.addEventListener('resize', () => {
 		clearTimeout(resizeTimer);
 		resizeTimer = setTimeout(() => {
 			calc();
 			applySizes();
-			moveTo(currentPos, false);
-		}, 150);
+			moveTo(currentPos, false); // Позиция плавно корректируется с учетом maxOffset
+		}, 100);
 	});
 
-	/* --- Инициализация --- */
+	/* Инициализация */
 	calc();
 	applySizes();
 	currentPos = 0;
