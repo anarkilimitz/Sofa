@@ -101,7 +101,7 @@
 
     &__text {
         font-size: 15px;
-        line-height: 1;
+        line-height: 1.6;
         color: $text-black;
     }
 
@@ -122,6 +122,38 @@
             visibility: visible;
             pointer-events: auto;
             opacity: 1;
+        }
+    }
+}
+
+@media (max-width: 992px) {
+    .conditions-popup {
+        &__content {
+            padding: 50px 80px 0 80px;
+        }
+
+        &__title {
+            font-size: 36px;
+        }
+
+        &__text {
+            font-size: 14.5px;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .conditions-popup {
+        &__content {
+            padding: 40px 60px 0 60px;
+        }
+
+        &__title {
+            font-size: 28px;
+        }
+
+        &__text {
+            font-size: 14px;
         }
     }
 }
@@ -161,14 +193,50 @@
         }
 
         &__title {
-            font-size: 16px;
+            font-size: 5.8vw;
             letter-spacing: 0;
             margin-bottom: 5vw;
         }
 
         &__text {
-            font-size: 12px;
+            font-size: 3.8vw;
             line-height: 1.5;
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .conditions-popup {
+        &__title {
+            font-size: 6.2vw;
+        }
+
+        &__text {
+            font-size: 4vw;
+        }
+    }
+}
+
+@media (max-width: 360px) {
+    .conditions-popup {
+        &__title {
+            font-size: 6.5vw;
+        }
+
+        &__text {
+            font-size: 4.1vw;
+        }
+    }
+}
+
+@media (max-width: 320px) {
+    .conditions-popup {
+        &__title {
+            font-size: 7vw;
+        }
+
+        &__text {
+            font-size: 4.3vw;
         }
     }
 }
