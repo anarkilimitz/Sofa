@@ -10,6 +10,8 @@ export function initConditionsSlider() {
 	const prevBtn = slider.querySelector('.conditions__arrow--prev');
 	const nextBtn = slider.querySelector('.conditions__arrow--next');
 
+	
+
 	if (!slides.length) return;
 
 	function getGap() {
