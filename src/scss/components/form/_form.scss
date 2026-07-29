@@ -403,22 +403,23 @@ form {
 .checkbox-field {
     display: flex;
     flex-direction: column;
-    margin: 
-    // calc(100% - clamp(70px, 10vw, 100px));
-    clamp(5px, 1vh, 90px) 85px 15px 0;
-    align-self: flex-start;
+    max-width: 643px;
+    width: calc(100% - clamp(70px, 10vw, 100px));
+    margin: 30px auto 15px;
+    align-self: center;
 }
 
-@media(max-height:901px) {
-    .checkbox-field {
-        margin: clamp(5px, 1vh, 110px) 85px 15px 0;
-    }
-}
+// @media(max-height:901px) {
+//     .checkbox-field {
+//         margin: clamp(5px, 1vh, 110px) 85px 15px 0;
+//     }
+// }
 
 @media screen and (max-width:600px) {
     .checkbox-field {
-        margin: 30px auto 15px;
-        align-self: center;
+        // margin: 30px auto 15px;
+        // align-self: center;
+        // width: calc(100% - clamp(70px, 10vw, 100px));
     }
 
     .checkbox-field .error {
@@ -431,26 +432,64 @@ form {
     gap: 10px;
     align-items: flex-start;
     margin-left: 0;
+
+    input[type="checkbox"] {
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+
+        width: 20px;
+        height: 20px;
+        border: 1px solid var(--text-black, #000);
+        border-radius: 50%;
+        outline: none;
+        cursor: pointer;
+        background-color: transparent;
+        display: grid;
+        place-content: center;
+        transition: 0.2s ease;
+
+        // клик / выбор
+        &:checked {
+            background-color: var(--brand-teal);
+            border-color: var(--brand-teal);
+        }
+
+        // Внутренняя галочка
+        // &::before {
+        //     content: "";
+        //     width: 8px;
+        //     height: 8px;
+        //     border-radius: 50%;
+        //     background-color: #fff;
+        //     transform: scale(0);
+        //     transition: 0.2s ease;
+        // }
+
+        // &:checked::before {
+        //     transform: scale(1);
+        // }
+    }
 }
 
 .checkbox input {
     width: 20px;
     height: 20px;
-    margin-top: -2px;
+    margin-top: -4px;
     cursor: pointer;
     accent-color: var(--brand-teal);
 }
 
 @media screen and (max-width:600px) {
     .checkbox {
-        margin-right: 35px;
-        margin-left: 35px;
-    }
+        margin-right: 0;
+        margin-left: 0;
 
-    .checkbox input {
-        width: 16px;
-        height: 16px;
-        margin-top: 0;
+        input[type="checkbox"] {
+            width: 14px;
+            height: 14px;
+            margin-top: 0;
+        }
     }
 }
 
@@ -505,12 +544,12 @@ form {
 }
 
 .policy-text {
-    font-size: 14px;
+    font-size: 12px;
 }
 
 .policy-link {
     color: var(--brand-teal);
-    font-size: 14px;
+    font-size: 12px;
     text-decoration: none;
     border-bottom: 1px solid transparent;
     transition: .2s;
