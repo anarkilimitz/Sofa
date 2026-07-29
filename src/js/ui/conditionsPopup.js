@@ -162,7 +162,7 @@ export function initConditionsPopup(lenis) {
 	}
 
 	function onWheel(e) {
-		if (!isOpen) return;
+		if (!isOpen || window.innerWidth <= 600) return;
 		e.preventDefault();
 
 		if (popup.contains(e.target) || e.target === popup) {
@@ -179,25 +179,25 @@ export function initConditionsPopup(lenis) {
 	}
 
 	function onTouchStart(e) {
-		if (!isOpen) return;
+		if (!isOpen || window.innerWidth <= 600) return;
 		startTouchY = e.touches[0].clientY;
 	}
 
 	function onTouchMove(e) {
-		 if (!isOpen) return;
+		if (!isOpen || window.innerWidth <= 600) return;
 
-			const delta = e.touches[0].clientY - startTouchY;
-			startTouchY = e.touches[0].clientY;
+		const delta = e.touches[0].clientY - startTouchY;
+		startTouchY = e.touches[0].clientY;
 
-			// пока попап еще двигается
-			if (currentY > clampY(-99999)) {
-				e.preventDefault();
+		// пока попап еще двигается
+		if (currentY > clampY(-99999)) {
+			e.preventDefault();
 
-				currentY = clampY(currentY + delta);
-				gsap.set(popup, { y: currentY });
+			currentY = clampY(currentY + delta);
+			gsap.set(popup, { y: currentY });
 
-				return;
-			}
+			return;
+		}
 
 		if (popup.contains(e.target) || e.target === popup) {
 			const delta = e.touches[0].clientY - startTouchY;
@@ -233,22 +233,53 @@ export function initConditionsPopup(lenis) {
 			if (tl) tl.kill();
 
 			requestAnimationFrame(() => {
-				startY = Math.max(0, popup.offsetHeight - window.innerHeight * 0.7);
+				if (window.innerWidth <= 600 && inner) {
+					inner.scrollTop = 0;
+				}
+
+				startY = Math.max(0, popup.offsetHeight - window.innerHeight * 0.85);
 				currentY = startY;
 
+				const initialY = window.innerWidth <= 600 ? '100%' : popup.offsetHeight;
+				//1. Сбрасываем позиции попапа и текстовых элементов (заголовок и текст)
 				gsap.set(popup, {
-					y: popup.offsetHeight,
+					y: initialY,
+					opacity: 0,
+				});
+
+				// Находим элементы внутри для анимации
+				const popupTitle = popup.querySelector('.conditions-popup__title');
+				const popupText = popup.querySelector('.conditions-popup__text');
+
+				gsap.set([popupTitle, popupText], {
+					y: 30,
 					opacity: 0,
 				});
 
 				popup.style.pointerEvents = 'auto';
 
-				tl = gsap.to(popup, {
-					y: startY,
+				// 2. Создаем мастер-таймлайн для красивого появления
+				tl = gsap.timeline({
+					defaults: { ease: 'power3.out' },
+				});
+
+				// Сначала выезжает сам попап
+				tl.to(popup, {
+					y: window.innerWidth <= 600 ? '0%' : startY,
 					opacity: 1,
 					duration: 0.45,
-					ease: 'power3.out',
-				});
+				})
+					// Сразу после (или с небольшим нахлестом) плавно выплывают заголовок и текст каскадом
+					.to(
+						[popupTitle, popupText],
+						{
+							y: 0,
+							opacity: 1,
+							duration: 0.5,
+							stagger: 0.2, // Задержка между появлением заголовка и текста
+						},
+						'-=0.25'
+					); // чуть раньше окончания анимации попапа
 			});
 		}
 
@@ -304,8 +335,10 @@ export function initConditionsPopup(lenis) {
 		isOpen = false;
 		popup.style.pointerEvents = 'none';
 
+		const exitY = window.innerWidth <= 600 ? '100%' : popup.offsetHeight;
+
 		tl = gsap.to(popup, {
-			y: popup.offsetHeight,
+			y: exitY,
 			opacity: 0,
 			duration: 0.35,
 			ease: 'power2.in',
