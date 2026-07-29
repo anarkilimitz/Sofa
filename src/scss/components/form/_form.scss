@@ -475,7 +475,7 @@ form {
 .checkbox input {
     width: 20px;
     height: 20px;
-    margin-top: -4px;
+    margin-top: -2px;
     cursor: pointer;
     accent-color: var(--brand-teal);
 }
@@ -544,12 +544,12 @@ form {
 }
 
 .policy-text {
-    font-size: 12px;
+    font-size: 14px;
 }
 
 .policy-link {
     color: var(--brand-teal);
-    font-size: 12px;
+    font-size: 14px;
     text-decoration: none;
     border-bottom: 1px solid transparent;
     transition: .2s;
@@ -649,5 +649,13 @@ form {
 
     .field textarea {
         padding-bottom: 15px;
+    }
+
+    .policy-text {
+        font-size: 12px;
+    }
+
+    .policy-link {
+        font-size: 12px;
     }
 }
