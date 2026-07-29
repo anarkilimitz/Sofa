@@ -15,15 +15,15 @@ export function initConditionsSlider() {
 	if (!slides.length) return;
 
 	function getGap() {
-		return window.innerWidth > 1000 ? 20 : 10;
+		return window.innerWidth > 768 ? 20 : 10;
 	}
 
 	function getVisibleCount() {
-		return window.innerWidth > 1000 ? 3.7 : 1.25;
+		return window.innerWidth > 768 ? 3.7 : 1.25;
 	}
 
 	function getSidePadding() {
-		if (window.innerWidth > 1000) {
+		if (window.innerWidth > 768) {
 			return { left: 0, right: 120 }; // 120px справа на десктопе
 		} else {
 			return { left: 0, right: 20 }; // на мобиле
