@@ -11,7 +11,7 @@
 
     &__content {
         display: block;
-        margin: 220px 70px 0 40px;
+        margin: 195px 70px 0 40px;
         z-index: 2;
     }
 
@@ -33,9 +33,11 @@
     // Обертки
     &__wrapper {
         margin-top: 75px;
-        display: flex;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
         justify-content: space-between;
         align-items: stretch;
+        gap: 40px;
 
         &-left {
             flex: 0 0 465px;
@@ -69,6 +71,7 @@
         }
 
         &-right {
+            max-height: 517px;
             margin-left: auto;
             padding-left: 139px;
             display: grid;
@@ -196,12 +199,79 @@
             border: none;
         }
     }
+
+    .accordion--contacts {
+        max-width: 397px;
+
+        .accordion__item {
+            padding: 15px 0;
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            font-family: var(--font-primary);
+            position: relative;
+            text-transform: uppercase;
+
+            &:hover .contacts__copy {
+                opacity: 1;
+                visibility: visible;
+            }
+
+            // Активное состояние (открыто)
+            &.accordion__item-active {
+                .accordion__content {
+                    display: block;
+                }
+
+                .accordion__header::after {
+                    transform: translateY(-50%) rotate(-45deg);
+                }
+            }
+        }
+
+        .accordion__header {
+            border-bottom: 1px solid #e0e0e0;
+            color: #0F0F10;
+            font-weight: 600;
+            font-size: 20px;
+            padding: 10px 0;
+            width: 100%;
+            text-align: left;
+            background: none;
+            border-top: none;
+            cursor: pointer;
+            position: relative;
+
+            &::after {
+                content: "";
+                position: absolute;
+                right: 0;
+                top: 50%;
+                width: 8px;
+                height: 8px;
+                border-top: 2px solid #0F0F10;
+                border-right: 2px solid #0F0F10;
+                transform: translateY(-50%) rotate(135deg);
+                transition: transform 0.3s ease-in-out;
+            }
+
+            &-tel {
+                border-bottom: 1px solid #e0e0e0;
+            }
+        }
+
+        .accordion__content {
+            display: none; // Скрыто по умолчанию
+            color: #0F0F10;
+            padding-bottom: 10px;
+        }
+    }
 }
 
 /* кнопка */
 .btn-contacts-form {
     position: relative;
-    margin: 45px 0 0 0;
+    margin: 56px 0 0 0;
     padding: 0 0 0 32px;
     align-self: center;
     width: 100%;
@@ -291,26 +361,11 @@
     }
 }
 
-// на десктопе адрес/телефон/email всегда открыты, на мобиле свернуты!!!
-@media (min-width: 481px) {
-    .accordion--contacts {
-
-        .accordion__item--desktop-open {
-            .accordion__content {
-                display: block;
-            }
-
-            .accordion__header::after {
-                transform: translateY(-50%) rotate(-45deg);
-            }
-        }
-    }
-}
-
 @media (max-width: 480px) {
     .contacts {
 
         &__wrapper {
+            display: flex;
             flex-direction: column;
             gap: 20px;
             margin-top: 40px;
@@ -318,7 +373,9 @@
             &-left {
                 order: 1;
                 width: 100%;
+                display: contents; // чтобы кнопку разместить в самом низу
                 flex: 0 0 400px;
+                flex-direction: column;
             }
 
             &-right {
@@ -365,7 +422,7 @@
     }
 
     .btn-contacts-form {
+        order: 99;
         width: calc(100% + 8vw);
-        margin-left: -4vw;
     }
 }

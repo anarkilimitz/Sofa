@@ -24,7 +24,7 @@ export const initProduct = () => {
 		return;
 	}
 
-	// Товар найден — рендерим нормально
+	// Товар найден — рендерим нормально 
 	renderProductData(product);
 
 	// --- ИНТЕРАКТИВ ---
