@@ -1,39 +1,43 @@
 export function handleMobileLayout() {
 	const isMobile = window.innerWidth <= 600;
 
-	const galleryItems = document.querySelectorAll('.gallery-grid__item');
-	const accordionItems = document.querySelectorAll('.accordion__item');
 	const galleryGrid = document.querySelector('.gallery-grid');
+	const accordionItems = document.querySelectorAll('.accordion__item');
 
-	if (!galleryItems.length || !accordionItems.length || !galleryGrid) return;
+	if (!galleryGrid || !accordionItems.length) return;
 
-	if (isMobile) {
-		// ДЛЯ МОБИЛЬНОЙ ВЕРСИИ
+	// =====================================================
+	// ВСЕГДА сначала возвращаем картинки обратно в галерею
+	// =====================================================
 
-		// 1. Перемещаем первые 3 картинки после "Описания" (индекс 0)
-		// Важно: вставляем в обратном порядке (3, 2, 1), чтобы в итоге получить 1, 2, 3
-		// так как after вставляет элемент сразу после цели
-		const descBlock = accordionItems[0]; // Описание
-		if (descBlock) {
-			if (galleryItems[2]) descBlock.after(galleryItems[2]);
-			if (galleryItems[1]) descBlock.after(galleryItems[1]);
-			if (galleryItems[0]) descBlock.after(galleryItems[0]);
-		}
+	const movedItems = document.querySelectorAll('.gallery-grid__item');
 
-		// 2. Перемещаем остальные картинки (с 4-й и далее) после "Параметров" (индекс 3)
-		const paramsBlock = accordionItems[3]; // Параметры
-		if (paramsBlock) {
-			// Проходим по оставшимся картинкам с конца, чтобы сохранить порядок
-			for (let i = galleryItems.length - 1; i >= 3; i--) {
-				paramsBlock.after(galleryItems[i]);
-			}
-		}
-	} else {
-		// --- ВОЗВРАТ НА ДЕСКТОП ---
+	movedItems.forEach((item) => {
+		galleryGrid.appendChild(item);
+	});
 
-		// Если экран стал большим, возвращаем все картинки обратно в контейнер галереи
-		galleryItems.forEach((item) => {
-			galleryGrid.appendChild(item);
-		});
+	// Если десктоп — на этом всё
+	if (!isMobile) return;
+
+	// Получаем уже "чистый" список после возврата
+	const galleryItems = [...galleryGrid.children];
+
+	const descBlock = accordionItems[0];
+	const paramsBlock = accordionItems[3];
+
+	// Первые три
+	if (descBlock) {
+		galleryItems
+			.slice(0, 3)
+			.reverse()
+			.forEach((item) => descBlock.after(item));
+	}
+
+	// Остальные
+	if (paramsBlock) {
+		galleryItems
+			.slice(3)
+			.reverse()
+			.forEach((item) => paramsBlock.after(item));
 	}
 }

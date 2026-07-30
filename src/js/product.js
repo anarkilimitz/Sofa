@@ -24,42 +24,13 @@ export const initProduct = () => {
 		return;
 	}
 
-	// Товар найден — рендерим нормально 
-	renderProductData(product);
+	// Товар найден — рендерим нормально
+	renderProductInfo(product);
+	renderColorOptions(product);
 
-	// --- ИНТЕРАКТИВ ---
+	setSelectedVariant(product, product.variants[0]);
 
-	// 2. Логика выбора цвета
-	const colorPicker = document.getElementById('colorPicker');
-	if (colorPicker) {
-		const selectedArea = colorPicker.querySelector('.color-select__selected');
-		const dropdown = colorPicker.querySelector('.color-select__dropdown');
-		const options = colorPicker.querySelectorAll('.color-select__option');
-
-		selectedArea.addEventListener('click', (e) => {
-			e.stopPropagation();
-			dropdown.classList.toggle('color-select__dropdown-open');
-			selectedArea.classList.toggle('color-select__selected-open');
-		});
-
-		options.forEach((option) => {
-			option.addEventListener('click', () => {
-				const nameEl = selectedArea.querySelector('.color-select__name');
-				const newName = option.dataset.name;
-				const newIcon = option.dataset.icon;
-
-				nameEl.style.opacity = '0';
-				setTimeout(() => {
-					nameEl.textContent = newName;
-					nameEl.style.opacity = '1';
-				}, 150);
-
-				selectedArea.style.setProperty('--selected-texture', `url(${newIcon})`);
-				dropdown.classList.remove('color-select__dropdown-open');
-				selectedArea.classList.remove('color-select__selected-open');
-			});
-		});
-	}
+	initColorPicker(product);
 };
 
 // ====================== Аккордеон ======================
@@ -78,7 +49,7 @@ function toggleAccordionItem() {
 	accordionItem.classList.toggle('accordion__item-active');
 }
 
-function renderProductData(product) {
+function renderProductInfo(product) {
 	console.log('Рендерим товар:', product.title);
 	// 1. Название
 	const titleLink = document.getElementById('prod-title');
@@ -107,13 +78,15 @@ function renderProductData(product) {
 			)
 			.join('');
 	}
+}
 
-	// 4. Галерея и Бейдж
+function renderGallery(product, variant) {
 	const gallery = document.getElementById('prod-gallery');
-	if (gallery && product.gallery) {
+	if (gallery && variant.gallery) {
 		gallery.innerHTML = ''; // Очищаем контейнер
+		console.log('До рендера:', gallery.children.length);
 
-		product.gallery.forEach((imgData, index) => {
+		variant.gallery.forEach((imgData, index) => {
 			const item = document.createElement('div');
 			let className = 'gallery-grid__item';
 			if (imgData.isWide) className += ' gallery-grid__item-wide';
@@ -160,7 +133,7 @@ function renderProductData(product) {
 
 					const badgeImg = badge.querySelector('.badge-img');
 					if (badgeImg) {
-						badgeImg.src = product.image;
+						badgeImg.src = variant.catalogImage;
 						badgeImg.alt = product.title;
 					}
 
@@ -174,11 +147,100 @@ function renderProductData(product) {
 			}
 
 			gallery.appendChild(item);
+			console.log('После рендера:', gallery.children.length);
 		});
 	}
-	if (typeof handleMobileLayout === 'function') {
-		handleMobileLayout();
+}
+
+function renderColorOptions(product) {
+	const dropdown = document.querySelector('.color-select__dropdown');
+
+	if (!dropdown) return;
+
+	dropdown.innerHTML = '';
+
+	const title = document.createElement('h3');
+	title.className = 'product__title-color';
+	title.textContent = 'Ткани и цвета';
+
+	dropdown.appendChild(title);
+
+	product.variants.forEach((variant) => {
+		const option = document.createElement('div');
+
+		option.className = 'color-select__option';
+
+		option.dataset.variant = variant.id;
+
+		option.innerHTML = `
+            <span>${variant.name}</span>
+
+            <div
+                class="color-select__swatch"
+                style="background-image:url('${variant.texture}')">
+            </div>
+        `;
+
+		dropdown.appendChild(option);
+	});
+}
+// --- ИНТЕРАКТИВ ---
+
+function initColorPicker(product) {
+	// 2. Логика выбора цвета
+	const colorPicker = document.getElementById('colorPicker');
+	if (colorPicker) {
+		const selectedArea = colorPicker.querySelector('.color-select__selected');
+		const dropdown = colorPicker.querySelector('.color-select__dropdown');
+		const options = colorPicker.querySelectorAll('.color-select__option');
+
+		selectedArea.addEventListener('click', (e) => {
+			e.stopPropagation();
+			dropdown.classList.toggle('color-select__dropdown-open');
+			selectedArea.classList.toggle('color-select__selected-open');
+		});
+
+		options.forEach((option) => {
+			option.addEventListener('click', () => {
+				const variantId = option.dataset.variant;
+
+				const selectedVariant = product.variants.find(
+					(variant) => variant.id === variantId
+				);
+
+				if (selectedVariant) {
+					setSelectedVariant(product, selectedVariant);
+				}
+				dropdown.classList.remove('color-select__dropdown-open');
+				selectedArea.classList.remove('color-select__selected-open');
+			});
+		});
 	}
+}
+
+// функция выбора варианта
+function setSelectedVariant(product, variant) {
+	const selectedArea = document.querySelector('.color-select__selected');
+	if (!selectedArea) return;
+
+	const nameEl = selectedArea.querySelector('.color-select__name');
+
+	nameEl.textContent = variant.name;
+
+	selectedArea.style.setProperty(
+		'--selected-texture',
+		`url(${variant.texture})`
+	);
+
+	renderGallery(product, variant);
+
+	requestAnimationFrame(() => {
+		console.log(
+			'gallery items:',
+			document.querySelectorAll('.gallery-grid__item').length
+		);
+		handleMobileLayout();
+	});
 }
 
 // страница 404

@@ -85,9 +85,6 @@ document.addEventListener('DOMContentLoaded', async () => {
 	initPhoneMask();
 });
 
-// Запускаем при загрузке страницы
-handleMobileLayout();
-
 // Запускаем при изменении размера окна (с небольшой задержкой для производительности)
 let resizeTimer;
 window.addEventListener('resize', () => {

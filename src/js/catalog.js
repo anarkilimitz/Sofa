@@ -35,13 +35,15 @@ export async function render(productsList, { withLoader = false } = {}) {
 		const desc = node.querySelector('.catalog__desc');
 		const price = node.querySelector('.catalog__price');
 
+		const variant = product.variants[0];
+
 		if (product.isWide) {
 			card.classList.add('catalog__card-wide');
 		}
 
 		card.href = `/product.html?slug=${product.slug}`;
 
-		img.src = product.image;
+		img.src = variant.catalogImage;
 		img.alt = product.title;
 
 		title.textContent = product.title;
