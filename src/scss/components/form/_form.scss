@@ -409,15 +409,13 @@ form {
     align-self: center;
 }
 
-// @media(max-height:901px) {
-//     .checkbox-field {
-//         margin: clamp(5px, 1vh, 110px) 85px 15px 0;
-//     }
-// }
+.checkbox-field .error {
+    margin-left: 30px;
+}
 
 @media screen and (max-width:600px) {
     .checkbox-field .error {
-        margin-left: 36px;
+        margin-left: 22px;
     }
 }
 
