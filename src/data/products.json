@@ -24,7 +24,7 @@
         "catalogImage": "/img/product/productView1.jpg",
         "gallery": [
           {"src": "/img/product/productMain.jpg", "isWide": true},
-          {"src": "/img/product/roductView1.jpg", "isWide": false},
+          {"src": "/img/product/productView1.jpg", "isWide": false},
           {"src": "/img/product/productView2.jpg", "isWide": false},
           {"src": "/img/product/mechanism.jpg", "isWide": true},
           {"src": "/img/product/productDrawing.jpg", "isWide": true},
@@ -43,7 +43,12 @@
           {"src": "/img/example/sofa2.jpg", "isWide": true},
           {"src": "/img/example/sofa3.jpg", "isWide": false},
           {"src": "/img/example/sofa7.webp", "isWide": false},
-          {"src": "/img/example/sofa8.webp", "isWide": true}
+          {"src": "/img/example/sofa8.webp", "isWide": true},
+          {"src": "/img/product/productDrawing.jpg", "isWide": true},
+          {"src": "/img/product/360view.jpg", "isWide": true},
+          {"src": "/img/product/productFront.jpg", "isWide": false},
+          {"src": "/img/product/productBack.jpg", "isWide": false},
+          {"src": "/img/product/productAngle.jpg", "isWide": true}
         ]
       },
       {
@@ -55,151 +60,114 @@
           {"src": "/img/example/sofa6.webp", "isWide": true},
           {"src": "/img/example/sofa5.webp", "isWide": false},
           {"src": "/img/example/sofa7.webp", "isWide": false},
-          {"src": "/img/example/sofa8.webp", "isWide": true}
+          {"src": "/img/example/sofa8.webp", "isWide": true},
+          {"src": "/img/product/productDrawing.jpg", "isWide": true},
+          {"src": "/img/product/360view.jpg", "isWide": true},
+          {"src": "/img/product/productFront.jpg", "isWide": false},
+          {"src": "/img/product/productBack.jpg", "isWide": false},
+          {"src": "/img/product/productAngle.jpg", "isWide": true}
+        ]
+      },
+      {
+        "id": "blue6",
+        "name": "Голубой6",
+        "texture": "/icons/product/textile/textile-blue.jpg",
+        "catalogImage": "/img/example/sofa1.jpg",
+        "gallery": [
+          {"src": "/img/example/sofa2.jpg", "isWide": true},
+          {"src": "/img/example/sofa3.jpg", "isWide": false},
+          {"src": "/img/example/sofa7.webp", "isWide": false},
+          {"src": "/img/example/sofa8.webp", "isWide": true},
+          {"src": "/img/product/productDrawing.jpg", "isWide": true},
+          {"src": "/img/product/360view.jpg", "isWide": true},
+          {"src": "/img/product/productFront.jpg", "isWide": false},
+          {"src": "/img/product/productBack.jpg", "isWide": false},
+          {"src": "/img/product/productAngle.jpg", "isWide": true}
         ]
       }
     ]
   },
   {
     "id": 2,
-    "slug": "stronghold-corner",
-    "title": "СТРОНГХОЛД",
-    "description": "Угловой диван",
-    "category": "corner",
-    "price": 125900,
-    "isWide": false,
-    "image": "/img/catalog/blacksofa.jpg",
-    "fullDescription": "Классический угловой диван повышенной комфортности для уютной гостиной.",
-    "materials": "Массив сосны, износостойкая рогожка.",
+    "slug": "maylo-transformer2",
+    "title": "МАЙЛО2",
+    "description": "Диван-трансформер",
+    "category": "transformer",
+    "price": 249900,
+    "isWide": true,
+    "fullDescription": "Интересное решение диван-трансформер для маленьких пространств, способный уместить на себе до 6 человек днем и до 4 ночью.",
+    "materials": "Высококачественный пенополиуретан, усиленный алюминиевый каркас.",
     "params": [
-      {"name": "Высота", "value": "0.95 м"},
-      {"name": "Длина", "value": "2.80 м"},
-      {"name": "Ширина", "value": "1.60 м"},
-      {"name": "Вместимость", "value": "4 человек"},
+      {"name": "Высота", "value": "1.20 м"},
+      {"name": "Длина", "value": "2.14 м"},
+      {"name": "Ширина", "value": "0.84 м"},
+      {"name": "Вместимость", "value": "6 человек"},
       {"name": "Спальных мест", "value": "2 места"}
     ],
-    "gallery": [
-      {"src": "/img/example/sofa1.jpg", "isWide": true},
-      {"src": "/img/example/sofa2.jpg", "isWide": false},
-      {"src": "/img/example/sofa3.jpg", "isWide": false}
+    "variants": [
+      {
+        "id": "white2",
+        "name": "Снежный2",
+        "texture": "/icons/product/textile/textile-softgrey.jpg",
+        "catalogImage": "/img/product/productView2.jpg",
+        "gallery": [
+          {"src": "/img/product/productMain.jpg", "isWide": true},
+          {"src": "/img/product/productView1.jpg", "isWide": false},
+          {"src": "/img/product/productView2.jpg", "isWide": false},
+          {"src": "/img/product/mechanism.jpg", "isWide": true},
+          {"src": "/img/product/productDrawing.jpg", "isWide": true},
+          {"src": "/img/product/360view.jpg", "isWide": true},
+          {"src": "/img/product/productFront.jpg", "isWide": false},
+          {"src": "/img/product/productBack.jpg", "isWide": false},
+          {"src": "/img/product/productAngle.jpg", "isWide": true}
+        ]
+      },
+      {
+        "id": "blue2",
+        "name": "Голубой2",
+        "texture": "/icons/product/textile/textile-blue.jpg",
+        "catalogImage": "/img/example/sofa1.jpg",
+        "gallery": [
+          {"src": "/img/example/sofa2.jpg", "isWide": true},
+          {"src": "/img/example/sofa3.jpg", "isWide": false},
+          {"src": "/img/example/sofa7.webp", "isWide": false},
+          {"src": "/img/example/sofa8.webp", "isWide": true}
+        ]
+      },
+      {
+        "id": "grey2",
+        "name": "Серый2",
+        "texture": "/icons/product/textile/textile-grey.jpg",
+        "catalogImage": "/img/example/sofa4.webp",
+        "gallery": [
+          {"src": "/img/example/sofa6.webp", "isWide": true},
+          {"src": "/img/example/sofa5.webp", "isWide": false},
+          {"src": "/img/example/sofa7.webp", "isWide": false},
+          {"src": "/img/example/sofa8.webp", "isWide": true}
+        ]
+      },
+      {
+        "id": "blue2",
+        "name": "Голубой2",
+        "texture": "/icons/product/textile/textile-blue.jpg",
+        "catalogImage": "/img/example/sofa1.jpg",
+        "gallery": [
+          {"src": "/img/example/sofa2.jpg", "isWide": true},
+          {"src": "/img/example/sofa3.jpg", "isWide": false},
+          {"src": "/img/example/sofa7.webp", "isWide": false},
+          {"src": "/img/example/sofa8.webp", "isWide": true}
+        ]
+      }
     ]
   },
   {
     "id": 3,
-    "slug": "grey-sofa",
-    "title": "GREY SOFA",
-    "description": "Угловой диван",
+    "slug": "maylo-transformer3",
+    "title": "МАЙЛО3",
+    "description": "Диван-трансформер",
     "category": "corner",
-    "price": 139900,
-    "isWide": false,
-    "image": "/img/catalog/greysofa.jpg",
-    "fullDescription": "Лаконичный дизайн, который впишется в любой современный интерьер.",
-    "materials": "Велюр премиум класса, березовая фанера.",
-    "params": [
-      {"name": "Высота", "value": "0.90 м"},
-      {"name": "Длина", "value": "2.50 м"},
-      {"name": "Ширина", "value": "1.50 м"}
-    ],
-    "gallery": [
-      {"src": "/img/product/productMain.jpg", "isWide": true},
-      {"src": "/img/product/productView1.jpg", "isWide": false}
-    ]
-  },
-  {
-    "id": 4,
-    "slug": "grey-sofa-ii",
-    "title": "GREY SOFA",
-    "description": "Угловой диван",
-    "category": "corner",
-    "price": 139900,
-    "isWide": false,
-    "image": "/img/catalog/greysofa.jpg",
-    "fullDescription": "Обновленная версия популярной модели с улучшенным наполнителем.",
-    "materials": "Велюр, независимый пружинный блок.",
-    "params": [
-      {"name": "Высота", "value": "0.90 м"},
-      {"name": "Длина", "value": "2.50 м"},
-      {"name": "Ширина", "value": "1.50 м"}
-    ],
-    "gallery": [
-      {"src": "/img/product/productMain.jpg", "isWide": true},
-      {"src": "/img/product/productView1.jpg", "isWide": false}
-    ]
-  },
-  {
-    "id": 5,
-    "slug": "ginger-sofa",
-    "title": "GINGER SOFA",
-    "description": "Диван-трансформер",
-    "category": "transformer",
-    "price": 139900,
-    "isWide": true,
-    "image": "/img/catalog/gingersofa.jpg",
-    "fullDescription": "Яркий акцент в интерьере и максимальное удобство при трансформации.",
-    "materials": "Ткань букле, металлическое основание.",
-    "params": [
-      {"name": "Высота", "value": "0.85 м"},
-      {"name": "Длина", "value": "2.20 м"},
-      {"name": "Ширина", "value": "1.00 м"}
-    ],
-    "gallery": [
-      {"src": "/img/product/productMain.jpg", "isWide": true},
-      {"src": "/img/product/productView1.jpg", "isWide": false},
-      {"src": "/img/product/productView2.jpg", "isWide": false}
-    ]
-  },
-  {
-    "id": 6,
-    "slug": "stronghold-corner-ii",
-    "title": "СТРОНГХОЛД-II",
-    "description": "Угловой диван",
-    "category": "corner",
-    "price": 125900,
-    "isWide": false,
-    "image": "/img/catalog/whitesofa.jpg",
-    "fullDescription": "Улучшенная эргономика для тех, кто ценит комфорт превыше всего.",
-    "materials": "Эко-кожа, усиленный каркас.",
-    "params": [
-      {"name": "Высота", "value": "0.95 м"},
-      {"name": "Длина", "value": "2.85 м"},
-      {"name": "Ширина", "value": "1.60 м"}
-    ],
-    "gallery": [
-      {"src": "/img/product/productMain.jpg", "isWide": true},
-      {"src": "/img/product/productView1.jpg", "isWide": false}
-    ]
-  },
-  {
-    "id": 7,
-    "slug": "maylo-transformer-ii",
-    "title": "МАЙЛО-II",
-    "description": "Диван-трансформер",
-    "category": "transformer",
     "price": 249900,
     "isWide": true,
-    "image": "/img/catalog/blacksofa.jpg",
-    "fullDescription": "Премиальная версия классической модели с эксклюзивной обивкой.",
-    "materials": "Бархат, алюминиевый каркас.",
-    "params": [
-      {"name": "Высота", "value": "1.20 м"},
-      {"name": "Длина", "value": "2.14 м"},
-      {"name": "Ширина", "value": "0.84 м"}
-    ],
-    "gallery": [
-      {"src": "/img/product/productMain.jpg", "isWide": true},
-      {"src": "/img/product/productView1.jpg", "isWide": false},
-      {"src": "/img/product/productView2.jpg", "isWide": false}
-    ]
-  },
-  {
-    "id": 8,
-    "slug": "maylo-iii",
-    "title": "МАЙЛО",
-    "description": "Диван-трансформер",
-    "category": "transformer",
-    "price": 249900,
-    "isWide": false,
-    "image": "/img/catalog/blacksofa.jpg",
     "fullDescription": "Интересное решение диван-трансформер для маленьких пространств, способный уместить на себе до 6 человек днем и до 4 ночью.",
     "materials": "Высококачественный пенополиуретан, усиленный алюминиевый каркас.",
     "params": [
@@ -209,186 +177,48 @@
       {"name": "Вместимость", "value": "6 человек"},
       {"name": "Спальных мест", "value": "2 места"}
     ],
-    "gallery": [
-      {"src": "/img/product/360view.jpg", "isWide": true},
-      {"src": "/img/product/productBack.jpg", "isWide": false},
-      {"src": "/img/product/productFront.jpg", "isWide": false},
-      {"src": "/img/product/productMain.jpg", "isWide": true}
-    ]
-  },
-  {
-    "id": 9,
-    "slug": "maylo-iv",
-    "title": "МАЙЛО",
-    "description": "Диван-трансформер",
-    "category": "transformer",
-    "price": 249900,
-    "isWide": true,
-    "image": "/img/catalog/blacksofa.jpg",
-    "fullDescription": "Интересное решение диван-трансформер для маленьких пространств, способный уместить на себе до 6 человек днем и до 4 ночью.",
-    "materials": "Высококачественный пенополиуретан, усиленный алюминиевый каркас.",
-    "params": [
-      {"name": "Высота", "value": "1.20 м"},
-      {"name": "Длина", "value": "2.14 м"},
-      {"name": "Ширина", "value": "0.84 м"},
-      {"name": "Вместимость", "value": "6 человек"},
-      {"name": "Спальных мест", "value": "2 места"}
-    ],
-    "gallery": [
-      {"src": "/img/product/productAngle.jpg", "isWide": true},
-      {"src": "/img/product/productView2.jpg", "isWide": false},
-      {"src": "/img/product/mechanism.jpg", "isWide": true},
-      {"src": "/img/product/productDrawing.jpg", "isWide": true}
-    ]
-  },
-  {
-    "id": 10,
-    "slug": "maylo-v",
-    "title": "МАЙЛО",
-    "description": "Диван-трансформер",
-    "category": "transformer",
-    "price": 249900,
-    "isWide": false,
-    "image": "/img/catalog/blacksofa.jpg",
-    "fullDescription": "Интересное решение диван-трансформер для маленьких пространств, способный уместить на себе до 6 человек днем и до 4 ночью.",
-    "materials": "Высококачественный пенополиуретан, усиленный алюминиевый каркас.",
-    "params": [
-      {"name": "Высота", "value": "1.20 м"},
-      {"name": "Длина", "value": "2.14 м"},
-      {"name": "Ширина", "value": "0.84 м"},
-      {"name": "Вместимость", "value": "6 человек"},
-      {"name": "Спальных мест", "value": "2 места"}
-    ],
-    "gallery": [
-      {"src": "/img/example/sofa1.jpg", "isWide": true},
-      {"src": "/img/product/productView1.jpg", "isWide": false},
-      {"src": "/img/example/sofa2.jpg", "isWide": false},
-      {"src": "/img/product/productMain.jpg", "isWide": true}
-    ]
-  },
-  {
-    "id": 11,
-    "slug": "maylo-vi",
-    "title": "МАЙЛО",
-    "description": "Диван-трансформер",
-    "category": "transformer",
-    "price": 249900,
-    "isWide": false,
-    "image": "/img/catalog/blacksofa.jpg",
-    "fullDescription": "Интересное решение диван-трансформер для маленьких пространств, способный уместить на себе до 6 человек днем и до 4 ночью.",
-    "materials": "Высококачественный пенополиуретан, усиленный алюминиевый каркас.",
-    "params": [
-      {"name": "Высота", "value": "1.20 м"},
-      {"name": "Длина", "value": "2.14 м"},
-      {"name": "Ширина", "value": "0.84 м"},
-      {"name": "Вместимость", "value": "6 человек"},
-      {"name": "Спальных мест", "value": "2 места"}
-    ],
-    "gallery": [
-      {"src": "/img/product/productDrawing.jpg", "isWide": true},
-      {"src": "/img/example/sofa3.jpg", "isWide": false},
-      {"src": "/img/product/productBack.jpg", "isWide": false},
-      {"src": "/img/product/360view.jpg", "isWide": true}
-    ]
-  },
-  {
-    "id": 12,
-    "slug": "maylo-vii",
-    "title": "МАЙЛО",
-    "description": "Диван-трансформер",
-    "category": "transformer",
-    "price": 249900,
-    "isWide": false,
-    "image": "/img/catalog/blacksofa.jpg",
-    "fullDescription": "Интересное решение диван-трансформер для маленьких пространств, способный уместить на себе до 6 человек днем и до 4 ночью.",
-    "materials": "Высококачественный пенополиуретан, усиленный алюминиевый каркас.",
-    "params": [
-      {"name": "Высота", "value": "1.20 м"},
-      {"name": "Длина", "value": "2.14 м"},
-      {"name": "Ширина", "value": "0.84 м"},
-      {"name": "Вместимость", "value": "6 человек"},
-      {"name": "Спальных мест", "value": "2 места"}
-    ],
-    "gallery": [
-      {"src": "/img/product/mechanism.jpg", "isWide": true},
-      {"src": "/img/product/productFront.jpg", "isWide": false},
-      {"src": "/img/product/productView2.jpg", "isWide": false},
-      {"src": "/img/product/productAngle.jpg", "isWide": true}
-    ]
-  },
-  {
-    "id": 13,
-    "slug": "maylo-viii",
-    "title": "МАЙЛО",
-    "description": "Диван-трансформер",
-    "category": "transformer",
-    "price": 249900,
-    "isWide": false,
-    "image": "/img/catalog/blacksofa.jpg",
-    "fullDescription": "Интересное решение диван-трансформер для маленьких пространств, способный уместить на себе до 6 человек днем и до 4 ночью.",
-    "materials": "Высококачественный пенополиуретан, усиленный алюминиевый каркас.",
-    "params": [
-      {"name": "Высота", "value": "1.20 м"},
-      {"name": "Длина", "value": "2.14 м"},
-      {"name": "Ширина", "value": "0.84 м"},
-      {"name": "Вместимость", "value": "6 человек"},
-      {"name": "Спальных мест", "value": "2 места"}
-    ],
-    "gallery": [
-      {"src": "/img/example/sofa2.jpg", "isWide": false},
-      {"src": "/img/product/productMain.jpg", "isWide": true},
-      {"src": "/img/example/sofa1.jpg", "isWide": true},
-      {"src": "/img/product/productView1.jpg", "isWide": false}
-    ]
-  },
-  {
-    "id": 14,
-    "slug": "maylo-ix",
-    "title": "МАЙЛО",
-    "description": "Диван-трансформер",
-    "category": "transformer",
-    "price": 249900,
-    "isWide": true,
-    "image": "/img/catalog/blacksofa.jpg",
-    "fullDescription": "Интересное решение диван-трансформер для маленьких пространств, способный уместить на себе до 6 человек днем и до 4 ночью.",
-    "materials": "Высококачественный пенополиуретан, усиленный алюминиевый каркас.",
-    "params": [
-      {"name": "Высота", "value": "1.20 м"},
-      {"name": "Длина", "value": "2.14 м"},
-      {"name": "Ширина", "value": "0.84 м"},
-      {"name": "Вместимость", "value": "6 человек"},
-      {"name": "Спальных мест", "value": "2 места"}
-    ],
-    "gallery": [
-      {"src": "/img/product/productBack.jpg", "isWide": false},
-      {"src": "/img/product/360view.jpg", "isWide": true},
-      {"src": "/img/example/sofa3.jpg", "isWide": false},
-      {"src": "/img/product/mechanism.jpg", "isWide": true}
-    ]
-  },
-  {
-    "id": 15,
-    "slug": "maylo-x",
-    "title": "МАЙЛО",
-    "description": "Диван-трансформер",
-    "category": "transformer",
-    "price": 249900,
-    "isWide": false,
-    "image": "/img/catalog/blacksofa.jpg",
-    "fullDescription": "Интересное решение диван-трансформер для маленьких пространств, способный уместить на себе до 6 человек днем и до 4 ночью.",
-    "materials": "Высококачественный пенополиуретан, усиленный алюминиевый каркас.",
-    "params": [
-      {"name": "Высота", "value": "1.20 м"},
-      {"name": "Длина", "value": "2.14 м"},
-      {"name": "Ширина", "value": "0.84 м"},
-      {"name": "Вместимость", "value": "6 человек"},
-      {"name": "Спальных мест", "value": "2 места"}
-    ],
-    "gallery": [
-      {"src": "/img/product/productAngle.jpg", "isWide": true},
-      {"src": "/img/example/sofa1.jpg", "isWide": true},
-      {"src": "/img/product/productFront.jpg", "isWide": false},
-      {"src": "/img/product/productDrawing.jpg", "isWide": true}
+    "variants": [
+      {
+        "id": "white3",
+        "name": "Снежный3",
+        "texture": "/icons/product/textile/textile-softgrey.jpg",
+        "catalogImage": "/img/product/productView2.jpg",
+        "gallery": [
+          {"src": "/img/product/productMain.jpg", "isWide": true},
+          {"src": "/img/product/productView1.jpg", "isWide": false},
+          {"src": "/img/product/productView2.jpg", "isWide": false},
+          {"src": "/img/product/mechanism.jpg", "isWide": true},
+          {"src": "/img/product/productDrawing.jpg", "isWide": true},
+          {"src": "/img/product/360view.jpg", "isWide": true},
+          {"src": "/img/product/productFront.jpg", "isWide": false},
+          {"src": "/img/product/productBack.jpg", "isWide": false},
+          {"src": "/img/product/productAngle.jpg", "isWide": true}
+        ]
+      },
+      {
+        "id": "blue3",
+        "name": "Голубой3",
+        "texture": "/icons/product/textile/textile-blue.jpg",
+        "catalogImage": "/img/example/sofa1.jpg",
+        "gallery": [
+          {"src": "/img/example/sofa2.jpg", "isWide": true},
+          {"src": "/img/example/sofa3.jpg", "isWide": false},
+          {"src": "/img/example/sofa7.webp", "isWide": false},
+          {"src": "/img/example/sofa8.webp", "isWide": true}
+        ]
+      },
+      {
+        "id": "grey3",
+        "name": "Серый3",
+        "texture": "/icons/product/textile/textile-grey.jpg",
+        "catalogImage": "/img/example/sofa4.webp",
+        "gallery": [
+          {"src": "/img/example/sofa6.webp", "isWide": true},
+          {"src": "/img/example/sofa5.webp", "isWide": false},
+          {"src": "/img/example/sofa7.webp", "isWide": false},
+          {"src": "/img/example/sofa8.webp", "isWide": true}
+        ]
+      }
     ]
   }
 ]

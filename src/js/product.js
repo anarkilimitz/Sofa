@@ -83,8 +83,13 @@ function renderProductInfo(product) {
 function renderGallery(product, variant) {
 	const gallery = document.getElementById('prod-gallery');
 	if (gallery && variant.gallery) {
-		gallery.innerHTML = ''; // Очищаем контейнер
-		console.log('До рендера:', gallery.children.length);
+		// Очищаем и саму галерею, и удаляем из DOM любые старые элементы галереи,
+		// которые могли остаться под аккордеонами с прошлого раза
+		document
+			.querySelectorAll('.gallery-grid__item')
+			.forEach((item) => item.remove());
+
+		gallery.innerHTML = '';
 
 		variant.gallery.forEach((imgData, index) => {
 			const item = document.createElement('div');
@@ -95,14 +100,8 @@ function renderGallery(product, variant) {
 
 			const img = document.createElement('img');
 
-			img.onload = () => {};
-
-			// если картинка ОТСУТСТВУЕТ (ошибка 404)
 			img.onerror = () => {
-				// Прячем стандартную иконку "битой картинки"
 				img.style.display = 'none';
-
-				// Включаем скелетон
 				item.classList.add('is-loading');
 
 				const skeletonEl = document.createElement('div');
@@ -116,8 +115,6 @@ function renderGallery(product, variant) {
                     <div class="skeleton__block"></div>
                     <div class="skeleton__block"></div>
                 `;
-
-				// Вставляем скелетон в карточку
 				item.appendChild(skeletonEl);
 			};
 
@@ -125,30 +122,27 @@ function renderGallery(product, variant) {
 			img.alt = product.title;
 			item.appendChild(img);
 
-			// Если это первая картинка — добавляем бейдж из шаблона
 			if (index === 0) {
 				const template = document.getElementById('order-badge-template');
 				if (template) {
 					const badge = template.content.cloneNode(true);
-
 					const badgeImg = badge.querySelector('.badge-img');
 					if (badgeImg) {
 						badgeImg.src = variant.catalogImage;
 						badgeImg.alt = product.title;
 					}
-
 					const badgeLabel = badge.querySelector('.order-badge__label');
 					if (badgeLabel) {
 						badgeLabel.textContent = product.price.toLocaleString();
 					}
-
 					item.appendChild(badge);
 				}
 			}
 
 			gallery.appendChild(item);
-			console.log('После рендера:', gallery.children.length);
 		});
+
+		handleMobileLayout();
 	}
 }
 
@@ -233,14 +227,6 @@ function setSelectedVariant(product, variant) {
 	);
 
 	renderGallery(product, variant);
-
-	requestAnimationFrame(() => {
-		console.log(
-			'gallery items:',
-			document.querySelectorAll('.gallery-grid__item').length
-		);
-		handleMobileLayout();
-	});
 }
 
 // страница 404
