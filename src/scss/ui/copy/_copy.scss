@@ -1,12 +1,12 @@
 // надпись копировать
 .copy-success {
     position: absolute;
-    bottom: 30%;
-    left: 83%;
+    bottom: 28%;
+    left: 87%;
     transform: translateX(-50%);
     background: #00A18F;
     color: white;
-    font-size: 13px;
+    font-size: 16px;
     padding: 4px 12px;
     border-radius: 20px;
     white-space: nowrap;
@@ -20,5 +20,14 @@
     &.is-visible {
         opacity: 1 !important;
         visibility: visible !important;
+    }
+
+    @media (max-width: 1289px) {
+        left: 85%;
+    }
+
+    @media (max-width: 480px) {
+        bottom: 15%;
+        left: 62px;
     }
 }

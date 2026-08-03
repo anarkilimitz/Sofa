@@ -95,10 +95,23 @@
         position: relative;
         text-transform: uppercase;
 
+        &-email {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+        }
+
         &:hover .contacts__copy {
             opacity: 1;
             visibility: visible;
         }
+    }
+
+    &__email-group {
+        display: flex;
+        align-items: center;
+        gap: 24px;
     }
 
     &__icon {
@@ -420,10 +433,20 @@
             font-size: 24px;
         }
 
+        &__item {
+            &-email {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
+            }
+        }
+
         &__copy {
             opacity: 1;
             visibility: visible;
-            margin-left: auto;
+            margin-left: 0;
+            padding: 0;
+            gap: 24px;
         }
 
         &__icon {
@@ -435,5 +458,6 @@
     .btn-contacts-form {
         order: 99;
         width: calc(100% + 8vw);
+        margin: 0;
     }
 }
