@@ -74,6 +74,7 @@ export const initSearch = (lenis) => {
 			const clone = resultTemplate.content.cloneNode(true);
 
 			const item = clone.querySelector('.search-result-item');
+			const preview = product.variants?.find((v) => v.catalogImage);
 			const img = clone.querySelector('.search-result-item__img');
 			const title = clone.querySelector('.search-result-item__title');
 			const desc = clone.querySelector('.search-result-item__desc');
@@ -83,7 +84,7 @@ export const initSearch = (lenis) => {
 			// Используем глобальный индекс i для правильной каскадной анимации
 			item.style.animationDelay = `${i * 0.05}s`;
 
-			img.src = product.image;
+			img.src = preview ? preview.catalogImage : '';
 			img.alt = product.title;
 
 			title.textContent = product.title;
