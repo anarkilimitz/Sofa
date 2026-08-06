@@ -1,6 +1,10 @@
 @use "../utils/variables" as *;
 @use "../utils/mixins" as *;
 
+.about__section.container {
+    padding-bottom: 2vh;
+}
+
 .about {
     &__wrapper {
         margin-top: 85px;
@@ -62,7 +66,7 @@
 
     &__content {
         display: block;
-        margin: 220px 70px 0 40px;
+        margin: 195px 70px 0 40px;
         z-index: 2;
 
         footer {
@@ -119,6 +123,12 @@
             padding-left: 30px;
         }
     }
+}
+
+@media (max-width: 1059px) {
+    .about__section.container {
+            padding: 5vh clamp(5vw, -188.13px + 13.41vw, 150px) 5vh;
+        }
 }
 
 @media (max-width: 480px) {

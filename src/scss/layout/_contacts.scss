@@ -1,6 +1,10 @@
 @use "../utils/variables" as *;
 @use "../utils/mixins" as *;
 
+.contacts__section.container {
+    padding-bottom: 2vh;
+}
+
 .contacts {
     &__section {
         position: relative;

@@ -553,7 +553,7 @@ form {
 
 .btn-close {
     position: absolute;
-    top: 13vh;
+    top: 9vh;
     right: 95px;
     display: flex;
     justify-content: center;
@@ -569,19 +569,12 @@ form {
 
 @media screen and (max-width:600px) {
     .btn-close {
-        top: 60px;
+        top: 6.5vh;
         right: 36px;
         width: 24px;
         height: 24px;
         font-size: 24px;
         font-weight: 400;
-    }
-}
-
-@media screen and (max-width:350px) {
-    .btn-close {
-        top: 30px;
-        right: 30px;
     }
 }
 
@@ -602,6 +595,13 @@ form {
     .btn-close:after {
         width: 3.2vh;
         height: 2px;
+    }
+}
+
+@media screen and (max-width:350px) {
+    .btn-close {
+        top: 6vh;
+        right: 30px;
     }
 }
 

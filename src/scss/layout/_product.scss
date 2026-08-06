@@ -324,15 +324,15 @@
 
     &__swatch {
         width: clamp(90px, 45vw, 230px);
-            aspect-ratio: 230 / 80;
-        
-            flex-shrink: 0;
-            border-radius: inherit;
-        
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-        }
+        aspect-ratio: 230 / 80;
+
+        flex-shrink: 0;
+        border-radius: inherit;
+
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
 }
 
 // появление текста + в js изменения
@@ -449,7 +449,7 @@
     z-index: 1;
     align-items: stretch;
     align-items: center;
-    border-radius: 29px;
+    border-radius: 28px;
     background: rgba(233, 228, 219, 0.43);
     box-shadow:
         0 16px 32px rgba(0, 0, 0, 0.08),
@@ -541,7 +541,7 @@
         flex-direction: column;
         justify-content: center;
         transform: translateX(12px);
-        border-radius: 0 29px 29px 0;
+        border-radius: 0 24px 24px 0;
 
         h3 {
             display: block;

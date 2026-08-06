@@ -2,12 +2,13 @@
 @use "../utils/mixins" as *;
 
 .container-conditions {
-    padding: 5vh 0 15.5vh clamp(5vw, -188.13px + 13.41vw, 150px);
+    padding: 5vh 0 2vh clamp(5vw, -188.13px + 13.41vw, 150px);
+    min-height: 100vh;
 }
 
 .conditions {
     &__content {
-        margin: 220px 0px 0 40px;
+        margin: 195px 0px 0 40px;
     }
 
     &__title {
@@ -108,12 +109,11 @@
         top: 50%;
         transform: translateY(-50%);
         width: 48px;
-        height: 48px;
-        border-radius: 50%;
+        height: 100%;
         border: none;
-        background: $brand-teal;
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
+        background: #c1c1c14e;
+        backdrop-filter: blur(4px);
+        -webkit-backdrop-filter: blur(4px);
         cursor: pointer;
         display: flex;
         align-items: center;
@@ -122,14 +122,14 @@
         opacity: 0;
         transition: opacity 0.3s ease;
         z-index: 10;
-        box-shadow: 0 2px 16px rgba(0, 0, 0, 0.08);
+        box-shadow: none;
 
         &--prev {
-            left: 12px;
+            left: -70px;
         }
 
         &--next {
-            right: 12px;
+            right: 0px;
         }
 
         &.disabled {
@@ -273,7 +273,10 @@
         &__arrow {
             opacity: 1;
             width: 40px;
-            height: 40px;
+            height: 120px;
+            &--prev {
+                    left: 0px;
+                }
 
             &.disabled {
                 opacity: 0 !important;
