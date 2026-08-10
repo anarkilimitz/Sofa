@@ -116,7 +116,7 @@
                     </p>
 
                     <!-- футер -->
-                    <footer class="footer" data-action="open-form">
+                    <footer class="footer" data-action="open-socials">
                         <div class="scroll-indicator">
                             <span class="scroll-text-footer">
                                 О ДИВАНАХ <br>
@@ -139,105 +139,82 @@
         </div>
     </section>
 
-    <!-- Форма обратной связи -->
+    <!-- Форма с соцсетями связи -->
 
-    <div class="container-form">
-        <!-- первое состояние - основная -->
-        <div class="card-form state-1">
-            <!-- подложка белая прозрачная-->
-            <div class="card-substrate"></div>
+    <div class="form-socials active">
+        <!-- подложка блюр -->
+        <div class="form-socials__overlay" id="socials-overlay"></div>
 
-            <h2 class="text-form">Наши
+        <!-- карточка -->
+        <div class="form-socials__card" id="socials-card">
+            <!-- белая подложка -->
+            <div class="form-socials__substrate"></div>
+
+            <!-- заголовок -->
+            <h2 class="form-socials__title">
+                наши
                 <br>
-                <span class="teal-text">аккаунты</span>
+                <span class="form-socials__teal-text">аккаунты</span>
             </h2>
-            <button type="button" class="close-form btn-close"></button>
-            <form id="contactForm">
-                <div class="field">
-                    <input type="text" name="firstName" placeholder=" " required>
-                    <label>Теле-Граф</label>
-                    <span class="error"></span>
-                </div>
 
-                <div class="field">
-                    <input type="tel" name="phone" placeholder=" " inputmode="tel" required>
-                    <label>Теле-ГОСТ</label>
-                    <span class="error"></span>
-                </div>
+            <!-- кнопка закрытия - КРЕСТИК -->
+            <button type="button" class="form-socials__close btn-close" id="close-socials"
+                aria-label="Закрыть"></button>
 
-                <div class="field">
-                    <input type="email" name="email" placeholder=" " required>
-                    <label>Теле-Мост</label>
-                    <span class="error"></span>
-                </div>
-
-                <div class="field">
-                    <textarea name="message" maxlength="251" placeholder=" " required></textarea>
-                    <label>Теле-Пост</label>
-                    <span class="error"></span>
-                </div>
-
-                <!-- <div class="checkbox-field">
-                    <label class="checkbox">
-                        <input type="checkbox" name="agree">
-                        <span class="policy-text">
-                            Согласен с
-                            <a href="/privacy.html" target="_blank" class="policy-link">
-                                политикой конфиденциальности
-                            </a>
+            <!-- список аккаунтов -->
+            <ul class="form-socials__list">
+                <li class="form-socials__item">
+                    <a href="#" class="form-socials__link" target="_blank" rel="noopener noreferrer">
+                        <span class="form-socials__name">Телe-Граф</span>
+                        <span class="form-socials__arrow">
+                            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                                <path d="M1 13L13 1M13 1H3M13 1V11" stroke="currentColor" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
                         </span>
-                    </label>
-                    <span class="error"></span>
-                </div>
-
-                <button class="btn-form close-form" type="button">
-                    <span class="btn-text">Закрыть крестиком вверху</span>
-                </button> -->
-            </form>
-        </div>
-
-        <!-- состояние 2 - менеджер свяжется -->
-        <div class="card-form state-2">
-            <!-- подложка белая прозрачная -->
-            <div class="card-substrate"></div>
-            <img src="/src/assets/icons/form/Timer-form.svg" class="timer-form" alt="timer">
-            <div class="success-content">
-                <div class="success-text">
-                    <h2>Наш менеджер <br> свяжется с <br> вами в <br> ближайшее
-                        <span class="teal-text">
-                            <br>
-                            10 минут
+                    </a>
+                </li>
+                <li class="form-socials__item">
+                    <a href="#" class="form-socials__link" target="_blank" rel="noopener noreferrer">
+                        <span class="form-socials__name">Телe-ГОСТ</span>
+                        <span class="form-socials__arrow">
+                            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                                <path d="M1 13L13 1M13 1H3M13 1V11" stroke="currentColor" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
                         </span>
-                    </h2>
-                    <p>Мы отправим вам дополнительную информацию когда будет назначен звонок, и вы сможете посмотреть
-                        какие вы в очереди на
-                        звонок. Если вам необходимо набрать в определенное время, выбирите его в нашем календаре.</p>
-                </div>
-            </div>
+                    </a>
+                </li>
+                <li class="form-socials__item">
+                    <a href="#" class="form-socials__link" target="_blank" rel="noopener noreferrer">
+                        <span class="form-socials__name">Телe-Мост</span>
+                        <span class="form-socials__arrow">
+                            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                                <path d="M1 13L13 1M13 1H3M13 1V11" stroke="currentColor" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </span>
+                    </a>
+                </li>
+                <li class="form-socials__item">
+                    <a href="#" class="form-socials__link" target="_blank" rel="noopener noreferrer">
+                        <span class="form-socials__name">Телe-Пост</span>
+                        <span class="form-socials__arrow">
+                            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                                <path d="M1 13L13 1M13 1H3M13 1V11" stroke="currentColor" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </span>
+                    </a>
+                </li>
+                <!-- кнопка закрытия -->
+                <button type="button" class="form-socials__btn-form" aria-label="Закрыть">
+                    <span class="form-socials__btn-text">Закрыть</span>
+                </button>
+            </ul>
+
         </div>
-
-        <!-- состояние 3 - спасибо -->
-        <div class="card-form state-3">
-            <!-- подложка белая прозрачная -->
-            <div class="card-substrate"></div>
-
-            <div class="success-content_thank">
-                <div class="success-image">
-                    <img src="/src/assets/icons/form/Timer-form.svg" class="timer-form" alt="timer">
-                </div>
-                <div class="success-text_thank">
-                    <h2>
-                        <span class="teal-text">СПАСИБО,</span>
-                        ЗА
-                        <br>
-                        ВИЗИТ
-                    </h2>
-                </div>
-            </div>
-        </div>
-
     </div>
-
 
 </body>
 

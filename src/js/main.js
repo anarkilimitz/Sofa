@@ -14,6 +14,7 @@ import { initTabs } from './animations/tabs';
 import { initConditionsSlider } from './animations/conditionsSlider.js';
 import { initFooterNavigation } from './animations/footerNavigation.js';
 import { initConditionsPopup } from './ui/conditionsPopup.js';
+import { initSocialsPopup } from './ui/socialsPopup.js';
 
 // Каталог диванов
 import { render } from './catalog.js';
@@ -60,6 +61,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 	initCarousel();
 	initCardTextAnimation(lenis);
 	initConditionsPopup(lenis);
+	initSocialsPopup(lenis);
 
 	// 4. Табы, слайдер и каталог c loader - контроль первого рендера
 	let isFirstRender = true;

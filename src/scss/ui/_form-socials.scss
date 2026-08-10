@@ -1,0 +1,297 @@
+@use "../utils/variables" as *;
+@use "../utils/mixins" as *;
+
+// ПОПАП СОЦСЕТЕЙ
+
+.form-socials {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1000;
+
+    // возвращаем кликабельность всему контейнеру при открытии
+    &.active {
+        pointer-events: all;
+    }
+
+    &__overlay {
+        position: fixed;
+        inset: 0;
+        background: #b3b3b352;
+        -webkit-backdrop-filter: blur(6px);
+        backdrop-filter: blur(6px);
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity .4s ease, visibility .4s ease;
+        z-index: 1;
+        cursor: pointer;
+    }
+
+    &.active &__overlay {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    // карточка
+    &__card {
+        position: relative;
+        transform: scale(.8);
+        width: min(520px, 100vw - 30px);
+        min-height: 70vh;
+        height: fit-content;
+        overflow-y: auto;
+        background-color: #f2efe9cc;
+        border: 1px solid rgba(0, 0, 0, .08);
+        border-radius: 40px;
+        padding: 15px;
+        box-shadow: 0 10px 25px #00000014, 0 2px 6px #0000000a;
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transition: opacity .4s ease-in-out, visibility .4s ease-in-out, transform .4s ease-in-out;
+        z-index: 10;
+    }
+
+    &.active &__card {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: all;
+        transform: scale(1);
+    }
+
+    @media screen and (max-width: 600px) {
+        .form-socials {
+            &__card {
+                width: min(400px, 100vw - 30px);
+                min-height: unset;
+                height: min(670px, 100vh - 30px);
+            }
+        }
+    }
+
+    // подложка
+    &__substrate {
+        position: absolute;
+        width: calc(100% - 30px);
+        height: calc(100% - 30px);
+        background: #fff;
+        top: 15px;
+        left: 15px;
+        border-radius: 30px;
+        z-index: -1;
+        box-shadow: 0 0 0 1px #00000003;
+    }
+
+    // заголовок
+    &__title {
+        margin: clamp(20px, 7vh, 70px) 0 clamp(20px, 7vh, 112px) clamp(10px, 7vh, 90px);
+        text-align: start;
+        color: var(--text-black);
+        font-size: clamp(30px, 4.44vh, 48px);
+        text-transform: uppercase;
+        line-height: 1;
+        letter-spacing: .02em;
+    }
+
+    &__teal-text {
+        color: var(--brand-teal, rgb(0, 161, 143));
+    }
+
+    @media screen and (max-width: 600px) {
+        .form-socials {
+            &__title {
+                margin: 42px 0 80px 32px;
+                font-size: 24px;
+                font-weight: 400;
+            }
+        }
+    }
+
+    @media screen and (max-width: 376px) {
+        .form-socials {
+            &__title {
+                margin: 32px 0 20px 32px;
+                font-size: 20px;
+            }
+        }
+    }
+
+    // кнопка закрытия - КРЕСТИК
+    &__close {
+        position: absolute;
+        top: 9vh;
+        right: 95px;
+        z-index: 5;
+    }
+
+    @media screen and (max-width: 600px) {
+        .form-socials {
+            &__close {
+                top: 6.5vh;
+                right: 36px;
+                width: 24px;
+                height: 24px;
+                font-size: 24px;
+                font-weight: 400;
+            }
+        }
+    }
+
+    @media screen and (max-width: 350px) {
+        .form-socials {
+            &__close {
+                top: 6vh;
+                right: 30px;
+            }
+        }
+    }
+
+    // список аккаунтов
+    &__list {
+        list-style: none;
+        margin: 0;
+        padding: 0 clamp(70px, 10vw, 100px) 0 clamp(70px, 10vw, 100px);
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+    }
+
+    &__item {
+        border-bottom: 1px solid rgba(98, 94, 94, .1);
+    }
+
+    &__item:last-child {
+        border-bottom: none;
+    }
+
+    &__link {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 20px 0;
+        text-decoration: none;
+        color: var(--text-black);
+        transition: color .2s ease;
+    }
+
+    &__link:hover {
+        color: var(--brand-teal);
+    }
+
+    &__link:hover &__arrow {
+        opacity: 1;
+        transform: translate(0, 0);
+    }
+
+    &__name {
+        font-size: clamp(20px, 2.5vh, 28px);
+        font-weight: 600;
+        letter-spacing: .04em;
+        text-transform: uppercase;
+        line-height: 1;
+    }
+
+    &__arrow {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 36px;
+        height: 36px;
+        opacity: 0;
+        transform: translate(-6px, 6px);
+        transition: opacity .25s ease, transform .25s ease;
+        color: var(--brand-teal);
+
+        svg {
+            width: 14px;
+            height: 14px;
+        }
+    }
+
+    @media screen and (max-width: 600px) {
+        .form-socials {
+            &__list {
+                padding: 0 32px;
+            }
+
+            &__link {
+                padding: 16px 0;
+            }
+
+            &__name {
+                font-size: 18px;
+                font-weight: 500;
+            }
+
+            &__arrow {
+                opacity: 1;
+                transform: none;
+                width: 28px;
+                height: 28px;
+
+                svg {
+                    width: 12px;
+                    height: 12px;
+                }
+            }
+        }
+    }
+
+    // Кнопка закрыть внизу
+    &__btn-form {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto;
+        padding: 0 auto;
+        max-width: 365px;
+        width: 100%;
+        height: 80px;
+        border: none;
+        border-radius: 24px;
+        background-color: var(--text-black);
+        font-family: var(--font-heading);
+        letter-spacing: .06em;
+        text-transform: uppercase;
+        color: #fff;
+        font-weight: 600;
+        cursor: pointer;
+        font-size: 20px;
+        transition: background-color .2s ease;
+
+        &:hover {
+            background-color: #333;
+        }
+    }
+
+    &__btn-form:focus {
+        outline: none;
+        outline-offset: 2px;
+        box-shadow: 0 0 0 3px var(--brand-teal);
+    }
+
+    @media screen and (max-width: 600px) {
+        .form-socials {
+            &__btn-form {
+                margin-top: 50px;
+                justify-content: center;
+                max-width: 100%;
+                height: 60px;
+                border-radius: 12px;
+                font-size: 14px;
+                font-weight: 400;
+            }
+        }
+    }
+}
+
+// --- Блокировка скролла ---
+html.socials-open,
+body.socials-open {
+    overflow: hidden !important;
+}
